@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="controle" Register="53" Alu="11" Lut="104">
+    <SubModule name="oscillator"/>
+    <SubModule name="adc_mem_driver" Register="120" Alu="11" Lut="258">
+        <SubModule name="fifo" Register="60" Alu="6" Lut="42"/>
+        <SubModule name="adc" Register="11" Alu="7" Lut="8"/>
+        <SubModule name="spi_command" Register="12" Lut="15"/>
+    </SubModule>
+    <SubModule name="uart_control" Register="127" Alu="15" Lut="151">
+        <SubModule name="uart" Register="66" Lut="106"/>
+    </SubModule>
+</Module>

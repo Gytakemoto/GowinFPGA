@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
+    <FileList>
+        <File path="D:\GowinProjects\adc_card\src\adc.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\adc_mem_driver_2.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\controle2.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\fifo_top\fifo_top.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\spi.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\uart.v" type="verilog"/>
+        <File path="D:\GowinProjects\adc_card\src\uart_control.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="dsp_balance" value="0"/>
+        <Option type="include_path" value="D:/GowinProjects/adc_card/src"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\GowinProjects\adc_card\impl\gwsynthesis\adc_card.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="controle"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+        <Option type="vhdl_language" value="vhdl-2008"/>
+    </OptionList>
+</Project>

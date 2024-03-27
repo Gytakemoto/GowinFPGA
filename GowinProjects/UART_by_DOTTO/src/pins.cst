@@ -1,0 +1,25 @@
+//Copyright (C)2014-2021 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//GOWIN Version: 1.9.8
+//Part Number: GW1N-LV1QN48C6/I5
+//Device: GW1N-1
+//Created Time: Thu 12 30 11:03:29 2021
+
+//Interface microcontrolador
+IO_LOC "si" 16;
+IO_PORT "si" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "so" 15;
+IO_PORT "so" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+IO_LOC "LEDR" 9;
+IO_PORT "LEDR" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+IO_LOC "LEDG" 11;
+IO_PORT "LEDG" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+
+//Clock 27MHz
+IO_LOC "clksys" 47;
+IO_PORT "clksys" IO_TYPE=LVCMOS33 PULL_MODE=UP;

@@ -1,0 +1,114 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="memory/clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="256" trigger_pos="0" module_name="top" force_trigger_by_falling_edge="false">
+        <SignalList>
+            <Signal>memory/clk</Signal>
+            <Bus name="memory/mem_sio[3:0]">
+                <Signal>memory/mem_sio[3]</Signal>
+                <Signal>memory/mem_sio[2]</Signal>
+                <Signal>memory/mem_sio[1]</Signal>
+                <Signal>memory/mem_sio[0]</Signal>
+            </Bus>
+            <Signal>memory/mem_ce_n</Signal>
+            <Signal>mem_ready</Signal>
+            <Bus name="step[3:0]">
+                <Signal>step[3]</Signal>
+                <Signal>step[2]</Signal>
+                <Signal>step[1]</Signal>
+                <Signal>step[0]</Signal>
+            </Bus>
+            <Signal>read_strb</Signal>
+            <Signal>write_strb</Signal>
+            <Signal>memory/mem_driver/ready</Signal>
+            <Bus name="memory/mem_driver/data_write[15:0]">
+                <Signal>memory/mem_driver/data_write[15]</Signal>
+                <Signal>memory/mem_driver/data_write[14]</Signal>
+                <Signal>memory/mem_driver/data_write[13]</Signal>
+                <Signal>memory/mem_driver/data_write[12]</Signal>
+                <Signal>memory/mem_driver/data_write[11]</Signal>
+                <Signal>memory/mem_driver/data_write[10]</Signal>
+                <Signal>memory/mem_driver/data_write[9]</Signal>
+                <Signal>memory/mem_driver/data_write[8]</Signal>
+                <Signal>memory/mem_driver/data_write[7]</Signal>
+                <Signal>memory/mem_driver/data_write[6]</Signal>
+                <Signal>memory/mem_driver/data_write[5]</Signal>
+                <Signal>memory/mem_driver/data_write[4]</Signal>
+                <Signal>memory/mem_driver/data_write[3]</Signal>
+                <Signal>memory/mem_driver/data_write[2]</Signal>
+                <Signal>memory/mem_driver/data_write[1]</Signal>
+                <Signal>memory/mem_driver/data_write[0]</Signal>
+            </Bus>
+            <Bus name="memory/mem_driver/counter[4:0]">
+                <Signal>memory/mem_driver/counter[4]</Signal>
+                <Signal>memory/mem_driver/counter[3]</Signal>
+                <Signal>memory/mem_driver/counter[2]</Signal>
+                <Signal>memory/mem_driver/counter[1]</Signal>
+                <Signal>memory/mem_driver/counter[0]</Signal>
+            </Bus>
+            <Bus name="memory/mem_driver/data_out[15:0]">
+                <Signal>memory/mem_driver/data_out[15]</Signal>
+                <Signal>memory/mem_driver/data_out[14]</Signal>
+                <Signal>memory/mem_driver/data_out[13]</Signal>
+                <Signal>memory/mem_driver/data_out[12]</Signal>
+                <Signal>memory/mem_driver/data_out[11]</Signal>
+                <Signal>memory/mem_driver/data_out[10]</Signal>
+                <Signal>memory/mem_driver/data_out[9]</Signal>
+                <Signal>memory/mem_driver/data_out[8]</Signal>
+                <Signal>memory/mem_driver/data_out[7]</Signal>
+                <Signal>memory/mem_driver/data_out[6]</Signal>
+                <Signal>memory/mem_driver/data_out[5]</Signal>
+                <Signal>memory/mem_driver/data_out[4]</Signal>
+                <Signal>memory/mem_driver/data_out[3]</Signal>
+                <Signal>memory/mem_driver/data_out[2]</Signal>
+                <Signal>memory/mem_driver/data_out[1]</Signal>
+                <Signal>memory/mem_driver/data_out[0]</Signal>
+            </Bus>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>memory/initializing</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1"/>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="1" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="001" value1="000" trigger="1"/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>0110010100001001</GAO_ID>
+</GAO_CONFIG>

@@ -1,0 +1,29 @@
+Reading netlist file: "D:\GowinProjects\adc_card\impl\gwsynthesis\adc_card.vg"
+Parsing netlist file "D:\GowinProjects\adc_card\impl\gwsynthesis\adc_card.vg" completed
+Processing netlist completed
+Reading constraint file: "D:\GowinProjects\adc_card\src\pinos.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "D:\GowinProjects\adc_card\impl\pnr\adc_card.power.html" completed
+Generate file "D:\GowinProjects\adc_card\impl\pnr\adc_card.pin.html" completed
+Generate file "D:\GowinProjects\adc_card\impl\pnr\adc_card.rpt.html" completed
+Generate file "D:\GowinProjects\adc_card\impl\pnr\adc_card.rpt.txt" completed
+Generate file "D:\GowinProjects\adc_card\impl\pnr\adc_card.tr.html" completed
+Wed Aug 17 13:25:21 2022
+

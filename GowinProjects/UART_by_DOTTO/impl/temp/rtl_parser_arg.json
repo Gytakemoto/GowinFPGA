@@ -1,0 +1,33 @@
+{
+ "Device" : "GW1NZ-1",
+ "Files" : [
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/UART_control.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/fifo_top/fifo_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/uart.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/impl/temp/rtl_parser.result",
+ "Top" : "top",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_2008"
+}

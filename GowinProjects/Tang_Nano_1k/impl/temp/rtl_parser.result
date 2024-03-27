@@ -1,0 +1,18 @@
+[
+ {
+  "InstFile" : "C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/PSRAM.v",
+  "InstLine" : 1,
+  "InstName" : "psram",
+  "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/PSRAM.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "psram"
+ },
+ {
+  "InstFile" : "C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/gowin_rpll/grPLL_27_to_84.v",
+  "InstLine" : 9,
+  "InstName" : "Gowin_rPLL_27_to_84MHz",
+  "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/gowin_rpll/grPLL_27_to_84.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "Gowin_rPLL_27_to_84MHz"
+ }
+]

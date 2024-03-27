@@ -1,0 +1,82 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9"
+//Mon Mar 25 14:47:24 2024
+
+//Source file index table:
+//file0 "\C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/PSRAM.v"
+//file1 "\C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/TOP.v"
+//file2 "\C:/Pessoal/TCC/GowinProjects/Tang_Nano_1k/src/gowin_rpll/grPLL_27_to_84.v"
+`timescale 100 ps/100 ps
+module Gowin_rPLL_27_to_84MHz (
+  clkout,
+  clkin
+)
+;
+output clkout;
+input clkin;
+wire clkin_d;
+wire clkout_d;
+wire clkoutp_o;
+wire clkoutd_o;
+wire clkoutd3_o;
+wire lock_o;
+wire VCC;
+wire GND;
+  IBUF clkin_ibuf (
+    .O(clkin_d),
+    .I(clkin) 
+);
+  OBUF clkout_obuf (
+    .O(clkout),
+    .I(clkout_d) 
+);
+  rPLL rpll_inst (
+    .CLKOUT(clkout_d),
+    .CLKOUTP(clkoutp_o),
+    .CLKOUTD(clkoutd_o),
+    .CLKOUTD3(clkoutd3_o),
+    .LOCK(lock_o),
+    .CLKIN(clkin_d),
+    .CLKFB(GND),
+    .FBDSEL({GND,GND,GND,GND,GND,GND}),
+    .IDSEL({GND,GND,GND,GND,GND,GND}),
+    .ODSEL({GND,GND,GND,GND,GND,GND}),
+    .DUTYDA({GND,GND,GND,GND}),
+    .PSDA({GND,GND,GND,GND}),
+    .FDLY({GND,GND,GND,GND}),
+    .RESET(GND),
+    .RESET_P(GND) 
+);
+defparam rpll_inst.CLKFB_SEL="internal";
+defparam rpll_inst.CLKOUTD3_SRC="CLKOUT";
+defparam rpll_inst.CLKOUTD_BYPASS="false";
+defparam rpll_inst.CLKOUTD_SRC="CLKOUT";
+defparam rpll_inst.CLKOUTP_BYPASS="false";
+defparam rpll_inst.CLKOUTP_DLY_STEP=0;
+defparam rpll_inst.CLKOUTP_FT_DIR=1'b1;
+defparam rpll_inst.CLKOUT_BYPASS="false";
+defparam rpll_inst.CLKOUT_DLY_STEP=0;
+defparam rpll_inst.CLKOUT_FT_DIR=1'b1;
+defparam rpll_inst.DEVICE="GW1N-1";
+defparam rpll_inst.DUTYDA_SEL="1000";
+defparam rpll_inst.DYN_DA_EN="true";
+defparam rpll_inst.DYN_FBDIV_SEL="false";
+defparam rpll_inst.DYN_IDIV_SEL="false";
+defparam rpll_inst.DYN_ODIV_SEL="false";
+defparam rpll_inst.DYN_SDIV_SEL=2;
+defparam rpll_inst.FBDIV_SEL=27;
+defparam rpll_inst.FCLKIN="27";
+defparam rpll_inst.IDIV_SEL=8;
+defparam rpll_inst.ODIV_SEL=8;
+defparam rpll_inst.PSDA_SEL="0000";
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* Gowin_rPLL_27_to_84MHz */

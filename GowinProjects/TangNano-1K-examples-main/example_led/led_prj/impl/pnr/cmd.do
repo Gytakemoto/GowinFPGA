@@ -1,0 +1,12 @@
+-d C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\impl\gwsynthesis\led_prj.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\src\led_prj.cst
+-cfg C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 10

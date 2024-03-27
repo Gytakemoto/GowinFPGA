@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
+    <FileList>
+        <File path="D:/GowinProjects/UART_by_DOTTO/src/fifo_top/temp/FIFO/fifo_define.v" type="verilog"/>
+        <File path="D:/GowinProjects/UART_by_DOTTO/src/fifo_top/temp/FIFO/fifo_parameter.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.8.06-1/IDE/ipcore/FIFO/data/edc.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.8.06-1/IDE/ipcore/FIFO/data/fifo.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.8.06-1/IDE/ipcore/FIFO/data/fifo_top.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="1"/>
+        <Option type="dsp_balance" value="1"/>
+        <Option type="include_path" value="D:/GowinProjects/UART_by_DOTTO/src/fifo_top/temp/FIFO"/>
+        <Option type="output_file" value="fifo_top.vg"/>
+        <Option type="output_template" value="fifo_top_tmp.v"/>
+        <Option type="ram_balance" value="1"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+    </OptionList>
+</Project>

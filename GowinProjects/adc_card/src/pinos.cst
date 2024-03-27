@@ -1,0 +1,66 @@
+//Copyright (C)2014-2021 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//GOWIN Version: 1.9.8
+//Part Number: GW1N-LV1QN48C6/I5
+//Device: GW1N-1
+//Created Time: Thu 12 30 11:03:29 2021
+
+//Interface microcontrolador
+IO_LOC "micro_si" 16;
+IO_PORT "micro_si" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "micro_so" 15;
+IO_PORT "micro_so" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+//Interface PSRAM
+IO_LOC "mem_clk" 6;
+IO_PORT "mem_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_ce_n" 42;
+IO_PORT "mem_ce_n" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_sio[3]" 41;
+IO_PORT "mem_sio[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_sio[2]" 38;
+IO_PORT "mem_sio[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_sio[1]" 39;
+IO_PORT "mem_sio[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_sio[0]" 40;
+IO_PORT "mem_sio[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+//Botao de inicio
+//IO_LOC "button0" 44;
+//IO_PORT "button0" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "led_r" 9;
+IO_PORT "led_r" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+
+
+//Clock 27MHz
+IO_LOC "sys_clk" 47;
+IO_PORT "sys_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//ADC 12 bits pinos
+IO_LOC "adc_out[11]" 31;
+IO_PORT "adc_out[11]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[10]" 30;
+IO_PORT "adc_out[10]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[9]" 29;
+IO_PORT "adc_out[9]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[8]" 19;
+IO_PORT "adc_out[8]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[7]" 20;
+IO_PORT "adc_out[7]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[6]" 34;
+IO_PORT "adc_out[6]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[5]" 35;
+IO_PORT "adc_out[5]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[4]" 17;
+IO_PORT "adc_out[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[3]" 18;
+IO_PORT "adc_out[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[2]" 22;
+IO_PORT "adc_out[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[1]" 23;
+IO_PORT "adc_out[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[0]" 24;
+IO_PORT "adc_out[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_clock" 10;
+IO_PORT "adc_clock" IO_TYPE=LVCMOS33 PULL_MODE=UP;

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top" Register="12" Lut="12">
+    <SubModule name="Gowin_CLK"/>
+    <SubModule name="uart_control" Register="55" Alu="15" Lut="89">
+        <SubModule name="uart" Register="47" Lut="105"/>
+    </SubModule>
+</Module>

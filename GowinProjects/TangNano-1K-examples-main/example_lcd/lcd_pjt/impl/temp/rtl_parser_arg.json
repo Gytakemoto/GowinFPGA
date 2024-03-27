@@ -1,0 +1,25 @@
+{
+ "Device" : "GW1NZ-1",
+ "Files" : [
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/TangNano-1K-examples-main/example_lcd/lcd_pjt/src/TOP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/TangNano-1K-examples-main/example_lcd/lcd_pjt/src/VGAMod.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Pessoal/TCC/GowinProjects/TangNano-1K-examples-main/example_lcd/lcd_pjt/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Pessoal/TCC/GowinProjects/TangNano-1K-examples-main/example_lcd/lcd_pjt/impl/temp/rtl_parser.result",
+ "Top" : "TOP",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

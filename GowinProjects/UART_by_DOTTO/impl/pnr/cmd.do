@@ -1,0 +1,10 @@
+-d D:\GowinProjects\UART_by_DOTTO\impl\gwsynthesis\UART_by_DOTTO.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst D:\GowinProjects\UART_by_DOTTO\src\pins.cst
+-cfg D:\GowinProjects\UART_by_DOTTO\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error

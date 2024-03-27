@@ -1,0 +1,7 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\src\led.v'
+ERROR (EX3863) : Syntax error near 'reg'("C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\src\led.v":19)
+ERROR (EX2656) : SystemVerilog keyword 'reg' used in incorrect context("C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\src\led.v":19)
+Verilog file 'C:\Pessoal\TCC\GowinProjects\TangNano-1K-examples-main\example_led\led_prj\src\led.v' ignored due to errors
+GowinSynthesis finish

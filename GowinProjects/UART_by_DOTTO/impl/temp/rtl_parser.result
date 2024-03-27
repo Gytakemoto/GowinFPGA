@@ -1,0 +1,56 @@
+[
+ {
+  "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+    "InstLine" : 23,
+    "InstName" : "Gowin_CLK",
+    "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+    "InstLine" : 36,
+    "InstName" : "fifo",
+    "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/fifo_top/fifo_top.v",
+    "ModuleLine" : 358,
+    "ModuleName" : "fifo_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/fifo_top/fifo_top.v",
+      "InstLine" : 381,
+      "InstName" : "fifo_inst",
+      "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/fifo_top/fifo_top.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "~fifo.fifo_top"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/top.v",
+    "InstLine" : 62,
+    "InstName" : "uart_control",
+    "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/UART_control.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "uart_control",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/UART_control.v",
+      "InstLine" : 23,
+      "InstName" : "uart",
+      "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/UART_by_DOTTO/src/uart.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "uart"
+     }
+    ]
+   }
+  ]
+ }
+]

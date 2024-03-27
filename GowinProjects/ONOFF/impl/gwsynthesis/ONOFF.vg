@@ -1,0 +1,36 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9"
+//Mon Mar 18 20:57:22 2024
+
+//Source file index table:
+//file0 "\C:/Pessoal/TCC/GowinProjects/ONOFF/src/TOP.v"
+`timescale 100 ps/100 ps
+module onoff (
+  btn_i,
+  led
+)
+;
+input btn_i;
+output led;
+wire led_d;
+wire VCC;
+wire GND;
+  IBUF btn_i_ibuf (
+    .O(led_d),
+    .I(btn_i) 
+);
+  OBUF led_obuf (
+    .O(led),
+    .I(led_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* onoff */
