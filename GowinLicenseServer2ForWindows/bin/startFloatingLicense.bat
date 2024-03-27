@@ -1,0 +1,1 @@
+start G:\gowinRelease\gowinLicenseServer\GowinLicenseServerForWindows\bin\license_server.exe -s G:\gowinRelease\gowinLicenseServer\GowinLicenseServerForWindows\bin\gowin.lic -b -p 10559

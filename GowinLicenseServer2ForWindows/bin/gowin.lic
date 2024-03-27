@@ -1,0 +1,23 @@
+#---------------------------------------------------------------
+# GOWIN LICENSE
+#
+# Copyright (C) GOWINSEMI Corp.
+#
+# CREATED AT: 2021-10-26T15:46:16
+# GRANT TO: Nerissa
+#
+# WARNING: This file must not be edited in any way.
+#---------------------------------------------------------------
+
+MODE = FLOATING
+TYPE = STD
+HOST_ID = 484D7EBC2585
+EXP_DATE = 2022-10-26
+COUNT = 50
+
+-------------------------- BEGIN SIGN --------------------------
+74e45549706c82a62d9e7244042b291eb08997a3748c048c2bdee7227a364cb3
+2935cc54b9331233b854338dcc9d3e68e6118570f32de787fc5c0f3c4238af94
+30efcf26033083c33b2452ff5e468ea3e4cdae3f82345aa9181f7dfb6f897a90
+d6b78c10fe8724f2b16d11d03ba461d844a32fee08e64be4c64b267670f7eaaa
+--------------------------- END SIGN ---------------------------
