@@ -1,59 +1,65 @@
-module mem_driver(
-	input clk,
-	input mem_ce#,
-	input reg msg_sw,
-	input reg [7:0] command,
-	input reg [2:0] step,
-	input [3:0] mem_sio
+//File created to simulate PSRAM module in a Icarus Verilog simulation environment
+
+//<time_unit>/<time_precision>
+`timescale 1ps/1ps
+
+module clk_gen (
+	input enable,
+	output reg clk
 );
 
-//Reinicialization commands
-localparam CMD_RSTEN [7:0] = 8'h66;
-localparam CMD_RST [7:0] = 8'h99;
+localparam FREQ = 27;							//Frequency in Mhz
+localparam PHASE = 0;							//Phase
+localparam DUTY = 100;							//Duty cycle
 
-reg [3:0] counter = 0;
+parameter real clk_pd = 1/(FREQ * 1e6) * 1e9; 			//Clock period in ns
+parameter real clk_on = DUTY/100.0 * clk_pd;  			//On state in ns depending on duty cycle
+parameter real clk_off = (100 - DUTY)/100.0 * clk_pd; 	//Off state in ns depending on duty cycle
+parameter real quarter = clk_pd/4;
+parameter real start_dly = quarter * PHASE/90;			//Delay depending on clock PHASE
 
-always @(posedge clk) begin
+initial begin
+	$display("FREQ = %0d MHz", FREQ);
+	$display("PHASE = %0d deg", PHASE);
+	$display("DUTY = %0d %%", DUTY);
 
-	if(msg_sw) sendmsg <= 1;
+	$display("PERIOD = %0.3f ns", clk_pd);
+	$display("CLK_ON = %0.3f ns", clk_on);
+	$display("CLK_OFF = %0.3f ns", clk_off);
+	$display("QUARTER = %0.3f ns", quarter);
+	$display("START_DELAY = %0.3f ns", start_dly);
+end
 
-	if ((step == psram.STEP_RSTEN) && sendmsg) begin
-		mem_ce# <= 0;
-		mem_sio[0] <= command[counter];
-		mem_sio[1] <= 1'bz;
-		counter <= counter + 1'd1;
+initial begin
+	clk <= 0;
+	start_clk <= 0;
+end
+
+always @ (posedge enable or negedge enable) begin
+	if(enable) begin
+		#(start_dly) start_clk = 1;
 	end
-	
-	else if ((step == psram.STEP_RST) && sendmsg) begin
-		mem_ce# <= 0;
-		mem_sio[0] <= command[counter];
-		mem_sio[1] <= 1'bz;
-		counter <= counter + 1'd1;
-	end
-
-	if (counter == 3'd7) begin
-		mem_ce# <= 1;
-		counter <= 0;
-		sendmsg <= 0;
+	else begin
+		#(start_dly) start_clk = 0;
 	end
 end
 
+always @ (posedge start_clk) begin
+	
+	if (start_clk == 1) begin
+
+		clk = 1;
+
+		while (start_clk) begin
+			#(clk_on) clk = 0;
+			#(clk_off) clk = 1;
+		end
+
+		clk = 0;
+	end
+end
 endmodule
 
-//Module that processess command messages
-module spi_command(
-	input clk,
-	input [7:0] command, //one byte command
-	input strobe,		//?
-	output reg ready,
-	output reg line,
-	output reg ce_n
-);
-
-endmodule
-
-
-//Top model of PSRAM module
 module psram(
 	input clk,                   // memory clock <84 MHz
     input startbu,               // start button to initialize PSRAM
@@ -100,7 +106,4 @@ always @(posedge clk) begin
 	end
 	if(msg_sw == 1) msg_sw <= 0; 					//if message was sent, disable it
 end
-
-
-
 endmodule

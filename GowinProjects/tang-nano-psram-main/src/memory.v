@@ -39,7 +39,7 @@ module memory (
 //    clk <= ~clk;
 //  end
 //  assign clk = fast_clk;
-  assign mem_clk = ~clk;					//<- MOTIVO?
+  assign mem_clk = ~clk;
   wire driver_ce_n;
   wire [3:0] driver_sio_out;  
   wire driver_ready;
@@ -76,14 +76,14 @@ module memory (
 
   reg initializing = 0;
   always_ff @(posedge clk) begin
-    if ( !initialized ) 
-      if ( command_ready && !command_strobe) //??
+    if ( !initialized )                                                                 //Se initialized = 0
+      //if ( command_ready && !command_strobe)                                            //Se command ready = 1 e command strobe = 0
         case (step)
           STEP_DELAY: begin 
             // datasheet requires a 150us delay before sending the reset upon power up                        
-            if( !button0 ) counter <= counter + 1'd1;				//?? pq considerar o botão?
-            if ( counter[15:8] == mem_150us_clock_count ) begin    //??  pq os bits de 15 a 8  
-              initializing <= 1;
+            if( !button0 ) counter <= counter + 1'd1;
+            if ( counter[15:8] == mem_150us_clock_count ) begin            
+              initializing <= 1;                                                        //pode excluir
               step <= STEP_RSTEN;
             end
           end
@@ -92,7 +92,7 @@ module memory (
             // But the chip seems functional without it. Removing the RSTEN+RST steps can
             // be a way to recover some LUTs
             command <= spi_command.PS_CMD_RSTEN;
-            command_strobe <= 1;
+            command_strobe <= 1;                                                        //command strobe = 1
             step <= STEP_RST;
           end
           STEP_RST: begin
@@ -112,11 +112,11 @@ module memory (
             initialized <= 1;
           end
         endcase
-    if ( command_strobe ) command_strobe <= 0;      
+    if ( command_strobe ) command_strobe <= 0;                                          //se command strobe = 1, command strobe = 0
   end
   
   assign out_ready = initialized && driver_ready;
-  assign mem_ce_n = command_ce_n && driver_ce_n;
+  assign mem_ce_n = command_ce_n && driver_ce_n; 
   assign mem_sio = command_ce_n 
     ? (driver_sio_outputen ? driver_sio_out : 4'hZ ) 
     : ({ 3'bzzz, command_line });  
