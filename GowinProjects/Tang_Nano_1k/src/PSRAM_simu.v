@@ -1,7 +1,7 @@
 //File created to simulate PSRAM module in a Icarus Verilog simulation environment
 
 //<time_unit>/<time_precision>
-`timescale 1ps/1ps
+`timescale 1us/1fs
 
 module clk_gen (
 	input enable,

@@ -1,5 +1,5 @@
-`timescale 1ps/1fs
 
+`timescale 1ns/1ps
 module clk_gen (
 	input enable,
 	output reg clk
