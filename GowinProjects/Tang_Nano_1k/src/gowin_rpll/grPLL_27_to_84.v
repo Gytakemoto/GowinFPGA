@@ -6,6 +6,8 @@
 //Device: GW1N-1
 //Created Time: Wed Mar 20 15:24:28 2024
 
+`include "gowin_rpll/prim_tsim.v"
+
 module Gowin_rPLL_27_to_84MHz (clkout, clkin);
 
 output clkout;
@@ -61,3 +63,4 @@ defparam rpll_inst.CLKOUTD3_SRC = "CLKOUT";
 defparam rpll_inst.DEVICE = "GW1N-1";
 
 endmodule //Gowin_rPLL_27_to_84MHz
+
