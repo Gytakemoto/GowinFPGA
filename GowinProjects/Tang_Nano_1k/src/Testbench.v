@@ -36,7 +36,6 @@ Gowin_rPLL_27_to_84MHz clk2(
 
 //PSRAM initialization
 psram initialize(
-    .sys_clk(clock),
     .mem_clk(clk_PSRAM),
     .startbu(startbutton),
     .mem_sio(mem_sio),

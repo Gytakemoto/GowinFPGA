@@ -69,7 +69,6 @@ end
 endmodule
 
 module mem_driver(
-	input sys_clk,
 	input mem_clk,
 	input [7:0] command,
 	input [3:0] step,
@@ -92,23 +91,32 @@ initial begin
 	counter <= 0;
 end
 
+always @(posedge msg_sw) begin
+	if(msg_sw) begin
+		sendcommand <= 1;
+	end
+end
 
 always @(posedge mem_clk) begin
 	//$display(psram.STEP_RSTEN);
 
-	if(msg_sw) begin
-		sendcommand <= 1;
+	if (sendcommand && command_sw && step == psram.STEP_RSTEN) begin
+		//$display("O valor do comando eh %b", command);
+		//$display("agora o comando_sw eh",command_sw);
+		mem_sio[0] <= command[counter];
+		mem_sio[1] <= 1'bz;
+		counter <= counter + 1'd1;
+		//$display("O comando para o contador %d eh %d", counter, command[counter]);
+		//$display("o valor de sendcommand eh %d", sendcommand);
+		//$display(command[counter]);
 	end
-
-	if (sendcommand && command_sw) begin
-		$display("O valor do comando eh %b", command);
-		$display("agora o comando_sw eh",command_sw);
+	else if (sendcommand && command_sw && step == psram.STEP_RST) begin
 		mem_sio[0] <= command[counter];
 		mem_sio[1] <= 1'bz;
 		counter <= counter + 1'd1;
 		$display("O comando para o contador %d eh %d", counter, command[counter]);
 		$display("o valor de sendcommand eh %d", sendcommand);
-		//$display(command[counter]);
+		$display("O mem_ce eh %d", mem_ce);
 	end
 
 	if (counter == 3'd7) begin
@@ -121,7 +129,6 @@ assign mem_ce = ~sendcommand;
 endmodule
 
 module psram(
-	input sys_clk,                  // system clock 27 MHz
 	input mem_clk,
   	input startbu,              // start button to initialize PSRAM
 	
@@ -163,7 +170,6 @@ wire [7:0] command_mem = command;
 
 
 mem_driver PSRAM_comms(
-	.sys_clk(sys_clk),
 	.mem_clk(mem_clk),
 	.command(command_mem),
 	.step(step),
@@ -180,7 +186,7 @@ initial begin
 	command <= 0;
 end
 
-always @(posedge sys_clk) begin
+always @(posedge mem_clk) begin
 
 	if(startbu) begin
 		 start = 1;			//Detect button pressed
@@ -190,7 +196,7 @@ always @(posedge sys_clk) begin
 		case(step)
 			STEP_DELAY: begin
 				timer <= timer + 1;
-				if(timer[15:8] == 8'h10) begin 		// #32h = #50d. 50 * 256 (thus the 8-bit swap) = 12.800 clocks inputs. At 84Mhz, we have a t ~= 152 us.
+				if(timer[15:8] == 8'h32) begin 		// #32h = #50d. 50 * 256 (thus the 8-bit swap) = 12.800 clocks inputs. At 84Mhz, we have a t ~= 152 us.
 					step <= STEP_RSTEN;
 					timer <= 16'b0;					//Reset timer
 				end
@@ -203,7 +209,6 @@ always @(posedge sys_clk) begin
 					step <= STEP_RST;
 					msg_sw <= 0;
 				end
-				$display("dentro do step, o comando eh %b", command);
 			end
 			STEP_RST: begin
 				msg_sw <= 1;
@@ -212,6 +217,10 @@ always @(posedge sys_clk) begin
 					step <= STEP_IDLE;
 					msg_sw <= 0;
 				end
+				$display("dentro do step, o comando eh %b", command);
+			end
+			STEP_IDLE: begin
+
 			end
 		endcase	
 	end
