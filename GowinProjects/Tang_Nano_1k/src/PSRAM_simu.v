@@ -72,7 +72,7 @@ module mem_driver(
 	input mem_clk,
 	input [7:0] command,
 	input [3:0] step,
-	input msg_sw,
+	input com_start,
 	
 	output endcommand,
 	output reg mem_ce,
@@ -83,16 +83,20 @@ module mem_driver(
 parameter [7:0] CMD_RSTEN = 8'h66;
 parameter [7:0] CMD_RST = 8'h99;
 
-reg [3:0] counter = 0;
-reg sendcommand = 0;
-reg [7:0] mem_command;
+//Variables
+reg [3:0] counter;
+reg sendcommand;						//Flag indicates when sending a command
 
+//Initial conditions
 initial begin
 	counter <= 0;
+	sendcommand <= 0;
+	mem_ce <= 1;
 end
 
-always @(posedge msg_sw) begin
-	if(msg_sw) begin
+//When com_start turns high, starts communication
+always @(posedge com_start) begin
+	if(com_start) begin
 		sendcommand <= 1;
 	end
 end
@@ -103,34 +107,39 @@ always @(posedge mem_clk) begin
 	if (sendcommand) mem_ce <= 0;
 
 	if (sendcommand && step == psram.STEP_RSTEN) begin
-		$display("O valor do comando eh %b", command);
-		$display("agora mem_ce eh",mem_ce);
 		mem_sio[0] <= command[counter];
 		mem_sio[1] <= 1'bz;
 		counter <= counter + 1'd1;
-		$display("O comando para o contador %d eh %d", counter, command[counter]);
-		$display("o valor de sendcommand eh %d", sendcommand);
+		//$display("O valor do comando eh %b", command);
+		//$display("agora mem_ce eh",mem_ce);
+		//$display("O comando para o contador %d eh %d", counter, command[counter]);
+		//$display("o valor de sendcommand eh %d", sendcommand);
 		//$display(command[counter]);
 	end
 	else if (sendcommand && step == psram.STEP_RST) begin
 		mem_sio[0] <= command[counter];
 		mem_sio[1] <= 1'bz;
 		counter <= counter + 1'd1;
-		$display("O comando para o contador %d eh %d", counter, command[counter]);
-		$display("o valor de sendcommand eh %d", sendcommand);
-		$display("O mem_ce eh %d", mem_ce);
+		//$display("O comando para o contador %d eh %d", counter, command[counter]);
+		//$display("o valor de sendcommand eh %d", sendcommand);
+		//$display("O mem_ce eh %d", mem_ce);
 	end
 
-	if (counter >= 3'd7) begin
+	//End of command of 7 bits
+	if (counter > 3'd7) begin
 		sendcommand <= 0;
 		counter <= 0;
 		mem_ce <= 1;
 	end
 end
 
-assign endcommand = (~msg_sw && sendcommand) || (msg_sw && ~sendcommand);
-
-
+assign endcommand = (~com_start && sendcommand) || (com_start && ~sendcommand);
+// END COMMAND truth table: XOR topology
+//				com_start					sendcommand				  endcommand
+//						0									 0								  0
+//						0									 1									x
+//						1									 0									1
+//						1									 1									0
 endmodule
 
 module psram(
@@ -139,7 +148,6 @@ module psram(
 	
 	output mem_ce,        		// pin 
 	output reg [3:0] step,		//*** simulation only
-	output reg [15:0] timer,		//*** simulation only
 	output reg [7:0] command,	//*** simularion only
 
 	inout [3:0] mem_sio    	// sio[0] pin 22, sio[1] pin 23, sio[2] pin 24, sio[3] pin 21
@@ -159,36 +167,30 @@ localparam [2:0] STEP_IDLE = 4;
 									//2: Reset (RST) step
 									//3: Idle normal operation state
 
-//reg [15:0] timer = 0;			//Counter
+reg [15:0] timer = 0;			//Counter
 //reg [7:0] command;				//SPI/QPI 8 bit command
-reg start = 0;				  	//Start initialization
 
-reg msg_sw = 0;					//Allows to send message
-									//0: No message being sent
-									//1: Message being sent
+reg start = 0;				  	//Start initialization, when button pressed
 
-wire comm_enable;			//Indicates when command is being sent
-									//0: Command not being sent
-									//1: Command being sent
-
-wire [7:0] command_mem = command;
-
+reg com_start = 0;				//Communication status
+															//0: End the communication
+															//1: Start the communication
 
 mem_driver PSRAM_comms(
 	.mem_clk(mem_clk),
-	.command(command_mem),
+	.command(command),
 	.step(step),
 	.mem_sio(mem_sio),
 	.mem_ce(mem_ce),
-	.msg_sw(msg_sw),
+	.com_start(com_start),
 	.endcommand(endcommand)
 );
 
 initial begin
 	step <= STEP_DELAY;
 	timer <= 0;
-	msg_sw <= 0;
-	command <= 0;
+	com_start <= 0;
+	command <= 8'd0;
 end
 
 always @(posedge mem_clk) begin
@@ -209,20 +211,20 @@ always @(posedge mem_clk) begin
 			STEP_RSTEN: begin
 				//$display("entrou no step rsten");
 				command <= PSRAM_comms.CMD_RSTEN;
-				msg_sw <= 1;
+				com_start <= 1;
 				if(endcommand) begin
 					step <= STEP_RST;
-					msg_sw <= 0;
+					com_start <= 0;
 				end
 
 			end
 			STEP_RST: begin
 				command <= PSRAM_comms.CMD_RST;
 				$display("dentro do step, o comando eh %b", command);
-				msg_sw <= 1;
+				com_start <= 1;
 				if(endcommand) begin
 					step <= STEP_IDLE;
-					msg_sw <= 0;
+					com_start <= 0;
 				end
 			end
 			STEP_IDLE: begin

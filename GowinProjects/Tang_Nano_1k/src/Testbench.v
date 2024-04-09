@@ -15,7 +15,7 @@ reg enable;            //Clock enable
 //Initialization variables
 reg startbutton;            //Start when button is pressed
 wire [3:0] step;            //Step of initialization
-wire [3:0] mem_sio;  //SIO[3:0] ports
+wire [3:0] mem_sio;         //SIO[3:0] ports
 wire [15:0] timer;          //Time counter
 wire mem_ce;                //PSRAM chip enable
 wire [7:0] command;
@@ -41,7 +41,6 @@ psram initialize(
     .mem_sio(mem_sio),
     .mem_ce(mem_ce),
     .step(step),
-    .timer(timer),
     .command(command)
 );
 
