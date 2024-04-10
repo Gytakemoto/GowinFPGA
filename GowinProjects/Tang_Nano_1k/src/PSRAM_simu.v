@@ -1,6 +1,4 @@
 //File created to simulate PSRAM module in a Icarus Verilog simulation environment
-
-
 `timescale 1ns/1ps
 
 //Clock generator *** simulation only
@@ -68,6 +66,10 @@ always @ (posedge start_clk) begin
 end
 endmodule
 
+//##############################################################################################################
+
+
+//Memory driver: interprets commands based on Datasheet
 module mem_driver(
 	input mem_clk,
 	input [7:0] command,
@@ -82,6 +84,7 @@ module mem_driver(
 //Reinitialization commands
 parameter [7:0] CMD_RSTEN = 8'h66;
 parameter [7:0] CMD_RST = 8'h99;
+parameter [7:0] SPI2QPI = 8'h35;
 
 //Variables
 reg [3:0] counter;
@@ -101,30 +104,20 @@ always @(posedge com_start) begin
 	end
 end
 
-always @(posedge mem_clk) begin
+always @(negedge mem_clk) begin
 	//$display(psram.STEP_RSTEN);
-
 	if (sendcommand) mem_ce <= 0;
 
-	if (sendcommand && step == psram.STEP_RSTEN) begin
-		mem_sio[0] <= command[counter];
+	if (sendcommand) begin
+		mem_sio[0] <= command[7-counter];
 		mem_sio[1] <= 1'bz;
 		counter <= counter + 1'd1;
-		//$display("O valor do comando eh %b", command);
-		//$display("agora mem_ce eh",mem_ce);
-		//$display("O comando para o contador %d eh %d", counter, command[counter]);
-		//$display("o valor de sendcommand eh %d", sendcommand);
-		//$display(command[counter]);
+		$display("O valor do comando eh %b", command);
+		$display("agora mem_ce eh",mem_ce);
+		$display("O comando para o contador %d eh %d", counter, command[7-counter]);
+		$display("o valor de sendcommand eh %d", sendcommand);
 	end
-	else if (sendcommand && step == psram.STEP_RST) begin
-		mem_sio[0] <= command[counter];
-		mem_sio[1] <= 1'bz;
-		counter <= counter + 1'd1;
-		//$display("O comando para o contador %d eh %d", counter, command[counter]);
-		//$display("o valor de sendcommand eh %d", sendcommand);
-		//$display("O mem_ce eh %d", mem_ce);
-	end
-
+	
 	//End of command of 7 bits
 	if (counter > 3'd7) begin
 		sendcommand <= 0;
@@ -142,6 +135,8 @@ assign endcommand = (~com_start && sendcommand) || (com_start && ~sendcommand);
 //						1									 1									0
 endmodule
 
+
+//PSRAM "TOP module"
 module psram(
 	input mem_clk,
   	input startbu,              // start button to initialize PSRAM
@@ -157,7 +152,7 @@ module psram(
 localparam [2:0] STEP_DELAY = 0; //First state, wait for 150us
 localparam [2:0] STEP_RSTEN = 1; //Second state, RSTEN operation
 localparam [2:0] STEP_RST = 2;   //Third state, RST state
-
+localparam [2:0] STEP_SPI2QPI = 3;
 localparam [2:0] STEP_IDLE = 4;
 
 //Variables
@@ -176,7 +171,7 @@ reg com_start = 0;				//Communication status
 															//0: End the communication
 															//1: Start the communication
 
-mem_driver PSRAM_comms(
+mem_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
 	.step(step),
@@ -190,7 +185,7 @@ initial begin
 	step <= STEP_DELAY;
 	timer <= 0;
 	com_start <= 0;
-	command <= 8'd0;
+	//command <= 8'd0;
 end
 
 always @(posedge mem_clk) begin
@@ -210,27 +205,29 @@ always @(posedge mem_clk) begin
         	end
 			STEP_RSTEN: begin
 				//$display("entrou no step rsten");
-				command <= PSRAM_comms.CMD_RSTEN;
+				command <= PSRAM_com.CMD_RSTEN;
 				com_start <= 1;
 				if(endcommand) begin
 					step <= STEP_RST;
 					com_start <= 0;
 				end
-
 			end
 			STEP_RST: begin
-				command <= PSRAM_comms.CMD_RST;
-				$display("dentro do step, o comando eh %b", command);
+				command <= PSRAM_com.CMD_RST;
 				com_start <= 1;
 				if(endcommand) begin
-					step <= STEP_IDLE;
+					step <= STEP_SPI2QPI;
 					com_start <= 0;
 				end
 			end
-			STEP_IDLE: begin
-
-
-
+			STEP_SPI2QPI: begin
+				command <= 8'h35;
+				com_start <= 1;
+				$display("dentro do step, o comando eh %b", command);
+				if(endcommand) begin
+					step <= STEP_IDLE;
+					com_start <= 0;
+				end 
 			end
 		endcase	
 	end
