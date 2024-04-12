@@ -19,6 +19,7 @@ wire [3:0] mem_sio;         //SIO[3:0] ports
 wire [15:0] timer;          //Time counter
 wire mem_ce;                //PSRAM chip enable
 wire [7:0] command;
+wire [23:0] address;                //Address of message to be written/read
 
 //Clock generation
 
@@ -41,7 +42,8 @@ psram initialize(
     .mem_sio(mem_sio),
     .mem_ce(mem_ce),
     .step(step),
-    .command(command)
+    .command(command),
+    .address(address)
 );
 
 parameter real PSRAM_FREQ = 84;
