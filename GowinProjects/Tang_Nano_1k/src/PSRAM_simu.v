@@ -81,6 +81,7 @@ module mem_driver(
 	input write_sw,
 	input [15:0] data_in,
 
+	output reg [5:0] counter,
 	output endcommand,
 	output reg mem_ce,
 	output reg [3:0] mem_sio,
@@ -97,12 +98,17 @@ parameter [7:0] CMD_READ = 8'hEB;
 parameter [7:0] CMD_WRITE = 8'h02;
 
 //Variables
-reg [3:0] counter;
+//reg [5:0] counter;
 reg sendcommand;						//Flag indicates when sending a command
 reg reading;							//Reg indicates when in a writing proccess
 reg writing;							//Reg indicates when in a reading proccess
+reg [15:0] data_write;
+
 wire ready;
-assign ready = !reading && !writing && sendcommand;  
+wire quad_start;
+
+assign ready = !reading && !writing && sendcommand;
+assign quad_start = (~read_sw && write_sw) || (read_sw && ~write_sw);
 
 //Initial conditions
 initial begin
@@ -115,10 +121,22 @@ end
 
 //When com_start turns high, starts communication
 always @(posedge com_start) begin
-	if(com_start) begin
 		sendcommand <= 1;
 		counter <= 0;
-	end
+end
+
+always @(posedge quad_start) begin
+	//Define reading or writing proccess
+	sendcommand <= 1;
+	counter <= 0;
+		if (read_sw) begin
+			reading <= 1;
+		end
+		else if (write_sw)  begin
+			writing <= 1;
+			data_write <= data_in;
+		end
+
 end
 
 always @(negedge mem_clk) begin
@@ -148,27 +166,38 @@ always @(negedge mem_clk) begin
 
 		//QPI communication
 		1: begin
-			if(ready) begin
-				if (read_sw) begin
-					reading <= 1;
-				end
-				else if (write_sw)  begin
-					writing <= 1;
-				end
-			end
-			else begin
-				case (counter) 
+
+			if(quad_start) begin
+
+				counter <= counter + 1'd1;
+
+				case (counter)
+
+				//Operation command
 				0: mem_sio <= reading ? CMD_READ[7:4] : CMD_WRITE[7:4];
 				1: mem_sio <= reading ? CMD_READ[3:0] : CMD_WRITE[3:0];
+
+				//Address command
 				2: mem_sio <= address[23:20];
 				3: mem_sio <= address[19:16];
 				4: mem_sio <= address[15:12];
 				5: mem_sio <= address[11:8];
 				6: mem_sio <= address[7:4];
 				7: mem_sio <= address[3:0];
+
+				//Message
 				default: begin
+
 					if(reading) begin
-						if(counter > 13) begin	//Wait for 6 clocks in read operation. See datasheet for more details.
+						if(counter > 14 && counter <= 18) begin	//Wait for 6 clocks + taclk in read operation. See datasheet for more details.
+
+						//*** simulation only
+						case (counter)
+							15: mem_sio <= 4'hA;
+							16: mem_sio <= 4'hB;
+							17: mem_sio <= 4'hC;
+							18: mem_sio <= 4'hD;
+						endcase
 							data_out <= {data_out[11:0],mem_sio[3:0]}; //MSB is read first
 							// data psram: x x x x  y y y y  z z z z  w w w w
 							//
@@ -184,25 +213,45 @@ always @(negedge mem_clk) begin
 							// data_out = _ _ _ _  _ _ _ _  x x x x  y y y y
 							//			-	   data_out*[11:0]     - mem_sio[3:0]
 						end
-						if(counter > 18) begin
-							sendcommand <= 0;
-							counter <= 0;
-							mem_ce <= 1;
+						else if(counter >= 18) begin
+							reading <= 0;
 						end
+						else mem_sio[3:0] <= 4'bzzzz;
 					end
-					if(writing) begin
+					else if(writing) begin
+							if(counter < 12) begin
+								{mem_sio, data_write[15:4]} <= data_write;								
+								//data_write = x x x x  y y y y  z z z z  w w w w
+								//
+								//step1:
+								//mem_sio = x x x x
+								//data_write = y y y y  z z z z  w w w w  w w w w
+								//
+								//step 2:
+								//mem_sio = y y y y
+								//data_write = z z z z  w w w w  w w w w  w w w w
 
+							end
+							else begin
+								writing <= 0;
+							end
+						data_out <= data_write; //*** simulation only
 					end
-					else mem_ce <= 1;
-
-				end
+					else begin //End of communication
+						mem_sio[3:0] <= 4'bzzzz;
+						counter <= 0;
+						sendcommand <= 0;
+						mem_ce <= 1;
+					end
+					end
 				endcase
 			end
 		end
 	endcase
 end
 
-assign endcommand = (~com_start && sendcommand) || (com_start && ~sendcommand);
+//assign endcommand = (~(com_start || quad_start) && sendcommand) || ((com_start || quad_start) && ~sendcommand);
+assign endcommand = (com_start || quad_start) && ~sendcommand;
 // END COMMAND truth table: XOR topology
 //				com_start		    sendcommand			endcommand
 //					0					 0				 	 0
@@ -215,12 +264,18 @@ endmodule
 //PSRAM "TOP module"
 module psram(
 	input mem_clk,
-  	input startbu,              // start button to initialize PSRAM
+  input startbu,              // start button to initialize PSRAM
 	input [23:0] address,
+	input read_sw,
+	input write_sw,
+	input [15:0] data_in,
 	
+	output [5:0] counter,
+	output endcommand,
 	output mem_ce,        		// pin 
 	output reg [3:0] step,		//*** simulation only
 	output reg [7:0] command,	//*** simularion only
+	output wire [15:0] data_out,
 
 	inout [3:0] mem_sio    	// sio[0] pin 22, sio[1] pin 23, sio[2] pin 24, sio[3] pin 21
 );
@@ -244,11 +299,11 @@ reg [15:0] timer = 0;			//Counter
 
 reg start = 0;				  	//Start initialization, when button pressed
 
-reg com_start = 0;				//Communication status
+reg com_start = 0;				//Control communication status during auto-initialization
 															//0: End the communication
 															//1: Start the communication
 
-reg qpi_on = 0;					//Communication mode
+reg qpi_on;					//Communication mode
 															//0: SPI communication
 															//1: QPI communication
 
@@ -256,11 +311,18 @@ mem_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
 	.step(step),
-	.mem_sio(mem_sio),
-	.mem_ce(mem_ce),
 	.com_start(com_start),
+	.qpi_on(qpi_on),
+	.address(address),
+	.read_sw,
+	.write_sw,
+	.data_in(data_in),
+
+	.counter(counter),
 	.endcommand(endcommand),
-	.qpi_on(qpi_on)
+	.mem_ce(mem_ce),
+	.mem_sio(mem_sio),
+	.data_out(data_out)
 );
 
 initial begin
@@ -314,7 +376,7 @@ always @(posedge mem_clk) begin
 				end 
 			end
 			STEP_IDLE: begin
-				com_start <= 1;
+				com_start <= 0;
 				qpi_on <= 1;
 			end
 		endcase	
