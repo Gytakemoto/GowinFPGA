@@ -1,27 +1,37 @@
-Reading netlist file: "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"
-Parsing netlist file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg" completed
+Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"
+Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg" completed
 Processing netlist completed
-Running placement......
-[10%] Placement Phase 0 completed
-[20%] Placement Phase 1 completed
-[30%] Placement Phase 2 completed
-[50%] Placement Phase 3 completed
-Running routing......
-[60%] Routing Phase 0 completed
-[70%] Routing Phase 1 completed
-[80%] Routing Phase 2 completed
-[90%] Routing Phase 3 completed
-Running timing analysis......
-[95%] Timing analysis completed
-Placement and routing completed
-Bitstream generation in progress......
-Bitstream generation completed
-Running power analysis......
-[100%] Power analysis completed
-Generate file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.power.html" completed
-Generate file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.pin.html" completed
-Generate file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.html" completed
-Generate file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.txt" completed
-Generate file "C:\Pessoal\TCC\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.tr.html" completed
-Mon Mar 25 14:47:26 2024
-
+Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst"
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":10 | Can't find object named 'sys_clk'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":11 | Can't find object named 'sys_clk'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":14 | Can't find object named 'led[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":15 | Can't find object named 'led[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":16 | Can't find object named 'led[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":17 | Can't find object named 'led[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":18 | Can't find object named 'led[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":19 | Can't find object named 'led[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":20 | Can't find object named 'led[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":21 | Can't find object named 'led[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":24 | Can't find object named 'led_rgb[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":25 | Can't find object named 'led_rgb[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":26 | Can't find object named 'led_rgb[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":27 | Can't find object named 'led_rgb[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":28 | Can't find object named 'led_rgb[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":29 | Can't find object named 'led_rgb[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":32 | Can't find object named 'clk_PSRAM'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":33 | Can't find object named 'clk_PSRAM'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":34 | Can't find object named 'mem_ce'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":35 | Can't find object named 'mem_ce'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":36 | Can't find object named 'mem_sio[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":37 | Can't find object named 'mem_sio[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":38 | Can't find object named 'mem_sio[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":39 | Can't find object named 'mem_sio[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":40 | Can't find object named 'mem_sio[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":41 | Can't find object named 'mem_sio[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":42 | Can't find object named 'mem_sio[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":43 | Can't find object named 'mem_sio[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":46 | Can't find object named 'buttonB'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":47 | Can't find object named 'buttonB'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":48 | Can't find object named 'buttonA'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst":49 | Can't find object named 'buttonA'
+Physical Constraint parsed completed with errors

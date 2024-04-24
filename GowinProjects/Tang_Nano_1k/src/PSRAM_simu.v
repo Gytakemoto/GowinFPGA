@@ -70,7 +70,7 @@ endmodule
 
 
 //Memory driver: interprets commands based on Datasheet
-module mem_driver(
+module mem_driver_simu(
 	input mem_clk,
 	input [7:0] command,
 	input [3:0] step,
@@ -262,7 +262,7 @@ endmodule
 
 
 //PSRAM "TOP module"
-module psram(
+module psram_simu(
 	input mem_clk,
   input startbu,              // start button to initialize PSRAM
 	input [23:0] address,
@@ -307,7 +307,7 @@ reg qpi_on;					//Communication mode
 															//0: SPI communication
 															//1: QPI communication
 
-mem_driver PSRAM_com(
+mem_driver_simu PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
 	.step(step),

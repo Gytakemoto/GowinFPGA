@@ -8,5 +8,6 @@
         <File path="src/PSRAM.v" type="file.verilog" enable="1"/>
         <File path="src/TOP.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/grPLL_27_to_84.v" type="file.verilog" enable="1"/>
+        <File path="src/Tang_Nano_1k.cst" type="file.cst" enable="1"/>
     </FileList>
 </Project>

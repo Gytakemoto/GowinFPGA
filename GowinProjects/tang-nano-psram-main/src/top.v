@@ -2,12 +2,12 @@ module top (
   input sys_clk,
   input button0,
   // These are connected to the mem chip. Pinout is for Sipeed TANG Nano
-  inout wire [3:0] mem_sio,   // sio[0] pin 22, sio[1] pin 23, sio[2] pin 24, sio[3] pin 21
-  output wire mem_ce_n,       // pin 19
-  output wire mem_clk,         // pin 20
-  output reg led_g,
-  output reg led_r,
-  output reg led_b,
+  inout wire [3:0] mem_sio,   // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+  output wire mem_ce_n,       // pin 42
+  output wire mem_clk,        // pin 47
+  output reg led_g,           // pin 11
+  output reg led_r,           // pin 9
+  output reg led_b,           // pin 10
   output reg [3:0] leds
 );
 

@@ -6,7 +6,7 @@
 //Device: GW1N-1
 //Created Time: Wed Mar 20 15:24:28 2024
 
-`include "gowin_rpll/prim_tsim.v"
+//`include "gowin_rpll/prim_tsim.v"
 
 module Gowin_rPLL_27_to_84MHz (clkout, clkin);
 
