@@ -21,9 +21,9 @@ IO_LOC "led[0]" 19;
 IO_PORT "led[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 
 //RGB LEDs
-IO_LOC "led_rgb[2]" 10; //Blue LED
+IO_LOC "led_rgb[2]" 9; //Red LED
 IO_PORT "led_rgb[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
-IO_LOC "led_rgb[0]" 9; //Red LED
+IO_LOC "led_rgb[0]" 10; //Blue LED
 IO_PORT "led_rgb[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 IO_LOC "led_rgb[1]" 11; //Green LED
 IO_PORT "led_rgb[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;

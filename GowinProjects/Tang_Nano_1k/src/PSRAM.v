@@ -56,24 +56,25 @@ initial begin
 	writing <= 0;
 end
 
-//When com_start turns high, starts SPI communication
-always @(posedge com_start) begin
-
-    sendcommand <= 1;
-
-    if(quad_start) begin
-        //Define reading or writing proccess
-            if (read_sw) begin
-                reading <= 1;
-            end
-            else if (write_sw)  begin
-                writing <= 1;
-                data_write <= data_in;	//Transfer data to reg variable
-            end
-    end
-end
-
 always @(negedge mem_clk) begin
+
+//When com_start turns high, starts communication
+	if(com_start) begin
+
+		sendcommand <= 1;
+		counter <= 0;
+
+		//Define reading or writing proccess
+		if (quad_start) begin
+			if (read_sw) begin
+				reading <= 1;
+			end
+			else if (write_sw)  begin
+				writing <= 1;
+				data_write <= data_in;
+			end
+		end
+	end
 
 	if (sendcommand) mem_ce <= 0;
 
@@ -251,7 +252,7 @@ end
 
 always @(posedge mem_clk) begin
 
-	if(startbu) begin
+	if(!startbu) begin
 		 start = 1;	    //Detect button pressed
 	end
 

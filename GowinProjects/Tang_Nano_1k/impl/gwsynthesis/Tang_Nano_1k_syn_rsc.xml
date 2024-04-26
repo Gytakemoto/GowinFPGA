@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="Gowin_rPLL_27_to_84MHz"/>
+<Module name="TOP" Register="21" Lut="28" T_Register="120(21)" T_Alu="41(0)" T_Lut="127(28)">
+    <SubModule name="clk2"/>
+    <SubModule name="deb_buttonA" Register="28" Alu="26" Lut="12" T_Register="28(28)" T_Alu="26(26)" T_Lut="12(12)"/>
+    <SubModule name="initialize" Register="26" Alu="15" Lut="22" T_Register="71(26)" T_Alu="15(15)" T_Lut="87(22)">
+        <SubModule name="PSRAM_com" Register="45" Lut="65" T_Register="45(45)" T_Lut="65(65)"/>
+    </SubModule>
+</Module>

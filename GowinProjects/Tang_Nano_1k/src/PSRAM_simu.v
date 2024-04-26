@@ -74,7 +74,7 @@ module mem_driver_simu(
 	input mem_clk,
 	input [7:0] command,
 	input [3:0] step,
-	input com_start,
+	input spi_start,
 	input qpi_on,
 	input [23:0] address,
 	input read_sw,
@@ -104,11 +104,11 @@ reg reading;							//Reg indicates when in a writing proccess
 reg writing;							//Reg indicates when in a reading proccess
 reg [15:0] data_write;
 
-wire ready;
 wire quad_start;
+wire com_start;
 
-assign ready = !reading && !writing && sendcommand;
 assign quad_start = (~read_sw && write_sw) || (read_sw && ~write_sw);
+assign com_start = quad_start || spi_start;
 
 //Initial conditions
 initial begin
@@ -119,27 +119,26 @@ initial begin
 	writing <= 0;
 end
 
-//When com_start turns high, starts communication
-always @(posedge com_start) begin
+always @(negedge mem_clk) begin
+
+	//When com_start turns high, starts communication
+	if(com_start) begin
+
 		sendcommand <= 1;
 		counter <= 0;
-end
 
-always @(posedge quad_start) begin
-	//Define reading or writing proccess
-	sendcommand <= 1;
-	counter <= 0;
-		if (read_sw) begin
-			reading <= 1;
+		//Define reading or writing proccess
+		if (quad_start) begin
+			if (read_sw) begin
+				reading <= 1;
+			end
+			else if (write_sw)  begin
+				writing <= 1;
+				data_write <= data_in;
+			end
 		end
-		else if (write_sw)  begin
-			writing <= 1;
-			data_write <= data_in;
-		end
+	end
 
-end
-
-always @(negedge mem_clk) begin
 	//$display(psram.STEP_RSTEN);
 	if (sendcommand) mem_ce <= 0;
 
@@ -251,7 +250,7 @@ always @(negedge mem_clk) begin
 end
 
 //assign endcommand = (~(com_start || quad_start) && sendcommand) || ((com_start || quad_start) && ~sendcommand);
-assign endcommand = (com_start || quad_start) && ~sendcommand;
+assign endcommand = (com_start) && ~sendcommand;
 // END COMMAND truth table: XOR topology
 //				com_start		    sendcommand			endcommand
 //					0					 0				 	 0
@@ -299,7 +298,7 @@ reg [15:0] timer = 0;			//Counter
 
 reg start = 0;				  	//Start initialization, when button pressed
 
-reg com_start = 0;				//Control communication status during auto-initialization
+reg spi_start = 0;				//Control communication status during auto-initialization
 															//0: End the communication
 															//1: Start the communication
 
@@ -311,11 +310,11 @@ mem_driver_simu PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
 	.step(step),
-	.com_start(com_start),
+	.spi_start(spi_start),
 	.qpi_on(qpi_on),
 	.address(address),
-	.read_sw,
-	.write_sw,
+	.read_sw(read_sw),
+	.write_sw(write_sw),
 	.data_in(data_in),
 
 	.counter(counter),
@@ -328,7 +327,7 @@ mem_driver_simu PSRAM_com(
 initial begin
 	step <= STEP_DELAY;
 	timer <= 0;
-	com_start <= 0;
+	spi_start <= 0;
 	//command <= 8'd0;
 end
 
@@ -350,33 +349,33 @@ always @(posedge mem_clk) begin
 			STEP_RSTEN: begin
 				//$display("entrou no step rsten");
 				command <= PSRAM_com.CMD_RSTEN;
-				com_start <= 1;
+				spi_start <= 1;
 				qpi_on <= 0;
 				if(endcommand) begin
 					step <= STEP_RST;
-					com_start <= 0;
+					spi_start <= 0;
 				end
 			end
 			STEP_RST: begin
 				command <= PSRAM_com.CMD_RST;
-				com_start <= 1;
+				spi_start <= 1;
 				qpi_on <= 0;
 				if(endcommand) begin
 					step <= STEP_SPI2QPI;
-					com_start <= 0;
+					spi_start <= 0;
 				end
 			end
 			STEP_SPI2QPI: begin
 				command <= PSRAM_com.SPI2QPI;
-				com_start <= 1;
+				spi_start <= 1;
 				qpi_on <= 0;
 				if(endcommand) begin
 					step <= STEP_IDLE;
-					com_start <= 0;
+					spi_start <= 0;
 				end 
 			end
 			STEP_IDLE: begin
-				com_start <= 0;
+				spi_start <= 0;
 				qpi_on <= 1;
 			end
 		endcase	

@@ -1,14 +1,12 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
-//Tool Version: V1.9.9 (64-bit)
-//Part Number: GW1N-LV1QN48C6/I5
-//Device: GW1N-1
-//Created Time: Wed Mar 20 15:24:28 2024
+//Tool Version: V1.9.9.01 (64-bit)
+//Part Number: GW1NZ-LV1QN48C6/I5
+//Device: GW1NZ-1
+//Created Time: Thu Apr 25 22:34:17 2024
 
-//`include "gowin_rpll/prim_tsim.v"
-
-module Gowin_rPLL_27_to_84MHz (clkout, clkin);
+module gowin_rpll_27_to_84 (clkout, clkin);
 
 output clkout;
 input clkin;
@@ -60,7 +58,6 @@ defparam rpll_inst.CLKOUTD_BYPASS = "false";
 defparam rpll_inst.DYN_SDIV_SEL = 2;
 defparam rpll_inst.CLKOUTD_SRC = "CLKOUT";
 defparam rpll_inst.CLKOUTD3_SRC = "CLKOUT";
-defparam rpll_inst.DEVICE = "GW1N-1";
+defparam rpll_inst.DEVICE = "GW1NZ-1";
 
-endmodule //Gowin_rPLL_27_to_84MHz
-
+endmodule //gowin_rpll_27_to_84

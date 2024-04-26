@@ -1,0 +1,395 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9.01 (64-bit)"
+//Fri Apr 26 11:33:45 2024
+
+//Source file index table:
+//file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v"
+//file1 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v"
+//file2 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v"
+`timescale 100 ps/100 ps
+module sync (
+  sys_clk_d,
+  buttonA_d,
+  buttonA_sync
+)
+;
+input sys_clk_d;
+input buttonA_d;
+output buttonA_sync;
+wire [1:0] sync_buffer;
+wire VCC;
+wire GND;
+  DFF sync_buffer_1_s0 (
+    .Q(sync_buffer[1]),
+    .D(sync_buffer[0]),
+    .CLK(sys_clk_d) 
+);
+  DFF sync_buffer_0_s0 (
+    .Q(sync_buffer[0]),
+    .D(buttonA_d),
+    .CLK(sys_clk_d) 
+);
+  DFF sync_buffer_2_s0 (
+    .Q(buttonA_sync),
+    .D(sync_buffer[1]),
+    .CLK(sys_clk_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* sync */
+module once (
+  sys_clk_d,
+  buttonA_deb,
+  buttonA_once
+)
+;
+input sys_clk_d;
+input buttonA_deb;
+output buttonA_once;
+wire [3:0] resync;
+wire VCC;
+wire GND;
+  DFF resync_2_s0 (
+    .Q(resync[2]),
+    .D(resync[1]),
+    .CLK(sys_clk_d) 
+);
+  DFF resync_1_s0 (
+    .Q(resync[1]),
+    .D(resync[0]),
+    .CLK(sys_clk_d) 
+);
+  DFF resync_0_s0 (
+    .Q(resync[0]),
+    .D(buttonA_deb),
+    .CLK(sys_clk_d) 
+);
+  DFFR button_once_s0 (
+    .Q(buttonA_once),
+    .D(resync[3]),
+    .CLK(sys_clk_d),
+    .RESET(resync[2]) 
+);
+  DFF resync_3_s0 (
+    .Q(resync[3]),
+    .D(resync[2]),
+    .CLK(sys_clk_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* once */
+module debouncer (
+  sys_clk_d,
+  buttonA_sync,
+  buttonA_deb
+)
+;
+input sys_clk_d;
+input buttonA_sync;
+output buttonA_deb;
+wire n5_4;
+wire n6_3;
+wire n5_5;
+wire n5_6;
+wire n5_7;
+wire n6_4;
+wire n6_5;
+wire n6_6;
+wire [10:0] shift;
+wire VCC;
+wire GND;
+  LUT3 n5_s0 (
+    .F(n5_4),
+    .I0(n5_5),
+    .I1(n5_6),
+    .I2(n5_7) 
+);
+defparam n5_s0.INIT=8'h80;
+  LUT3 n6_s0 (
+    .F(n6_3),
+    .I0(n6_4),
+    .I1(n6_5),
+    .I2(n6_6) 
+);
+defparam n6_s0.INIT=8'h80;
+  LUT3 n5_s1 (
+    .F(n5_5),
+    .I0(shift[8]),
+    .I1(shift[9]),
+    .I2(shift[10]) 
+);
+defparam n5_s1.INIT=8'h01;
+  LUT4 n5_s2 (
+    .F(n5_6),
+    .I0(shift[4]),
+    .I1(shift[5]),
+    .I2(shift[6]),
+    .I3(shift[7]) 
+);
+defparam n5_s2.INIT=16'h0001;
+  LUT4 n5_s3 (
+    .F(n5_7),
+    .I0(shift[0]),
+    .I1(shift[1]),
+    .I2(shift[2]),
+    .I3(shift[3]) 
+);
+defparam n5_s3.INIT=16'h0001;
+  LUT3 n6_s1 (
+    .F(n6_4),
+    .I0(shift[8]),
+    .I1(shift[9]),
+    .I2(shift[10]) 
+);
+defparam n6_s1.INIT=8'h80;
+  LUT4 n6_s2 (
+    .F(n6_5),
+    .I0(shift[4]),
+    .I1(shift[5]),
+    .I2(shift[6]),
+    .I3(shift[7]) 
+);
+defparam n6_s2.INIT=16'h8000;
+  LUT4 n6_s3 (
+    .F(n6_6),
+    .I0(shift[0]),
+    .I1(shift[1]),
+    .I2(shift[2]),
+    .I3(shift[3]) 
+);
+defparam n6_s3.INIT=16'h8000;
+  DFF shift_9_s0 (
+    .Q(shift[9]),
+    .D(shift[8]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_8_s0 (
+    .Q(shift[8]),
+    .D(shift[7]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_7_s0 (
+    .Q(shift[7]),
+    .D(shift[6]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_6_s0 (
+    .Q(shift[6]),
+    .D(shift[5]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_5_s0 (
+    .Q(shift[5]),
+    .D(shift[4]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_4_s0 (
+    .Q(shift[4]),
+    .D(shift[3]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_3_s0 (
+    .Q(shift[3]),
+    .D(shift[2]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_2_s0 (
+    .Q(shift[2]),
+    .D(shift[1]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_1_s0 (
+    .Q(shift[1]),
+    .D(shift[0]),
+    .CLK(sys_clk_d) 
+);
+  DFF shift_0_s0 (
+    .Q(shift[0]),
+    .D(buttonA_sync),
+    .CLK(sys_clk_d) 
+);
+  DFFRE OUT_s0 (
+    .Q(buttonA_deb),
+    .D(VCC),
+    .CLK(sys_clk_d),
+    .CE(n6_3),
+    .RESET(n5_4) 
+);
+  DFF shift_10_s0 (
+    .Q(shift[10]),
+    .D(shift[9]),
+    .CLK(sys_clk_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* debouncer */
+module TOP (
+  sys_clk,
+  buttonA,
+  buttonB,
+  clk_PSRAM,
+  led
+)
+;
+input sys_clk;
+input buttonA;
+input buttonB;
+output clk_PSRAM;
+output [3:0] led;
+wire sys_clk_d;
+wire buttonA_d;
+wire n11_4;
+wire n10_4;
+wire n9_4;
+wire n12_6;
+wire buttonA_sync;
+wire buttonA_once;
+wire buttonA_deb;
+wire [3:0] counter;
+wire [3:0] led_d;
+wire VCC;
+wire GND;
+  IBUF sys_clk_ibuf (
+    .O(sys_clk_d),
+    .I(sys_clk) 
+);
+  IBUF buttonA_ibuf (
+    .O(buttonA_d),
+    .I(buttonA) 
+);
+  TBUF clk_PSRAM_s0 (
+    .O(clk_PSRAM),
+    .I(GND),
+    .OEN(VCC) 
+);
+  OBUF led_0_obuf (
+    .O(led[0]),
+    .I(led_d[0]) 
+);
+  OBUF led_1_obuf (
+    .O(led[1]),
+    .I(led_d[1]) 
+);
+  OBUF led_2_obuf (
+    .O(led[2]),
+    .I(led_d[2]) 
+);
+  OBUF led_3_obuf (
+    .O(led[3]),
+    .I(led_d[3]) 
+);
+  LUT2 n11_s0 (
+    .F(n11_4),
+    .I0(counter[0]),
+    .I1(counter[1]) 
+);
+defparam n11_s0.INIT=4'h6;
+  LUT3 n10_s0 (
+    .F(n10_4),
+    .I0(counter[0]),
+    .I1(counter[1]),
+    .I2(counter[2]) 
+);
+defparam n10_s0.INIT=8'h78;
+  LUT4 n9_s0 (
+    .F(n9_4),
+    .I0(counter[0]),
+    .I1(counter[1]),
+    .I2(counter[2]),
+    .I3(counter[3]) 
+);
+defparam n9_s0.INIT=16'h7F80;
+  DFFE counter_2_s0 (
+    .Q(counter[2]),
+    .D(n10_4),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+defparam counter_2_s0.INIT=1'b0;
+  DFFE counter_1_s0 (
+    .Q(counter[1]),
+    .D(n11_4),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+defparam counter_1_s0.INIT=1'b0;
+  DFFE counter_0_s0 (
+    .Q(counter[0]),
+    .D(n12_6),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+defparam counter_0_s0.INIT=1'b0;
+  DFFE led_3_s2 (
+    .Q(led_d[3]),
+    .D(counter[3]),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+  DFFE led_2_s1 (
+    .Q(led_d[2]),
+    .D(counter[2]),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+  DFFE led_1_s1 (
+    .Q(led_d[1]),
+    .D(counter[1]),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+  DFFE led_0_s1 (
+    .Q(led_d[0]),
+    .D(counter[0]),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+  DFFE counter_3_s0 (
+    .Q(counter[3]),
+    .D(n9_4),
+    .CLK(sys_clk_d),
+    .CE(buttonA_once) 
+);
+defparam counter_3_s0.INIT=1'b0;
+  INV n12_s2 (
+    .O(n12_6),
+    .I(counter[0]) 
+);
+  sync sync_buttonA (
+    .sys_clk_d(sys_clk_d),
+    .buttonA_d(buttonA_d),
+    .buttonA_sync(buttonA_sync)
+);
+  once sync_buttonA_debounced (
+    .sys_clk_d(sys_clk_d),
+    .buttonA_deb(buttonA_deb),
+    .buttonA_once(buttonA_once)
+);
+  debouncer deb_buttonA (
+    .sys_clk_d(sys_clk_d),
+    .buttonA_sync(buttonA_sync),
+    .buttonA_deb(buttonA_deb)
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* TOP */

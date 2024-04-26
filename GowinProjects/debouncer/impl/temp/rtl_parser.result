@@ -1,0 +1,44 @@
+[
+ {
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v",
+  "InstLine" : 9,
+  "InstName" : "Gowin_CLKDIV2",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "Gowin_CLKDIV2"
+ },
+ {
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+  "InstLine" : 1,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "TOP",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 15,
+    "InstName" : "sync_buttonA",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "sync"
+   },
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 21,
+    "InstName" : "sync_buttonA_debounced",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleLine" : 51,
+    "ModuleName" : "once"
+   },
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 27,
+    "InstName" : "deb_buttonA",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleLine" : 24,
+    "ModuleName" : "debouncer"
+   }
+  ]
+ }
+]
