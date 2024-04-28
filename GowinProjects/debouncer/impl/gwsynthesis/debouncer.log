@@ -1,20 +1,20 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\gowin_clkdiv2\gowin_clkdiv2.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v'
-Undeclared symbol 'buttonA_sync', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":18)
-Undeclared symbol 'buttonA_deb', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":23)
-Undeclared symbol 'buttonA_once', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":24)
-Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":1)
-Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":1)
-Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":51)
-Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":24)
-WARN  (EX3791) : Expression size 12 truncated to fit in target size 11("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":42)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v'
+Undeclared symbol 'buttonA_sync', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v":23)
+Undeclared symbol 'buttonA_deb', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v":28)
+Undeclared symbol 'buttonA_once', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v":29)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\gowin_rpll_27_to_84.v'
+Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v":1)
+Compiling module 'gowin_rpll_27_to_84'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\gowin_rpll_27_to_84.v":9)
+Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":1)
+Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":51)
+Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":24)
+WARN  (EX3791) : Expression size 27 truncated to fit in target size 26("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\sync_debouncer.v":42)
 NOTE  (EX0101) : Current top module is "TOP"
-WARN  (EX0211) : The output port "clk_PSRAM" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":9)
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input buttonB is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\TOP.v":7)
+WARN  (CV0016) : Input buttonB is unused("C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\TOP.v":7)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -30,6 +30,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer.vg" completed
-[100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer.vg" completed
+[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer_syn.rpt.html" completed
 GowinSynthesis finish

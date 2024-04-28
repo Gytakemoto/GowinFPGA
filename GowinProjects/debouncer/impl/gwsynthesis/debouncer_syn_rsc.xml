@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="8" Lut="4" T_Register="28(8)" T_Lut="12(4)">
-    <SubModule name="sync_buttonA" Register="3" T_Register="3(3)"/>
-    <SubModule name="sync_buttonA_debounced" Register="5" T_Register="5(5)"/>
-    <SubModule name="deb_buttonA" Register="12" Lut="8" T_Register="12(12)" T_Lut="8(8)"/>
+<Module name="TOP" Register="8" Lut="4">
+    <SubModule name="clk"/>
+    <SubModule name="sync_buttonA" Register="3"/>
+    <SubModule name="sync_buttonA_debounced" Register="5"/>
+    <SubModule name="deb_buttonA" Register="27" Lut="18"/>
 </Module>

@@ -1,37 +1,37 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 
 
 1. PnR Messages
 
   <Report Title>: PnR Report
-  <Design File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer.vg
-  <Physical Constraints File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\debouncer\src\deb.cst
+  <Design File>: C:\Tupao\GowinFPGA\GowinProjects\debouncer\impl\gwsynthesis\debouncer.vg
+  <Physical Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\debouncer\src\deb.cst
   <Timing Constraints File>: ---
-  <Tool Version>: V1.9.9.01 (64-bit)
+  <Tool Version>: V1.9.9 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Fri Apr 26 11:33:46 2024
+  <Created Time>:Fri Apr 26 14:25:16 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
-    Placement Phase 1: CPU time = 0h 0m 0.009s, Elapsed time = 0h 0m 0.009s
-    Placement Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Placement Phase 3: CPU time = 0h 0m 0.485s, Elapsed time = 0h 0m 0.485s
-    Total Placement: CPU time = 0h 0m 0.495s, Elapsed time = 0h 0m 0.495s
+    Placement Phase 0: CPU time = 0h 0m 0.048s, Elapsed time = 0h 0m 0.049s
+    Placement Phase 1: CPU time = 0h 0m 0.035s, Elapsed time = 0h 0m 0.035s
+    Placement Phase 2: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
+    Placement Phase 3: CPU time = 0h 0m 0.963s, Elapsed time = 0h 0m 0.963s
+    Total Placement: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.007s, Elapsed time = 0h 0m 0.006s
-    Routing Phase 2: CPU time = 0h 0m 0.006s, Elapsed time = 0h 0m 0.007s
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.001s
+    Routing Phase 1: CPU time = 0h 0m 0.049s, Elapsed time = 0h 0m 0.049s
+    Routing Phase 2: CPU time = 0h 0m 0.028s, Elapsed time = 0h 0m 0.028s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.013s, Elapsed time = 0h 0m 0.013s
+    Total Routing: CPU time = 0h 0m 0.077s, Elapsed time = 0h 0m 0.078s
  Generate output files:
-    CPU time = 0h 0m 0.113s, Elapsed time = 0h 0m 0.113s
+    CPU time = 0h 0m 0.323s, Elapsed time = 0h 0m 0.323s
 
- Total Time and Memory Usage: CPU time = 0h 0m 0.621s, Elapsed time = 0h 0m 0.621s, Peak memory usage = 239MB
+ Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 299MB
 
 
 3. Resource Usage Summary
@@ -39,15 +39,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 12/1152  2%
-    --LUT,ALU,ROM16           | 12(12 LUT, 0 ALU, 0 ROM16)
+  Logic                       | 22/1152  2%
+    --LUT,ALU,ROM16           | 22(22 LUT, 0 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 28/957  3%
+  Register                    | 43/957  5%
     --Logic Register as Latch | 0/864  0%
-    --Logic Register as FF    | 27/864  4%
+    --Logic Register as FF    | 42/864  5%
     --I/O Register as Latch   | 0/93  0%
     --I/O Register as FF      | 1/93  2%
-  CLS                         | 19/576  4%
+  CLS                         | 32/576  6%
   I/O Port                    | 8
   I/O Buf                     | 7
     --Input Buf               | 2
@@ -55,7 +55,7 @@
     --Inout Buf               | 0
   IOLOGIC                     | 0%
   BSRAM                       | 0%
-  PLL                         | 0/1  0%
+  PLL                         | 1/1  100%
   DCS                         | 0/4  0%
   DQCE                        | 0/12  0%
   OSC                         | 0/1  0%
@@ -85,7 +85,7 @@
   PRIMARY       | 1/8(13%)
   LW            | 0/8(0%)
   GCLK_PIN      | 1/3(34%)
-  PLL           | 0/1(0%)
+  PLL           | 1/1(100%)
   CLKDIV        | 0/4(0%)
   DLLDLY        | 0/4(0%)
   ===============================
@@ -96,7 +96,8 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  sys_clk_d      | PRIMARY        |  LEFT RIGHT
+  clk_PSRAM_d    | PRIMARY        |  PTR0
+  sys_clk_d      | HCLK           | RIGHT[0]
   ===========================================
 
 

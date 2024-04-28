@@ -12,20 +12,25 @@ output clk_PSRAM,            // pin 47
 output reg [3:0] led
 );
 
+gowin_rpll_27_to_84 clk(
+    .clkin(sys_clk),
+    .clkout(clk_PSRAM)
+);
+
 sync sync_buttonA(
-    .clock(sys_clk),
+    .clock(clk_PSRAM),
     .in(buttonA),
     .out(buttonA_sync)
 );
 
 once sync_buttonA_debounced(
-    .clk(sys_clk),
+    .clk(clk_PSRAM),
     .button(buttonA_deb),
     .button_once(buttonA_once)
 );
 
 debouncer deb_buttonA(
-    .clock(sys_clk),
+    .clock(clk_PSRAM),
     .IN(buttonA_sync),
     .OUT(buttonA_deb)
 );
@@ -37,7 +42,7 @@ initial begin
     counter <=0;
 end
 
-always @(posedge sys_clk) begin
+always @(posedge clk_PSRAM) begin
 
    //Activates only when error is present while pressing buttonA
    if(buttonA_once) begin

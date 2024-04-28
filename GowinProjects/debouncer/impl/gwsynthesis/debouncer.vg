@@ -1,20 +1,79 @@
 //
 //Written by GowinSynthesis
-//Tool Version "V1.9.9.01 (64-bit)"
-//Fri Apr 26 11:33:45 2024
+//Tool Version "V1.9.9"
+//Fri Apr 26 14:25:14 2024
 
 //Source file index table:
-//file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v"
-//file1 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v"
-//file2 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v"
+//file0 "\C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v"
+//file1 "\C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v"
+//file2 "\C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/gowin_rpll_27_to_84.v"
 `timescale 100 ps/100 ps
-module sync (
+module gowin_rpll_27_to_84 (
   sys_clk_d,
+  clk_PSRAM_d
+)
+;
+input sys_clk_d;
+output clk_PSRAM_d;
+wire clkoutp_o;
+wire clkoutd_o;
+wire clkoutd3_o;
+wire lock_o;
+wire VCC;
+wire GND;
+  rPLL rpll_inst (
+    .CLKOUT(clk_PSRAM_d),
+    .CLKOUTP(clkoutp_o),
+    .CLKOUTD(clkoutd_o),
+    .CLKOUTD3(clkoutd3_o),
+    .LOCK(lock_o),
+    .CLKIN(sys_clk_d),
+    .CLKFB(GND),
+    .FBDSEL({GND,GND,GND,GND,GND,GND}),
+    .IDSEL({GND,GND,GND,GND,GND,GND}),
+    .ODSEL({GND,GND,GND,GND,GND,GND}),
+    .DUTYDA({GND,GND,GND,GND}),
+    .PSDA({GND,GND,GND,GND}),
+    .FDLY({GND,GND,GND,GND}),
+    .RESET(GND),
+    .RESET_P(GND) 
+);
+defparam rpll_inst.CLKFB_SEL="internal";
+defparam rpll_inst.CLKOUTD3_SRC="CLKOUT";
+defparam rpll_inst.CLKOUTD_BYPASS="false";
+defparam rpll_inst.CLKOUTD_SRC="CLKOUT";
+defparam rpll_inst.CLKOUTP_BYPASS="false";
+defparam rpll_inst.CLKOUTP_DLY_STEP=0;
+defparam rpll_inst.CLKOUTP_FT_DIR=1'b1;
+defparam rpll_inst.CLKOUT_BYPASS="false";
+defparam rpll_inst.CLKOUT_DLY_STEP=0;
+defparam rpll_inst.CLKOUT_FT_DIR=1'b1;
+defparam rpll_inst.DEVICE="GW1NZ-1";
+defparam rpll_inst.DUTYDA_SEL="1000";
+defparam rpll_inst.DYN_DA_EN="true";
+defparam rpll_inst.DYN_FBDIV_SEL="false";
+defparam rpll_inst.DYN_IDIV_SEL="false";
+defparam rpll_inst.DYN_ODIV_SEL="false";
+defparam rpll_inst.DYN_SDIV_SEL=2;
+defparam rpll_inst.FBDIV_SEL=27;
+defparam rpll_inst.FCLKIN="27";
+defparam rpll_inst.IDIV_SEL=8;
+defparam rpll_inst.ODIV_SEL=8;
+defparam rpll_inst.PSDA_SEL="0000";
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* gowin_rpll_27_to_84 */
+module sync (
+  clk_PSRAM_d,
   buttonA_d,
   buttonA_sync
 )
 ;
-input sys_clk_d;
+input clk_PSRAM_d;
 input buttonA_d;
 output buttonA_sync;
 wire [1:0] sync_buffer;
@@ -23,17 +82,17 @@ wire GND;
   DFF sync_buffer_1_s0 (
     .Q(sync_buffer[1]),
     .D(sync_buffer[0]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   DFF sync_buffer_0_s0 (
     .Q(sync_buffer[0]),
     .D(buttonA_d),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   DFF sync_buffer_2_s0 (
     .Q(buttonA_sync),
     .D(sync_buffer[1]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   VCC VCC_cZ (
     .V(VCC)
@@ -43,12 +102,12 @@ wire GND;
 );
 endmodule /* sync */
 module once (
-  sys_clk_d,
+  clk_PSRAM_d,
   buttonA_deb,
   buttonA_once
 )
 ;
-input sys_clk_d;
+input clk_PSRAM_d;
 input buttonA_deb;
 output buttonA_once;
 wire [3:0] resync;
@@ -57,28 +116,28 @@ wire GND;
   DFF resync_2_s0 (
     .Q(resync[2]),
     .D(resync[1]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   DFF resync_1_s0 (
     .Q(resync[1]),
     .D(resync[0]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   DFF resync_0_s0 (
     .Q(resync[0]),
     .D(buttonA_deb),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   DFFR button_once_s0 (
     .Q(buttonA_once),
     .D(resync[3]),
-    .CLK(sys_clk_d),
+    .CLK(clk_PSRAM_d),
     .RESET(resync[2]) 
 );
   DFF resync_3_s0 (
     .Q(resync[3]),
     .D(resync[2]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
 );
   VCC VCC_cZ (
     .V(VCC)
@@ -88,12 +147,12 @@ wire GND;
 );
 endmodule /* once */
 module debouncer (
-  sys_clk_d,
+  clk_PSRAM_d,
   buttonA_sync,
   buttonA_deb
 )
 ;
-input sys_clk_d;
+input clk_PSRAM_d;
 input buttonA_sync;
 output buttonA_deb;
 wire n5_4;
@@ -101,133 +160,298 @@ wire n6_3;
 wire n5_5;
 wire n5_6;
 wire n5_7;
+wire n5_8;
 wire n6_4;
 wire n6_5;
 wire n6_6;
-wire [10:0] shift;
+wire n6_7;
+wire n5_9;
+wire n5_10;
+wire n5_11;
+wire n5_12;
+wire n6_8;
+wire n6_9;
+wire n6_10;
+wire n6_11;
+wire [25:0] shift;
 wire VCC;
 wire GND;
-  LUT3 n5_s0 (
+  LUT4 n5_s0 (
     .F(n5_4),
     .I0(n5_5),
     .I1(n5_6),
-    .I2(n5_7) 
+    .I2(n5_7),
+    .I3(n5_8) 
 );
-defparam n5_s0.INIT=8'h80;
-  LUT3 n6_s0 (
+defparam n5_s0.INIT=16'h8000;
+  LUT4 n6_s0 (
     .F(n6_3),
     .I0(n6_4),
     .I1(n6_5),
-    .I2(n6_6) 
+    .I2(n6_6),
+    .I3(n6_7) 
 );
-defparam n6_s0.INIT=8'h80;
+defparam n6_s0.INIT=16'h8000;
   LUT3 n5_s1 (
     .F(n5_5),
-    .I0(shift[8]),
-    .I1(shift[9]),
-    .I2(shift[10]) 
+    .I0(shift[3]),
+    .I1(shift[4]),
+    .I2(n5_9) 
 );
-defparam n5_s1.INIT=8'h01;
-  LUT4 n5_s2 (
+defparam n5_s1.INIT=8'h10;
+  LUT3 n5_s2 (
     .F(n5_6),
-    .I0(shift[4]),
-    .I1(shift[5]),
-    .I2(shift[6]),
-    .I3(shift[7]) 
+    .I0(n5_10),
+    .I1(n5_11),
+    .I2(n5_12) 
 );
-defparam n5_s2.INIT=16'h0001;
+defparam n5_s2.INIT=8'h80;
   LUT4 n5_s3 (
     .F(n5_7),
-    .I0(shift[0]),
-    .I1(shift[1]),
-    .I2(shift[2]),
-    .I3(shift[3]) 
+    .I0(shift[22]),
+    .I1(shift[23]),
+    .I2(shift[24]),
+    .I3(shift[25]) 
 );
 defparam n5_s3.INIT=16'h0001;
-  LUT3 n6_s1 (
-    .F(n6_4),
-    .I0(shift[8]),
-    .I1(shift[9]),
-    .I2(shift[10]) 
+  LUT4 n5_s4 (
+    .F(n5_8),
+    .I0(shift[14]),
+    .I1(shift[15]),
+    .I2(shift[16]),
+    .I3(shift[17]) 
 );
-defparam n6_s1.INIT=8'h80;
+defparam n5_s4.INIT=16'h0001;
+  LUT4 n6_s1 (
+    .F(n6_4),
+    .I0(n6_8),
+    .I1(n6_9),
+    .I2(n6_10),
+    .I3(n6_11) 
+);
+defparam n6_s1.INIT=16'h8000;
   LUT4 n6_s2 (
     .F(n6_5),
-    .I0(shift[4]),
-    .I1(shift[5]),
-    .I2(shift[6]),
-    .I3(shift[7]) 
+    .I0(shift[22]),
+    .I1(shift[23]),
+    .I2(shift[24]),
+    .I3(shift[25]) 
 );
 defparam n6_s2.INIT=16'h8000;
   LUT4 n6_s3 (
     .F(n6_6),
+    .I0(shift[18]),
+    .I1(shift[19]),
+    .I2(shift[20]),
+    .I3(shift[21]) 
+);
+defparam n6_s3.INIT=16'h8000;
+  LUT4 n6_s4 (
+    .F(n6_7),
+    .I0(shift[14]),
+    .I1(shift[15]),
+    .I2(shift[16]),
+    .I3(shift[17]) 
+);
+defparam n6_s4.INIT=16'h8000;
+  LUT4 n5_s5 (
+    .F(n5_9),
+    .I0(shift[6]),
+    .I1(shift[7]),
+    .I2(shift[8]),
+    .I3(shift[9]) 
+);
+defparam n5_s5.INIT=16'h0001;
+  LUT4 n5_s6 (
+    .F(n5_10),
+    .I0(shift[18]),
+    .I1(shift[19]),
+    .I2(shift[20]),
+    .I3(shift[21]) 
+);
+defparam n5_s6.INIT=16'h0001;
+  LUT4 n5_s7 (
+    .F(n5_11),
+    .I0(shift[10]),
+    .I1(shift[11]),
+    .I2(shift[12]),
+    .I3(shift[13]) 
+);
+defparam n5_s7.INIT=16'h0001;
+  LUT4 n5_s8 (
+    .F(n5_12),
     .I0(shift[0]),
     .I1(shift[1]),
     .I2(shift[2]),
-    .I3(shift[3]) 
+    .I3(shift[5]) 
 );
-defparam n6_s3.INIT=16'h8000;
-  DFF shift_9_s0 (
-    .Q(shift[9]),
-    .D(shift[8]),
-    .CLK(sys_clk_d) 
+defparam n5_s8.INIT=16'h0001;
+  LUT2 n6_s5 (
+    .F(n6_8),
+    .I0(shift[0]),
+    .I1(shift[1]) 
 );
-  DFF shift_8_s0 (
-    .Q(shift[8]),
-    .D(shift[7]),
-    .CLK(sys_clk_d) 
+defparam n6_s5.INIT=4'h8;
+  LUT4 n6_s6 (
+    .F(n6_9),
+    .I0(shift[2]),
+    .I1(shift[3]),
+    .I2(shift[4]),
+    .I3(shift[5]) 
 );
-  DFF shift_7_s0 (
-    .Q(shift[7]),
-    .D(shift[6]),
-    .CLK(sys_clk_d) 
+defparam n6_s6.INIT=16'h8000;
+  LUT4 n6_s7 (
+    .F(n6_10),
+    .I0(shift[10]),
+    .I1(shift[11]),
+    .I2(shift[12]),
+    .I3(shift[13]) 
 );
-  DFF shift_6_s0 (
-    .Q(shift[6]),
-    .D(shift[5]),
-    .CLK(sys_clk_d) 
+defparam n6_s7.INIT=16'h8000;
+  LUT4 n6_s8 (
+    .F(n6_11),
+    .I0(shift[6]),
+    .I1(shift[7]),
+    .I2(shift[8]),
+    .I3(shift[9]) 
 );
-  DFF shift_5_s0 (
-    .Q(shift[5]),
-    .D(shift[4]),
-    .CLK(sys_clk_d) 
+defparam n6_s8.INIT=16'h8000;
+  DFF shift_24_s0 (
+    .Q(shift[24]),
+    .D(shift[23]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFF shift_4_s0 (
-    .Q(shift[4]),
-    .D(shift[3]),
-    .CLK(sys_clk_d) 
+  DFF shift_23_s0 (
+    .Q(shift[23]),
+    .D(shift[22]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFF shift_3_s0 (
-    .Q(shift[3]),
-    .D(shift[2]),
-    .CLK(sys_clk_d) 
+  DFF shift_22_s0 (
+    .Q(shift[22]),
+    .D(shift[21]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFF shift_2_s0 (
-    .Q(shift[2]),
-    .D(shift[1]),
-    .CLK(sys_clk_d) 
+  DFF shift_21_s0 (
+    .Q(shift[21]),
+    .D(shift[20]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFF shift_1_s0 (
-    .Q(shift[1]),
-    .D(shift[0]),
-    .CLK(sys_clk_d) 
+  DFF shift_20_s0 (
+    .Q(shift[20]),
+    .D(shift[19]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFF shift_0_s0 (
-    .Q(shift[0]),
-    .D(buttonA_sync),
-    .CLK(sys_clk_d) 
+  DFF shift_19_s0 (
+    .Q(shift[19]),
+    .D(shift[18]),
+    .CLK(clk_PSRAM_d) 
 );
-  DFFRE OUT_s0 (
-    .Q(buttonA_deb),
-    .D(VCC),
-    .CLK(sys_clk_d),
-    .CE(n6_3),
-    .RESET(n5_4) 
+  DFF shift_18_s0 (
+    .Q(shift[18]),
+    .D(shift[17]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_17_s0 (
+    .Q(shift[17]),
+    .D(shift[16]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_16_s0 (
+    .Q(shift[16]),
+    .D(shift[15]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_15_s0 (
+    .Q(shift[15]),
+    .D(shift[14]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_14_s0 (
+    .Q(shift[14]),
+    .D(shift[13]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_13_s0 (
+    .Q(shift[13]),
+    .D(shift[12]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_12_s0 (
+    .Q(shift[12]),
+    .D(shift[11]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_11_s0 (
+    .Q(shift[11]),
+    .D(shift[10]),
+    .CLK(clk_PSRAM_d) 
 );
   DFF shift_10_s0 (
     .Q(shift[10]),
     .D(shift[9]),
-    .CLK(sys_clk_d) 
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_9_s0 (
+    .Q(shift[9]),
+    .D(shift[8]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_8_s0 (
+    .Q(shift[8]),
+    .D(shift[7]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_7_s0 (
+    .Q(shift[7]),
+    .D(shift[6]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_6_s0 (
+    .Q(shift[6]),
+    .D(shift[5]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_5_s0 (
+    .Q(shift[5]),
+    .D(shift[4]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_4_s0 (
+    .Q(shift[4]),
+    .D(shift[3]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_3_s0 (
+    .Q(shift[3]),
+    .D(shift[2]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_2_s0 (
+    .Q(shift[2]),
+    .D(shift[1]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_1_s0 (
+    .Q(shift[1]),
+    .D(shift[0]),
+    .CLK(clk_PSRAM_d) 
+);
+  DFF shift_0_s0 (
+    .Q(shift[0]),
+    .D(buttonA_sync),
+    .CLK(clk_PSRAM_d) 
+);
+  DFFRE OUT_s0 (
+    .Q(buttonA_deb),
+    .D(VCC),
+    .CLK(clk_PSRAM_d),
+    .CE(n6_3),
+    .RESET(n5_4) 
+);
+  DFF shift_25_s0 (
+    .Q(shift[25]),
+    .D(shift[24]),
+    .CLK(clk_PSRAM_d) 
 );
   VCC VCC_cZ (
     .V(VCC)
@@ -251,10 +475,11 @@ output clk_PSRAM;
 output [3:0] led;
 wire sys_clk_d;
 wire buttonA_d;
+wire n12_4;
 wire n11_4;
 wire n10_4;
-wire n9_4;
-wire n12_6;
+wire n13_6;
+wire clk_PSRAM_d;
 wire buttonA_sync;
 wire buttonA_once;
 wire buttonA_deb;
@@ -270,10 +495,9 @@ wire GND;
     .O(buttonA_d),
     .I(buttonA) 
 );
-  TBUF clk_PSRAM_s0 (
+  OBUF clk_PSRAM_obuf (
     .O(clk_PSRAM),
-    .I(GND),
-    .OEN(VCC) 
+    .I(clk_PSRAM_d) 
 );
   OBUF led_0_obuf (
     .O(led[0]),
@@ -291,95 +515,99 @@ wire GND;
     .O(led[3]),
     .I(led_d[3]) 
 );
-  LUT2 n11_s0 (
-    .F(n11_4),
+  LUT2 n12_s0 (
+    .F(n12_4),
     .I0(counter[0]),
     .I1(counter[1]) 
 );
-defparam n11_s0.INIT=4'h6;
-  LUT3 n10_s0 (
-    .F(n10_4),
+defparam n12_s0.INIT=4'h6;
+  LUT3 n11_s0 (
+    .F(n11_4),
     .I0(counter[0]),
     .I1(counter[1]),
     .I2(counter[2]) 
 );
-defparam n10_s0.INIT=8'h78;
-  LUT4 n9_s0 (
-    .F(n9_4),
+defparam n11_s0.INIT=8'h78;
+  LUT4 n10_s0 (
+    .F(n10_4),
     .I0(counter[0]),
     .I1(counter[1]),
     .I2(counter[2]),
     .I3(counter[3]) 
 );
-defparam n9_s0.INIT=16'h7F80;
+defparam n10_s0.INIT=16'h7F80;
   DFFE counter_2_s0 (
     .Q(counter[2]),
-    .D(n10_4),
-    .CLK(sys_clk_d),
+    .D(n11_4),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
 defparam counter_2_s0.INIT=1'b0;
   DFFE counter_1_s0 (
     .Q(counter[1]),
-    .D(n11_4),
-    .CLK(sys_clk_d),
+    .D(n12_4),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
 defparam counter_1_s0.INIT=1'b0;
   DFFE counter_0_s0 (
     .Q(counter[0]),
-    .D(n12_6),
-    .CLK(sys_clk_d),
+    .D(n13_6),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
 defparam counter_0_s0.INIT=1'b0;
   DFFE led_3_s2 (
     .Q(led_d[3]),
     .D(counter[3]),
-    .CLK(sys_clk_d),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
   DFFE led_2_s1 (
     .Q(led_d[2]),
     .D(counter[2]),
-    .CLK(sys_clk_d),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
   DFFE led_1_s1 (
     .Q(led_d[1]),
     .D(counter[1]),
-    .CLK(sys_clk_d),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
   DFFE led_0_s1 (
     .Q(led_d[0]),
     .D(counter[0]),
-    .CLK(sys_clk_d),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
   DFFE counter_3_s0 (
     .Q(counter[3]),
-    .D(n9_4),
-    .CLK(sys_clk_d),
+    .D(n10_4),
+    .CLK(clk_PSRAM_d),
     .CE(buttonA_once) 
 );
 defparam counter_3_s0.INIT=1'b0;
-  INV n12_s2 (
-    .O(n12_6),
+  INV n13_s2 (
+    .O(n13_6),
     .I(counter[0]) 
 );
-  sync sync_buttonA (
+  gowin_rpll_27_to_84 clk (
     .sys_clk_d(sys_clk_d),
+    .clk_PSRAM_d(clk_PSRAM_d)
+);
+  sync sync_buttonA (
+    .clk_PSRAM_d(clk_PSRAM_d),
     .buttonA_d(buttonA_d),
     .buttonA_sync(buttonA_sync)
 );
   once sync_buttonA_debounced (
-    .sys_clk_d(sys_clk_d),
+    .clk_PSRAM_d(clk_PSRAM_d),
     .buttonA_deb(buttonA_deb),
     .buttonA_once(buttonA_once)
 );
   debouncer deb_buttonA (
-    .sys_clk_d(sys_clk_d),
+    .clk_PSRAM_d(clk_PSRAM_d),
     .buttonA_sync(buttonA_sync),
     .buttonA_deb(buttonA_deb)
 );

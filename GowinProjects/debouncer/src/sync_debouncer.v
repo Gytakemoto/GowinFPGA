@@ -23,7 +23,7 @@ endmodule
 
 module debouncer
 #(
-    parameter MAX_COUNT = 1000
+    parameter MAX_COUNT = 27000000
 
 )
 (

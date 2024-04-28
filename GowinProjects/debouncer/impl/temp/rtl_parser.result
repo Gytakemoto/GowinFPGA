@@ -1,41 +1,41 @@
 [
  {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v",
-  "InstLine" : 9,
-  "InstName" : "Gowin_CLKDIV2",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v",
-  "ModuleLine" : 9,
-  "ModuleName" : "Gowin_CLKDIV2"
- },
- {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
   "InstLine" : 1,
   "InstName" : "TOP",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
   "ModuleLine" : 1,
   "ModuleName" : "TOP",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
     "InstLine" : 15,
+    "InstName" : "clk",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/gowin_rpll_27_to_84.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "gowin_rpll_27_to_84"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 20,
     "InstName" : "sync_buttonA",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
     "ModuleLine" : 1,
     "ModuleName" : "sync"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
-    "InstLine" : 21,
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 26,
     "InstName" : "sync_buttonA_debounced",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
     "ModuleLine" : 51,
     "ModuleName" : "once"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
-    "InstLine" : 27,
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+    "InstLine" : 32,
     "InstName" : "deb_buttonA",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
     "ModuleLine" : 24,
     "ModuleName" : "debouncer"
    }

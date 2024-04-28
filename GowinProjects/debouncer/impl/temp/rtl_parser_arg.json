@@ -2,15 +2,15 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/gowin_clkdiv2/gowin_clkdiv2.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/sync_debouncer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/src/TOP.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   }
  ],
@@ -18,7 +18,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/debouncer/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/debouncer/impl/temp/rtl_parser.result",
  "Top" : "",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

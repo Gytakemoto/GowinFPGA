@@ -1,7 +1,7 @@
-Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"
-Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg" completed
+Reading netlist file: "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"
+Parsing netlist file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst"
+Reading constraint file: "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,10 +20,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.power.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.pin.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.txt" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.tr.html" completed
-Fri Apr 26 10:37:27 2024
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.power.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.pin.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.rpt.txt" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\Tang_Nano_1k.tr.html" completed
+Fri Apr 26 18:03:47 2024
 
