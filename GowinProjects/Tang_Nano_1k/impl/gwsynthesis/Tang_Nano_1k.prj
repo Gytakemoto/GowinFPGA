@@ -4,15 +4,16 @@
     <Version>beta</Version>
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="50.000"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"/>
+        <Option type="output_file" value="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="verilog_language" value="verilog-2001"/>

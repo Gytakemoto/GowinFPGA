@@ -27,7 +27,7 @@ parameter [7:0] SPI2QPI = 8'h35;
 
 //Read & Write start commands
 parameter [7:0] CMD_READ = 8'hEB;
-parameter [7:0] CMD_WRITE = 8'h02;
+parameter [7:0] CMD_WRITE = 8'h38;
 
 //Variables
 reg [5:0] counter;						//Counter to send SPI & QPI commands
@@ -98,15 +98,15 @@ always @(negedge mem_clk) begin
 		//QPI communication
 		1: begin
 
-			if(quad_start) begin
+			if(quad_start && sendcommand) begin
 
 				counter <= counter + 1'd1;
 
 				case (counter)
 
 				//Operation command
-				0: mem_sio <= reading ? CMD_READ[7:4] : CMD_WRITE[7:4];
-				1: mem_sio <= reading ? CMD_READ[3:0] : CMD_WRITE[3:0];
+				0: mem_sio <= read_sw ? CMD_READ[7:4] : CMD_WRITE[7:4];
+				1: mem_sio <= read_sw ? CMD_READ[3:0] : CMD_WRITE[3:0];
 
 				//Address command
 				2: mem_sio <= address[23:20];

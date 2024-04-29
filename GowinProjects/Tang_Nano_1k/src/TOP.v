@@ -109,18 +109,22 @@ end
 always @(posedge clk_PSRAM) begin
 
    //Activates only when error is present while pressing buttonA
-   if(error && buttonA_debounced) begin
+   if((error || estepe == NEXT) && buttonA_debounced) begin
 
         counter <= counter + 1'd1;
 
         //For each button pressed, change debug leds
 
         case(counter) 
-            0: led[3:0] <= data_out[15:12];
-            1: led[3:0] <= data_out[11:8];
-            2: led[3:0] <= data_out[7:4];
-            3: led[3:0] <= data_out[3:0];
-            //4: led[3:0] <= 4'b1001;
+            0: led[3:0] <= read[15:12];
+            1: led[3:0] <= read[11:8];
+            2: led[3:0] <= read[7:4];
+            3: led[3:0] <= read[3:0];
+            4: begin
+                led[3:0] <= 4'b1111;
+                counter <= 0;
+
+            end
             default: begin
                 counter <= 0;
             end
@@ -159,25 +163,15 @@ always @(posedge clk_PSRAM) begin
 
 
     //Testing PSRAM communication
-    if (qpi_on && !error) begin  //if on IDLE state
+    if (qpi_on) begin  //if on IDLE state
         
         case(pause)
 
           0: begin
             case (estepe)
               WRITEA: begin   
-                address <= 8'h01;
-                data_in <= 16'h1234;
-                write_sw <= 1;
-                if(endcommand) begin
-                    estepe <= WRITEB;
-                    write_sw <= 0;
-                    pause <= 1;
-                end
-              end
-              WRITEB: begin   
-                address <= 8'h2;
-                data_in <= 16'h5678;
+                address <= 8'h5;
+                data_in <= 16'h2323;
                 write_sw <= 1;
                 if(endcommand) begin
                     estepe <= READA;
@@ -185,20 +179,38 @@ always @(posedge clk_PSRAM) begin
                     pause <= 1;
                 end
               end
-              READA: begin
-                address <= 8'h01;
-                read_sw <= 1;
-                if(endcommand) begin 
-                  estepe <= READB;
-                  read_sw <= 0;
-                  pause <= 1;
+/*
+              WRITEB: begin   
+                address <= 8'h2;
+                data_in <= 16'h1212;
+                write_sw <= 1;
+                if(endcommand) begin
+                    estepe <= READA;
+                    write_sw <= 0;
+                    pause <= 1;
                 end
               end
-              READB: begin
-                read <= data_out;
-                if ( data_out != 16'h1234 ) begin   
-                  error <= 1; 
+*/
+              READA: begin
+                address <= 8'h5;
+                read_sw <= 1;
+                if(endcommand) begin 
+                  estepe <= NEXT;
+                  read_sw <= 0;
+                  pause <= 1;
+                  read <= data_out;
                 end
+              end
+
+               NEXT: begin
+                 if ( read == 16'h2323 ) begin   
+                    error <= 0; 
+                  end
+                  else error <= 1 ;
+               end
+
+/*              READB: begin
+
                 address <= 8'h2;
                 read_sw <= 1;
                 if(endcommand) begin 
@@ -206,18 +218,22 @@ always @(posedge clk_PSRAM) begin
                   read_sw <= 0;
                   pause <= 1;
                 end
+
               end
-              /*
+*/
+
+/*
               NEXT: begin
                 read <= data_out;
-                if ( data_out != 16'h5678 ) begin 
+                if ( read != 16'h5678 ) begin 
                   error <= 1;
                 end
                 //if(endcommand) estepe <= WRITEA;
               end   
-*/     
+*/
             endcase    
           end
+
 
           1: begin //Awaits for button pressed
             if(buttonB_debounced) pause <= 0;

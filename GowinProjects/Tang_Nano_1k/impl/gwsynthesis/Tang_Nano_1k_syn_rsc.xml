@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="22" Lut="41">
+<Module name="TOP" Register="34" Lut="37" T_Register="173(34)" T_Alu="15(0)" T_Lut="164(37)">
     <SubModule name="clk2"/>
-    <SubModule name="debuttonA">
-        <SubModule name="sync_button" Register="3"/>
-        <SubModule name="deb_button" Register="29" Lut="18"/>
-        <SubModule name="sync_button_debounced" Register="5"/>
+    <SubModule name="debuttonA" T_Register="37(0)" T_Lut="18(0)">
+        <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
+        <SubModule name="deb_button" Register="29" Lut="18" T_Register="29(29)" T_Lut="18(18)"/>
+        <SubModule name="sync_button_debounced" Register="5" T_Register="5(5)"/>
     </SubModule>
-    <SubModule name="debuttonB">
-        <SubModule name="sync_button" Register="3"/>
-        <SubModule name="deb_button" Register="29" Lut="18"/>
-        <SubModule name="sync_button_debounced" Register="5"/>
+    <SubModule name="debuttonB" T_Register="37(0)" T_Lut="18(0)">
+        <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
+        <SubModule name="deb_button" Register="29" Lut="18" T_Register="29(29)" T_Lut="18(18)"/>
+        <SubModule name="sync_button_debounced" Register="5" T_Register="5(5)"/>
     </SubModule>
-    <SubModule name="initialize" Register="26" Alu="15" Lut="22">
-        <SubModule name="PSRAM_com" Register="45" Lut="66"/>
+    <SubModule name="initialize" Register="26" Alu="15" Lut="23" T_Register="65(26)" T_Alu="15(15)" T_Lut="91(23)">
+        <SubModule name="PSRAM_com" Register="39" Lut="68" T_Register="39(39)" T_Lut="68(68)"/>
     </SubModule>
 </Module>

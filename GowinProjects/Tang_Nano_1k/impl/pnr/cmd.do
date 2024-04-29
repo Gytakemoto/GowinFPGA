@@ -1,8 +1,8 @@
--d C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg
+-d C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst
--cfg C:\Tupao\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\device.cfg
+-cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst
+-cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\device.cfg
 -bit
 -tr
 -ph
@@ -10,3 +10,4 @@
 -cst_error
 -correct_hold 1
 -route_maxfan 10
+-global_freq 50.000
