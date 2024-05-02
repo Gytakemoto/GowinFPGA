@@ -166,6 +166,8 @@ always @(negedge mem_clk) begin
 						counter <= 0;
 						sendcommand <= 0;
 						mem_ce <= 1;
+                        writing <= 0;
+                        reading <= 0;
 					end
 					end
 				endcase
