@@ -39,7 +39,7 @@
  "I2C_SLAVE_ADDR" : "00",
  "Implicit_Initial_Value_Support" : false,
  "IncludePath" : [
-
+  "D:/GowinProjects/adc_card/src"
  ],
  "Incremental_Compile" : "",
  "Initialize_Primitives" : false,
@@ -57,7 +57,7 @@
  "Multiple_File_Compilation_Unit" : true,
  "Number_of_Critical_Paths" : "",
  "Number_of_Start/End_Points" : "",
- "OUTPUT_BASE_NAME" : "UART_by_DOTTO",
+ "OUTPUT_BASE_NAME" : "adc_card",
  "POWER_ON_RESET_MONITOR" : true,
  "PRINT_BSRAM_VALUE" : true,
  "PROGRAM_DONE_BYPASS" : false,
@@ -91,7 +91,7 @@
  "Synthesis On/Off Implemented as Translate On/Off" : false,
  "Synthesize_tool" : "GowinSyn",
  "TclPre" : "",
- "TopModule" : "top",
+ "TopModule" : "controle",
  "USERCODE" : "default",
  "Unused_Pin" : "As_input_tri_stated_with_pull_up",
  "Update_Compile_Point_Timing_Data" : false,
