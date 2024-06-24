@@ -3,17 +3,17 @@ Running parser ...
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v'
 Compiling module 'uart'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":3)
 Extracting RAM for identifier 'testMemory'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":43)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":93)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":96)
-WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":105)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":110)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":123)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":160)
-WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":169)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":173)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":181)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":186)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":193)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":87)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":90)
+WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":99)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":104)
+WARN  (EX3791) : Expression size 7 truncated to fit in target size 6("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":117)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":154)
+WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":163)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":167)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":175)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":180)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\UART_ESP32\src\UART.v":187)
 NOTE  (EX0101) : Current top module is "uart"
 [5%] Running netlist conversion ...
 Running device independent optimization ...

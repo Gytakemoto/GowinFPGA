@@ -1,7 +1,7 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Pessoal\TCC\GowinProjects\ONOFF\src\TOP.v'
-Compiling module 'onoff'("C:\Pessoal\TCC\GowinProjects\ONOFF\src\TOP.v":1)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\src\TOP.v'
+Compiling module 'onoff'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\src\TOP.v":1)
 NOTE  (EX0101) : Current top module is "onoff"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
@@ -19,6 +19,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Pessoal\TCC\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg" completed
-[100%] Generate report file "C:\Pessoal\TCC\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg" completed
+[100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF_syn.rpt.html" completed
 GowinSynthesis finish

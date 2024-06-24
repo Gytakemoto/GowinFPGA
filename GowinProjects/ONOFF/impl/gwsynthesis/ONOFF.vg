@@ -1,10 +1,10 @@
 //
 //Written by GowinSynthesis
-//Tool Version "V1.9.9"
-//Mon Mar 18 20:57:22 2024
+//Tool Version "V1.9.9.01 (64-bit)"
+//Sun Jun 23 15:40:48 2024
 
 //Source file index table:
-//file0 "\C:/Pessoal/TCC/GowinProjects/ONOFF/src/TOP.v"
+//file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/ONOFF/src/TOP.v"
 `timescale 100 ps/100 ps
 module onoff (
   btn_i,

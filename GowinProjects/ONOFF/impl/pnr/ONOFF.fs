@@ -1,7 +1,7 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: Bitstream file
-//Tool Version: V1.9.9 (64-bit)
+//Tool Version: V1.9.9.01 (64-bit)
 //Device: GW1NZ-1
 //Part Number: GW1NZ-LV1QN48C6/I5
 //Device-package: GW1NZ-1-QFN48
@@ -16,7 +16,7 @@
 //SecureMode: OFF
 //JTAGAsRegularIO: OFF
 //MultiBootSPIAddr: 0x00000000
-//Created Time: Mon Mar 18 20:57:24 2024
+//Created Time: Sun Jun 23 15:40:49 2024
 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 1111111111111111
 1010010111000011

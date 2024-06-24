@@ -1,9 +1,9 @@
 [
  {
-  "InstFile" : "C:/Pessoal/TCC/GowinProjects/ONOFF/src/TOP.v",
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/ONOFF/src/TOP.v",
   "InstLine" : 1,
   "InstName" : "onoff",
-  "ModuleFile" : "C:/Pessoal/TCC/GowinProjects/ONOFF/src/TOP.v",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/ONOFF/src/TOP.v",
   "ModuleLine" : 1,
   "ModuleName" : "onoff"
  }

@@ -4,12 +4,13 @@
     <Version>beta</Version>
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
-        <File path="C:\Pessoal\TCC\GowinProjects\ONOFF\src\TOP.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\src\TOP.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="50.000"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Pessoal\TCC\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg"/>
+        <Option type="output_file" value="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="top_module" value="onoff"/>

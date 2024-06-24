@@ -22,9 +22,6 @@ output clk_PSRAM,            // pin 6
 //OUTPUT
 //Debug RGB LED
 output reg [2:0] led_rgb,             //RGB LEDs
-//led_rgb[2]: RED LED pin 9
-//led_rgb[1]: GREEN_LED pin 11
-//led_rgb[0]: BLUE_LED pin 10
 
 //Debug external LEDs
 output reg [3:0] led
@@ -39,12 +36,12 @@ wire [15:0] data_out;      //Data read -> wire cause it is output from PSRAM
 reg [23:0] address;        //Address of message to be written/read
 reg write_sw;              //Write enable switch
 reg read_sw;               //Read enable switch
-reg [15:0] data_in;        //Data to be written
+reg [15:0] data_in;        //Data to be written (16 bits)
 reg [15:0] read;           //Auxiliary Data read -> reg to be changed at procedural script
 reg error;                 //Error flag
 
 // Reg
-reg [3:0] estepe; //APAGAR depois
+reg [3:0] proccess; //Keep track of write and reading test proccesses
 reg [3:0] counter; //Counter to control debugging LEDs when pressing buttonA
 reg pause;
 
@@ -62,8 +59,7 @@ gowin_rpll_27_to_84 clk2(
 );
 
 
-assign clk_dig = clk_PSRAM;
-
+//Debouncing proccesses to avoid noise from button pressing
 sync_debouncer debuttonA(
     .clk(clk_PSRAM),
     .button(buttonA),
@@ -112,7 +108,7 @@ localparam [15:0] MSGB = 16'h0123;
 
 
 initial begin
-    estepe <= 0;
+    proccess <= 0;
     error <= 0;
     write_sw <= 0;
     read_sw <= 0;
@@ -123,7 +119,7 @@ end
 always @(posedge clk_PSRAM) begin
 
    //Activates only when error is present while pressing buttonA
-   if((error || estepe == WAITA || estepe == WAITB) && buttonA_debounced) begin
+   if((error || proccess == WAITA || proccess == WAITB) && buttonA_debounced) begin
 
         counter <= counter + 1'd1;
 
@@ -143,33 +139,9 @@ always @(posedge clk_PSRAM) begin
                 counter <= 0;
             end
         endcase
-
-/*
-//For each button pressed, change debug leds
-         case(counter) 
-            0: led[3:0] <= 4'b0000;
-            1: led[3:0] <= 4'b0001;
-            2: led[3:0] <= 4'b0010;
-            3: led[3:0] <= 4'b0011;
-            4: led[3:0] <= 4'b0100;
-            5: led[3:0] <= 4'b0101;
-            6: led[3:0] <= 4'b0110;
-            7: led[3:0] <= 4'b0111;
-            8: led[3:0] <= 4'b1000;
-            9: led[3:0] <= 4'b1001;
-            10: led[3:0] <= 4'b1010;
-            11: led[3:0] <= 4'b1011;
-            12: led[3:0] <= 4'b1100;
-            13: led[3:0] <= 4'b1101;
-            14: led[3:0] <= 4'b1110;
-            15: led[3:0] <= 4'b1111;
-            default: begin
-                counter <= 0;
-            end
-          endcase
-*/
     end
 
+    //White LED to begin debugging
     led_rgb[2:0] <= 3'b000;
 
     //Testing PSRAM communication
@@ -177,13 +149,13 @@ always @(posedge clk_PSRAM) begin
 
       //LED RGBs
       if(error) led_rgb[2:0] <= 3'b011;           //Red LED
-      else if ((estepe == WAITA || estepe == WAITB)) led_rgb[2:0] <= 3'b110;    //Blue LED = waiting state
+      else if ((proccess == WAITA || proccess == WAITB)) led_rgb[2:0] <= 3'b110;    //Blue LED = waiting state
       else led_rgb[2:0] <= 3'b101;    //Green LED = Idle, awaiting button
         
         case(pause)
 
           0: begin
-            case (estepe)
+            case (proccess)
 
               //Writing operation
               WRITEA: begin   
@@ -191,7 +163,7 @@ always @(posedge clk_PSRAM) begin
                 data_in <= MSGA;
                 write_sw <= 1;
                 if(endcommand) begin
-                    estepe <= READA;
+                    proccess <= READA;
                     write_sw <= 0;
                     pause <= 1;
                 end
@@ -202,7 +174,7 @@ always @(posedge clk_PSRAM) begin
                 address <= ADDRESSA;
                 read_sw <= 1;
                 if(endcommand) begin 
-                  estepe <= WAITA;
+                  proccess <= WAITA;
                   read_sw <= 0;
                   pause <= 1;
                   read <= data_out;
@@ -215,7 +187,7 @@ always @(posedge clk_PSRAM) begin
                     error <= 0; 
                   end
                   else error <= 1;
-                  estepe <= WRITEB;
+                  proccess <= WRITEB;
                end
 
               //Writing operation
@@ -224,7 +196,7 @@ always @(posedge clk_PSRAM) begin
                 data_in <= MSGB;
                 write_sw <= 1;
                 if(endcommand) begin
-                    estepe <= READB;
+                    proccess <= READB;
                     write_sw <= 0;
                     pause <= 1;
                 end
@@ -235,7 +207,7 @@ always @(posedge clk_PSRAM) begin
                 address <= ADDRESSB;
                 read_sw <= 1;
                 if(endcommand) begin 
-                  estepe <= WAITB;
+                  proccess <= WAITB;
                   read_sw <= 0;
                   pause <= 1;
                   read <= data_out;

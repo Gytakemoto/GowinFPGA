@@ -1,8 +1,8 @@
 {
- "Device" : "GW1N-1",
+ "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Pessoal/TCC/GowinProjects/ONOFF/src/TOP.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/ONOFF/src/TOP.v",
    "Type" : "verilog"
   }
  ],
@@ -10,7 +10,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Pessoal/TCC/GowinProjects/ONOFF/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/ONOFF/impl/temp/rtl_parser.result",
  "Top" : "onoff",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

@@ -1,37 +1,37 @@
-//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 
 
 1. PnR Messages
 
   <Report Title>: PnR Report
-  <Design File>: C:\Pessoal\TCC\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg
-  <Physical Constraints File>: C:\Pessoal\TCC\GowinProjects\ONOFF\src\led_btn.cst
+  <Design File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg
+  <Physical Constraints File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\src\led_btn.cst
   <Timing Constraints File>: ---
-  <Tool Version>: V1.9.9 (64-bit)
+  <Tool Version>: V1.9.9.01 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Mon Mar 18 20:57:24 2024
+  <Created Time>:Sun Jun 23 15:40:49 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
+    Placement Phase 0: CPU time = 0h 0m 0.008s, Elapsed time = 0h 0m 0.008s
     Placement Phase 1: CPU time = 0h 0m 0.013s, Elapsed time = 0h 0m 0.013s
-    Placement Phase 2: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
-    Placement Phase 3: CPU time = 0h 0m 0.929s, Elapsed time = 0h 0m 0.929s
-    Total Placement: CPU time = 0h 0m 0.944s, Elapsed time = 0h 0m 0.943s
+    Placement Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Placement Phase 3: CPU time = 0h 0m 0.49s, Elapsed time = 0h 0m 0.49s
+    Total Placement: CPU time = 0h 0m 0.511s, Elapsed time = 0h 0m 0.511s
  Running routing:
     Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.014s, Elapsed time = 0h 0m 0.014s
+    Routing Phase 1: CPU time = 0h 0m 0.011s, Elapsed time = 0h 0m 0.011s
     Routing Phase 2: CPU time = 0h 0m 0.006s, Elapsed time = 0h 0m 0.006s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.02s, Elapsed time = 0h 0m 0.02s
+    Total Routing: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.017s
  Generate output files:
-    CPU time = 0h 0m 0.236s, Elapsed time = 0h 0m 0.235s
+    CPU time = 0h 0m 0.134s, Elapsed time = 0h 0m 0.133s
 
- Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 331MB
+ Total Time and Memory Usage: CPU time = 0h 0m 0.662s, Elapsed time = 0h 0m 0.661s, Peak memory usage = 194MB
 
 
 3. Resource Usage Summary

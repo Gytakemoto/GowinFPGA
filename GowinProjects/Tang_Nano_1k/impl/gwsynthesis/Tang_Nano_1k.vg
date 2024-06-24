@@ -1,7 +1,7 @@
 //
 //Written by GowinSynthesis
 //Tool Version "V1.9.9.01 (64-bit)"
-//Thu May 16 14:59:25 2024
+//Sun Jun 23 22:27:54 2024
 
 //Source file index table:
 //file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_84.v"
@@ -2533,7 +2533,7 @@ wire [3:0] led_d;
 wire [2:0] led_rgb_d;
 wire [1:1] data_in;
 wire [15:0] read;
-wire [2:0] estepe;
+wire [2:0] proccess;
 wire [15:0] data_out_Z;
 wire VCC;
 wire GND;
@@ -2611,9 +2611,9 @@ wire GND;
 );
   LUT3 n159_s1 (
     .F(n159_4),
-    .I0(estepe[1]),
-    .I1(estepe[2]),
-    .I2(estepe[0]) 
+    .I0(proccess[1]),
+    .I1(proccess[2]),
+    .I2(proccess[0]) 
 );
 defparam n159_s1.INIT=8'h10;
   LUT2 n804_s0 (
@@ -2672,7 +2672,7 @@ defparam n55_s11.INIT=16'h0A03;
   LUT4 n317_s6 (
     .F(n317_11),
     .I0(n317_12),
-    .I1(estepe[0]),
+    .I1(proccess[0]),
     .I2(read[1]),
     .I3(n35_5) 
 );
@@ -2716,8 +2716,8 @@ defparam n38_s0.INIT=8'h78;
 defparam n37_s0.INIT=16'h7F80;
   LUT2 n35_s1 (
     .F(n35_5),
-    .I0(estepe[1]),
-    .I1(estepe[2]) 
+    .I0(proccess[1]),
+    .I1(proccess[2]) 
 );
 defparam n35_s1.INIT=4'h4;
   LUT2 n777_s1 (
@@ -2728,7 +2728,7 @@ defparam n35_s1.INIT=4'h4;
 defparam n777_s1.INIT=4'h4;
   LUT2 pause_s3 (
     .F(pause_7),
-    .I0(estepe[2]),
+    .I0(proccess[2]),
     .I1(n75_5) 
 );
 defparam pause_s3.INIT=4'h1;
@@ -2814,7 +2814,7 @@ defparam n317_s7.INIT=16'h8000;
     .F(n388_6),
     .I0(pause),
     .I1(read[1]),
-    .I2(estepe[0]) 
+    .I2(proccess[0]) 
 );
 defparam n388_s2.INIT=8'h40;
   LUT3 n317_s8 (
@@ -2852,22 +2852,22 @@ defparam n317_s11.INIT=16'h1000;
     .F(n803_7),
     .I0(pause),
     .I1(qpi_on_Z),
-    .I2(estepe[2]),
-    .I3(estepe[1]) 
+    .I2(proccess[2]),
+    .I3(proccess[1]) 
 );
 defparam n803_s2.INIT=16'h0400;
   LUT4 data_in_1_s4 (
     .F(data_in_1_9),
-    .I0(estepe[1]),
-    .I1(estepe[2]),
+    .I0(proccess[1]),
+    .I1(proccess[2]),
     .I2(pause),
     .I3(qpi_on_Z) 
 );
 defparam data_in_1_s4.INIT=16'h0100;
   LUT4 error_s6 (
     .F(error_12),
-    .I0(estepe[1]),
-    .I1(estepe[2]),
+    .I0(proccess[1]),
+    .I1(proccess[2]),
     .I2(pause),
     .I3(qpi_on_Z) 
 );
@@ -2875,14 +2875,14 @@ defparam error_s6.INIT=16'h0400;
   LUT3 n387_s2 (
     .F(n387_7),
     .I0(error),
-    .I1(estepe[1]),
-    .I2(estepe[2]) 
+    .I1(proccess[1]),
+    .I2(proccess[2]) 
 );
 defparam n387_s2.INIT=8'hBA;
   LUT4 n35_s2 (
     .F(n35_7),
-    .I0(estepe[1]),
-    .I1(estepe[2]),
+    .I0(proccess[1]),
+    .I1(proccess[2]),
     .I2(error),
     .I3(buttonA_debounced) 
 );
@@ -2904,31 +2904,31 @@ defparam pause_s5.INIT=16'hD800;
   LUT4 n271_s17 (
     .F(n271_24),
     .I0(n271_29),
-    .I1(estepe[1]),
-    .I2(estepe[2]),
+    .I1(proccess[1]),
+    .I2(proccess[2]),
     .I3(n75_5) 
 );
 defparam n271_s17.INIT=16'hE0E8;
   LUT4 n275_s17 (
     .F(n275_24),
-    .I0(estepe[2]),
-    .I1(estepe[1]),
+    .I0(proccess[2]),
+    .I1(proccess[1]),
     .I2(n75_5),
     .I3(n777_4) 
 );
 defparam n275_s17.INIT=16'hC9CC;
   LUT4 n279_s11 (
     .F(n279_16),
-    .I0(estepe[2]),
-    .I1(estepe[1]),
-    .I2(estepe[0]),
+    .I0(proccess[2]),
+    .I1(proccess[1]),
+    .I2(proccess[0]),
     .I3(n777_4) 
 );
 defparam n279_s11.INIT=16'hF2F0;
   LUT4 n271_s20 (
     .F(n271_29),
-    .I0(estepe[1]),
-    .I1(estepe[0]),
+    .I0(proccess[1]),
+    .I1(proccess[0]),
     .I2(pause),
     .I3(qpi_on_Z) 
 );
@@ -3136,24 +3136,24 @@ defparam counter_3_s0.INIT=1'b0;
     .CLK(clk_PSRAM_d) 
 );
 defparam pause_s4.INIT=1'b0;
-  DFF estepe_2_s7 (
-    .Q(estepe[2]),
+  DFF proccess_2_s7 (
+    .Q(proccess[2]),
     .D(n271_24),
     .CLK(clk_PSRAM_d) 
 );
-defparam estepe_2_s7.INIT=1'b0;
-  DFF estepe_1_s6 (
-    .Q(estepe[1]),
+defparam proccess_2_s7.INIT=1'b0;
+  DFF proccess_1_s6 (
+    .Q(proccess[1]),
     .D(n275_24),
     .CLK(clk_PSRAM_d) 
 );
-defparam estepe_1_s6.INIT=1'b0;
-  DFF estepe_0_s6 (
-    .Q(estepe[0]),
+defparam proccess_1_s6.INIT=1'b0;
+  DFF proccess_0_s6 (
+    .Q(proccess[0]),
     .D(n279_16),
     .CLK(clk_PSRAM_d) 
 );
-defparam estepe_0_s6.INIT=1'b0;
+defparam proccess_0_s6.INIT=1'b0;
   INV n389_s2 (
     .O(n389_5),
     .I(qpi_on_Z) 

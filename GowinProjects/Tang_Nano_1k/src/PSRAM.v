@@ -38,8 +38,9 @@ reg [15:0] data_write;					//Receives data_in; reg to be used in procedural rout
 
 wire quad_start;						//Flag inicates when QUAD com should begin
 
-assign com_start = quad_start || spi_start;
 assign quad_start = (~read_sw && write_sw) || (read_sw && ~write_sw);
+assign com_start = quad_start || spi_start;
+
 // quad_start truth table: XOR topology
 //				read_sw		         write_sw			quad_start
 //					0					 0				 	 0
@@ -87,7 +88,7 @@ always @(negedge mem_clk) begin
 				counter <= counter + 1'd1;
 			end
 			
-			//End of command of 7 bits
+			//End of command of 8 bits
 			if (counter > 3'd7) begin
 				sendcommand <= 0;
 				counter <= 0;
@@ -258,7 +259,7 @@ always @(posedge mem_clk) begin
 		 start = 1;	    //Detect button pressed
 	end
 
-	if(start) begin		//Begin initialization if mem isn't idle, startbu was pressed and message isn't being sent
+	if(start) begin		//Begin initialization if startbu was pressed
 		case(step)
 			STEP_DELAY: begin
 				timer <= timer + 1'd1;

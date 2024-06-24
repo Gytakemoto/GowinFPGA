@@ -26,7 +26,7 @@ once sync_button_debounced(
 );
 endmodule
 
-
+//Sync button press with internal clock
 module sync
 #(
     parameter SYNC_BITS = 3  // Number of bits in the synchronisation buffer (2 minimum).
@@ -61,6 +61,7 @@ module debouncer
     output reg OUT
 );
  
+//Outputs minimum bit number to reach MAX_COUNT
  localparam COUNTER_BITS = $clog2(MAX_COUNT);
 
 
@@ -69,10 +70,8 @@ module debouncer
  always @ (posedge clock) 
  begin
    shift <= {shift,IN}; // N shift register
-   if(~|shift)
-     OUT <= 1'b0;
-   else if(&shift)
-     OUT <= 1'b1;
+   if(~|shift) OUT <= 1'b0;      //If none of the bits in "shift" are high, sets output LOW
+   else if(&shift) OUT <= 1'b1;  // If all of the bits in "shift" are high, sets output HIGH
    else OUT <= OUT;
  end
  endmodule

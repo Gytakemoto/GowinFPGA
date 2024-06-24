@@ -1,8 +1,8 @@
--d C:\Pessoal\TCC\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg
+-d C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\gwsynthesis\ONOFF.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Pessoal\TCC\GowinProjects\ONOFF\src\led_btn.cst
--cfg C:\Pessoal\TCC\GowinProjects\ONOFF\impl\pnr\device.cfg
+-cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\src\led_btn.cst
+-cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\ONOFF\impl\pnr\device.cfg
 -bit
 -tr
 -ph
@@ -10,3 +10,4 @@
 -cst_error
 -correct_hold 1
 -route_maxfan 23
+-global_freq 50.000

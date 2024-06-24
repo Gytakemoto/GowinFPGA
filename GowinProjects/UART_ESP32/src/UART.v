@@ -23,7 +23,7 @@ integer i;
 //Receiver
 reg [3:0] rxState = 0;          //State machine variable
 reg [12:0] rxCounter = 0;       //Counter to keeep track of clocks count
-reg [3:0] rxByteCounter = 0;
+reg [5:0] rxByteCounter = 0;
 reg [2:0] rxBitNumber = 0;      //How many bits were read
 reg [7:0] dataIn = 0;           //Stores the command
 reg byteReady = 0;              //Flag to tell wether UART protocol is finished
@@ -34,12 +34,12 @@ reg [24:0] txCounter = 0;       //Counter to keep track of clocks count
 reg [7:0] dataOut = 0;          //
 reg txPinRegister = 1;          //Register linked with uart_tx; output of transmission
 reg [2:0] txBitNumber = 0;      //Keep track of number of bits transmitted
-reg [3:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
+reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
 
 //Register to wiring interface
 assign uart_tx = txPinRegister;
 
-localparam MEMORY_LENGTH = 12;
+localparam MEMORY_LENGTH = 50;
 reg [7:0] testMemory [MEMORY_LENGTH-1:0];
 
 //State machine states for receiver state
@@ -58,19 +58,13 @@ localparam TX_DEBOUNCE = 4;
 
 //Simulates a 'memory message'
 initial begin
-    testMemory[0] = "H";
-    testMemory[1] = "e";
-    testMemory[2] = "l";
-    testMemory[3] = "l";
-    testMemory[4] = "o";
-    testMemory[5] = " ";
-    testMemory[6] = "W";
-    testMemory[7] = "o";
-    testMemory[8] = "r";
-    testMemory[9] = "l";
-    testMemory[10] = "d";
-    testMemory[11] = 8'h1B;
     led_rgb <= 3'd000;
+end
+
+initial begin
+        for (i = 0; i <= MEMORY_LENGTH-1; i = i + 1) begin
+                testMemory[i] <= 8'h00;
+        end
 end
 
 always @(posedge sys_clk) begin
@@ -125,7 +119,7 @@ always @(posedge sys_clk) begin
         if(dataIn == 8'h2F) begin
             rxByteCounter <= 0;                             //Enter key reset message reg
             for (i = 0; i <= MEMORY_LENGTH-1; i = i + 1) begin
-                testMemory[i] <= " ";
+                testMemory[i] <= 8'h00;
             end
             led_rgb <= 3'b011;
         end
