@@ -77,6 +77,7 @@ always @(negedge mem_clk) begin
 		end
 	end
 
+    // 1 clock delay
 	if (sendcommand) mem_ce <= 0;
 
 	case(qpi_on)
@@ -99,6 +100,7 @@ always @(negedge mem_clk) begin
 		//QPI communication
 		1: begin
 
+			//maybe change quad_start for com_start
 			if(quad_start && sendcommand) begin
 
 				counter <= counter + 1'd1;
@@ -177,6 +179,7 @@ always @(negedge mem_clk) begin
 	endcase
 end
 
+//Maybe delete quad_start
 assign endcommand = (com_start || quad_start) && ~sendcommand;
 //assign endcommand = (~(com_start || quad_start) && sendcommand) || ((com_start || quad_start) && ~sendcommand);
 
@@ -194,7 +197,7 @@ module psram(
 	
 	output endcommand,
 	output mem_ce,        		// pin 42
-	output wire [15:0] data_out,
+	output [15:0] data_out,
 	output reg qpi_on,
 
 	inout [3:0] mem_sio    	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
@@ -218,10 +221,6 @@ reg [15:0] timer = 0;			//Counter
 reg [7:0] command;				//SPI 8 bit command
 
 reg start = 0;				  	//Start initialization, when button pressed
-
-wire com_start = 0;				//Control communication status during auto-initialization
-															//0: End the communication
-															//1: Start the communication
 
 reg spi_start = 0;
 

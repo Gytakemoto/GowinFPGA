@@ -1,0 +1,6 @@
+Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"
+Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
+Processing netlist completed
+Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Tang_Nano_1k.cst"
+ERROR  (CM2001) : Cannot open file: 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Tang_Nano_1k.cst', no such file or directory
+Physical Constraint parsed completed with errors

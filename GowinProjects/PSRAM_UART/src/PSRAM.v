@@ -6,7 +6,6 @@ module memory_driver(
 	//INPUT
 	input mem_clk,
 	input [7:0] command,
-	input [3:0] step,
 	input spi_start,
 	input qpi_on,
 	input [23:0] address,
@@ -220,7 +219,7 @@ reg [7:0] command;				//SPI 8 bit command
 
 //reg start = 0;				  	//Start initialization, when button pressed
 
-wire com_start = 0;				//Control communication status during auto-initialization
+//wire com_start = 0;				//Control communication status during auto-initialization
 															//0: End the communication
 															//1: Start the communication
 
@@ -233,7 +232,6 @@ reg spi_start = 0;
 memory_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
-	.step(step),
 	.spi_start(spi_start),
 	.qpi_on(qpi_on),
 	.address(address),

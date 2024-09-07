@@ -1,0 +1,31 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v'
+Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":41)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v'
+Undeclared symbol 'button_sync', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":11)
+Undeclared symbol 'button_deb', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":18)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v'
+Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":127)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":128)
+Undeclared symbol 'uart1_rx', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":141)
+Undeclared symbol 'message', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":148)
+Undeclared symbol 'uart1_tx', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":150)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v'
+ERROR (EX3805) : Concurrent assignment to a non-net 'read_sw' is not permitted("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":146)
+ERROR (EX3805) : Concurrent assignment to a non-net 'write_sw' is not permitted("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":147)
+ERROR (EX3805) : Concurrent assignment to a non-net 'address' is not permitted("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":149)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'address'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":230)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'write_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":232)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'write_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":235)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'address'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":242)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'read_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":243)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'read_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":246)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'address'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":263)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'write_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":265)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'write_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":268)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'address'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":275)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'read_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":276)
+ERROR (EX2634) : Mixed concurrent and procedural assignments on 'read_sw'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":279)
+GowinSynthesis finish

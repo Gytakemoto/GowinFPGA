@@ -3,20 +3,23 @@
 module uart
 #(
     parameter DELAY_FRAMES = 234, // 27Mhz / 115200 Baud Rate
-    parameter BUFFER_LENGTH = 50;
-)
-(
+    parameter BUFFER_LENGTH = 50
+)(
     input sys_clk,       //Internal system clock of 27MHz
     input uart_rx,       //Rx channel - input
-    input btn,           //Button for transmit data
-    input message,
+    input start,           //Flag for transmit data
+    //input message,
 
-    output uart_tx,             //Tx channel - output
+    output reg read_flg,
+    output reg write_flg,
+    output reg [23:0] address,
+    output reg [15:0] message,
+    output uart_tx             //Tx channel - output
     //output reg [3:0] led,       //Debug LEDs
     //output reg [2:0] led_rgb    //RGB LED -> se for reg, em TOP deve ser wire
 );
 
-localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by to to choose middle of bit
+localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle of bit
 
 //Variables
 
@@ -41,7 +44,8 @@ reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
 //Register to wiring interface
 assign uart_tx = txPinRegister;
 
-//reg [7:0] buffer [BUFFER_LENGTH-1:0];
+reg [7:0] buffer [BUFFER_LENGTH-1:0];
+reg [1:0] start;
 
 //State machine states for receiver state
 localparam RX_IDLE = 0;
@@ -57,9 +61,8 @@ localparam TX_WRITE = 2;
 localparam TX_STOP_BIT = 3;
 localparam TX_DEBOUNCE = 4;
 
-//Simulates a 'memory message'
 initial begin
-    led_rgb <= 3'd000;
+    //led_rgb <= 3'd000;
 end
 
 initial begin
@@ -70,7 +73,7 @@ end
 
 always @(posedge sys_clk) begin
 
-    buffer <= message;
+    message <={buffer[2],buffer[1]};
 
     case(rxState)
 
@@ -113,10 +116,14 @@ always @(posedge sys_clk) begin
         end
     endcase
 
+    //Reseting flags
+    read_flg <= 0;
+    write_flg <= 0;
+
     if(byteReady) begin
 
-        led <= dataIn[3:0];
-        led_rgb <= 3'b101;
+        //led <= dataIn[3:0];
+        //led_rgb <= 3'b101;
         rxByteCounter <= rxByteCounter + 1;
 
         if(dataIn == 8'h2F) begin
@@ -124,20 +131,59 @@ always @(posedge sys_clk) begin
             for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
                 buffer[i] <= 8'h00;
             end
-            led_rgb <= 3'b011;
-        end
-        else if(rxByteCounter > BUFFER_LENGTH-1) begin
-            led_rgb <= 3'b110;                              //Blue LED when message reg is full
+            //led_rgb <= 3'b011;
         end
         else begin
             buffer[rxByteCounter] <= dataIn;
+        end
+
+        if(rxByteCounter >= 1) begin
+
+            //Read operation
+            if(buffer[0] == 8'h52) begin
+
+                //Forth byte transmitted
+                if(rxByteCounter == 3) begin
+
+                    //Address of message
+                    address <= {buffer[3], buffer[2], buffer[1]};
+
+                    //Clear buffer
+                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+                        buffer[i] <= 8'h00;
+                     end
+
+                    rxByteCounter <= 0;
+                    read_flg <= 1;
+                end
+            end
+
+            else if(buffer[0] == 8'h57) begin
+
+                if(rxByteCounter == 5) begin
+
+                    //Address of message
+                    address <= {buffer[3], buffer[2], buffer[1]};
+
+                    message <= {buffer[5],buffer[4]};
+
+                    //Clear buffer
+                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+                        buffer[i] <= 8'h00;
+                     end
+
+                    rxByteCounter <= 0;
+                    write_flg <= 1;
+                end
+            end
         end
     end
 
     case(txState)
 
     TX_IDLE: begin
-        if (btn == 0) begin                         //If button is pressed, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+
+        if (start == 1) begin                         //If button is pressed, start transmission state through TX channel. If else, output HIGH state (nothing happens)
             txState <= TX_START_BIT;
             txCounter <= 0;
             txByteCounter <= 0;             

@@ -41,13 +41,13 @@ input buttonA,                //Tang Nano Button A
 input buttonB,                //Tang Nano Button B
 
 //UART
-input uart_rx                 //RX UART wire pin 18
+input uart_rx,                 //RX UART wire pin 18
 
 //PSRAM mem chip
-inout wire [3:0] mem_sio,     // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+inout [3:0] mem_sio,     // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
 output mem_ce,                // pin 42
 output clk_PSRAM,             // pin 6
-output uart_tx                // TX UART wire pin 17
+output uart_tx,                // TX UART wire pin 17
 
 //DEBUGGING
 //Debug RGB LED
@@ -72,8 +72,8 @@ wire [15:0] data_out;      //Data read -> Output reg from PSRAM
 wire start;                //Flag. Button B to initialized's been pressed
 
 //UART
-wire [7:0] message [BUFFER_LENGTH-1:0]; //Input msg to be sent by UART
-assign message = read;
+wire [MESSAGE_LENGTH-1:0] messages ; //Input msg to be sent by UART
+assign messages = read;
 
 //Regulator
 
@@ -135,15 +135,19 @@ psram initialize(
 );
 
 //UART1 channel communication
-uart #(DELAY_FRAMES = 234, BUFFER_LENGTH = MESSAGE_LENGTH;) UART1 (
+uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(MESSAGE_LENGTH)) UART1 (
     //input
     .sys_clk(sys_clk),
     .uart_rx(uart1_rx),
     .btn(buttonA_debounced),
-    .message(message),
+    
 
     //output
-    .uart_tx(uart1_tx);
+    .read_flg(read_flg),
+    .write_flg(write_flg),
+    .message(message),
+    .address(address),
+    .uart_tx(uart1_tx)
 );
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -163,7 +167,7 @@ localparam [15:0] ADDRESSA = 16'h01;
 localparam [15:0] ADDRESSB = 16'h01;
 localparam [15:0] MSGA = 16'h0121;
 localparam [15:0] MSGB = 16'h0123;
-localparam MESSAGE_LENGTH = 50;
+localparam MESSAGE_LENGTH = 6;
 
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -181,6 +185,7 @@ end
 
 always @(posedge clk_PSRAM) begin
 
+   //DEBUGGING SECTION
    //Activates only when error is present while pressing buttonA
    if((error || proccess == WAITA || proccess == WAITB) && buttonA_debounced) begin
 
@@ -240,7 +245,7 @@ always @(posedge clk_PSRAM) begin
                   proccess <= WAITA;
                   read_sw <= 0;
                   pause <= 1;
-                  read <= data_out;;
+                  read <= data_out;
                 end
               end
 
@@ -281,7 +286,7 @@ always @(posedge clk_PSRAM) begin
               WAITB: begin   
                  if ( read == MSGB ) begin   
                     error <= 0; 
-                    led_rgb[2:0] <= 3'b1111;
+                    led_rgb[2:0] <= 3'b111;
                   end
                   else error <= 1;
                end

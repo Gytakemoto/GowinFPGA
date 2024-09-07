@@ -26,7 +26,7 @@ reg [12:0] rxCounter = 0;       //Counter to keeep track of clocks count
 reg [5:0] rxByteCounter = 0;
 reg [2:0] rxBitNumber = 0;      //How many bits were read
 reg [7:0] dataIn = 0;           //Stores the command
-reg byteReady = 0;              //Flag to tell wether UART protocol is finished
+reg byteReady = 0;              //Flag to tell whether UART protocol is finished
 
 //Transmitter
 reg [3:0] txState = 0;          //State machine variable
