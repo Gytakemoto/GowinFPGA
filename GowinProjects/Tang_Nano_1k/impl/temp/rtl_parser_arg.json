@@ -2,6 +2,14 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_44.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_81.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   },
@@ -23,7 +31,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/impl/temp/rtl_parser.result",
- "Top" : "",
+ "Top" : "TOP",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

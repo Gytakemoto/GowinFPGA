@@ -1,7 +1,7 @@
 -d C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Tang_Nano_1k.cst
+-cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst
 -cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\device.cfg
 -bit
 -tr

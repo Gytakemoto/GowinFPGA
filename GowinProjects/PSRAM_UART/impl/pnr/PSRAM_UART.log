@@ -1,6 +1,29 @@
 Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"
 Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Tang_Nano_1k.cst"
-ERROR  (CM2001) : Cannot open file: 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Tang_Nano_1k.cst', no such file or directory
-Physical Constraint parsed completed with errors
+Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.power.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.pin.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.txt" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.tr.html" completed
+Fri Sep 13 19:06:19 2024
+

@@ -29,8 +29,8 @@ IO_LOC "led_rgb[1]" 11; //Green LED
 IO_PORT "led_rgb[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 
 //PSRAM memory
-IO_LOC "clk_PSRAM" 6;
-IO_PORT "clk_PSRAM" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC "mem_clk_en" 6;
+IO_PORT "mem_clk_en" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 IO_LOC "mem_ce" 42;
 IO_PORT "mem_ce" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 IO_LOC "mem_sio[3]" 41;
@@ -47,12 +47,6 @@ IO_LOC "buttonB" 44;
 IO_PORT "buttonB" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 IO_LOC "buttonA" 13;
 IO_PORT "buttonA" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-
-//UART channels
-IO_LOC  "uart_tx" 17;
-IO_PORT "uart_tx" IO_TYPE=LVCMOS33;
-IO_LOC  "uart_rx" 18;
-IO_PORT "uart_rx" IO_TYPE=LVCMOS33;
 
 
 

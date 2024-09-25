@@ -62,6 +62,15 @@ output reg [3:0] led
 
 //Wire
 
+//UART-PSRAM interface
+wire [23:0] address;
+wire [15:0] message;
+wire read_psram;
+wire read_uart;
+wire write_uart;
+reg [15:0] write;
+
+
 //Button A synchronisation and debouncing
 wire buttonA_debounced;
 //Button B synchronisation and debouncing
@@ -69,18 +78,10 @@ wire buttonB_debounced;
 
 //PSRAM interface
 wire [15:0] data_out;      //Data read -> Output reg from PSRAM
-wire start;                //Flag. Button B to initialized's been pressed
 
-//UART
-wire [MESSAGE_LENGTH-1:0] messages ; //Input msg to be sent by UART
-assign messages = read;
-
-//Regulator
-
+//Reg
 //PSRAM interface
-reg [23:0] address;        //Address of message to be written/read
-reg write_sw;              //Write enable switch
-reg read_sw;               //Read enable switch
+//reg [23:0] address;      //Address of message to be written/read
 reg [15:0] data_in;        //Data to be written (16 bits)
 reg [15:0] read;           //Auxiliary Data read -> reg to be changed at procedural script
 reg error;                 //Error flag
@@ -119,8 +120,7 @@ psram initialize(
     .mem_clk(clk_PSRAM),
     .startbu(buttonB_debounced),
     .address(address),
-    .read_sw(read_sw),
-    .write_sw(write_sw),
+    .read_write(read_write_uart),
     .data_in(data_in),
 
     //output
@@ -128,26 +128,26 @@ psram initialize(
     .endcommand(endcommand),
     .mem_ce(mem_ce),
     .data_out(data_out),
-    .start(start),
+    .read_psram(read_psram),
 
     //inout
-    .mem_sio(mem_sio)
+    .mem_sio(mem_sio),
+    .message(message)
 );
 
 //UART1 channel communication
-uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(MESSAGE_LENGTH)) UART1 (
+uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
     //input
     .sys_clk(sys_clk),
-    .uart_rx(uart1_rx),
-    .btn(buttonA_debounced),
+    .uart_rx(uart_rx),
+    .read_psram(read_psram),
     
 
     //output
-    .read_flg(read_flg),
-    .write_flg(write_flg),
+    .read_write_uart(read_write_uart),
     .message(message),
     .address(address),
-    .uart_tx(uart1_tx)
+    .uart_tx(uart_tx)
 );
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -155,20 +155,17 @@ uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(MESSAGE_LENGTH)) UART1 (
 //LOCAL PARAMETERS
 
 //Testbench read & write
-localparam [3:0] WRITEA = 0;
-localparam [3:0] WRITEB = 1;
-localparam [3:0] READA = 2;
-localparam [3:0] READB = 3;
-localparam [3:0] WAITA = 4;
-localparam [3:0] WAITB = 5;
+localparam [3:0] IDLE = 0;
+localparam [3:0] DEBUG = 1;
 
 //CHANGING PARAMETERS
 localparam [15:0] ADDRESSA = 16'h01;
 localparam [15:0] ADDRESSB = 16'h01;
 localparam [15:0] MSGA = 16'h0121;
 localparam [15:0] MSGB = 16'h0123;
-localparam MESSAGE_LENGTH = 6;
 
+//Number of bytes stored in buffer
+localparam BUFFER_LENGTH = 6;
 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -177,8 +174,6 @@ localparam MESSAGE_LENGTH = 6;
 initial begin
     proccess <= 0;
     error <= 0;
-    write_sw <= 0;
-    read_sw <= 0;
     counter <= 0;
     pause <= 0;
 end
@@ -187,7 +182,7 @@ always @(posedge clk_PSRAM) begin
 
    //DEBUGGING SECTION
    //Activates only when error is present while pressing buttonA
-   if((error || proccess == WAITA || proccess == WAITB) && buttonA_debounced) begin
+   if((error || proccess == DEBUG) && buttonA_debounced) begin
 
         counter <= counter + 1'd1;
 
@@ -213,12 +208,12 @@ always @(posedge clk_PSRAM) begin
     if (qpi_on) begin  //if on IDLE state
 
       //White LED to begin proccess
-      if(start) led_rgb[2:0] <= 3'b000;
+      led_rgb[2:0] <= 3'b000;
 
       //LED RGBs
       if(error) led_rgb[2:0] <= 3'b011;           //Red LED
-      else if ((proccess == WAITA || proccess == WAITB)) led_rgb[2:0] <= 3'b110;    //Blue LED = debugging state
-      else led_rgb[2:0] <= 3'b101;    //Green LED = Reading/writing are ok, awaiting button
+      else if (proccess == DEBUG) led_rgb[2:0] <= 3'b110;    //Blue LED = debugging state
+      else led_rgb[2:0] <= 3'b101;    //Green LED = IDLE state, awaiting button
         
         case(pause)
 
@@ -226,73 +221,25 @@ always @(posedge clk_PSRAM) begin
             case (proccess)
 
               //Writing operation
-              WRITEA: begin   
-                address <= ADDRESSA;
-                data_in <= MSGA;
-                write_sw <= 1;
-                if(endcommand) begin
-                    proccess <= READA;
-                    write_sw <= 0;
+              IDLE: begin
+                if(endcommand && !read_psram) write <= message;
+                if(endcommand && read_psram) begin
+                    proccess <= DEBUG;
                     pause <= 1;
                 end
               end
 
-              //Reading operation
-              READA: begin
-                address <= ADDRESSA;
-                read_sw <= 1;
-                if(endcommand) begin 
-                  proccess <= WAITA;
-                  read_sw <= 0;
-                  pause <= 1;
-                  read <= data_out;
-                end
-              end
-
               //Awaits for instructions
-               WAITA: begin   
-                 if ( read == MSGA ) begin   
+               DEBUG: begin   
+                 if (read == write) begin   
                     error <= 0; 
                   end
                   else error <= 1;
-                  proccess <= WRITEB;
+                  proccess <= IDLE;
                end
-
-              //Writing operation
-              WRITEB: begin   
-                address <= ADDRESSB;
-                data_in <= MSGB;
-                write_sw <= 1;
-                if(endcommand) begin
-                    proccess <= READB;
-                    write_sw <= 0;
-                    pause <= 1;
-                end
-              end
-
-              //Reading proccess
-              READB: begin
-                address <= ADDRESSB;
-                read_sw <= 1;
-                if(endcommand) begin 
-                  proccess <= WAITB;
-                  read_sw <= 0;
-                  pause <= 1;
-                  read <= data_out;
-                end
-              end
-
-              //Awaits for instructions
-              WAITB: begin   
-                 if ( read == MSGB ) begin   
-                    error <= 0; 
-                    led_rgb[2:0] <= 3'b111;
-                  end
-                  else error <= 1;
-               end
-            endcase    
+            endcase
           end
-
+    
           1: begin //Awaits for button pressed
             if(buttonB_debounced) pause <= 0;
           end

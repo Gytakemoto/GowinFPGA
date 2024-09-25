@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 99,
+    "InstLine" : 108,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 105,
+    "InstLine" : 114,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -51,7 +51,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 110,
+    "InstLine" : 119,
     "InstName" : "debuttonB",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -85,15 +85,15 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 117,
+    "InstLine" : 126,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
-    "ModuleLine" : 186,
+    "ModuleLine" : 187,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
       "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
-      "InstLine" : 232,
+      "InstLine" : 228,
       "InstName" : "PSRAM_com",
       "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
       "ModuleLine" : 4,
@@ -103,7 +103,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 138,
+    "InstLine" : 146,
     "InstName" : "UART1",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/UART.v",
     "ModuleLine" : 3,

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="TOP" Register="36" Lut="52" T_Register="136(36)" T_Alu="15(0)" T_Lut="188(52)">
+    <SubModule name="clk2"/>
+    <SubModule name="debuttonA" T_Register="37(0)" T_Lut="18(0)">
+        <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
+        <SubModule name="deb_button" Register="29" Lut="18" T_Register="29(29)" T_Lut="18(18)"/>
+        <SubModule name="sync_button_debounced" Register="5" T_Register="5(5)"/>
+    </SubModule>
+    <SubModule name="initialize" Register="26" Alu="15" Lut="21" T_Register="63(26)" T_Alu="15(15)" T_Lut="118(21)">
+        <SubModule name="PSRAM_com" Register="37" Lut="97" T_Register="37(37)" T_Lut="97(97)"/>
+    </SubModule>
+</Module>

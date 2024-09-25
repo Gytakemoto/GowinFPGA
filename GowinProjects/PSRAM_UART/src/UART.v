@@ -8,15 +8,19 @@ module uart
     input sys_clk,       //Internal system clock of 27MHz
     input uart_rx,       //Rx channel - input
     input start,           //Flag for transmit data
-    //input message,
+    input read_psram,
 
-    output reg read_flg,
-    output reg write_flg,
+    //UART flags. data has been received, tells to PSRAM sub-module whether it was a read or write command.
+    output reg read_write_uart,
+
+
     output reg [23:0] address,
-    output reg [15:0] message,
-    output uart_tx             //Tx channel - output
+    output uart_tx,                 //Tx channel - output
     //output reg [3:0] led,       //Debug LEDs
     //output reg [2:0] led_rgb    //RGB LED -> se for reg, em TOP deve ser wire
+
+    //Message var, whether it's coming from PSRAM (read) or going to it (write)
+    inout [15:0] message
 );
 
 localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle of bit
@@ -24,6 +28,9 @@ localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle 
 //Variables
 
 integer i;
+
+//If writing proccess is finished (denoted by write_uart), message assumes an output state of {buffer[5],buffer[4]} (data to be written)
+assign message = !read_write_uart ? {buffer[5],buffer[4]} : 16'hz;
 
 //Receiver
 reg [3:0] rxState = 0;          //State machine variable
@@ -45,7 +52,6 @@ reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
 assign uart_tx = txPinRegister;
 
 reg [7:0] buffer [BUFFER_LENGTH-1:0];
-reg [1:0] start;
 
 //State machine states for receiver state
 localparam RX_IDLE = 0;
@@ -72,8 +78,6 @@ initial begin
 end
 
 always @(posedge sys_clk) begin
-
-    message <={buffer[2],buffer[1]};
 
     case(rxState)
 
@@ -116,9 +120,8 @@ always @(posedge sys_clk) begin
         end
     endcase
 
-    //Reseting flags
-    read_flg <= 0;
-    write_flg <= 0;
+    //Reseting flags in the next clock they're triggered
+    read_write_uart <= 1'hZ;
 
     if(byteReady) begin
 
@@ -126,10 +129,11 @@ always @(posedge sys_clk) begin
         //led_rgb <= 3'b101;
         rxByteCounter <= rxByteCounter + 1;
 
+        //Rever se faz sentido
         if(dataIn == 8'h2F) begin
             rxByteCounter <= 0;                             //Enter key reset message reg
             for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                buffer[i] <= 8'h00;
+                buffer[i] <= 8'hzz;
             end
             //led_rgb <= 3'b011;
         end
@@ -139,41 +143,47 @@ always @(posedge sys_clk) begin
 
         if(rxByteCounter >= 1) begin
 
-            //Read operation
+            //Read operation - dataIn = R
             if(buffer[0] == 8'h52) begin
 
                 //Forth byte transmitted
-                if(rxByteCounter == 3) begin
+                if(rxByteCounter > 3) begin
 
                     //Address of message
                     address <= {buffer[3], buffer[2], buffer[1]};
 
                     //Clear buffer
                     for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                        buffer[i] <= 8'h00;
+                        buffer[i] <= 8'hzz;
                      end
 
+                    //Reset counter
                     rxByteCounter <= 0;
-                    read_flg <= 1;
+
+                    //read_uart = 1 -> Address collected
+                    read_write_uart <= 1;
                 end
             end
 
+            //Writing operation - dataIn = W
             else if(buffer[0] == 8'h57) begin
 
-                if(rxByteCounter == 5) begin
+                //Sixth byte were transmitted
+                if(rxByteCounter > 5) begin
 
                     //Address of message
                     address <= {buffer[3], buffer[2], buffer[1]};
 
-                    message <= {buffer[5],buffer[4]};
-
                     //Clear buffer
                     for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                        buffer[i] <= 8'h00;
+                        buffer[i] <= 8'hzz;
                      end
 
+                    //Reset counter
                     rxByteCounter <= 0;
-                    write_flg <= 1;
+
+                    //write_uart = 1 -> Address and message to be written collected
+                    read_write_uart <= 0;
                 end
             end
         end
@@ -183,7 +193,8 @@ always @(posedge sys_clk) begin
 
     TX_IDLE: begin
 
-        if (start == 1) begin                         //If button is pressed, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+        if (read_psram) begin                         //If read_psram is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+            {buffer[1],buffer[0]} <= message;
             txState <= TX_START_BIT;
             txCounter <= 0;
             txByteCounter <= 0;             
@@ -218,7 +229,7 @@ always @(posedge sys_clk) begin
     TX_STOP_BIT: begin
         txPinRegister <= 1;                         //Write HIGH state to TX (end of byte transmission)
         if ((txCounter + 1) == DELAY_FRAMES) begin
-            if (txByteCounter == BUFFER_LENGTH - 1) begin   //If all data were transmitted, stop proccess 
+            if (txByteCounter == 1) begin   //If all 2 bytes were transmitted, stop proccess 
                 txState <= TX_DEBOUNCE;
             end else begin
                 txByteCounter <= txByteCounter + 1;         //If else, move to next byte
@@ -230,7 +241,7 @@ always @(posedge sys_clk) begin
     end
     TX_DEBOUNCE: begin                              //Guarantees that by pressing button once, it will occurs ONCE
         if (txCounter == 23'b111111111111111111) begin
-            if (btn == 1) 
+            if (start == 1) 
                 txState <= TX_IDLE;
         end else
             txCounter <= txCounter + 1;

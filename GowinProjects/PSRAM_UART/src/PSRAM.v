@@ -6,17 +6,19 @@ module memory_driver(
 	//INPUT
 	input mem_clk,
 	input [7:0] command,
+	input [3:0] step,
 	input spi_start,
 	input qpi_on,
 	input [23:0] address,
-	input read_sw,
-	input write_sw,
+	input read_write,
 	input [15:0] data_in,
 	
 	output endcommand,
 	output reg mem_ce,
-	output reg [3:0] mem_sio,
-	output reg [15:0] data_out
+	output reg [15:0] data_out,
+	output reg read_psram,
+
+	inout [3:0] mem_sio
 );
 
 //Reinitialization commands
@@ -31,21 +33,24 @@ parameter [7:0] CMD_WRITE = 8'h38;
 //Variables
 reg [5:0] counter;						//Counter to send SPI & QPI commands
 reg sendcommand;						//Flag indicates when sending a command
+
+
 reg reading;							//Reg indicates when in a writing proccess
 reg writing;							//Reg indicates when in a reading proccess
 reg [15:0] data_write;					//Receives data_in; reg to be used in procedural routine
 
-wire quad_start;						//Flag inicates when QUAD com should begin
+reg [3:0] mem_sio_reg;
 
-assign quad_start = (~read_sw && write_sw) || (read_sw && ~write_sw);
+reg  quad_start = 1'hz;
+
+
 assign com_start = quad_start || spi_start;
 
-// quad_start truth table: XOR topology
-//				read_sw		         write_sw			quad_start
-//					0					 0				 	 0
-//					0					 1				 	 1
-//					1					 0					 1
-//					1					 1					 0
+
+assign mem_sio = (counter < 8 || (!read_write && counter < 12)) ? mem_sio_reg : 4'bzzzz;
+
+assign message = read_write ? 
+
 
 //Initial conditions
 initial begin
@@ -58,6 +63,10 @@ end
 
 always @(negedge mem_clk) begin
 
+	if(read_write != 1'hz) quad_start = 0;
+
+	read_psram <= 0;
+
 //When com_start turns high, starts communication
 	if(com_start) begin
 
@@ -66,16 +75,17 @@ always @(negedge mem_clk) begin
 
 		//Define reading or writing proccess
 		if (quad_start) begin
-			if (read_sw) begin
+			if (read_write) begin
 				reading <= 1;
 			end
-			else if (write_sw)  begin
+			else begin
 				writing <= 1;
 				data_write <= data_in;
 			end
 		end
 	end
 
+    // 1 clock delay
 	if (sendcommand) mem_ce <= 0;
 
 	case(qpi_on)
@@ -83,7 +93,7 @@ always @(negedge mem_clk) begin
 		//SPI communication
 		0: begin
 			if (sendcommand) begin
-				mem_sio[3:0] <= {3'bzzz,command[7-counter]}; //MSB first
+				mem_sio_reg[3:0] <= {3'bzzz,command[7-counter]}; //MSB first
 				counter <= counter + 1'd1;
 			end
 			
@@ -98,23 +108,24 @@ always @(negedge mem_clk) begin
 		//QPI communication
 		1: begin
 
-			if(quad_start && sendcommand) begin
+			//maybe change quad_start for com_start
+			if(com_start & sendcommand) begin
 
 				counter <= counter + 1'd1;
 
 				case (counter)
 
 				//Operation command
-				0: mem_sio <= read_sw ? CMD_READ[7:4] : CMD_WRITE[7:4];
-				1: mem_sio <= read_sw ? CMD_READ[3:0] : CMD_WRITE[3:0];
+				0: mem_sio_reg <= read_write ? CMD_READ[7:4] : CMD_WRITE[7:4];
+				1: mem_sio_reg <= read_write ? CMD_READ[3:0] : CMD_WRITE[3:0];
 
 				//Address command
-				2: mem_sio <= address[23:20];
-				3: mem_sio <= address[19:16];
-				4: mem_sio <= address[15:12];
-				5: mem_sio <= address[11:8];
-				6: mem_sio <= address[7:4];
-				7: mem_sio <= address[3:0];
+				2: mem_sio_reg <= address[23:20];
+				3: mem_sio_reg <= address[19:16];
+				4: mem_sio_reg <= address[15:12];
+				5: mem_sio_reg <= address[11:8];
+				6: mem_sio_reg <= address[7:4];
+				7: mem_sio_reg <= address[3:0];
 
 				//Message
 				default: begin
@@ -139,12 +150,13 @@ always @(negedge mem_clk) begin
 						end
 						else if(counter >= 18) begin
 							reading <= 0;
+							read_psram <= 1;
 						end
-						else mem_sio[3:0] <= 4'bzzzz;
+						else mem_sio_reg[3:0] <= 4'bzzzz;
 					end
 					else if(writing) begin
 							if(counter < 12) begin
-								{mem_sio, data_write[15:4]} <= data_write;								
+								{mem_sio_reg, data_write[15:4]} <= data_write;								
 								//data_write = x x x x  y y y y  z z z z  w w w w
 								//
 								//step1:
@@ -162,7 +174,7 @@ always @(negedge mem_clk) begin
 					end
 
 					else begin //End of communication
-						mem_sio[3:0] <= 4'bzzzz;
+						mem_sio_reg[3:0] <= 4'bzzzz;
 						counter <= 0;
 						sendcommand <= 0;
 						mem_ce <= 1;
@@ -176,8 +188,7 @@ always @(negedge mem_clk) begin
 	endcase
 end
 
-assign endcommand = (com_start || quad_start) && ~sendcommand;
-//assign endcommand = (~(com_start || quad_start) && sendcommand) || ((com_start || quad_start) && ~sendcommand);
+assign endcommand = com_start && ~sendcommand;
 
 endmodule
 
@@ -187,17 +198,17 @@ module psram(
 	input mem_clk,				// pin 47
     input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
 	input [23:0] address,
-	input read_sw,
-	input write_sw,
+	input read_write,
 	input [15:0] data_in,
 	
 	output endcommand,
 	output mem_ce,        		// pin 42
-	output wire [15:0] data_out,
+	output [15:0] data_out,
 	output reg qpi_on,
-	output reg start,
+	output reg read_psram,
 
-	inout [3:0] mem_sio    	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+	inout [3:0] mem_sio,   	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+	inout [15:0] message
 );
 
 //Local parameters
@@ -217,11 +228,7 @@ reg [3:0] step = STEP_DELAY;   //indicates the current operation
 reg [15:0] timer = 0;			//Counter
 reg [7:0] command;				//SPI 8 bit command
 
-//reg start = 0;				  	//Start initialization, when button pressed
-
-//wire com_start = 0;				//Control communication status during auto-initialization
-															//0: End the communication
-															//1: Start the communication
+reg start = 0;				  	//Start initialization, when button pressed
 
 reg spi_start = 0;
 
@@ -232,17 +239,19 @@ reg spi_start = 0;
 memory_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
+	.step(step),
 	.spi_start(spi_start),
 	.qpi_on(qpi_on),
 	.address(address),
-	.read_sw(read_sw),
-	.write_sw(write_sw),
+	.read_write(read_write),
 	.data_in(data_in),
 	
+	.read_psram(read_psram),
 	.endcommand(endcommand),
 	.mem_ce(mem_ce),
 	.mem_sio(mem_sio),
-	.data_out(data_out)
+	.data_out(data_out),
+	.message(message)
 );
 
 initial begin

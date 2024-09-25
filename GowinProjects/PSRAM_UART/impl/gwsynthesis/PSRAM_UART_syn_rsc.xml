@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="35" Lut="44" T_Register="174(35)" T_Alu="15(0)" T_Lut="165(44)">
+<Module name="TOP" Register="34" Lut="41" T_Register="328(34)" T_Alu="15(0)" T_Lut="495(41)">
     <SubModule name="clk2"/>
     <SubModule name="debuttonA" T_Register="37(0)" T_Lut="18(0)">
         <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
@@ -11,7 +11,8 @@
         <SubModule name="deb_button" Register="29" Lut="18" T_Register="29(29)" T_Lut="18(18)"/>
         <SubModule name="sync_button_debounced" Register="5" T_Register="5(5)"/>
     </SubModule>
-    <SubModule name="initialize" Register="25" Alu="15" Lut="21" T_Register="65(25)" T_Alu="15(15)" T_Lut="85(21)">
-        <SubModule name="PSRAM_com" Register="40" Lut="64" T_Register="40(40)" T_Lut="64(64)"/>
+    <SubModule name="initialize" Register="26" Alu="15" Lut="24" T_Register="65(26)" T_Alu="15(15)" T_Lut="112(24)">
+        <SubModule name="PSRAM_com" Register="39" Lut="88" T_Register="39(39)" T_Lut="88(88)"/>
     </SubModule>
+    <SubModule name="UART1" Register="155" Lut="306" T_Register="155(155)" T_Lut="306(306)"/>
 </Module>

@@ -8,7 +8,10 @@
         <File path="src/PSRAM.v" type="file.verilog" enable="1"/>
         <File path="src/Sync_Debouncer.v" type="file.verilog" enable="1"/>
         <File path="src/TOP.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll_27_to_44.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll_27_to_81.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll_27_to_84.v" type="file.verilog" enable="1"/>
         <File path="src/Tang_Nano_1k.cst" type="file.cst" enable="1"/>
+        <File path="src/Tang_Nano_1k.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>
