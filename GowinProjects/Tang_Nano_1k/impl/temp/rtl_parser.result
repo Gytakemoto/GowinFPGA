@@ -8,14 +8,6 @@
   "ModuleName" : "gowin_rpll_27_to_45"
  },
  {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_81.v",
-  "InstLine" : 9,
-  "InstName" : "gowin_rpll_27_to_81",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_81.v",
-  "ModuleLine" : 9,
-  "ModuleName" : "gowin_rpll_27_to_81"
- },
- {
   "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP.v",
   "InstLine" : 10,
   "InstName" : "TOP",
@@ -25,7 +17,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP.v",
-    "InstLine" : 76,
+    "InstLine" : 69,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
@@ -33,7 +25,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP.v",
-    "InstLine" : 83,
+    "InstLine" : 75,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -67,7 +59,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP.v",
-    "InstLine" : 89,
+    "InstLine" : 81,
     "InstName" : "debuttonB",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -101,19 +93,123 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP.v",
-    "InstLine" : 96,
+    "InstLine" : 88,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM.v",
-    "ModuleLine" : 248,
+    "ModuleLine" : 247,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
       "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM.v",
-      "InstLine" : 292,
+      "InstLine" : 291,
       "InstName" : "PSRAM_com",
       "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM.v",
       "ModuleLine" : 4,
       "ModuleName" : "memory_driver"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+  "InstLine" : 10,
+  "InstName" : "TOP_bkp",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "TOP_bkp",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+    "InstLine" : 72,
+    "InstName" : "clk2",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/gowin_rpll/gowin_rpll_27_to_84.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "gowin_rpll_27_to_84"
+   },
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+    "InstLine" : 78,
+    "InstName" : "debuttonA",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "sync_debouncer",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 8,
+      "InstName" : "sync_button",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 30,
+      "ModuleName" : "sync"
+     },
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 15,
+      "InstName" : "deb_button",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 53,
+      "ModuleName" : "debouncer"
+     },
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 22,
+      "InstName" : "sync_button_debounced",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 79,
+      "ModuleName" : "once"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+    "InstLine" : 84,
+    "InstName" : "debuttonB",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "sync_debouncer",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 8,
+      "InstName" : "sync_button",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 30,
+      "ModuleName" : "sync"
+     },
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 15,
+      "InstName" : "deb_button",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 53,
+      "ModuleName" : "debouncer"
+     },
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "InstLine" : 22,
+      "InstName" : "sync_button_debounced",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/Sync_Debouncer.v",
+      "ModuleLine" : 79,
+      "ModuleName" : "once"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/TOP_bkp.v",
+    "InstLine" : 91,
+    "InstName" : "initialize",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM_backup.v",
+    "ModuleLine" : 243,
+    "ModuleName" : "psram_bkp",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM_backup.v",
+      "InstLine" : 280,
+      "InstName" : "PSRAM_com",
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Tang_Nano_1k/src/PSRAM_backup.v",
+      "ModuleLine" : 4,
+      "ModuleName" : "memory_driver_bkp"
      }
     ]
    }

@@ -1,17 +1,22 @@
 GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_44.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_81.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v'
-Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":50)
+Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":49)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v'
+Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":48)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v'
 Undeclared symbol 'button_sync', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":11)
 Undeclared symbol 'button_deb', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":18)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v'
-Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":77)
-Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":107)
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":108)
+Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":70)
+Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":99)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":100)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v'
+Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":73)
+Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":101)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":102)
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
 Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
 Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
@@ -23,16 +28,15 @@ Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_
 Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
-Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":10)
+Compiling module 'TOP_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":10)
 Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v":9)
 Compiling module 'sync_debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":1)
 Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":30)
 Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":53)
 WARN  (EX3791) : Expression size 29 truncated to fit in target size 28("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":72)
 Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":79)
-Compiling module 'psram'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":248)
-Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":4)
-WARN  (EX1998) : Net 'i[0]' does not have a driver("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":134)
+Compiling module 'psram_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":243)
+Compiling module 'memory_driver_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":4)
 Compiling module 'gw_gao'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
 Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
@@ -40,13 +44,8 @@ Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW
 Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
 Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
 Trying to combine GAO to RTL design
-NOTE  (EX0101) : Current top module is "TOP"
-WARN  (EX0211) : The output port "led[3]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":28)
-WARN  (EX0211) : The output port "led[2]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":28)
-WARN  (EX0211) : The output port "led[1]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":28)
-WARN  (EX0211) : The output port "led[0]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":28)
+NOTE  (EX0101) : Current top module is "TOP_bkp"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input buttonA is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":15)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -62,14 +61,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-WARN  (NL0002) : The module "sync_debouncer" instantiated to "debuttonA" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":87)
-WARN  (NL0002) : The module "debouncer" instantiated to "deb_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":19)
-WARN  (NL0002) : The module "sync" instantiated to "sync_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":12)
-WARN  (NL0002) : The module "once" instantiated to "sync_button_debounced" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":26)
-WARN  (NL0002) : The module "sync_debouncer" instantiated to "debuttonB" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP.v":93)
-WARN  (NL0002) : The module "debouncer" instantiated to "deb_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":19)
-WARN  (NL0002) : The module "sync" instantiated to "sync_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":12)
-WARN  (NL0002) : The module "once" instantiated to "sync_button_debounced" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":26)
 [95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k.vg" completed
 [100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\Tang_Nano_1k_syn.rpt.html" completed
 GowinSynthesis finish

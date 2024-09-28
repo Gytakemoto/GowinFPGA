@@ -2,47 +2,62 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Lite</Mode>
-    <AoCore_Lite index="0" sample_clock="sys_clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
+    <AoCore_Lite index="0" sample_clock="sys_clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP_bkp">
         <SignalList>
-            <Bus capture_enable="true" name="proccess[3:0]">
-                <Signal>proccess[3]</Signal>
-                <Signal>proccess[2]</Signal>
-                <Signal>proccess[1]</Signal>
-                <Signal>proccess[0]</Signal>
+            <Bus capture_enable="true" name="message[15:0]">
+                <Signal>message[15]</Signal>
+                <Signal>message[14]</Signal>
+                <Signal>message[13]</Signal>
+                <Signal>message[12]</Signal>
+                <Signal>message[11]</Signal>
+                <Signal>message[10]</Signal>
+                <Signal>message[9]</Signal>
+                <Signal>message[8]</Signal>
+                <Signal>message[7]</Signal>
+                <Signal>message[6]</Signal>
+                <Signal>message[5]</Signal>
+                <Signal>message[4]</Signal>
+                <Signal>message[3]</Signal>
+                <Signal>message[2]</Signal>
+                <Signal>message[1]</Signal>
+                <Signal>message[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="erro_read[31:0]">
-                <Signal>erro_read[31]</Signal>
-                <Signal>erro_read[30]</Signal>
-                <Signal>erro_read[29]</Signal>
-                <Signal>erro_read[28]</Signal>
-                <Signal>erro_read[27]</Signal>
-                <Signal>erro_read[26]</Signal>
-                <Signal>erro_read[25]</Signal>
-                <Signal>erro_read[24]</Signal>
-                <Signal>erro_read[23]</Signal>
-                <Signal>erro_read[22]</Signal>
-                <Signal>erro_read[21]</Signal>
-                <Signal>erro_read[20]</Signal>
-                <Signal>erro_read[19]</Signal>
-                <Signal>erro_read[18]</Signal>
-                <Signal>erro_read[17]</Signal>
-                <Signal>erro_read[16]</Signal>
-                <Signal>erro_read[15]</Signal>
-                <Signal>erro_read[14]</Signal>
-                <Signal>erro_read[13]</Signal>
-                <Signal>erro_read[12]</Signal>
-                <Signal>erro_read[11]</Signal>
-                <Signal>erro_read[10]</Signal>
-                <Signal>erro_read[9]</Signal>
-                <Signal>erro_read[8]</Signal>
-                <Signal>erro_read[7]</Signal>
-                <Signal>erro_read[6]</Signal>
-                <Signal>erro_read[5]</Signal>
-                <Signal>erro_read[4]</Signal>
-                <Signal>erro_read[3]</Signal>
-                <Signal>erro_read[2]</Signal>
-                <Signal>erro_read[1]</Signal>
-                <Signal>erro_read[0]</Signal>
+            <Bus capture_enable="true" name="read[15:0]">
+                <Signal>read[15]</Signal>
+                <Signal>read[14]</Signal>
+                <Signal>read[13]</Signal>
+                <Signal>read[12]</Signal>
+                <Signal>read[11]</Signal>
+                <Signal>read[10]</Signal>
+                <Signal>read[9]</Signal>
+                <Signal>read[8]</Signal>
+                <Signal>read[7]</Signal>
+                <Signal>read[6]</Signal>
+                <Signal>read[5]</Signal>
+                <Signal>read[4]</Signal>
+                <Signal>read[3]</Signal>
+                <Signal>read[2]</Signal>
+                <Signal>read[1]</Signal>
+                <Signal>read[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">initialize/PSRAM_com/debug_r</Signal>
+            <Bus capture_enable="true" name="initialize/message[15:0]">
+                <Signal>initialize/message[15]</Signal>
+                <Signal>initialize/message[14]</Signal>
+                <Signal>initialize/message[13]</Signal>
+                <Signal>initialize/message[12]</Signal>
+                <Signal>initialize/message[11]</Signal>
+                <Signal>initialize/message[10]</Signal>
+                <Signal>initialize/message[9]</Signal>
+                <Signal>initialize/message[8]</Signal>
+                <Signal>initialize/message[7]</Signal>
+                <Signal>initialize/message[6]</Signal>
+                <Signal>initialize/message[5]</Signal>
+                <Signal>initialize/message[4]</Signal>
+                <Signal>initialize/message[3]</Signal>
+                <Signal>initialize/message[2]</Signal>
+                <Signal>initialize/message[1]</Signal>
+                <Signal>initialize/message[0]</Signal>
             </Bus>
             <Bus capture_enable="false" name="erro_data_out[31:0]">
                 <Signal>erro_data_out[31]</Signal>
@@ -79,24 +94,6 @@
                 <Signal>erro_data_out[0]</Signal>
             </Bus>
             <Signal capture_enable="false">sys_clk</Signal>
-            <Bus capture_enable="false" name="debug_main[15:0]">
-                <Signal>debug_main[15]</Signal>
-                <Signal>debug_main[14]</Signal>
-                <Signal>debug_main[13]</Signal>
-                <Signal>debug_main[12]</Signal>
-                <Signal>debug_main[11]</Signal>
-                <Signal>debug_main[10]</Signal>
-                <Signal>debug_main[9]</Signal>
-                <Signal>debug_main[8]</Signal>
-                <Signal>debug_main[7]</Signal>
-                <Signal>debug_main[6]</Signal>
-                <Signal>debug_main[5]</Signal>
-                <Signal>debug_main[4]</Signal>
-                <Signal>debug_main[3]</Signal>
-                <Signal>debug_main[2]</Signal>
-                <Signal>debug_main[1]</Signal>
-                <Signal>debug_main[0]</Signal>
-            </Bus>
             <Bus capture_enable="false" name="data_out[15:0]">
                 <Signal>data_out[15]</Signal>
                 <Signal>data_out[14]</Signal>
@@ -115,7 +112,77 @@
                 <Signal>data_out[1]</Signal>
                 <Signal>data_out[0]</Signal>
             </Bus>
+            <Bus capture_enable="false" name="erro_read[31:0]">
+                <Signal>erro_read[31]</Signal>
+                <Signal>erro_read[30]</Signal>
+                <Signal>erro_read[29]</Signal>
+                <Signal>erro_read[28]</Signal>
+                <Signal>erro_read[27]</Signal>
+                <Signal>erro_read[26]</Signal>
+                <Signal>erro_read[25]</Signal>
+                <Signal>erro_read[24]</Signal>
+                <Signal>erro_read[23]</Signal>
+                <Signal>erro_read[22]</Signal>
+                <Signal>erro_read[21]</Signal>
+                <Signal>erro_read[20]</Signal>
+                <Signal>erro_read[19]</Signal>
+                <Signal>erro_read[18]</Signal>
+                <Signal>erro_read[17]</Signal>
+                <Signal>erro_read[16]</Signal>
+                <Signal>erro_read[15]</Signal>
+                <Signal>erro_read[14]</Signal>
+                <Signal>erro_read[13]</Signal>
+                <Signal>erro_read[12]</Signal>
+                <Signal>erro_read[11]</Signal>
+                <Signal>erro_read[10]</Signal>
+                <Signal>erro_read[9]</Signal>
+                <Signal>erro_read[8]</Signal>
+                <Signal>erro_read[7]</Signal>
+                <Signal>erro_read[6]</Signal>
+                <Signal>erro_read[5]</Signal>
+                <Signal>erro_read[4]</Signal>
+                <Signal>erro_read[3]</Signal>
+                <Signal>erro_read[2]</Signal>
+                <Signal>erro_read[1]</Signal>
+                <Signal>erro_read[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="debug_main[15:0]">
+                <Signal>debug_main[15]</Signal>
+                <Signal>debug_main[14]</Signal>
+                <Signal>debug_main[13]</Signal>
+                <Signal>debug_main[12]</Signal>
+                <Signal>debug_main[11]</Signal>
+                <Signal>debug_main[10]</Signal>
+                <Signal>debug_main[9]</Signal>
+                <Signal>debug_main[8]</Signal>
+                <Signal>debug_main[7]</Signal>
+                <Signal>debug_main[6]</Signal>
+                <Signal>debug_main[5]</Signal>
+                <Signal>debug_main[4]</Signal>
+                <Signal>debug_main[3]</Signal>
+                <Signal>debug_main[2]</Signal>
+                <Signal>debug_main[1]</Signal>
+                <Signal>debug_main[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="initialize/PSRAM_com/debug[15:0]">
+                <Signal>initialize/PSRAM_com/debug[15]</Signal>
+                <Signal>initialize/PSRAM_com/debug[14]</Signal>
+                <Signal>initialize/PSRAM_com/debug[13]</Signal>
+                <Signal>initialize/PSRAM_com/debug[12]</Signal>
+                <Signal>initialize/PSRAM_com/debug[11]</Signal>
+                <Signal>initialize/PSRAM_com/debug[10]</Signal>
+                <Signal>initialize/PSRAM_com/debug[9]</Signal>
+                <Signal>initialize/PSRAM_com/debug[8]</Signal>
+                <Signal>initialize/PSRAM_com/debug[7]</Signal>
+                <Signal>initialize/PSRAM_com/debug[6]</Signal>
+                <Signal>initialize/PSRAM_com/debug[5]</Signal>
+                <Signal>initialize/PSRAM_com/debug[4]</Signal>
+                <Signal>initialize/PSRAM_com/debug[3]</Signal>
+                <Signal>initialize/PSRAM_com/debug[2]</Signal>
+                <Signal>initialize/PSRAM_com/debug[1]</Signal>
+                <Signal>initialize/PSRAM_com/debug[0]</Signal>
+            </Bus>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>1110111001111000</GAO_ID>
+    <GAO_ID>1100110010101001</GAO_ID>
 </GAO_CONFIG>

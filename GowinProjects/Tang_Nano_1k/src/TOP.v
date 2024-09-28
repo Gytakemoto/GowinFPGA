@@ -11,59 +11,52 @@ module TOP (
 
 //IO pins
 //INPUT
-input sys_clk, //Internal 27 MHz oscillator
-input buttonA, //Tang Nano Button A
-input buttonB, //Tang Nano Button B
+input sys_clk,                  //Internal 27 MHz oscillator
+input buttonA,                  //Tang Nano Button A
+input buttonB,                  //Tang Nano Button B
 
 //PSRAM mem chip
-inout [3:0] mem_sio,    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
-output mem_ce,               // pin 42
-output mem_clk_en,            // pin 6
+inout [3:0] mem_sio,           // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+output mem_ce,                 // pin 42
+output mem_clk_en,             // pin 6
 
 //OUTPUT
 //Debug RGB LED
-output reg [2:0] led_rgb,             //RGB LEDs
+output reg [2:0] led_rgb       //RGB LEDs
 
-//Debug external LEDs
-output reg [3:0] led
 );
 
 //Variables
 //Write/read variables
-wire [15:0] message;        //inout variable responsible to send and receive commands to be written and readen, respectively
+wire [15:0] message;          // inout variable responsible to send and receive commands to be written and readen, respectively
+wire quad_start;              // Flag to start QPI communication
+wire [15:0] data_out;         // data output
 
 //Reg
-
 //PSRAM communication
-reg [23:0] address;         //Address of message to be written/read
-reg [15:0] msg_reg = 0;     //Reg variable of message used in procedural assignment
-reg com_start;             //Flag indicates whether start QPI or not
-reg d_com_start;
-wire quad_start;
-reg [1:0] read_write;               //Read enable switch
+reg [23:0] address;           // Address of message to be written/read
+reg [15:0] msg_reg = 0;       // Reg variable of message used in procedural assignment
+reg com_start;                // Register - indicates whether start QPI or not
+reg d_com_start;              // Register - stores com_start value to detect step-up
+
+reg [1:0] read_write;         // Read enable switch
 //  R   W   RW
 //  0   0   0   :   Idle state
 //  0   1   1   :   Writintg
 //  1   0   2   :   Reading
 //  1   1   3   :   Undefined
 
-
 //DEBUGGING
 reg [15:0] read;            //Auxiliary Data read -> reg to be changed at procedural script -> debug LEDs
 reg error;                  //Error flag
 reg [3:0] counter;          //Counter to control debugging LEDs when pressing buttonA
 reg pause;                  //Pause flag in order to debug. Proccess MUST work without pauses
-reg [15:0] debug_main;
 
 //TOP operation
 reg [3:0] proccess;         //Keep track of write and reading test proccesses
 reg [15:0] data_in;
-wire [15:0] data_out;
 
-
-//When sending a message, assumes data in msg_reg (msg_uart)
-//assign message = (read_write == 1) ? msg_reg:16'hz;
-
+//Rising edge
 assign quad_start = (com_start & ~d_com_start);
 
 //Button A synchronisation and debouncing
@@ -77,7 +70,6 @@ gowin_rpll_27_to_84 clk2(
     .clkout(clk_PSRAM), //84 MHz
     .clkin(sys_clk) //27MHz
 );
-
 
 //Debouncing proccesses to avoid noise from button pressing
 sync_debouncer debuttonA(
@@ -129,23 +121,20 @@ localparam [15:0] ADDRESSB = 16'hABCD;
 localparam [15:0] MSGA = 16'h1234;
 localparam [15:0] MSGB = 16'h4464;
 
-
 // Declaração de variáveis auxiliares
-integer i;  // Para iteração no for loop
-integer erro_data_out;
-integer erro_read;
-reg [15:0] rand_data;  // Armazenará dados aleatórios
-//reg [15:0] data_aux;  // Armazena dados de leitura para debug
+integer i;                  // Loop iteration
+integer erro_data_out;      // Data_out error
+integer erro_read;          // Read error
+reg [15:0] rand_data;       // Random data_in
 
-// LFSR de 16 bits para gerar números pseudo-aleatórios
+// Pseudorandom 16-bits LFSR
 reg [15:0] lfsr;
-// Declaração das quatro variáveis de 4 bits
+
+// Pseudorandom 4-bits LFSR
 reg [3:0] lfsr_a;  // Primeira parte do LFSR
 reg [3:0] lfsr_b;  // Segunda parte do LFSR
 reg [3:0] lfsr_c;  // Terceira parte do LFSR
 reg [3:0] lfsr_d;  // Quarta parte do LFSR
-
-
 
 initial begin
     proccess <= WRITEA;
@@ -155,7 +144,6 @@ initial begin
     read_write <= 0;
     com_start <= 0;
     d_com_start <= 0;
-    debug_main<= 0;
     read <= 16'hffff;
     address <= 22'h0000;
     i <= 0;
@@ -183,7 +171,6 @@ always @(posedge clk_PSRAM) begin
     lfsr_c = {lfsr_c[2:0], lfsr_c[3] ^ lfsr_c[2] ^ lfsr_c[1]};  // LFSR C (tap positions 3, 2 e 1)
     lfsr_d = {lfsr_d[2:0], lfsr_d[3] ^ lfsr_d[0]};  // LFSR D (tap positions 3 e 0)
 
-
     if (qpi_on) begin
 
             led_rgb <= 4'b000;
@@ -198,7 +185,6 @@ always @(posedge clk_PSRAM) begin
                         rand_data = {lfsr_a, lfsr_b, lfsr_c, lfsr_d};  // Concatena os LFSRs
                         //rand_data = lfsr[15:0];
                         data_in = rand_data;  // Gera dados aleatórios de 16 bits
-                        debug_main = rand_data;
                     end
                     address <= i[22:0];  // Atribui o valor do endereço
                     read_write <= 1;  // Sinaliza operação de escrita
@@ -264,8 +250,5 @@ always @(posedge clk_PSRAM) begin
         endcase
     end
 end
-
-
-
 endmodule
 

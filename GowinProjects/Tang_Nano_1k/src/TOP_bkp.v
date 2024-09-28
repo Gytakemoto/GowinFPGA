@@ -7,22 +7,22 @@
 //`include "PSRAM.v" //Simulation modules
 //`include "gowin_rpll/grPLL_27_to_84.v" //rPLL Gowin native module
 
-module TOP (
+module TOP_bkp (
 
 //IO pins
 //INPUT
-input sys_clk, //Internal 27 MHz oscillator
-input buttonA, //Tang Nano Button A
-input buttonB, //Tang Nano Button B
+input sys_clk,                //Internal 27 MHz oscillator
+input buttonA,                //Tang Nano Button A
+input buttonB,                //Tang Nano Button B
 
 //PSRAM mem chip
-inout [3:0] mem_sio,    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
-output mem_ce,               // pin 42
+inout [3:0] mem_sio,          // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
+output mem_ce,                // pin 42
 output mem_clk_en,            // pin 6
 
 //OUTPUT
 //Debug RGB LED
-output reg [2:0] led_rgb,             //RGB LEDs
+output reg [2:0] led_rgb,     // RGB LEDs
 
 //Debug external LEDs
 output reg [3:0] led
@@ -30,16 +30,16 @@ output reg [3:0] led
 
 //Variables
 //Write/read variables
-wire [15:0] message;        //inout variable responsible to send and receive commands to be written and readen, respectively
+wire [15:0] message;          // inout variable responsible to send and receive commands to be written and readen, respectively]
+wire quad_start;
 
 //Reg
-
 //PSRAM communication
-reg [23:0] address;         //Address of message to be written/read
-reg [15:0] msg_reg = 0;     //Reg variable of message used in procedural assignment
-reg com_start;             //Flag indicates whether start QPI or not
+reg [23:0] address;           // Address of message to be written/read
+reg [15:0] msg_reg = 0;       // Reg variable of message used in procedural assignment
+reg com_start;                // Flag indicates whether start QPI or not
 reg d_com_start;
-wire quad_start;
+
 reg [1:0] read_write;               //Read enable switch
 //  R   W   RW
 //  0   0   0   :   Idle state
@@ -47,22 +47,18 @@ reg [1:0] read_write;               //Read enable switch
 //  1   0   2   :   Reading
 //  1   1   3   :   Undefined
 
-
 //DEBUGGING
 reg [15:0] read;            //Auxiliary Data read -> reg to be changed at procedural script -> debug LEDs
 reg error;                  //Error flag
 reg [3:0] counter;          //Counter to control debugging LEDs when pressing buttonA
 reg pause;                  //Pause flag in order to debug. Proccess MUST work without pauses
-reg [3:0] debug_main;
+reg [15:0] debug_main;
 
 //TOP operation
 reg [3:0] proccess;         //Keep track of write and reading test proccesses
-reg [15:0] data_in;
-wire [15:0] data_out;
-
 
 //When sending a message, assumes data in msg_reg (msg_uart)
-//assign message = (read_write == 1) ? msg_reg:16'hz;
+assign message = (read_write == 1) ? msg_reg : 16'hz;
 
 assign quad_start = (com_start & ~d_com_start);
 
@@ -78,7 +74,6 @@ gowin_rpll_27_to_84 clk2(
     .clkin(sys_clk) //27MHz
 );
 
-
 //Debouncing proccesses to avoid noise from button pressing
 sync_debouncer debuttonA(
     .clk(clk_PSRAM),
@@ -93,21 +88,19 @@ sync_debouncer debuttonB(
 );
 
 //PSRAM initialization
-psram initialize(
+psram_bkp initialize(
     //input
     .mem_clk(clk_PSRAM),
     .startbu(buttonB),
     .address(address),
     .read_write(read_write),
     .quad_start(quad_start),
-    .data_in(data_in),
 
     //output
     .mem_clk_en(mem_clk_en),
     .qpi_on(qpi_on),
     .endcommand(endcommand),
     .mem_ce(mem_ce),
-    .data_out(data_out),
 
     //inout
     .mem_sio(mem_sio),
@@ -123,12 +116,10 @@ localparam [3:0] WAITA = 4;
 localparam [3:0] WAITB = 5;
 
 //CHANGING PARAMETERS
-//localparam [22:0] ADDRESSA = 23'h7FFFFF;
 localparam [22:0] ADDRESSA = 23'h7FFFFE;
 localparam [15:0] ADDRESSB = 16'hABCD;
-localparam [15:0] MSGA = 16'h1234;
+localparam [15:0] MSGA = 16'hABCD;
 localparam [15:0] MSGB = 16'h4464;
-
 
 initial begin
     proccess <= 0;
@@ -138,8 +129,8 @@ initial begin
     read_write <= 0;
     com_start <= 0;
     d_com_start <= 0;
-    debug_main<= 0;
-    read <= 16'hffff;
+    debug_main <= 16'hffff;
+    read <= 16'h1;
     address <= 22'h0000;
 end
 
@@ -183,7 +174,7 @@ always @(posedge clk_PSRAM) begin
       else led_rgb[2:0] <= 3'b111;    //LEDs off = Idle, awaiting button
       
       //Keep regs updated
-      read <= read;
+      //read <= read;
       com_start <= com_start;
       ////proccess <= proccess;
       address <= address;
@@ -196,19 +187,17 @@ always @(posedge clk_PSRAM) begin
               //Writing operation
               WRITEA: begin 
                 address <= ADDRESSA;
-                data_in <= MSGA;
-                //msg_reg <= MSGA;
+                msg_reg <= MSGA;
 
                 //Start writing communication
                 read_write <= 1;
                 com_start <= 1;
-                //pause <= 0;
 
                 if(endcommand) begin
                     proccess <= READA;
                     //Stop communication
                     com_start <= 0;
-                    //pause <= 1;
+                    pause <= 1;
                 end
               end
 
@@ -220,18 +209,18 @@ always @(posedge clk_PSRAM) begin
                 com_start <= 1;
 
                 if(endcommand) begin
-                  read <= data_out;
-                  debug_main <= 1'd1;
+                  //debug_main <= message;
+                  read <= message;
                   //Stop communication
                   com_start <= 0;
                   proccess <= WAITA;
-                  //pause <= 1;
-                  //read <= message;
+                  pause <= 1;
                 end
               end
 
               //Awaits for instructions
-               WAITA: begin   
+               WAITA: begin
+                proccess <= proccess;
                  if ( read == MSGA ) begin   
                     error <= 0; 
                   end
@@ -243,13 +232,13 @@ always @(posedge clk_PSRAM) begin
               WRITEB: begin   
                 address <= ADDRESSB;
                 //msg_reg <= MSGB;
-                data_in <= MSGB;
+                msg_reg <= MSGB;
                 read_write <= 1;
                 com_start <= 1;
                 if(endcommand) begin
                     proccess <= READB;
                     com_start <= 0;
-                    //pause <= 1;
+                    pause <= 1;
                 end
               end
 
@@ -259,10 +248,10 @@ always @(posedge clk_PSRAM) begin
                 read_write <= 2;
                 com_start <= 1;
                 if(endcommand) begin
-                  read <= data_out; 
+                  read <= message; 
                   com_start <= 0;
                   proccess <= WAITB;
-                  //pause <= 1;
+                  pause <= 1;
                   //read <= message;
                 end
               end
@@ -285,6 +274,5 @@ always @(posedge clk_PSRAM) begin
         endcase
       end
 end
-
 endmodule
 

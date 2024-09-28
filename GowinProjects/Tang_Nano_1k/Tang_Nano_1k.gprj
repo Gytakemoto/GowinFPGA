@@ -6,10 +6,11 @@
     <Device name="GW1NZ-1" pn="GW1NZ-LV1QN48C6/I5">gw1nz1-015</Device>
     <FileList>
         <File path="src/PSRAM.v" type="file.verilog" enable="1"/>
+        <File path="src/PSRAM_backup.v" type="file.verilog" enable="1"/>
         <File path="src/Sync_Debouncer.v" type="file.verilog" enable="1"/>
         <File path="src/TOP.v" type="file.verilog" enable="1"/>
+        <File path="src/TOP_bkp.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll_27_to_44.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/gowin_rpll_27_to_81.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll_27_to_84.v" type="file.verilog" enable="1"/>
         <File path="src/Tang_Nano_1k.cst" type="file.cst" enable="1"/>
         <File path="src/Tang_Nano_1k.rao" type="file.gao" enable="1"/>

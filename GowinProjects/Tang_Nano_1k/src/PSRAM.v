@@ -32,7 +32,6 @@ parameter [7:0] CMD_READ = 8'hEB;
 parameter [7:0] CMD_WRITE = 8'h02;
 
 //Variables
-
 //REG
 reg [5:0] counter;						//Counter to send SPI & QPI commands
 reg sendcommand;						//Flag indicates when sending a command
@@ -261,7 +260,7 @@ module psram(
 
 	inout [3:0] mem_sio,    	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41    
 
-inout [15:0] message
+	inout [15:0] message
 );
 
 //Local parameters

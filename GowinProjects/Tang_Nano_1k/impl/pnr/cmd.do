@@ -3,7 +3,7 @@
 -pn GW1NZ-LV1QN48C6/I5
 -cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Tang_Nano_1k.cst
 -cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\pnr\device.cfg
--gao_crc 1110111001111000
+-gao_crc 1100110010101001
 -bit
 -tr
 -ph
