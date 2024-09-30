@@ -12,14 +12,15 @@ module memory_driver(
 	input [23:0] address,
 	input [1:0] read_write,
 	input quad_start,
-    input [15:0] data_in,
-    input [3:0] proccess,
+  input [15:0] data_in,
+  input [3:0] proccess,
 	
 	output endcommand,
 	output reg mem_ce,
-    output reg [15:0] data_out,
+	output reg [15:0] data_out,
+
 	inout [3:0] mem_sio,
-    inout [15:0] message 
+	inout [15:0] message 
 );
 
 //Reinitialization commands
@@ -65,14 +66,14 @@ initial begin
 	reading <= 0;
 	writing <= 0;
 	mem_ce <= 1;
-    mem_sio_reg <= 4'h0;
-    //quad_start <= 0;
-    flag <= 0;
-    debug <= 0;
-    debug_w <= 0;
-    debug_r <= 0;
-    data_out <= 0;
-    data_write <= 0;
+	mem_sio_reg <= 4'h0;
+	//quad_start <= 0;
+	flag <= 0;
+	debug <= 0;
+	debug_w <= 0;
+	debug_r <= 0;
+	data_out <= 0;
+	data_write <= 0;
 end
 
 always @(posedge mem_clk) begin
@@ -246,17 +247,17 @@ endmodule
 //PSRAM "TOP module"
 module psram(
 	input mem_clk,				// pin 47
-    input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
+	input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
 	input [23:0] address,
 	input [1:0] read_write,
 	input quad_start,
-    input [15:0] data_in,
+  input [15:0] data_in,
 	
 	output endcommand,
 	output mem_ce,        		// pin 42
 	output reg qpi_on,
-    output [15:0] data_out,
-    output mem_clk_en,
+	output [15:0] data_out,
+	output mem_clk_enabled,
 
 	inout [3:0] mem_sio,    	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41    
 
@@ -297,14 +298,14 @@ memory_driver PSRAM_com(
 	.address(address),
 	.read_write(read_write),
 	.quad_start(quad_start),
-    .data_in(data_in),
-    .proccess(step),
+	.data_in(data_in),
+	.proccess(step),
 
 	.data_out(data_out),
 	.endcommand(endcommand),
 	.mem_ce(mem_ce),
 	.mem_sio(mem_sio),
-    .message(message)
+	.message(message)
 );
 
 initial begin
@@ -314,7 +315,7 @@ initial begin
 	qpi_on <= 0;
 end
 
-assign mem_clk_en = (step == STEP_DELAY) ? 0 : mem_clk;
+assign mem_clk_enabled = (step == STEP_DELAY) ? 0 : mem_clk;
 
 always @(posedge mem_clk) begin
 

@@ -5,20 +5,22 @@ module uart
     parameter DELAY_FRAMES = 234, // 27Mhz / 115200 Baud Rate
     parameter BUFFER_LENGTH = 50
 )(
-    input sys_clk,       //Internal system clock of 27MHz
-    input uart_rx,       //Rx channel - input
-    input start,           //Flag for transmit data
+    input sys_clk,          //Internal system clock of 27MHz
+    input uart_rx,          //Rx channel - input
+    input start,            //Flag for transmit data
     input read_psram,
 
-    //UART flags. data has been received, tells to PSRAM sub-module whether it was a read or write command.
+    //UART flag. data has been received, tells to PSRAM sub-module whether it was a read or write command.
     output reg read_write_uart,
 
-
-    output reg [23:0] address,
-    output uart_tx,                 //Tx channel - output
+    output reg [22:0] address,
+    output uart_tx,               //Tx channel - output
+    output reg com_start,
     //output reg [3:0] led,       //Debug LEDs
     //output reg [2:0] led_rgb    //RGB LED -> se for reg, em TOP deve ser wire
 
+
+    inout [1:0] read_write_psram,
     //Message var, whether it's coming from PSRAM (read) or going to it (write)
     inout [15:0] message
 );
@@ -30,7 +32,11 @@ localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle 
 integer i;
 
 //If writing proccess is finished (denoted by write_uart), message assumes an output state of {buffer[5],buffer[4]} (data to be written)
-assign message = !read_write_uart ? {buffer[5],buffer[4]} : 16'hz;
+//MIGHT NOT WORK
+assign message = !read_write_uart ? msg_reg : 16'hz;
+
+//Define whether is read or write operation. Must be an output when receiving. Otherwise, must be left high-Z
+assign read_write_psram = () ? : 2'bzz;
 
 //Receiver
 reg [3:0] rxState = 0;          //State machine variable
@@ -39,6 +45,7 @@ reg [5:0] rxByteCounter = 0;
 reg [2:0] rxBitNumber = 0;      //How many bits were read
 reg [7:0] dataIn = 0;           //Stores the command
 reg byteReady = 0;              //Flag to tell wether UART protocol is finished
+reg msg_reg;
 
 //Transmitter
 reg [3:0] txState = 0;          //State machine variable
@@ -47,6 +54,9 @@ reg [7:0] dataOut = 0;          //
 reg txPinRegister = 1;          //Register linked with uart_tx; output of transmission
 reg [2:0] txBitNumber = 0;      //Keep track of number of bits transmitted
 reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
+
+//Debug
+reg wrong_command;
 
 //Register to wiring interface
 assign uart_tx = txPinRegister;
@@ -68,16 +78,17 @@ localparam TX_STOP_BIT = 3;
 localparam TX_DEBOUNCE = 4;
 
 initial begin
-    //led_rgb <= 3'd000;
-end
-
-initial begin
         for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
                 buffer[i] <= 8'h00;
         end
+    rxByteCounter <= 0;
+    wrong_command <= 0;
 end
 
 always @(posedge sys_clk) begin
+
+    //Idle start is  HIGH. Only LOW when receive state is DONE.
+    com_start <= 1;
 
     case(rxState)
 
@@ -121,6 +132,7 @@ always @(posedge sys_clk) begin
     endcase
 
     //Reseting flags in the next clock they're triggered
+    //might not work
     read_write_uart <= 1'hZ;
 
     if(byteReady) begin
@@ -138,30 +150,36 @@ always @(posedge sys_clk) begin
             //led_rgb <= 3'b011;
         end
         else begin
-            buffer[rxByteCounter] <= dataIn;
+            buffer[rxByteCounter] = dataIn;
         end
 
-        if(rxByteCounter >= 1) begin
+        if(rxByteCounter >= 0) begin
 
             //Read operation - dataIn = R
             if(buffer[0] == 8'h52) begin
 
                 //Forth byte transmitted
-                if(rxByteCounter > 3) begin
+                if(rxByteCounter >= 3) begin
+
+                    //Clear buffer
+                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+                        //Maybe change to 8'h00
+                        buffer[i] <= 8'hzz;
+                    end
+
+                    //read_uart = 1 -> Address collected, ready for read operation. mMight not work
+                    read_write_uart <= 1;
+
+                    //DESSE PONTO, Address DEVE ESTAR DEFINIDO!
 
                     //Address of message
                     address <= {buffer[3], buffer[2], buffer[1]};
 
-                    //Clear buffer
-                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                        buffer[i] <= 8'hzz;
-                     end
+                    //com_start = LOW: receive is done! Proceed to start reading proccess with PSRAM
+                    com_start <= 0;
 
                     //Reset counter
                     rxByteCounter <= 0;
-
-                    //read_uart = 1 -> Address collected
-                    read_write_uart <= 1;
                 end
             end
 
@@ -169,10 +187,12 @@ always @(posedge sys_clk) begin
             else if(buffer[0] == 8'h57) begin
 
                 //Sixth byte were transmitted
-                if(rxByteCounter > 5) begin
+                if(rxByteCounter >= 5) begin
 
                     //Address of message
                     address <= {buffer[3], buffer[2], buffer[1]};
+
+                    msg_reg <= {buffer[5],buffer[4]};
 
                     //Clear buffer
                     for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
@@ -182,9 +202,23 @@ always @(posedge sys_clk) begin
                     //Reset counter
                     rxByteCounter <= 0;
 
+                    //DESSE PONTO, MESSAGE & Address DEVEM ESTAR DEFINIDOS!
+
+                    //com_start = LOW: receive is done! Proceed to start writing proccess with PSRAM
+                    com_start <= 0;
                     //write_uart = 1 -> Address and message to be written collected
-                    read_write_uart <= 0;
+                    //read_write_uart <= 0;
                 end
+            end
+            else begin
+
+                wrong_command <= 1;
+
+                //for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+                    //Maybe change to 8'h00
+                //    buffer[i] <= 8'hzz;
+                //end
+
             end
         end
     end

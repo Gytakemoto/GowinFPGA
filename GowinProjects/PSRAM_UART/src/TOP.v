@@ -81,10 +81,12 @@ wire [15:0] data_out;      //Data read -> Output reg from PSRAM
 
 //Reg
 //PSRAM interface
-//reg [23:0] address;      //Address of message to be written/read
-reg [15:0] data_in;        //Data to be written (16 bits)
-reg [15:0] read;           //Auxiliary Data read -> reg to be changed at procedural script
-reg error;                 //Error flag
+reg [22:0] address;       //Address of message to be written/read
+reg [15:0] data_in;         //Data to be written (16 bits)
+reg [15:0] read;            //Auxiliary Data read -> reg to be changed at procedural script
+reg error;                  //Error flag
+wire quad_start;            // Flag to start QPI communication
+reg d_com_start;
 
 // Debugging
 reg [3:0] proccess; //Keep track of write and reading test proccesses
@@ -144,6 +146,7 @@ uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
     
 
     //output
+    .com_start(com_start),
     .read_write_uart(read_write_uart),
     .message(message),
     .address(address),
@@ -159,10 +162,10 @@ localparam [3:0] IDLE = 0;
 localparam [3:0] DEBUG = 1;
 
 //CHANGING PARAMETERS
-localparam [15:0] ADDRESSA = 16'h01;
-localparam [15:0] ADDRESSB = 16'h01;
-localparam [15:0] MSGA = 16'h0121;
-localparam [15:0] MSGB = 16'h0123;
+//localparam [15:0] ADDRESSA = 16'h01;
+//localparam [15:0] ADDRESSB = 16'h01;
+//localparam [15:0] MSGA = 16'h0121;
+//localparam [15:0] MSGB = 16'h0123;
 
 //Number of bytes stored in buffer
 localparam BUFFER_LENGTH = 6;
@@ -170,13 +173,15 @@ localparam BUFFER_LENGTH = 6;
 //-----------------------------------------------------------------------------------------------------------------
 
 //SCRIPT
-
 initial begin
     proccess <= 0;
     error <= 0;
     counter <= 0;
     pause <= 0;
 end
+
+//Rising edge
+assign quad_start = (com_start & ~d_com_start);
 
 always @(posedge clk_PSRAM) begin
 
