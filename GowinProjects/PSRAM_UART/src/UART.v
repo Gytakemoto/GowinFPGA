@@ -11,7 +11,7 @@ module uart
     output reg [1:0] read_psram,    //Correspond to reg [1:0] data_write
     input [15:0] write,
 
-
+    output quad_start,
     output reg [22:0] address,
     output uart_tx,               //Tx channel - output
     output reg com_start
@@ -62,6 +62,10 @@ reg wrong_command;
 //Register to wiring interface
 assign uart_tx = txPinRegister;
 
+reg d_com_start;
+assign quad_start = com_start && !d_com_start;
+
+
 reg [7:0] buffer [BUFFER_LENGTH-1:0];
 
 //State machine states for receiver state
@@ -84,15 +88,18 @@ initial begin
         end
     rxByteCounter <= 0;
     wrong_command <= 0;
-    read_psram <= 0;
+    read_psram = 0;
     debug_address <= 0;
     debug <= 0;
+    com_start <= 0;
 end
 
-always @(posedge sys_clk) begin
+always @(negedge sys_clk) begin
 
-    //Idle start is  HIGH. Only LOW when receive state is DONE.
-    com_start <= 1;
+    d_com_start <= com_start;
+    com_start <= 0;    
+    
+    if(quad_start) debug <= 1;
 
     case(rxState)
 
@@ -102,6 +109,8 @@ always @(posedge sys_clk) begin
                 rxState <= RX_START_BIT;
                 rxCounter <= 1;             //Include current 'clock pulse' in the UART bit frame
                 rxBitNumber <= 0;
+                 //Idle start is LOW. Only HIGH when receive state is DONE.
+                com_start <= 0;
             end
         end
         RX_START_BIT: begin                         //Just shifts the bit frame once
@@ -162,13 +171,11 @@ always @(posedge sys_clk) begin
             //Read operation - dataIn = R
             if(buffer[0] == 8'h52) begin
 
-                debug <= 1;
-
                 //Forth byte transmitted
                 if(rxByteCounter >= 3) begin
 
                     //read_uart = 2 -> Address collected, ready for read operation. mMight not work
-                    read_psram <= 2;
+                    read_psram = 2;
 
                     //DESSE PONTO, Address DEVE ESTAR DEFINIDO!
 
@@ -176,7 +183,7 @@ always @(posedge sys_clk) begin
                     address = {buffer[1], buffer[2], buffer[3]};
 
                     //com_start = LOW: receive is done! Proceed to start reading proccess with PSRAM
-                    com_start <= 0;
+                    com_start <= 1;
 
                     //Reset counter
                     rxByteCounter <= 0;
@@ -186,7 +193,7 @@ always @(posedge sys_clk) begin
                     //Clear buffer
                     for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
                         //Maybe change to 8'h00
-                        buffer[i] = 8'hzz;
+                        buffer[i] = 8'h00;
                     end
 
                 end

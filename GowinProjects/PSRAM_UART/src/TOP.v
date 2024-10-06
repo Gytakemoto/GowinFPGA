@@ -23,7 +23,7 @@
 // NOTES: 
 // Upon error, RED LED will be displayed. 
 // During debugging, blue light will turn on
-// During proccess, green led will turn on
+// During process, green led will turn on
 //-----------------------------------------------------------------------------------------------------------------
 
 //Include sub-modules (SIMULATION ONLY)
@@ -51,10 +51,10 @@ output uart_tx,                // TX UART wire pin 17
 
 //DEBUGGING
 //Debug RGB LED
-output reg [2:0] led_rgb,     //RGB LEDs
+output reg [2:0] led_rgb     //RGB LEDs
 
 //Debug external LEDs
-output reg [3:0] led
+//output reg [3:0] led
 );
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -84,16 +84,16 @@ reg [15:0] read;            //Auxiliary Data read -> reg to be changed at proced
 reg error;                  //Error flag
 wire quad_start;            // Flag to start QPI communication
 reg d_com_start;
-wire com_start;
+reg com_start;
 // Debugging
-reg [3:0] proccess; //Keep track of write and reading test proccesses
+reg [3:0] process; //Keep track of write and reading test processes
 reg [3:0] counter; //Counter to control debugging LEDs when pressing buttonA
 reg pause;
 
 //Reading first. Delete afterwards
 wire [1:0] read_write;
-wire com_start_psram;
-reg com_start_write;
+wire quad_start_uart;
+wire quad_start_write;
 wire [22:0] address_psram;
 reg [22:0] address_write;
 reg debug;
@@ -108,7 +108,7 @@ gowin_rpll_27_to_84 clk2(
     .clkin(sys_clk) //27MHz
 );
 
-//Debouncing proccesses to avoid noise from button pressing
+//Debouncing processes to avoid noise from button pressing
 sync_debouncer debuttonA(
     .clk(clk_PSRAM),
     .button(buttonA),
@@ -152,7 +152,7 @@ uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
     .send_uart(send_uart),
     
     //output
-    .com_start(com_start_psram),
+    .quad_start(quad_start_uart),
     //.message(message),
     .address(address_psram),
     .uart_tx(uart_tx)
@@ -165,7 +165,7 @@ uart #(.DELAY_FRAMES(234), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
 //Testbench read & write
 localparam [3:0] WRITE = 0;
 localparam [3:0] IDLE = 1;
-localparam [3:0] DEBUG = 2;
+localparam [3:0] WRITEB = 2;
 
 //CHANGING PARAMETERS
 //localparam [15:0] ADDRESSA = 16'h01;
@@ -180,25 +180,26 @@ localparam BUFFER_LENGTH = 6;
 
 //SCRIPT
 initial begin
-    proccess <= 0;
-    error <= 0;
+    process <= 0;
     counter <= 0;
     pause <= 0;
     read <= 0;
     send_uart <= 0;
-    com_start_write <= 0;
-debug <= 0;
+    com_start <= 0;
+    debug <= 0;
 end
 
 //Writing only. Delete afterwards
-assign com_start = (proccess == WRITE) ? com_start_write : com_start_psram;
-assign read_write = (proccess == WRITE) ? 1 : read_psram;
-assign address = (proccess == WRITE) ? address_write : address_psram;
+//assign quad_start = ((process == WRITE) || (process == WRITEB)) ? quad_start_write : quad_start_uart;
+//assign read_write = ((process == WRITE) || (process == WRITEB)) ? 1 : read_psram;
+//assign address = ((process == WRITE) || (process == WRITEB)) ? address_write : address_psram;
 
+assign quad_start = (process != IDLE) ? quad_start_write : quad_start_uart;
+assign read_write = ((process != IDLE)) ? 1 : read_psram;
+assign address = ((process != IDLE)) ? address_write : address_psram;
 
 //Rising edge
-assign quad_start = (com_start & ~d_com_start);
-
+assign quad_start_write = (com_start & ~d_com_start);
 
 always @(posedge clk_PSRAM) begin
 
@@ -207,40 +208,40 @@ always @(posedge clk_PSRAM) begin
     //Testing PSRAM communication
     if (qpi_on) begin  //if on IDLE state
 
-      //White LED to begin proccess
+      //White LED to begin process
       led_rgb[2:0] <= 3'b000;
 
       //LED RGBs
       if(error) led_rgb[2:0] <= 3'b011;           //Red LED
-      else if (proccess == DEBUG) led_rgb[2:0] <= 3'b110;    //Blue LED = debugging state
-      else if (proccess == WRITE) led_rgb[2:0] <= 3'b101;    //Green LED = IDLE state, awaiting button
-      else if (proccess == IDLE) led_rgb[2:0] <= 3'b010;
+      else if (process == WRITE) led_rgb[2:0] <= 3'b110;    //Blue LED = debugging state
+      else if (process == WRITEB) led_rgb[2:0] <= 3'b101;    //Green LED = IDLE state, awaiting button
+      else if (process == IDLE) led_rgb[2:0] <= 3'b010;
 
       send_uart <= 0;   //Reset send_uart to only be triggered once. Subject to changes
         
         case(pause)
 
           0: begin
-            case (proccess)
+            case (process)
 
               WRITE: begin
 
                 address_write <= 24'h1234;
-                com_start_write <= 1;
+                com_start <= 1;
                 data_in <= 16'hABCD;
 
                 if(endcommand) begin
-                  pause <= 1;
-                  com_start_write <= 0;         
+                  //pause <= 1;
+                  com_start <= 0;
+                  process <= IDLE;
                 end
-
               end
               
               //Writing operation
               IDLE: begin
                 if(endcommand && read_write == 2) begin   //Se uma leitura tiver sido requisitada e endcommand = 1..
-                    proccess <= DEBUG;
-                                      debug <= 1;
+                    process <= WRITEB;
+                    debug <= 1;
                     //pause <= 1;
                     read <= data_out;
                     send_uart <= 1;           // Flag para enviar mensagem na UART
@@ -248,20 +249,24 @@ always @(posedge clk_PSRAM) begin
               end
 
               //Awaits for instructions
-               DEBUG: begin   
-                 //if (read == write) begin   
-                 //   error <= 0; 
-                 // end
-                 //else error <= 1;
-                  proccess <= IDLE;
-               end
+               WRITEB: begin
+
+                address_write <= 24'h1234;
+                com_start <= 1;
+                data_in <= 16'h12EF;
+                if(endcommand) begin
+                  //pause <= 1;
+                  com_start <= 0;
+                  process <= IDLE;
+                end
+              end
             endcase
           end
     
           1: begin //Awaits for button pressed
             if(buttonB_debounced) begin
                 pause <= 0;
-                proccess <= proccess + 1;
+                process <= process + 1;
             end
           end
 

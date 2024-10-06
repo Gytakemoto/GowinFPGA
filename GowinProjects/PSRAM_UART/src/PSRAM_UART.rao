@@ -29,7 +29,56 @@
                 <Signal>address[1]</Signal>
                 <Signal>address[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="UART1/debug_address[22:0]">
+            <Bus capture_enable="true" name="data_out[15:0]">
+                <Signal>data_out[15]</Signal>
+                <Signal>data_out[14]</Signal>
+                <Signal>data_out[13]</Signal>
+                <Signal>data_out[12]</Signal>
+                <Signal>data_out[11]</Signal>
+                <Signal>data_out[10]</Signal>
+                <Signal>data_out[9]</Signal>
+                <Signal>data_out[8]</Signal>
+                <Signal>data_out[7]</Signal>
+                <Signal>data_out[6]</Signal>
+                <Signal>data_out[5]</Signal>
+                <Signal>data_out[4]</Signal>
+                <Signal>data_out[3]</Signal>
+                <Signal>data_out[2]</Signal>
+                <Signal>data_out[1]</Signal>
+                <Signal>data_out[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">debug</Signal>
+            <Signal capture_enable="true">initialize/PSRAM_com/debug</Signal>
+            <Bus capture_enable="true" name="read_write[1:0]">
+                <Signal>read_write[1]</Signal>
+                <Signal>read_write[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">UART1/debug</Signal>
+            <Bus capture_enable="true" name="process[3:0]">
+                <Signal>process[3]</Signal>
+                <Signal>process[2]</Signal>
+                <Signal>process[1]</Signal>
+                <Signal>process[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="read[15:0]">
+                <Signal>read[15]</Signal>
+                <Signal>read[14]</Signal>
+                <Signal>read[13]</Signal>
+                <Signal>read[12]</Signal>
+                <Signal>read[11]</Signal>
+                <Signal>read[10]</Signal>
+                <Signal>read[9]</Signal>
+                <Signal>read[8]</Signal>
+                <Signal>read[7]</Signal>
+                <Signal>read[6]</Signal>
+                <Signal>read[5]</Signal>
+                <Signal>read[4]</Signal>
+                <Signal>read[3]</Signal>
+                <Signal>read[2]</Signal>
+                <Signal>read[1]</Signal>
+                <Signal>read[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="UART1/debug_address[22:0]">
                 <Signal>UART1/debug_address[22]</Signal>
                 <Signal>UART1/debug_address[21]</Signal>
                 <Signal>UART1/debug_address[20]</Signal>
@@ -54,45 +103,7 @@
                 <Signal>UART1/debug_address[1]</Signal>
                 <Signal>UART1/debug_address[0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="data_out[15:0]">
-                <Signal>data_out[15]</Signal>
-                <Signal>data_out[14]</Signal>
-                <Signal>data_out[13]</Signal>
-                <Signal>data_out[12]</Signal>
-                <Signal>data_out[11]</Signal>
-                <Signal>data_out[10]</Signal>
-                <Signal>data_out[9]</Signal>
-                <Signal>data_out[8]</Signal>
-                <Signal>data_out[7]</Signal>
-                <Signal>data_out[6]</Signal>
-                <Signal>data_out[5]</Signal>
-                <Signal>data_out[4]</Signal>
-                <Signal>data_out[3]</Signal>
-                <Signal>data_out[2]</Signal>
-                <Signal>data_out[1]</Signal>
-                <Signal>data_out[0]</Signal>
-            </Bus>
-            <Signal capture_enable="true">debug</Signal>
-            <Bus capture_enable="false" name="read[15:0]">
-                <Signal>read[15]</Signal>
-                <Signal>read[14]</Signal>
-                <Signal>read[13]</Signal>
-                <Signal>read[12]</Signal>
-                <Signal>read[11]</Signal>
-                <Signal>read[10]</Signal>
-                <Signal>read[9]</Signal>
-                <Signal>read[8]</Signal>
-                <Signal>read[7]</Signal>
-                <Signal>read[6]</Signal>
-                <Signal>read[5]</Signal>
-                <Signal>read[4]</Signal>
-                <Signal>read[3]</Signal>
-                <Signal>read[2]</Signal>
-                <Signal>read[1]</Signal>
-                <Signal>read[0]</Signal>
-            </Bus>
-            <Signal capture_enable="false">UART1/debug</Signal>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>1001000111101001</GAO_ID>
+    <GAO_ID>1010001100001010</GAO_ID>
 </GAO_CONFIG>

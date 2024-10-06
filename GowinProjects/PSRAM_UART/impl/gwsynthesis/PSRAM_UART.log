@@ -1,67 +1,71 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v'
-Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":61)
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v'
-Undeclared symbol 'button_sync', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":11)
-Undeclared symbol 'button_deb', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":18)
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v'
-Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":107)
-Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":135)
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":136)
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v'
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
-WARN  (SYS-1203) : Column %u exceeds maximum value %u("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":278)
-Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v":9)
-Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":4)
-Compiling module 'psram'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":242)
-Compiling module 'sync_debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":1)
-Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":30)
-Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":53)
-WARN  (EX3791) : Expression size 29 truncated to fit in target size 28("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":72)
-Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":79)
-Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":36)
-WARN  (EX3780) : Using initial value of 'error' since it is never assigned("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":191)
-Compiling module 'uart(BUFFER_LENGTH=6)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":3)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":112)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":115)
-WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":124)
-WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":129)
-WARN  (EX3791) : Expression size 7 truncated to fit in target size 6("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":146)
-WARN  (EX3791) : Expression size 24 truncated to fit in target size 23("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":176)
-WARN  (EX3791) : Expression size 24 truncated to fit in target size 23("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":202)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":257)
-WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":266)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":270)
-WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":279)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":284)
-WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":291)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":264)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
-Compiling module 'gw_gao'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v'
+Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":61)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v'
+Undeclared symbol 'button_sync', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":11)
+Undeclared symbol 'button_deb', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":18)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v'
+Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":107)
+Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":135)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":136)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
+Analyzing included file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_top_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Analyzing included file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_top_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Analyzing included file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_parameter.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'
+Analyzing included file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\ao_control\gw_con_top_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_parameter.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\gw_jtag.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
+WARN  (EX3073) : Port 'com_start' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":159)
+Compiling module 'memory_driver'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":4)
+Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v":242)
+Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":1)
+Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":30)
+Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":53)
+WARN  (EX3791) : Expression size 29 truncated to fit in target size 28("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":72)
+Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":79)
+Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":36)
+Compiling module 'gowin_rpll_27_to_84'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v":9)
+Compiling module 'uart(BUFFER_LENGTH=6)'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":3)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":121)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":124)
+WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":133)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 13("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":138)
+WARN  (EX3791) : Expression size 7 truncated to fit in target size 6("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":155)
+WARN  (EX3791) : Expression size 24 truncated to fit in target size 23("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":183)
+WARN  (EX3791) : Expression size 24 truncated to fit in target size 23("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":209)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":264)
+WARN  (EX3791) : Expression size 4 truncated to fit in target size 3("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":273)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":277)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":286)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":291)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v":298)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":269)
+WARN  (EX1998) : Net 'error' does not have a driver("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":84)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":0)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":0)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":0)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":0)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":0)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":0)
+Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\gw_jtag.v":1)
+Compiling module 'gw_gao'("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Trying to combine GAO to RTL design
 NOTE  (EX0101) : Current top module is "TOP"
-WARN  (EX0211) : The output port "led[3]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":57)
-WARN  (EX0211) : The output port "led[2]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":57)
-WARN  (EX0211) : The output port "led[1]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":57)
-WARN  (EX0211) : The output port "led[0]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":57)
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input buttonA is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":40)
+WARN  (CV0016) : Input buttonA is unused("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":40)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -77,10 +81,10 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-WARN  (NL0002) : The module "sync_debouncer" instantiated to "debuttonA" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":116)
-WARN  (NL0002) : The module "debouncer" instantiated to "deb_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":19)
-WARN  (NL0002) : The module "sync" instantiated to "sync_button" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":12)
-WARN  (NL0002) : The module "once" instantiated to "sync_button_debounced" is swept in optimizing("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":26)
-[95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
-[100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART_syn.rpt.html" completed
+WARN  (NL0002) : The module "sync_debouncer" instantiated to "debuttonA" is swept in optimizing("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v":116)
+WARN  (NL0002) : The module "debouncer" instantiated to "deb_button" is swept in optimizing("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":19)
+WARN  (NL0002) : The module "sync" instantiated to "sync_button" is swept in optimizing("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":12)
+WARN  (NL0002) : The module "once" instantiated to "sync_button_debounced" is swept in optimizing("C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v":26)
+[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
+[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART_syn.rpt.html" completed
 GowinSynthesis finish

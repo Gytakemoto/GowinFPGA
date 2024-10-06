@@ -54,7 +54,7 @@ initial begin
 	flag <= 0;
 	data_out <= 0;
 	data_write <= 0;
-debug <= 0;
+    debug <= 0;
 end
 
 // com_start flag to indicate when communication can initiate
@@ -107,7 +107,6 @@ always @(negedge mem_clk) begin
 	//End of coms
 	if(endcommand) begin
 			flag <= 0;
-            debug <= 1;
 	end
 
 	//Start of coms
@@ -125,6 +124,7 @@ always @(negedge mem_clk) begin
 		if (quad_start) begin
 			if (read_write == 2) begin
 					reading <= 1;
+                    debug <= 1;
 			end
 			else if(read_write == 1) begin
 					writing <= 1;

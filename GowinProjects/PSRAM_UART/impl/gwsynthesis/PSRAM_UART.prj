@@ -4,24 +4,23 @@
     <Version>beta</Version>
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v" type="verilog"/>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v" type="verilog"/>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v" type="verilog"/>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v" type="verilog"/>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v" type="verilog"/>
-        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v" type="gao"/>
-        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v" type="gao"/>
-        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v" type="gao"/>
-        <File path="C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v" type="gao"/>
-        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v" type="gao"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\TOP.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\UART.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v" type="gao"/>
+        <File path="C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v" type="gao"/>
+        <File path="C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v" type="gao"/>
+        <File path="C:\Gowin\Gowin_V1.9.9_x64\IDE\data\ipcores\gw_jtag.v" type="gao"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\RTL_GAO\gw_gao_top.v" type="gao"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
-        <Option type="global_freq" value="50.000"/>
-        <Option type="include_path" value="C:/Gowin/Gowin_V1.9.9.01_x64/IDE/data/ipcores/GAO_LITE"/>
-        <Option type="include_path" value="C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/impl/gwsynthesis/RTL_GAO"/>
+        <Option type="include_path" value="C:/Gowin/Gowin_V1.9.9_x64/IDE/data/ipcores/GAO_LITE"/>
+        <Option type="include_path" value="C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/impl/gwsynthesis/RTL_GAO"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"/>
+        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="verilog_language" value="verilog-2001"/>

@@ -1,37 +1,37 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 //All rights reserved.
 
 
 1. PnR Messages
 
   <Report Title>: PnR Report
-  <Design File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg
-  <Physical Constraints File>: C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst
+  <Design File>: C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg
+  <Physical Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst
   <Timing Constraints File>: ---
-  <Tool Version>: V1.9.9.01 (64-bit)
+  <Tool Version>: V1.9.9 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Fri Oct  4 19:28:44 2024
+  <Created Time>:Sun Oct  6 19:01:08 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.06s, Elapsed time = 0h 0m 0.06s
-    Placement Phase 1: CPU time = 0h 0m 0.016s, Elapsed time = 0h 0m 0.016s
-    Placement Phase 2: CPU time = 0h 0m 0.053s, Elapsed time = 0h 0m 0.053s
-    Placement Phase 3: CPU time = 0h 0m 0.854s, Elapsed time = 0h 0m 0.854s
-    Total Placement: CPU time = 0h 0m 0.983s, Elapsed time = 0h 0m 0.983s
+    Placement Phase 0: CPU time = 0h 0m 0.111s, Elapsed time = 0h 0m 0.11s
+    Placement Phase 1: CPU time = 0h 0m 0.028s, Elapsed time = 0h 0m 0.028s
+    Placement Phase 2: CPU time = 0h 0m 0.081s, Elapsed time = 0h 0m 0.081s
+    Placement Phase 3: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
+    Total Placement: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.018s, Elapsed time = 0h 0m 0.018s
-    Routing Phase 2: CPU time = 0h 0m 0.478s, Elapsed time = 0h 0m 0.477s
+    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
+    Routing Phase 1: CPU time = 0h 0m 0.042s, Elapsed time = 0h 0m 0.042s
+    Routing Phase 2: CPU time = 0h 0m 0.994s, Elapsed time = 0h 0m 0.994s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.496s, Elapsed time = 0h 0m 0.495s
+    Total Routing: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
  Generate output files:
-    CPU time = 0h 0m 0.195s, Elapsed time = 0h 0m 0.195s
+    CPU time = 0h 0m 0.624s, Elapsed time = 0h 0m 0.624s
 
- Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 261MB
+ Total Time and Memory Usage: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s, Peak memory usage = 336MB
 
 
 3. Resource Usage Summary
@@ -39,23 +39,23 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 809/1152  71%
-    --LUT,ALU,ROM16           | 809(793 LUT, 16 ALU, 0 ROM16)
+  Logic                       | 793/1152  69%
+    --LUT,ALU,ROM16           | 793(777 LUT, 16 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 623/957  66%
+  Register                    | 558/957  59%
     --Logic Register as Latch | 0/864  0%
-    --Logic Register as FF    | 619/864  72%
+    --Logic Register as FF    | 554/864  65%
     --I/O Register as Latch   | 0/93  0%
     --I/O Register as FF      | 4/93  5%
-  CLS                         | 554/576  97%
-  I/O Port                    | 22
-  I/O Buf                     | 21
+  CLS                         | 538/576  94%
+  I/O Port                    | 18
+  I/O Buf                     | 17
     --Input Buf               | 6
-    --Output Buf              | 11
+    --Output Buf              | 7
     --Inout Buf               | 4
   IOLOGIC                     | 0%
-  BSRAM                       | 100%
-    --SDPB                    | 4
+  BSRAM                       | 75%
+    --SDPB                    | 3
   PLL                         | 1/1  100%
   DCS                         | 0/4  0%
   DQCE                        | 0/12  0%
@@ -74,7 +74,7 @@
   I/O Bank  | Usage       
   -----------------------
   bank 0   | 12/18(66%)  
-  bank 1   | 10/23(43%)  
+  bank 1   | 6/23(26%)   
   =======================
 
 
@@ -84,7 +84,7 @@
   Global Clock  | Usage       
   -------------------------------
   PRIMARY       | 3/8(38%)
-  LW            | 1/8(13%)
+  LW            | 2/8(25%)
   GCLK_PIN      | 1/3(34%)
   PLL           | 1/1(100%)
   CLKDIV        | 0/4(0%)
@@ -97,9 +97,10 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  sys_clk_d      | PRIMARY        |  LEFT RIGHT
-  clk_PSRAM      | PRIMARY        |  LEFT RIGHT
-  gw_gao_inst_0/control0[0]| PRIMARY        |  LEFT RIGHT
+  sys_clk_d      | PRIMARY        |  PTR0
+  clk_PSRAM      | PRIMARY        |  PTR0
+  gw_gao_inst_0/control0[0]| PRIMARY        |  PTR0
+  UART1/byteReady| LW             |  -
   gw_gao_inst_0/gao_jtag_reset| LW             |  -
   ===========================================
 
@@ -122,10 +123,6 @@ uart_tx          |           | 17/1          | Y          | out   | IOR6[G]  | L
 led_rgb[0]       |           | 10/1          | Y          | out   | IOR2[B]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 led_rgb[1]       |           | 11/1          | Y          | out   | IOR3[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 led_rgb[2]       |           | 9/1           | Y          | out   | IOR2[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
-led[0]           |           | 19/1          | Y          | out   | IOR6[J]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
-led[1]           |           | 29/1          | Y          | out   | IOR6[E]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
-led[2]           |           | 30/1          | Y          | out   | IOR6[C]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
-led[3]           |           | 31/1          | Y          | out   | IOR6[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 tdo_pad_o        |           | 7/0           | N          | out   | IOT8[B]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 mem_sio[0]       |           | 40/0          | Y          | io    | IOT16[A] | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
 mem_sio[1]       |           | 39/0          | Y          | io    | IOT16[B] | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
@@ -168,16 +165,16 @@ Loc./Bank| Signal           | Dir.  | Site     | IO Type  | Drive | Pull Mode | 
 34/1     | -                | in    | IOR3[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 33/1     | -                | in    | IOR5[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 32/1     | -                | in    | IOR5[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-31/1     | led[3]           | out   | IOR6[A]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
+31/1     | -                | in    | IOR6[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 14/1     | -                | in    | IOR6[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-30/1     | led[2]           | out   | IOR6[C]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
+30/1     | -                | in    | IOR6[C]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 15/1     | -                | in    | IOR6[D]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-29/1     | led[1]           | out   | IOR6[E]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
+29/1     | -                | in    | IOR6[E]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 16/1     | -                | in    | IOR6[F]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 17/1     | uart_tx          | out   | IOR6[G]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 18/1     | uart_rx          | in    | IOR6[H]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 28/1     | -                | in    | IOR6[I]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-19/1     | led[0]           | out   | IOR6[J]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
+19/1     | -                | in    | IOR6[J]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 27/1     | -                | in    | IOR7[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 21/1     | -                | in    | IOR7[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 24/1     | -                | in    | IOR8[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  

@@ -22,29 +22,6 @@ module gw_gao(
     \address[2] ,
     \address[1] ,
     \address[0] ,
-    \UART1/debug_address[22] ,
-    \UART1/debug_address[21] ,
-    \UART1/debug_address[20] ,
-    \UART1/debug_address[19] ,
-    \UART1/debug_address[18] ,
-    \UART1/debug_address[17] ,
-    \UART1/debug_address[16] ,
-    \UART1/debug_address[15] ,
-    \UART1/debug_address[14] ,
-    \UART1/debug_address[13] ,
-    \UART1/debug_address[12] ,
-    \UART1/debug_address[11] ,
-    \UART1/debug_address[10] ,
-    \UART1/debug_address[9] ,
-    \UART1/debug_address[8] ,
-    \UART1/debug_address[7] ,
-    \UART1/debug_address[6] ,
-    \UART1/debug_address[5] ,
-    \UART1/debug_address[4] ,
-    \UART1/debug_address[3] ,
-    \UART1/debug_address[2] ,
-    \UART1/debug_address[1] ,
-    \UART1/debug_address[0] ,
     \data_out[15] ,
     \data_out[14] ,
     \data_out[13] ,
@@ -62,6 +39,14 @@ module gw_gao(
     \data_out[1] ,
     \data_out[0] ,
     debug,
+    \initialize/PSRAM_com/debug ,
+    \read_write[1] ,
+    \read_write[0] ,
+    \UART1/debug ,
+    \process[3] ,
+    \process[2] ,
+    \process[1] ,
+    \process[0] ,
     sys_clk,
     tms_pad_i,
     tck_pad_i,
@@ -92,29 +77,6 @@ input \address[3] ;
 input \address[2] ;
 input \address[1] ;
 input \address[0] ;
-input \UART1/debug_address[22] ;
-input \UART1/debug_address[21] ;
-input \UART1/debug_address[20] ;
-input \UART1/debug_address[19] ;
-input \UART1/debug_address[18] ;
-input \UART1/debug_address[17] ;
-input \UART1/debug_address[16] ;
-input \UART1/debug_address[15] ;
-input \UART1/debug_address[14] ;
-input \UART1/debug_address[13] ;
-input \UART1/debug_address[12] ;
-input \UART1/debug_address[11] ;
-input \UART1/debug_address[10] ;
-input \UART1/debug_address[9] ;
-input \UART1/debug_address[8] ;
-input \UART1/debug_address[7] ;
-input \UART1/debug_address[6] ;
-input \UART1/debug_address[5] ;
-input \UART1/debug_address[4] ;
-input \UART1/debug_address[3] ;
-input \UART1/debug_address[2] ;
-input \UART1/debug_address[1] ;
-input \UART1/debug_address[0] ;
 input \data_out[15] ;
 input \data_out[14] ;
 input \data_out[13] ;
@@ -132,6 +94,14 @@ input \data_out[2] ;
 input \data_out[1] ;
 input \data_out[0] ;
 input debug;
+input \initialize/PSRAM_com/debug ;
+input \read_write[1] ;
+input \read_write[0] ;
+input \UART1/debug ;
+input \process[3] ;
+input \process[2] ;
+input \process[1] ;
+input \process[0] ;
 input sys_clk;
 input tms_pad_i;
 input tck_pad_i;
@@ -161,29 +131,6 @@ wire \address[3] ;
 wire \address[2] ;
 wire \address[1] ;
 wire \address[0] ;
-wire \UART1/debug_address[22] ;
-wire \UART1/debug_address[21] ;
-wire \UART1/debug_address[20] ;
-wire \UART1/debug_address[19] ;
-wire \UART1/debug_address[18] ;
-wire \UART1/debug_address[17] ;
-wire \UART1/debug_address[16] ;
-wire \UART1/debug_address[15] ;
-wire \UART1/debug_address[14] ;
-wire \UART1/debug_address[13] ;
-wire \UART1/debug_address[12] ;
-wire \UART1/debug_address[11] ;
-wire \UART1/debug_address[10] ;
-wire \UART1/debug_address[9] ;
-wire \UART1/debug_address[8] ;
-wire \UART1/debug_address[7] ;
-wire \UART1/debug_address[6] ;
-wire \UART1/debug_address[5] ;
-wire \UART1/debug_address[4] ;
-wire \UART1/debug_address[3] ;
-wire \UART1/debug_address[2] ;
-wire \UART1/debug_address[1] ;
-wire \UART1/debug_address[0] ;
 wire \data_out[15] ;
 wire \data_out[14] ;
 wire \data_out[13] ;
@@ -201,6 +148,14 @@ wire \data_out[2] ;
 wire \data_out[1] ;
 wire \data_out[0] ;
 wire debug;
+wire \initialize/PSRAM_com/debug ;
+wire \read_write[1] ;
+wire \read_write[0] ;
+wire \UART1/debug ;
+wire \process[3] ;
+wire \process[2] ;
+wire \process[1] ;
+wire \process[0] ;
 wire sys_clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -275,7 +230,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\address[22] ,\address[21] ,\address[20] ,\address[19] ,\address[18] ,\address[17] ,\address[16] ,\address[15] ,\address[14] ,\address[13] ,\address[12] ,\address[11] ,\address[10] ,\address[9] ,\address[8] ,\address[7] ,\address[6] ,\address[5] ,\address[4] ,\address[3] ,\address[2] ,\address[1] ,\address[0] ,\UART1/debug_address[22] ,\UART1/debug_address[21] ,\UART1/debug_address[20] ,\UART1/debug_address[19] ,\UART1/debug_address[18] ,\UART1/debug_address[17] ,\UART1/debug_address[16] ,\UART1/debug_address[15] ,\UART1/debug_address[14] ,\UART1/debug_address[13] ,\UART1/debug_address[12] ,\UART1/debug_address[11] ,\UART1/debug_address[10] ,\UART1/debug_address[9] ,\UART1/debug_address[8] ,\UART1/debug_address[7] ,\UART1/debug_address[6] ,\UART1/debug_address[5] ,\UART1/debug_address[4] ,\UART1/debug_address[3] ,\UART1/debug_address[2] ,\UART1/debug_address[1] ,\UART1/debug_address[0] ,\data_out[15] ,\data_out[14] ,\data_out[13] ,\data_out[12] ,\data_out[11] ,\data_out[10] ,\data_out[9] ,\data_out[8] ,\data_out[7] ,\data_out[6] ,\data_out[5] ,\data_out[4] ,\data_out[3] ,\data_out[2] ,\data_out[1] ,\data_out[0] ,debug}),
+    .data_i({\address[22] ,\address[21] ,\address[20] ,\address[19] ,\address[18] ,\address[17] ,\address[16] ,\address[15] ,\address[14] ,\address[13] ,\address[12] ,\address[11] ,\address[10] ,\address[9] ,\address[8] ,\address[7] ,\address[6] ,\address[5] ,\address[4] ,\address[3] ,\address[2] ,\address[1] ,\address[0] ,\data_out[15] ,\data_out[14] ,\data_out[13] ,\data_out[12] ,\data_out[11] ,\data_out[10] ,\data_out[9] ,\data_out[8] ,\data_out[7] ,\data_out[6] ,\data_out[5] ,\data_out[4] ,\data_out[3] ,\data_out[2] ,\data_out[1] ,\data_out[0] ,debug,\initialize/PSRAM_com/debug ,\read_write[1] ,\read_write[0] ,\UART1/debug ,\process[3] ,\process[2] ,\process[1] ,\process[0] }),
     .clk_i(sys_clk)
 );
 
