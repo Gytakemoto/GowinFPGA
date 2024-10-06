@@ -1,0 +1,98 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="sys_clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
+        <SignalList>
+            <Bus capture_enable="true" name="address[22:0]">
+                <Signal>address[22]</Signal>
+                <Signal>address[21]</Signal>
+                <Signal>address[20]</Signal>
+                <Signal>address[19]</Signal>
+                <Signal>address[18]</Signal>
+                <Signal>address[17]</Signal>
+                <Signal>address[16]</Signal>
+                <Signal>address[15]</Signal>
+                <Signal>address[14]</Signal>
+                <Signal>address[13]</Signal>
+                <Signal>address[12]</Signal>
+                <Signal>address[11]</Signal>
+                <Signal>address[10]</Signal>
+                <Signal>address[9]</Signal>
+                <Signal>address[8]</Signal>
+                <Signal>address[7]</Signal>
+                <Signal>address[6]</Signal>
+                <Signal>address[5]</Signal>
+                <Signal>address[4]</Signal>
+                <Signal>address[3]</Signal>
+                <Signal>address[2]</Signal>
+                <Signal>address[1]</Signal>
+                <Signal>address[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="UART1/debug_address[22:0]">
+                <Signal>UART1/debug_address[22]</Signal>
+                <Signal>UART1/debug_address[21]</Signal>
+                <Signal>UART1/debug_address[20]</Signal>
+                <Signal>UART1/debug_address[19]</Signal>
+                <Signal>UART1/debug_address[18]</Signal>
+                <Signal>UART1/debug_address[17]</Signal>
+                <Signal>UART1/debug_address[16]</Signal>
+                <Signal>UART1/debug_address[15]</Signal>
+                <Signal>UART1/debug_address[14]</Signal>
+                <Signal>UART1/debug_address[13]</Signal>
+                <Signal>UART1/debug_address[12]</Signal>
+                <Signal>UART1/debug_address[11]</Signal>
+                <Signal>UART1/debug_address[10]</Signal>
+                <Signal>UART1/debug_address[9]</Signal>
+                <Signal>UART1/debug_address[8]</Signal>
+                <Signal>UART1/debug_address[7]</Signal>
+                <Signal>UART1/debug_address[6]</Signal>
+                <Signal>UART1/debug_address[5]</Signal>
+                <Signal>UART1/debug_address[4]</Signal>
+                <Signal>UART1/debug_address[3]</Signal>
+                <Signal>UART1/debug_address[2]</Signal>
+                <Signal>UART1/debug_address[1]</Signal>
+                <Signal>UART1/debug_address[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="data_out[15:0]">
+                <Signal>data_out[15]</Signal>
+                <Signal>data_out[14]</Signal>
+                <Signal>data_out[13]</Signal>
+                <Signal>data_out[12]</Signal>
+                <Signal>data_out[11]</Signal>
+                <Signal>data_out[10]</Signal>
+                <Signal>data_out[9]</Signal>
+                <Signal>data_out[8]</Signal>
+                <Signal>data_out[7]</Signal>
+                <Signal>data_out[6]</Signal>
+                <Signal>data_out[5]</Signal>
+                <Signal>data_out[4]</Signal>
+                <Signal>data_out[3]</Signal>
+                <Signal>data_out[2]</Signal>
+                <Signal>data_out[1]</Signal>
+                <Signal>data_out[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">debug</Signal>
+            <Bus capture_enable="false" name="read[15:0]">
+                <Signal>read[15]</Signal>
+                <Signal>read[14]</Signal>
+                <Signal>read[13]</Signal>
+                <Signal>read[12]</Signal>
+                <Signal>read[11]</Signal>
+                <Signal>read[10]</Signal>
+                <Signal>read[9]</Signal>
+                <Signal>read[8]</Signal>
+                <Signal>read[7]</Signal>
+                <Signal>read[6]</Signal>
+                <Signal>read[5]</Signal>
+                <Signal>read[4]</Signal>
+                <Signal>read[3]</Signal>
+                <Signal>read[2]</Signal>
+                <Signal>read[1]</Signal>
+                <Signal>read[0]</Signal>
+            </Bus>
+            <Signal capture_enable="false">UART1/debug</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>1001000111101001</GAO_ID>
+</GAO_CONFIG>

@@ -13,7 +13,6 @@ module memory_driver(
 	input [1:0] read_write,
 	input quad_start,
 	input [15:0] data_in,
-	input [3:0] proccess,
 	
 	output endcommand,
 	output reg mem_ce,
@@ -42,6 +41,7 @@ reg writing;									//Reg indicates when in a writing proccess
 reg [15:0] data_write;				//Receives data_in; reg to be used in procedural routine
 reg [3:0] mem_sio_reg;				//mem_sio 4-bit bus to PSRAM communication. Reg to be used in procedural routine.
 reg flag;											//Flag signal to control communication. Might be substituided by sendcommand? (?)
+reg debug;
 
 //Initial conditions
 initial begin
@@ -52,20 +52,18 @@ initial begin
 	mem_ce <= 1;
 	mem_sio_reg <= 4'h0;
 	flag <= 0;
-	debug <= 0;
-	debug_w <= 0;
-	debug_r <= 0;
 	data_out <= 0;
 	data_write <= 0;
+debug <= 0;
 end
 
 // com_start flag to indicate when communication can initiate
 assign com_start = quad_start || spi_start;
 
 //mem_sio is an output when counter < 8 (sending address) and when writing and counter < 12 (sending message)
-//Must be LOW when proccess == 0 (delay step), by datasheet
+//Must be LOW when step == 0 (delay step), by datasheet
 //It changes every negative-edge transition, to be read in the positive one. Thus, starts right at counter = 0
-assign mem_sio = (proccess == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter && counter <= 7 )) || (writing && (0 <= counter && counter <= 12))) ? mem_sio_reg : 4'bz);
+assign mem_sio = (step == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter && counter <= 7 )) || (writing && (0 <= counter && counter <= 12))) ? mem_sio_reg : 4'bz);
 
 //assign message = read_write ? 
 
@@ -109,6 +107,7 @@ always @(negedge mem_clk) begin
 	//End of coms
 	if(endcommand) begin
 			flag <= 0;
+            debug <= 1;
 	end
 
 	//Start of coms
@@ -222,7 +221,6 @@ always @(negedge mem_clk) begin
 
 							//Maybe can be removed(?)
 							counter <= 0;
-
 							//Necessary, otherwise proccess goes wrong => writing OR reading goes to HIGH due to quad_start = 1
 							writing <= 0;
 							reading <= 0;
@@ -255,9 +253,9 @@ module psram(
 	output reg qpi_on,
 	output mem_clk_enabled,					//clk sent to PSRAM after delay time
 	//output reg read_psram,
+	//inout [15:0] message,
+	inout [3:0] mem_sio   	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
 
-	inout [3:0] mem_sio,   	    // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
-	//inout [15:0] message
 );
 
 //Local parameters
@@ -278,7 +276,6 @@ reg [3:0] step = STEP_DELAY;   //indicates the current operation
 									//2: Reset (RST) step
 									//3: Idle normal operation state
 
-
 memory_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
@@ -289,14 +286,13 @@ memory_driver PSRAM_com(
 	.read_write(read_write),
 	.quad_start(quad_start),
 	.data_in(data_in),
-	.proccess(proccess),
 	
   //	.read_psram(read_psram),
 	.endcommand(endcommand),
 	.mem_ce(mem_ce),
 	.mem_sio(mem_sio),
-	.data_out(data_out),
-	.message(message)
+	.data_out(data_out)
+	//.message(message)
 );
 
 initial begin

@@ -11,27 +11,27 @@
   <Tool Version>: V1.9.9.01 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Sun Jun 23 20:19:51 2024
+  <Created Time>:Mon Sep 30 22:01:03 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.035s, Elapsed time = 0h 0m 0.035s
-    Placement Phase 1: CPU time = 0h 0m 0.087s, Elapsed time = 0h 0m 0.087s
-    Placement Phase 2: CPU time = 0h 0m 0.061s, Elapsed time = 0h 0m 0.061s
-    Placement Phase 3: CPU time = 0h 0m 0.607s, Elapsed time = 0h 0m 0.607s
-    Total Placement: CPU time = 0h 0m 0.79s, Elapsed time = 0h 0m 0.79s
+    Placement Phase 0: CPU time = 0h 0m 0.037s, Elapsed time = 0h 0m 0.037s
+    Placement Phase 1: CPU time = 0h 0m 0.092s, Elapsed time = 0h 0m 0.092s
+    Placement Phase 2: CPU time = 0h 0m 0.063s, Elapsed time = 0h 0m 0.063s
+    Placement Phase 3: CPU time = 0h 0m 0.628s, Elapsed time = 0h 0m 0.628s
+    Total Placement: CPU time = 0h 0m 0.82s, Elapsed time = 0h 0m 0.82s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.016s, Elapsed time = 0h 0m 0.015s
-    Routing Phase 2: CPU time = 0h 0m 0.26s, Elapsed time = 0h 0m 0.261s
+    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.017s
+    Routing Phase 2: CPU time = 0h 0m 0.269s, Elapsed time = 0h 0m 0.269s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.276s, Elapsed time = 0h 0m 0.276s
+    Total Routing: CPU time = 0h 0m 0.287s, Elapsed time = 0h 0m 0.286s
  Generate output files:
-    CPU time = 0h 0m 0.122s, Elapsed time = 0h 0m 0.122s
+    CPU time = 0h 0m 0.135s, Elapsed time = 0h 0m 0.135s
 
- Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 221MB
+ Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 230MB
 
 
 3. Resource Usage Summary

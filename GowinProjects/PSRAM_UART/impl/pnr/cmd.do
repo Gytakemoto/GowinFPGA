@@ -3,6 +3,7 @@
 -pn GW1NZ-LV1QN48C6/I5
 -cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst
 -cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\device.cfg
+-gao_crc 1001000111101001
 -bit
 -tr
 -ph
@@ -11,3 +12,4 @@
 -correct_hold 1
 -route_maxfan 10
 -global_freq 50.000
+-rtl_gao
