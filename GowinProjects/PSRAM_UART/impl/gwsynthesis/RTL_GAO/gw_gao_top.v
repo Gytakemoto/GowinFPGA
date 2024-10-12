@@ -22,31 +22,46 @@ module gw_gao(
     \address[2] ,
     \address[1] ,
     \address[0] ,
-    \data_out[15] ,
-    \data_out[14] ,
-    \data_out[13] ,
-    \data_out[12] ,
-    \data_out[11] ,
-    \data_out[10] ,
-    \data_out[9] ,
-    \data_out[8] ,
-    \data_out[7] ,
-    \data_out[6] ,
-    \data_out[5] ,
-    \data_out[4] ,
-    \data_out[3] ,
-    \data_out[2] ,
-    \data_out[1] ,
-    \data_out[0] ,
-    debug,
-    \initialize/PSRAM_com/debug ,
-    \read_write[1] ,
-    \read_write[0] ,
-    \UART1/debug ,
     \process[3] ,
     \process[2] ,
     \process[1] ,
     \process[0] ,
+    \read[15] ,
+    \read[14] ,
+    \read[13] ,
+    \read[12] ,
+    \read[11] ,
+    \read[10] ,
+    \read[9] ,
+    \read[8] ,
+    \read[7] ,
+    \read[6] ,
+    \read[5] ,
+    \read[4] ,
+    \read[3] ,
+    \read[2] ,
+    \read[1] ,
+    \read[0] ,
+    \read_write[1] ,
+    \read_write[0] ,
+    error,
+    \debug[15] ,
+    \debug[14] ,
+    \debug[13] ,
+    \debug[12] ,
+    \debug[11] ,
+    \debug[10] ,
+    \debug[9] ,
+    \debug[8] ,
+    \debug[7] ,
+    \debug[6] ,
+    \debug[5] ,
+    \debug[4] ,
+    \debug[3] ,
+    \debug[2] ,
+    \debug[1] ,
+    \debug[0] ,
+    \initialize/PSRAM_com/debug ,
     sys_clk,
     tms_pad_i,
     tck_pad_i,
@@ -77,31 +92,46 @@ input \address[3] ;
 input \address[2] ;
 input \address[1] ;
 input \address[0] ;
-input \data_out[15] ;
-input \data_out[14] ;
-input \data_out[13] ;
-input \data_out[12] ;
-input \data_out[11] ;
-input \data_out[10] ;
-input \data_out[9] ;
-input \data_out[8] ;
-input \data_out[7] ;
-input \data_out[6] ;
-input \data_out[5] ;
-input \data_out[4] ;
-input \data_out[3] ;
-input \data_out[2] ;
-input \data_out[1] ;
-input \data_out[0] ;
-input debug;
-input \initialize/PSRAM_com/debug ;
-input \read_write[1] ;
-input \read_write[0] ;
-input \UART1/debug ;
 input \process[3] ;
 input \process[2] ;
 input \process[1] ;
 input \process[0] ;
+input \read[15] ;
+input \read[14] ;
+input \read[13] ;
+input \read[12] ;
+input \read[11] ;
+input \read[10] ;
+input \read[9] ;
+input \read[8] ;
+input \read[7] ;
+input \read[6] ;
+input \read[5] ;
+input \read[4] ;
+input \read[3] ;
+input \read[2] ;
+input \read[1] ;
+input \read[0] ;
+input \read_write[1] ;
+input \read_write[0] ;
+input error;
+input \debug[15] ;
+input \debug[14] ;
+input \debug[13] ;
+input \debug[12] ;
+input \debug[11] ;
+input \debug[10] ;
+input \debug[9] ;
+input \debug[8] ;
+input \debug[7] ;
+input \debug[6] ;
+input \debug[5] ;
+input \debug[4] ;
+input \debug[3] ;
+input \debug[2] ;
+input \debug[1] ;
+input \debug[0] ;
+input \initialize/PSRAM_com/debug ;
 input sys_clk;
 input tms_pad_i;
 input tck_pad_i;
@@ -131,31 +161,46 @@ wire \address[3] ;
 wire \address[2] ;
 wire \address[1] ;
 wire \address[0] ;
-wire \data_out[15] ;
-wire \data_out[14] ;
-wire \data_out[13] ;
-wire \data_out[12] ;
-wire \data_out[11] ;
-wire \data_out[10] ;
-wire \data_out[9] ;
-wire \data_out[8] ;
-wire \data_out[7] ;
-wire \data_out[6] ;
-wire \data_out[5] ;
-wire \data_out[4] ;
-wire \data_out[3] ;
-wire \data_out[2] ;
-wire \data_out[1] ;
-wire \data_out[0] ;
-wire debug;
-wire \initialize/PSRAM_com/debug ;
-wire \read_write[1] ;
-wire \read_write[0] ;
-wire \UART1/debug ;
 wire \process[3] ;
 wire \process[2] ;
 wire \process[1] ;
 wire \process[0] ;
+wire \read[15] ;
+wire \read[14] ;
+wire \read[13] ;
+wire \read[12] ;
+wire \read[11] ;
+wire \read[10] ;
+wire \read[9] ;
+wire \read[8] ;
+wire \read[7] ;
+wire \read[6] ;
+wire \read[5] ;
+wire \read[4] ;
+wire \read[3] ;
+wire \read[2] ;
+wire \read[1] ;
+wire \read[0] ;
+wire \read_write[1] ;
+wire \read_write[0] ;
+wire error;
+wire \debug[15] ;
+wire \debug[14] ;
+wire \debug[13] ;
+wire \debug[12] ;
+wire \debug[11] ;
+wire \debug[10] ;
+wire \debug[9] ;
+wire \debug[8] ;
+wire \debug[7] ;
+wire \debug[6] ;
+wire \debug[5] ;
+wire \debug[4] ;
+wire \debug[3] ;
+wire \debug[2] ;
+wire \debug[1] ;
+wire \debug[0] ;
+wire \initialize/PSRAM_com/debug ;
 wire sys_clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -230,7 +275,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\address[22] ,\address[21] ,\address[20] ,\address[19] ,\address[18] ,\address[17] ,\address[16] ,\address[15] ,\address[14] ,\address[13] ,\address[12] ,\address[11] ,\address[10] ,\address[9] ,\address[8] ,\address[7] ,\address[6] ,\address[5] ,\address[4] ,\address[3] ,\address[2] ,\address[1] ,\address[0] ,\data_out[15] ,\data_out[14] ,\data_out[13] ,\data_out[12] ,\data_out[11] ,\data_out[10] ,\data_out[9] ,\data_out[8] ,\data_out[7] ,\data_out[6] ,\data_out[5] ,\data_out[4] ,\data_out[3] ,\data_out[2] ,\data_out[1] ,\data_out[0] ,debug,\initialize/PSRAM_com/debug ,\read_write[1] ,\read_write[0] ,\UART1/debug ,\process[3] ,\process[2] ,\process[1] ,\process[0] }),
+    .data_i({\address[22] ,\address[21] ,\address[20] ,\address[19] ,\address[18] ,\address[17] ,\address[16] ,\address[15] ,\address[14] ,\address[13] ,\address[12] ,\address[11] ,\address[10] ,\address[9] ,\address[8] ,\address[7] ,\address[6] ,\address[5] ,\address[4] ,\address[3] ,\address[2] ,\address[1] ,\address[0] ,\process[3] ,\process[2] ,\process[1] ,\process[0] ,\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] ,\read_write[1] ,\read_write[0] ,error,\debug[15] ,\debug[14] ,\debug[13] ,\debug[12] ,\debug[11] ,\debug[10] ,\debug[9] ,\debug[8] ,\debug[7] ,\debug[6] ,\debug[5] ,\debug[4] ,\debug[3] ,\debug[2] ,\debug[1] ,\debug[0] ,\initialize/PSRAM_com/debug }),
     .clk_i(sys_clk)
 );
 

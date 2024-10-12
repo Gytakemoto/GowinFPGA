@@ -63,7 +63,7 @@ output reg [2:0] led_rgb     //RGB LEDs
 //Wire
 
 //UART-PSRAM interface
-reg [22:0] address;       //Address of message to be written/read
+wire [22:0] address;       //Address of message to be written/read
 //wire [15:0] message;
 
 wire [15:0] write;
@@ -86,16 +86,16 @@ wire [15:0] data_out;      //Data read -> Output reg from PSRAM
 
 //Reg
 //PSRAM interface
-reg [15:0] data_in;         //Data to be written (16 bits)
+wire [15:0] data_in;         //Data to be written (16 bits)
 reg [15:0] read;            //Auxiliary Data read -> reg to be changed at procedural script
 reg error;                  //Error flag
-reg quad_start;            // Flag to start QPI communication
+wire quad_start;            // Flag to start QPI communication
 reg d_com_start;
 reg com_start;
 // Debugging
 reg [3:0] process; //Keep track of write and reading test processes
 reg [3:0] counter; //Counter to control debugging LEDs when pressing buttonA
-reg [1:0] read_write;
+wire [1:0] read_write;
 reg pause;
 
 //Directly control write and read process, through MCU (Gowin)
@@ -214,6 +214,10 @@ end
 //assign read_write = ((process == WRITE_MCU_A) || (process == WRITE_MCU_B) || (process == READ_MCU)) ? read_write_mcu : read_write_uart;
 //assign address = ((process == WRITE_MCU_A) || (process == WRITE_MCU_B) || (process == READ_MCU)) ? address_mcu : address_uart;
 
+assign quad_start = (process != IDLE) ? quad_start_uart : quad_start_mcu;
+assign read_write = (process != IDLE) ? read_write_uart : read_write_mcu;
+assign address = (process != IDLE) ? address_uart : address_mcu;
+assign data_in = (process != IDLE) ? data_in_uart : data_in_mcu;
 
 //assign quad_start = quad_start_mcu;
 //assign read_write = read_write_mcu;
@@ -230,21 +234,6 @@ end
 //assign quad_start = (process != IDLE) ? quad_start_mcu : quad_start_uart;
 //assign read_write = ((process != IDLE)) ? read_write_mcu : read_write_uart;
 //assign address = ((process != IDLE)) ? address_mcu : address_uart;
-
-always @(*) begin
-    if (process == IDLE) begin
-        read_write = read_write_uart;
-        address = address_uart;
-        data_in = data_in_uart;
-        quad_start = quad_start_uart;
-    end else begin
-        read_write = read_write_mcu;
-        address = address_mcu;
-        data_in = data_in_mcu;
-        quad_start = quad_start_mcu;
-    end
-end
-
 
 //Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READ
 assign quad_start_mcu = (com_start & ~d_com_start);

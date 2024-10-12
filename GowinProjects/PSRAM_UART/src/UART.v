@@ -8,13 +8,14 @@ module uart
     input sys_clk,          //Internal system clock of 27MHz
     input uart_rx,          //Rx channel - input
     input send_uart,        //Flag for transmit data        
-    output reg [1:0] read_psram,    //Correspond to reg [1:0] data_write
-    input [15:0] write,
+    output reg [1:0] read_write,    //Correspond to reg [1:0] data_write
+    input [15:0] send_msg,
 
     output quad_start,
     output reg [22:0] address,
-    output uart_tx,               //Tx channel - output
-    output reg com_start
+    output reg [15:0] data_in,
+    output uart_tx               //Tx channel - output
+    //output reg com_start
     //output reg [3:0] led,       //Debug LEDs
     //output reg [2:0] led_rgb    //RGB LED -> se for reg, em TOP deve ser wire
 
@@ -26,13 +27,13 @@ module uart
 
 localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle of bit
 
-//Variables
+//------- Variables -------
 
 integer i;
 
 //If writing proccess is finished (denoted by write_uart), message assumes an output state of {buffer[5],buffer[4]} (data to be written)
 //MIGHT NOT WORK
-//assign message = !read_write_uart ? msg_reg : 16'hz;
+//assign message = !read_write ? msg_reg : 16'hz;
 
 //Define whether is read or write operation. Must be an output when receiving. Otherwise, must be left high-Z
 //assign read_write_psram = () ? : 2'bzz;
@@ -45,8 +46,7 @@ reg [2:0] rxBitNumber = 0;      //How many bits were read
 reg [7:0] dataIn = 0;           //Stores the command
 reg byteReady = 0;              //Flag to tell wether UART protocol is finished
 //reg msg_reg;
-reg [22:0] debug_address;
-reg debug;
+reg com_start;
 
 //Transmitter
 reg [3:0] txState = 0;          //State machine variable
@@ -56,17 +56,23 @@ reg txPinRegister = 1;          //Register linked with uart_tx; output of transm
 reg [2:0] txBitNumber = 0;      //Keep track of number of bits transmitted
 reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
 
-//Debug
-reg wrong_command;
-
 //Register to wiring interface
 assign uart_tx = txPinRegister;
 
+//Debug
+reg wrong_command;
+reg [22:0] debug_address;
+reg [15:0] debug_data_in;
+reg debug;
+
+//Detect a rising edge of UART requisition. Only valid on UART controlling of WRITE/READ (Idle process)
 reg d_com_start;
 assign quad_start = com_start && !d_com_start;
 
-
+//Buffer to acquire received data
 reg [7:0] buffer [BUFFER_LENGTH-1:0];
+
+//------- Local params -------
 
 //State machine states for receiver state
 localparam RX_IDLE = 0;
@@ -82,13 +88,15 @@ localparam TX_WRITE = 2;
 localparam TX_STOP_BIT = 3;
 localparam TX_DEBOUNCE = 4;
 
+//------- Script -------
+
 initial begin
         for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
                 buffer[i] <= 8'h00;
         end
     rxByteCounter <= 0;
     wrong_command <= 0;
-    read_psram = 0;
+    read_write = 0;
     debug_address <= 0;
     debug <= 0;
     com_start <= 0;
@@ -146,7 +154,7 @@ always @(negedge sys_clk) begin
 
     //Reseting flags in the next clock they're triggered
     //might not work
-    //read_write_uart <= 1'hZ;
+    //read_write <= 1'hZ;
 
     if(byteReady) begin
 
@@ -174,8 +182,8 @@ always @(negedge sys_clk) begin
                 //Forth byte transmitted
                 if(rxByteCounter >= 3) begin
 
-                    //read_uart = 2 -> Address collected, ready for read operation. mMight not work
-                    read_psram = 2;
+                    //read_uart = 2 -> Address collected, ready for read operation. Might not work
+                    read_write = 2;
 
                     //DESSE PONTO, Address DEVE ESTAR DEFINIDO!
 
@@ -205,25 +213,31 @@ always @(negedge sys_clk) begin
                 //Sixth byte were transmitted
                 if(rxByteCounter >= 5) begin
 
-                    //Address of message
-                    address = {buffer[3], buffer[2], buffer[1]};
+                    //read_uart = 1 -> Address & message collected, ready for read operation. Might not work
+                    read_write = 1;
 
+                    //Address of message
+                    address = {buffer[1], buffer[2], buffer[3]};
+
+                    //Data_in to be written. MSB received first
+                    data_in = {buffer[4], buffer[5]};
                     //msg_reg <= {buffer[5],buffer[4]};
 
-                    //Clear buffer
-                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                        buffer[i] = 8'hzz;
-                     end
+                    //com_start = HIGH: receive is done! Proceed to start writing proccess with PSRAM
+                    com_start <= 1;
 
                     //Reset counter
                     rxByteCounter <= 0;
 
+                    debug_address <= address;
+                    debug_data_in <= data_in;
+
                     //DESSE PONTO, MESSAGE & Address DEVEM ESTAR DEFINIDOS!
 
-                    //com_start = LOW: receive is done! Proceed to start writing proccess with PSRAM
-                    com_start <= 0;
-                    //write_uart = 1 -> Address and message to be written collected
-                    //read_write_uart <= 0;
+                    //Clear buffer
+                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+                        buffer[i] = 8'h00;
+                     end
                 end
             end
             else begin
@@ -243,8 +257,8 @@ always @(negedge sys_clk) begin
 
     TX_IDLE: begin
 
-        if (send_uart) begin                         //If read_psram is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
-            {buffer[1],buffer[0]} <= write;
+        if (send_uart) begin                         //If read_write is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+            {buffer[1],buffer[0]} <= send_msg;
             txState <= TX_START_BIT;
             txCounter <= 0;
             txByteCounter <= 0;             

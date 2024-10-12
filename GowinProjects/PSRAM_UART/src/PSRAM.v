@@ -124,7 +124,6 @@ always @(negedge mem_clk) begin
 		if (quad_start) begin
 			if (read_write == 2) begin
 					reading <= 1;
-                    debug <= 1;
 			end
 			else if(read_write == 1) begin
 					writing <= 1;
@@ -224,6 +223,7 @@ always @(negedge mem_clk) begin
 							//Necessary, otherwise proccess goes wrong => writing OR reading goes to HIGH due to quad_start = 1
 							writing <= 0;
 							reading <= 0;
+                            debug <= 1;
 						end
 					end
 				endcase
@@ -241,7 +241,7 @@ endmodule
 //PSRAM "TOP module"
 module psram(
 	input mem_clk,							// Pin 47
-  input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
+    input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
 	input [22:0] address,
 	input [1:0] read_write,
 	input quad_start,
