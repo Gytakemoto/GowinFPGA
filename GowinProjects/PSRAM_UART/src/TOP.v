@@ -100,7 +100,7 @@ reg pause;
 
 //Directly control write and read process, through MCU (Gowin)
 reg [1:0] read_write_mcu;
-wire quad_start_mcu;
+reg quad_start_mcu;
 reg [22:0] address_mcu;
 reg [15:0]debug;
 reg [15:0] data_in_mcu;
@@ -209,29 +209,9 @@ initial begin
     data_in_mcu <= 0;
 end
 
-//Writing only. Delete afterwards... maybe??
-//assign quad_start = ((process == WRITE_MCU_A) || (process == WRITE_MCU_B) || (process == READ_MCU)) ? quad_start_mcu : quad_start_uart;
-//assign read_write = ((process == WRITE_MCU_A) || (process == WRITE_MCU_B) || (process == READ_MCU)) ? read_write_mcu : read_write_uart;
-//assign address = ((process == WRITE_MCU_A) || (process == WRITE_MCU_B) || (process == READ_MCU)) ? address_mcu : address_uart;
 
 
-//assign quad_start = quad_start_mcu;
-//assign read_write = read_write_mcu;
-//assign address = address_mcu;
-//assign data_in = data_in_mcu;
-
-
-//assign quad_start = (process == READ_MCU) ? quad_start_mcu : quad_start_uart;
-//assign read_write = (process == READ_MCU) ? read_write_mcu : read_write_uart;
-//assign address = (process == READ_MCU) ? address_mcu : address_uart;
-
-
-
-//assign quad_start = (process != IDLE) ? quad_start_mcu : quad_start_uart;
-//assign read_write = ((process != IDLE)) ? read_write_mcu : read_write_uart;
-//assign address = ((process != IDLE)) ? address_mcu : address_uart;
-
-always @(*) begin
+always @(quad_start_mcu || quad_start_uart) begin
     if (process == IDLE) begin
         read_write = read_write_uart;
         address = address_uart;
@@ -245,15 +225,13 @@ always @(*) begin
     end
 end
 
-
-//Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READ
-assign quad_start_mcu = (com_start & ~d_com_start);
-
 always @(posedge clk_PSRAM) begin
 
     d_com_start <= com_start;
-    //if(quad_start == 1) debug<=1;
 
+    //Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
+    quad_start_mcu <= (com_start && ~d_com_start);
+    
     //Testing PSRAM communication
     if (qpi_on) begin  //if on IDLE state
 
@@ -276,32 +254,33 @@ always @(posedge clk_PSRAM) begin
               WRITE_MCU_INIT: begin
 
                 address_mcu <= 24'hABCD;
-                com_start <= 1;
                 data_in_mcu <= 16'h1234;
                 read_write_mcu <= 1;
+                com_start <= 1;
 
                 if(endcommand) begin
                   debug <= 1;
                   com_start <= 0;
-                  process = READ_MCU_INIT;
+                  process <= READ_MCU_INIT;
                 end
               end
 
               READ_MCU_INIT: begin
-                com_start <= 1;
+
                 read_write_mcu <= 2;
+                com_start <= 1;
 
                 if(endcommand) begin
                   read <= data_out;
-                  com_start <= 0;
                   process <= CHECK_STARTUP;
                   read_write_mcu <= 0;
+                  com_start <= 0;
                 end
               end
 
               CHECK_STARTUP: begin
-                 debug <= read;
                 if(read == data_in_mcu) begin
+                  debug <= read;
                   led_rgb <= 3'b101;
                   error <= 0;
                   process <= IDLE;
@@ -315,41 +294,40 @@ always @(posedge clk_PSRAM) begin
               IDLE: begin
                 if(endcommand && read_write == 2) begin   //Se uma leitura tiver sido requisitada e endcommand = 1..
                     process <= WRITE_MCU;
-                    debug <= 1;
                     read <= data_out;
                     send_uart <= 1;           // Flag para enviar mensagem na UART
                 end
-                else if(endcommand && read_write == 1) begin   //Se uma leitura tiver sido requisitada e endcommand = 1..
+                else if(endcommand && read_write == 1) begin   //Se uma escrita tiver sido requisitada e endcommand = 1..
                     process <= READ_MCU;
-                    debug <= 1;
-                    send_uart <= 1;           // Flag para enviar mensagem na UART
+                    //send_uart <= 1;           // Flag para enviar mensagem na UART
                 end
               end
 
             WRITE_MCU: begin
 
                 address_mcu <= 24'hABCD;
-                com_start <= 1;
                 data_in_mcu <= 16'h1234;
                 read_write_mcu <= 1;
 
+                com_start <= 1;
+
                 if(endcommand) begin
-                  com_start <= 0;
                   process <= IDLE;
                   read_write_mcu <= 0;
+                  com_start <= 0;
                 end
               end
 
               READ_MCU: begin
                 address_mcu <= 24'h1234;
-                com_start <= 1;
                 read_write_mcu <= 2;
+                com_start <= 1;
 
                 if(endcommand) begin
-                  com_start <= 0;
                   process <= IDLE;
                   read <= data_out;
                   read_write_mcu <= 0;
+                  com_start <= 0;
                 end
               end
             endcase

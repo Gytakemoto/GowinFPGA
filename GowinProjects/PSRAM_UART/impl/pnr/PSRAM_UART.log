@@ -1,7 +1,7 @@
-Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"
-Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
+Reading netlist file: "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg"
+Parsing netlist file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\gwsynthesis\PSRAM_UART.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst"
+Reading constraint file: "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\src\PSRAM_UART_pins.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,10 +20,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.power.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.pin.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.txt" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.tr.html" completed
-Fri Oct 11 22:27:17 2024
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.power.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.pin.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.rpt.txt" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\PSRAM_UART\impl\pnr\PSRAM_UART.tr.html" completed
+Sun Oct 13 12:09:40 2024
 
