@@ -4,60 +4,229 @@ HardwareSerial GwSerial(1); // define a Serial para UART1
 const int GwSerialRX = 16;
 const int GwSerialTX = 17;
 int led = 2;
-int test = 1;
+int step;
+#define START 0
+#define READ_WRITE 1
+#define ADDRESS 2
+#define MSG 3
+#define SEND 4
+bool reading = false;
+bool writing = false;
+int refresh = 0;
+
+// Definir a mensagem de 4 ou 6 bytes
+uint8_t message[6];
+int messageLength = 0; // variável para armazenar o comprimento da mensagem
+
+// Cada char é equivalente a 1 byte
+char incomingBytes[7];
 
 void setup() 
 {
     Serial.begin(115200); // Monitor serial
+    GwSerial.begin(115200, SERIAL_8N1, GwSerialRX, GwSerialTX); // Gowin Serial
+    Serial.setTimeout(1000);
+
     // inicializar a Serial nos pinos definidos
     GwSerial.begin(115200, SERIAL_8N1, GwSerialRX, GwSerialTX);
     pinMode(led, OUTPUT);
-
-    Serial.println("Sending message in 5 seconds...");
-    delay(2000); // Delay para simular o envio após 5 segundos
-
-    // Definir a mensagem de 4 ou 6 bytes
-    uint8_t message[6];
-    int messageLength = 0; // variável para armazenar o comprimento da mensagem
-
-    //Read operation
-    if (test == 0) {
-      message[0] = 0x52;    // Letra 'R'
-      message[1] = 0x00;    // Most significant byte
-      message[2] = 0x12;    // Middle significant byte
-      message[3] = 0x34;    // Least significant byte
-      messageLength = 4;
-    }
-    else if (test == 1) {
-      message[0] = 0x57;    // Letra 'W'
-      message[1] = 0x00;    // Most significant byte
-      message[2] = 0x12;    // Middle significant byte
-      message[3] = 0x34;    // Least significant byte
-      message[4] = 0xAB;    // Most significant byte
-      message[5] = 0xCD;    // Least significant byte
-      messageLength = 6;
-    }
-
-    Serial.print("Message: 0x");
-
-    // Ajustar o loop para o tamanho correto da mensagem
-    for (int i = 0; i < messageLength; i++) {
-        Serial.print(message[i], HEX);
-        if (i < messageLength - 1) {
-            Serial.print(" ");
-        }
-    }
-    Serial.println(); // Quebra de linha após imprimir a mensagem
-
-    // Enviar a mensagem via UART
-    GwSerial.write(message, messageLength);
 }
 
 void loop() 
 {
-  delay(500);
-  digitalWrite(led, HIGH);
-  delay(500);
-  digitalWrite(led, LOW);
-    // Código de comunicação UART (se necessário para leitura ou novas transmissões)
+
+  switch (step) {
+
+    case START: {
+
+      if (GwSerial.available() > 0) {
+        // Buffer para armazenar a mensagem lida
+
+        char receivedMessage[15];  // Ajuste o tamanho conforme a sua necessidade
+        int i = 0;
+
+        // Ler os bytes disponíveis na porta UART1
+        while (GwSerial.available() > 0 && i < sizeof(receivedMessage) - 1) {
+            receivedMessage[i] = GwSerial.read();  // Lê cada byte
+            i++;
+        }
+
+        receivedMessage[i] = '\0';  // Terminar a string com um caractere nulo para evitar problemas
+
+        // Imprimir a mensagem lida no formato hexadecimal
+        Serial.print("A mensagem lida foi: ");
+        for (int j = 0; j < i; j++) {
+            Serial.printf("%02X ", receivedMessage[j]);  // Imprime cada byte como um valor hexadecimal
+        }
+        Serial.println();  // Pular para a próxima linha
+    }
+      else{
+          refresh = refresh + 1;
+          if (refresh == 1) {
+            Serial.println();
+            Serial.println("Begin UART communication? (y/n)");
+          }
+          else if (refresh > 1 && refresh < 8){
+            Serial.print(".");
+          }
+          else refresh = 0;
+        
+        if (Serial.available() > 0) {
+
+          Serial.readBytesUntil('\n', incomingBytes, 1);
+
+          Serial.println(incomingBytes);
+
+          if(incomingBytes[0] == 'y' || incomingBytes[0] == 'Y'){
+            step = READ_WRITE;
+            Serial.println("User selected to begin communication");
+            refresh = 0;
+          }
+          else if(incomingBytes[0] == 'n' || incomingBytes[0] == 'N'){
+            Serial.println("User selected NOT to begin communication");
+          }
+        }
+      }       
+    }
+
+    break;
+
+    case READ_WRITE: {
+
+        refresh = refresh + 1;
+        if (refresh == 1) {
+          Serial.println();
+          Serial.println("Perform read or write operation? (w/r)");
+        }
+        else if (refresh > 1 && refresh < 8){
+          Serial.print(".");
+        }
+        else refresh = 0;
+
+      if (Serial.available() > 0) {
+
+          Serial.readBytesUntil('\n', incomingBytes, 1);
+
+          if(incomingBytes[0] == 'w' || incomingBytes[0] == 'W'){
+          writing = true;
+          reading = false;
+          message[0] = 0x52; // Letra "R"
+          step = ADDRESS;
+          Serial.println();
+          Serial.println("User selected a read operation");
+          refresh = 0;
+        }
+        else if(incomingBytes[0] == 'r' || incomingBytes[0] == 'R'){
+          reading = true;
+          writing = false;
+          message[0] = 0x57; // Letra "W"
+          step = ADDRESS;
+          Serial.println();
+          Serial.println("User selected a write operation");
+          refresh = 0;
+        }
+      }
+    }
+    break;
+
+    case ADDRESS: {
+
+        refresh = refresh + 1;
+        if (refresh == 1) {
+          Serial.println();
+          Serial.println("Enter the 22-bit address in HEX format (i.e 001234)");
+        }
+        else if (refresh > 1 && refresh < 8){
+          Serial.print(".");
+        }
+        else refresh = 0;
+      
+      if (Serial.available() > 0) {
+
+        Serial.readBytesUntil('\n', incomingBytes, 6);
+        incomingBytes[6] = '\0'; // Garantir que a string tenha um terminador nulo
+
+              // Converter o endereço digitado de string para número hexadecimal
+        long address = strtol(incomingBytes, NULL, 16); 
+
+        // Atribuir os 3 bytes do endereço ao message[]
+        message[1] = (address >> 16) && 0xFF;  // byte mais significativo
+        message[2] = (address >> 8) && 0xFF;   // byte do meio
+        message[3] = address && 0xFF;          // byte menos significativo
+
+        Serial.println();
+        Serial.print("O endereço digitado foi: ");
+        Serial.println(address, HEX);
+
+        if(reading){
+          step = SEND;
+          refresh = 0; 
+        }
+        else if(writing){
+          step = MSG;
+          refresh = 0;
+        }
+      }
+    }
+    break; 
+
+    case MSG: {
+
+       refresh = refresh + 1;
+        if (refresh == 1) {
+          Serial.println();
+          Serial.println("Enter the 16-bit message in HEX format (i.e 1234)");
+        }
+        else if (refresh > 1 && refresh < 8){
+          Serial.print(".");
+        }
+        else refresh = 0;
+      
+      if (Serial.available() > 0) {
+
+         Serial.readBytesUntil('\n', incomingBytes, 4);
+        incomingBytes[4] = '\0';
+        
+        // Converter o endereço digitado de string para número hexadecimal
+        long msg = strtol(incomingBytes, NULL, 16);
+
+            // Atribuir os 3 bytes do endereço ao message[]
+        message[4] = (msg >> 8) && 0xFF;  // byte mais significativo
+        message[5] = (msg) && 0xFF;   // byte do meio
+
+        Serial.println();
+        Serial.print("A mensagem digitada foi: ");
+        Serial.println(msg, HEX);
+        step = SEND;
+        refresh = 0;
+      }
+    }     
+    break;
+
+    case SEND: {
+      
+      if(writing) {
+        messageLength = 6;
+      }
+      else if(reading){
+        messageLength = 4;
+      }
+      
+      // Enviar a mensagem via UART
+      int sentBytes = GwSerial.write(message, messageLength);
+
+      // Verificar se a quantidade de bytes enviados corresponde ao esperado
+      if (sentBytes == messageLength) {
+        Serial.println("Message sent successfully!");
+      } else {
+        Serial.println("Sending message...");
+      }
+      reading = false;
+      writing = false;
+      step = START; // Voltar ao início após o envio
+      delay(1000);
+    }
+
+  }
+
 }

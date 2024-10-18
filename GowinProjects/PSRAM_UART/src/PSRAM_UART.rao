@@ -4,31 +4,6 @@
     <Mode>Lite</Mode>
     <AoCore_Lite index="0" sample_clock="sys_clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
         <SignalList>
-            <Bus capture_enable="true" name="address[22:0]">
-                <Signal>address[22]</Signal>
-                <Signal>address[21]</Signal>
-                <Signal>address[20]</Signal>
-                <Signal>address[19]</Signal>
-                <Signal>address[18]</Signal>
-                <Signal>address[17]</Signal>
-                <Signal>address[16]</Signal>
-                <Signal>address[15]</Signal>
-                <Signal>address[14]</Signal>
-                <Signal>address[13]</Signal>
-                <Signal>address[12]</Signal>
-                <Signal>address[11]</Signal>
-                <Signal>address[10]</Signal>
-                <Signal>address[9]</Signal>
-                <Signal>address[8]</Signal>
-                <Signal>address[7]</Signal>
-                <Signal>address[6]</Signal>
-                <Signal>address[5]</Signal>
-                <Signal>address[4]</Signal>
-                <Signal>address[3]</Signal>
-                <Signal>address[2]</Signal>
-                <Signal>address[1]</Signal>
-                <Signal>address[0]</Signal>
-            </Bus>
             <Bus capture_enable="true" name="process[3:0]">
                 <Signal>process[3]</Signal>
                 <Signal>process[2]</Signal>
@@ -57,26 +32,24 @@
                 <Signal>read_write[1]</Signal>
                 <Signal>read_write[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">error</Signal>
-            <Bus capture_enable="true" name="debug[15:0]">
-                <Signal>debug[15]</Signal>
-                <Signal>debug[14]</Signal>
-                <Signal>debug[13]</Signal>
-                <Signal>debug[12]</Signal>
-                <Signal>debug[11]</Signal>
-                <Signal>debug[10]</Signal>
-                <Signal>debug[9]</Signal>
-                <Signal>debug[8]</Signal>
-                <Signal>debug[7]</Signal>
-                <Signal>debug[6]</Signal>
-                <Signal>debug[5]</Signal>
-                <Signal>debug[4]</Signal>
-                <Signal>debug[3]</Signal>
-                <Signal>debug[2]</Signal>
-                <Signal>debug[1]</Signal>
-                <Signal>debug[0]</Signal>
+            <Bus capture_enable="true" name="initialize/PSRAM_com/debug[15:0]">
+                <Signal>initialize/PSRAM_com/debug[15]</Signal>
+                <Signal>initialize/PSRAM_com/debug[14]</Signal>
+                <Signal>initialize/PSRAM_com/debug[13]</Signal>
+                <Signal>initialize/PSRAM_com/debug[12]</Signal>
+                <Signal>initialize/PSRAM_com/debug[11]</Signal>
+                <Signal>initialize/PSRAM_com/debug[10]</Signal>
+                <Signal>initialize/PSRAM_com/debug[9]</Signal>
+                <Signal>initialize/PSRAM_com/debug[8]</Signal>
+                <Signal>initialize/PSRAM_com/debug[7]</Signal>
+                <Signal>initialize/PSRAM_com/debug[6]</Signal>
+                <Signal>initialize/PSRAM_com/debug[5]</Signal>
+                <Signal>initialize/PSRAM_com/debug[4]</Signal>
+                <Signal>initialize/PSRAM_com/debug[3]</Signal>
+                <Signal>initialize/PSRAM_com/debug[2]</Signal>
+                <Signal>initialize/PSRAM_com/debug[1]</Signal>
+                <Signal>initialize/PSRAM_com/debug[0]</Signal>
             </Bus>
-            <Signal capture_enable="true">initialize/PSRAM_com/debug</Signal>
             <Bus capture_enable="false" name="UART1/debug_address[22:0]">
                 <Signal>UART1/debug_address[22]</Signal>
                 <Signal>UART1/debug_address[21]</Signal>
@@ -121,7 +94,25 @@
                 <Signal>data_out[1]</Signal>
                 <Signal>data_out[0]</Signal>
             </Bus>
+            <Bus capture_enable="false" name="debug[15:0]">
+                <Signal>debug[15]</Signal>
+                <Signal>debug[14]</Signal>
+                <Signal>debug[13]</Signal>
+                <Signal>debug[12]</Signal>
+                <Signal>debug[11]</Signal>
+                <Signal>debug[10]</Signal>
+                <Signal>debug[9]</Signal>
+                <Signal>debug[8]</Signal>
+                <Signal>debug[7]</Signal>
+                <Signal>debug[6]</Signal>
+                <Signal>debug[5]</Signal>
+                <Signal>debug[4]</Signal>
+                <Signal>debug[3]</Signal>
+                <Signal>debug[2]</Signal>
+                <Signal>debug[1]</Signal>
+                <Signal>debug[0]</Signal>
+            </Bus>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>0101100010110110</GAO_ID>
+    <GAO_ID>0111111111011100</GAO_ID>
 </GAO_CONFIG>

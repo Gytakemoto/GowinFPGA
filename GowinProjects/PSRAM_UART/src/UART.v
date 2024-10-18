@@ -91,9 +91,9 @@ localparam TX_DEBOUNCE = 4;
 //------- Script -------
 
 initial begin
-        for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                buffer[i] <= 8'h00;
-        end
+    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
+            buffer[i] <= 8'h00;
+    end
     rxByteCounter <= 0;
     wrong_command <= 0;
     read_write = 0;

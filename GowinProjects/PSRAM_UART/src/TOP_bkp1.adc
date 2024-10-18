@@ -217,12 +217,10 @@ always @(posedge clk_PSRAM) begin
     //Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
     quad_start_mcu <= (com_start && ~d_com_start);
 
-
     quad_start = 0;
     read_write = 0;
-    address = 0;
-    data_in = 0;
-    read <= read;
+    address = address;
+    data_in = data_in;
 
     if(quad_start_mcu || quad_start_uart) begin
         if (process == IDLE) begin

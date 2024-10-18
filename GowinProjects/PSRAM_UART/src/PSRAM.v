@@ -41,7 +41,7 @@ reg writing;									//Reg indicates when in a writing proccess
 reg [15:0] data_write;				//Receives data_in; reg to be used in procedural routine
 reg [3:0] mem_sio_reg;				//mem_sio 4-bit bus to PSRAM communication. Reg to be used in procedural routine.
 reg flag;											//Flag signal to control communication. Might be substituided by sendcommand? (?)
-reg debug;
+reg [15:0] debug;
 
 //Initial conditions
 initial begin
@@ -54,7 +54,7 @@ initial begin
 	flag <= 0;
 	data_out <= 0;
 	data_write <= 0;
-    debug <= 0;
+    debug <= 3;
 end
 
 // com_start flag to indicate when communication can initiate
@@ -98,7 +98,7 @@ end
 //Negative edge rountine: assign values to be WRITTEN (address, messages)
 always @(negedge mem_clk) begin
 
-	//Update registers
+	//Update registers in order to avoid implicit latch
 	flag <= flag;
 	sendcommand <= sendcommand;
 	data_out <= data_out;
@@ -111,7 +111,7 @@ always @(negedge mem_clk) begin
 
 	//Start of coms
 	if(quad_start) begin
-			flag <= 1;
+        flag <= 1;
 	end
 
 	//When com_start turns high, starts communication
@@ -122,13 +122,17 @@ always @(negedge mem_clk) begin
 
 		//Define reading or writing proccess
 		if (quad_start) begin
+
+            debug <= read_write;
+
 			if (read_write == 2) begin
-					reading <= 1;
+                reading <= 1;
 			end
 			else if(read_write == 1) begin
 					writing <= 1;
 					data_write <= data_in;
 					//data <= message;
+                    debug <= data_in;
 			end
 		end
 	end
@@ -189,8 +193,8 @@ always @(negedge mem_clk) begin
 						//If on read proccess
 						if (reading) begin
 
-							mem_sio_reg[3:0] <= 4'hz;   						//Assert high-Z
-							reading <= 1;														//Update register
+							mem_sio_reg[3:0] <= 4'hz;   	//Assert high-Z
+							reading <= 1;					//Update register
 
 							//Reading proccess ending
 							if (counter >= 21) begin
@@ -223,7 +227,7 @@ always @(negedge mem_clk) begin
 							//Necessary, otherwise proccess goes wrong => writing OR reading goes to HIGH due to quad_start = 1
 							writing <= 0;
 							reading <= 0;
-                            debug <= 1;
+                            //debug <= 1;
 						end
 					end
 				endcase
