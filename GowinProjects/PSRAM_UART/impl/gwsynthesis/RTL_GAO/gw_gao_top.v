@@ -1,42 +1,8 @@
 module gw_gao(
-    \process[3] ,
-    \process[2] ,
-    \process[1] ,
-    \process[0] ,
-    \read[15] ,
-    \read[14] ,
-    \read[13] ,
-    \read[12] ,
-    \read[11] ,
-    \read[10] ,
-    \read[9] ,
-    \read[8] ,
-    \read[7] ,
-    \read[6] ,
-    \read[5] ,
-    \read[4] ,
-    \read[3] ,
-    \read[2] ,
-    \read[1] ,
-    \read[0] ,
-    \read_write[1] ,
-    \read_write[0] ,
-    \initialize/PSRAM_com/debug[15] ,
-    \initialize/PSRAM_com/debug[14] ,
-    \initialize/PSRAM_com/debug[13] ,
-    \initialize/PSRAM_com/debug[12] ,
-    \initialize/PSRAM_com/debug[11] ,
-    \initialize/PSRAM_com/debug[10] ,
-    \initialize/PSRAM_com/debug[9] ,
-    \initialize/PSRAM_com/debug[8] ,
-    \initialize/PSRAM_com/debug[7] ,
-    \initialize/PSRAM_com/debug[6] ,
-    \initialize/PSRAM_com/debug[5] ,
-    \initialize/PSRAM_com/debug[4] ,
-    \initialize/PSRAM_com/debug[3] ,
-    \initialize/PSRAM_com/debug[2] ,
-    \initialize/PSRAM_com/debug[1] ,
-    \initialize/PSRAM_com/debug[0] ,
+    \UART1/debug[3] ,
+    \UART1/debug[2] ,
+    \UART1/debug[1] ,
+    \UART1/debug[0] ,
     sys_clk,
     tms_pad_i,
     tck_pad_i,
@@ -44,88 +10,20 @@ module gw_gao(
     tdo_pad_o
 );
 
-input \process[3] ;
-input \process[2] ;
-input \process[1] ;
-input \process[0] ;
-input \read[15] ;
-input \read[14] ;
-input \read[13] ;
-input \read[12] ;
-input \read[11] ;
-input \read[10] ;
-input \read[9] ;
-input \read[8] ;
-input \read[7] ;
-input \read[6] ;
-input \read[5] ;
-input \read[4] ;
-input \read[3] ;
-input \read[2] ;
-input \read[1] ;
-input \read[0] ;
-input \read_write[1] ;
-input \read_write[0] ;
-input \initialize/PSRAM_com/debug[15] ;
-input \initialize/PSRAM_com/debug[14] ;
-input \initialize/PSRAM_com/debug[13] ;
-input \initialize/PSRAM_com/debug[12] ;
-input \initialize/PSRAM_com/debug[11] ;
-input \initialize/PSRAM_com/debug[10] ;
-input \initialize/PSRAM_com/debug[9] ;
-input \initialize/PSRAM_com/debug[8] ;
-input \initialize/PSRAM_com/debug[7] ;
-input \initialize/PSRAM_com/debug[6] ;
-input \initialize/PSRAM_com/debug[5] ;
-input \initialize/PSRAM_com/debug[4] ;
-input \initialize/PSRAM_com/debug[3] ;
-input \initialize/PSRAM_com/debug[2] ;
-input \initialize/PSRAM_com/debug[1] ;
-input \initialize/PSRAM_com/debug[0] ;
+input \UART1/debug[3] ;
+input \UART1/debug[2] ;
+input \UART1/debug[1] ;
+input \UART1/debug[0] ;
 input sys_clk;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \process[3] ;
-wire \process[2] ;
-wire \process[1] ;
-wire \process[0] ;
-wire \read[15] ;
-wire \read[14] ;
-wire \read[13] ;
-wire \read[12] ;
-wire \read[11] ;
-wire \read[10] ;
-wire \read[9] ;
-wire \read[8] ;
-wire \read[7] ;
-wire \read[6] ;
-wire \read[5] ;
-wire \read[4] ;
-wire \read[3] ;
-wire \read[2] ;
-wire \read[1] ;
-wire \read[0] ;
-wire \read_write[1] ;
-wire \read_write[0] ;
-wire \initialize/PSRAM_com/debug[15] ;
-wire \initialize/PSRAM_com/debug[14] ;
-wire \initialize/PSRAM_com/debug[13] ;
-wire \initialize/PSRAM_com/debug[12] ;
-wire \initialize/PSRAM_com/debug[11] ;
-wire \initialize/PSRAM_com/debug[10] ;
-wire \initialize/PSRAM_com/debug[9] ;
-wire \initialize/PSRAM_com/debug[8] ;
-wire \initialize/PSRAM_com/debug[7] ;
-wire \initialize/PSRAM_com/debug[6] ;
-wire \initialize/PSRAM_com/debug[5] ;
-wire \initialize/PSRAM_com/debug[4] ;
-wire \initialize/PSRAM_com/debug[3] ;
-wire \initialize/PSRAM_com/debug[2] ;
-wire \initialize/PSRAM_com/debug[1] ;
-wire \initialize/PSRAM_com/debug[0] ;
+wire \UART1/debug[3] ;
+wire \UART1/debug[2] ;
+wire \UART1/debug[1] ;
+wire \UART1/debug[0] ;
 wire sys_clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -200,7 +98,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\process[3] ,\process[2] ,\process[1] ,\process[0] ,\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] ,\read_write[1] ,\read_write[0] ,\initialize/PSRAM_com/debug[15] ,\initialize/PSRAM_com/debug[14] ,\initialize/PSRAM_com/debug[13] ,\initialize/PSRAM_com/debug[12] ,\initialize/PSRAM_com/debug[11] ,\initialize/PSRAM_com/debug[10] ,\initialize/PSRAM_com/debug[9] ,\initialize/PSRAM_com/debug[8] ,\initialize/PSRAM_com/debug[7] ,\initialize/PSRAM_com/debug[6] ,\initialize/PSRAM_com/debug[5] ,\initialize/PSRAM_com/debug[4] ,\initialize/PSRAM_com/debug[3] ,\initialize/PSRAM_com/debug[2] ,\initialize/PSRAM_com/debug[1] ,\initialize/PSRAM_com/debug[0] }),
+    .data_i({\UART1/debug[3] ,\UART1/debug[2] ,\UART1/debug[1] ,\UART1/debug[0] }),
     .clk_i(sys_clk)
 );
 

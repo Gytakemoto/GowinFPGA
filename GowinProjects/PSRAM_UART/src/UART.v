@@ -11,7 +11,7 @@ module uart
     output reg [1:0] read_write,    //Correspond to reg [1:0] data_write
     input [15:0] send_msg,
 
-    output quad_start,
+    output reg quad_start,
     output reg [22:0] address,
     output reg [15:0] data_in,
     output uart_tx               //Tx channel - output
@@ -50,11 +50,11 @@ reg com_start;
 
 //Transmitter
 reg [3:0] txState = 0;          //State machine variable
-reg [24:0] txCounter = 0;       //Counter to keep track of clocks count
+reg [8:0] txCounter = 0;       //Counter to keep track of clocks count
 reg [7:0] dataOut = 0;          //
 reg txPinRegister = 1;          //Register linked with uart_tx; output of transmission
 reg [2:0] txBitNumber = 0;      //Keep track of number of bits transmitted
-reg [7:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
+reg [1:0] txByteCounter = 0;    //Keep track of number of bytes transmitted
 
 //Register to wiring interface
 assign uart_tx = txPinRegister;
@@ -64,10 +64,12 @@ reg wrong_command;
 reg [22:0] debug_address;
 reg [15:0] debug_data_in;
 reg debug;
+reg [15:0] latch_msg;
+reg send_tx;
+reg [2:0] counter;
 
 //Detect a rising edge of UART requisition. Only valid on UART controlling of WRITE/READ (Idle process)
 reg d_com_start;
-assign quad_start = com_start && !d_com_start;
 
 //Buffer to acquire received data
 reg [7:0] buffer [BUFFER_LENGTH-1:0];
@@ -96,16 +98,23 @@ initial begin
     end
     rxByteCounter <= 0;
     wrong_command <= 0;
-    read_write = 0;
+    read_write <= 0;
     debug_address <= 0;
     debug <= 0;
     com_start <= 0;
+    d_com_start <= 0;
+    quad_start <= 0;
+    send_tx <= 0;
+    latch_msg <= 0;
 end
 
 always @(negedge sys_clk) begin
 
+    quad_start <= com_start && !d_com_start;
+
     d_com_start <= com_start;
-    com_start <= 0;    
+    com_start <= 0;
+    read_write = read_write;
     
     if(quad_start) debug <= 1;
 
@@ -126,10 +135,10 @@ always @(negedge sys_clk) begin
                 rxState <= RX_READ_WAIT;
                 rxCounter <= 1;
             end
-            else rxCounter <= rxCounter + 1;
+            else rxCounter <= {rxCounter + 13'b1};
         end
         RX_READ_WAIT: begin                         //Wait for x clock pulses to read
-            rxCounter <= rxCounter + 1;
+            rxCounter <= {rxCounter + 13'b1};
             if((rxCounter + 1) == DELAY_FRAMES) begin
                 rxState <= RX_READ;
             end
@@ -138,12 +147,12 @@ always @(negedge sys_clk) begin
             rxCounter <= 1;
             //UART sends data from LSB to MSB
             dataIn <= {uart_rx, dataIn[7:1]};  //Move one bit towards LSB and add uart_rx: Shift register
-            rxBitNumber <= rxBitNumber + 1; 
+            rxBitNumber <= {rxBitNumber + 3'b1}; 
             if(rxBitNumber == 3'b111) rxState <= RX_STOP_BIT;
             else rxState <= RX_READ_WAIT;
         end
         RX_STOP_BIT: begin
-            rxCounter <= rxCounter + 1;
+            rxCounter <= {rxCounter + 13'b1};
             if((rxCounter + 1) == DELAY_FRAMES) begin   //Re-shifting bit frame to end communcation
                 rxState <= RX_IDLE;
                 rxCounter <= 0;
@@ -160,7 +169,7 @@ always @(negedge sys_clk) begin
 
         //led <= dataIn[3:0];
         //led_rgb <= 3'b101;
-        rxByteCounter <= rxByteCounter + 1;
+        rxByteCounter <= {rxByteCounter + 6'b1};
 
         //Rever se faz sentido
         if(dataIn == 8'h2F) begin
@@ -188,7 +197,7 @@ always @(negedge sys_clk) begin
                     //DESSE PONTO, Address DEVE ESTAR DEFINIDO!
 
                     //Address of message
-                    address = {buffer[1], buffer[2], buffer[3]};
+                    address = {buffer[1][6:0], buffer[2], buffer[3]};
 
                     //com_start = LOW: receive is done! Proceed to start reading proccess with PSRAM
                     com_start <= 1;
@@ -217,7 +226,7 @@ always @(negedge sys_clk) begin
                     read_write = 1;
 
                     //Address of message
-                    address = {buffer[1], buffer[2], buffer[3]};
+                    address = {buffer[1][6:0], buffer[2], buffer[3]};
 
                     //Data_in to be written. MSB received first
                     data_in = {buffer[4], buffer[5]};
@@ -253,12 +262,23 @@ always @(negedge sys_clk) begin
         end
     end
 
+    if(send_uart == 1) begin            //Detect transmission requisition outside of TX_IDLE
+        send_tx <= 1;                   //Storage detection in spare variables
+        latch_msg <= send_msg;
+    end
+
+    if(send_tx == 1 && txState == TX_IDLE) begin
+        send_tx <= 0;    //After returning to TX_IDLE, stop requisition
+        latch_msg <= 15'h0000;
+    end
+
+
     case(txState)
 
     TX_IDLE: begin
 
-        if (send_uart) begin                         //If read_write is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
-            {buffer[1],buffer[0]} <= send_msg;
+        if (send_tx) begin                         //If read_write is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+            {buffer[0],buffer[1]} <= latch_msg;
             txState <= TX_START_BIT;
             txCounter <= 0;
             txByteCounter <= 0;             
@@ -275,7 +295,7 @@ always @(negedge sys_clk) begin
             txBitNumber <= 0;
             txCounter <= 0;
         end else 
-            txCounter <= txCounter + 1;
+            txCounter <= {txCounter + 9'b1};
     end
     TX_WRITE: begin
         txPinRegister <= dataOut[txBitNumber];      //Updates tx register (TX channel) to output current bit
@@ -284,32 +304,32 @@ always @(negedge sys_clk) begin
                 txState <= TX_STOP_BIT;
             end else begin
                 txState <= TX_WRITE;                //Transmits next bit
-                txBitNumber <= txBitNumber + 1;
+                txBitNumber <= {txBitNumber + 3'b1};
             end
             txCounter <= 0;
         end else 
-            txCounter <= txCounter + 1;
+            txCounter <= {txCounter + 9'b1};
     end
     TX_STOP_BIT: begin
         txPinRegister <= 1;                         //Write HIGH state to TX (end of byte transmission)
         if ((txCounter + 1) == DELAY_FRAMES) begin
             if (txByteCounter == 1) begin   //If all 2 bytes were transmitted, stop proccess 
-                //txState <= TX_DEBOUNCE;
-                txState <= TX_IDLE;         //Debounce not needed: signal flag
+                txState <= TX_DEBOUNCE;
+                //txState <= TX_IDLE;         //Debounce not needed: signal flag
             end else begin
-                txByteCounter <= txByteCounter + 1;         //If else, move to next byte
+                txByteCounter <= {txByteCounter + 2'b1};         //If else, move to next byte
                 txState <= TX_START_BIT;
             end
             txCounter <= 0;
         end else 
-            txCounter <= txCounter + 1;
+            txCounter <= {txCounter + 9'b1};
     end
     TX_DEBOUNCE: begin                              //Guarantees that by pressing button once, it will occurs ONCE
-        if (txCounter == 23'b111111111111111111) begin
+        if (txCounter == 5'b11111) begin
             if (send_uart == 0) 
                 txState <= TX_IDLE;
         end else
-            txCounter <= txCounter + 1;
+            txCounter <= {txCounter + 9'b1};
     end
     endcase
 end
