@@ -104,7 +104,6 @@ reg quad_start_mcu;
 reg [22:0] address_mcu;
 reg [15:0]debug;
 reg [15:0] data_in_mcu;
-reg [2:0] latch_led_rgb;
 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -134,10 +133,10 @@ psram initialize(
     //input
     .mem_clk(clk_PSRAM),
     .startbu(buttonB_debounced),
-    .address(address),
-    .read_write(read_write),
-    .data_in(data_in),
-    .quad_start(quad_start),
+    .address(address_mcu),
+    .read_write(read_write_mcu),
+    .data_in(data_in_mcu),
+    .quad_start(quad_start_mcu),
 
     //output
     .mem_clk_enabled(mem_clk_enabled),
@@ -208,51 +207,39 @@ initial begin
     address_mcu <= 22'hzzzz;
     data_in_mcu <= 0;
     quad_start_mcu <= 0;
-
-    latch_led_rgb <= 0;
 end
 
 always @(posedge clk_PSRAM) begin
 
+    //com_start <= 0;
     d_com_start <= com_start;
-    com_start <= 0;
 
     //Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
     quad_start_mcu <= (com_start && ~d_com_start);
 
-    quad_start <= 0;
-    read_write <= read_write;
-    address <= address;
-    data_in <= data_in;
+
+    quad_start = 0;
+    read_write = 0;
+    address = 0;
+    data_in = 0;
     read <= read;
-    //send_uart <= 0;   //Reset send_uart to only be triggered once. Subject to changes
-    debug <= debug;
 
     if(quad_start_mcu || quad_start_uart) begin
         if (process == IDLE) begin
-            read_write <= read_write_uart;
-            address <= address_uart;
-            data_in <= data_in_uart;
-            quad_start <= quad_start_uart;
+            read_write = read_write_uart;
+            address = address_uart;
+            data_in = data_in_uart;
+            quad_start = quad_start_uart;
         end else begin
-            read_write <= read_write_mcu;
-            address <= address_mcu;
-            data_in <= data_in_mcu;
-            quad_start <= quad_start_mcu;
+            read_write = read_write_mcu;
+            address = address_mcu;
+            data_in = data_in_mcu;
+            quad_start = quad_start_mcu;
         end
     end
-
-    if(send_uart == 1) begin
-        if(counter == 2'b11) begin
-            send_uart <= 0;
-            counter <= 0;
-        end
-        else begin
-            counter = {counter + 4'b1};
-            send_uart <= 1;
-        end
-    end
-    else send_uart <= 0;
+    
+    //led_rgb[2:0] <= 3'b000;
+    send_uart <= 0;   //Reset send_uart to only be triggered once. Subject to changes
 
     //Testing PSRAM communication
     if (qpi_on) begin  //if on IDLE state
@@ -260,20 +247,14 @@ always @(posedge clk_PSRAM) begin
       //White LED to begin process
       //led_rgb[2:0] <= 3'b000;
 
-      //if(send_uart) debug <= 1; 
+      if(send_uart) debug <= 1; 
       //if(address != address_mcu) debug <= address;
 
       //LED RGBs
-      if(quad_start_mcu) begin
-        debug <= read_write;
-      end
-      
-      //led_rgb <= led_rgb;
-      //if(latch_led_rgb == 3'b100) led_rgb <= 3'b100;
-      //else if(latch_led_rgb == 3'b001) led_rgb <= 3'b001;
-      //else if(error) led_rgb[2:0] <= 3'b011;           //Red LED
-      //else if (process == WRITE_MCU_INIT || process == READ_MCU_INIT) led_rgb[2:0] <= 3'b010;    //Blue LED = debugging state
-      //else if (process == IDLE) led_rgb[2:0] <= 3'b101;
+      if(debug) led_rgb[2:0] <= 3'b100;
+      else if(error) led_rgb[2:0] <= 3'b011;           //Red LED
+      else if (process == WRITE_MCU_INIT || process == READ_MCU_INIT) led_rgb[2:0] <= 3'b010;    //Blue LED = debugging state
+      else if (process == IDLE) led_rgb[2:0] <= 3'b101;
       //else led_rgb[2:0] <= 3'b000;
         
         case(pause)
@@ -323,16 +304,14 @@ always @(posedge clk_PSRAM) begin
               //Writing operation
               IDLE: begin
                 if(endcommand && read_write == 2) begin   //Se uma leitura tiver sido requisitada e endcommand = 1..
+                    //process <= WRITE_MCU;
                     read <= data_out;
                     send_uart <= 1;           // Flag para enviar mensagem na UART
-                    led_rgb[2:0] <= led_rgb[2:0]; //Verde amarelado
                 end
                 else if(endcommand && read_write == 1) begin   //Se uma escrita tiver sido requisitada e endcommand = 1..
-                    if(read_write == 1) latch_led_rgb[2:0] <= 3'b100; //Azul claro
+                    //process <= READ_MCU;
+                    //send_uart <= 1;           // Flag para enviar mensagem na UART
                 end
-
-                process <= IDLE;
-
               end
 
             WRITE_MCU: begin

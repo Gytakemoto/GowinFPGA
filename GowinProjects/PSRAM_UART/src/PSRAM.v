@@ -132,7 +132,7 @@ always @(negedge mem_clk) begin
 					writing <= 1;
 					data_write <= data_in;
 					//data <= message;
-                    //debug <= data_in;
+                    debug <= data_in;
 			end
 		end
 	end
