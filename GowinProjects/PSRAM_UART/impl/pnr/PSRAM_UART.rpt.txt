@@ -11,27 +11,27 @@
   <Tool Version>: V1.9.9.01 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Fri Oct 18 16:53:52 2024
+  <Created Time>:Fri Oct 25 13:28:14 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.046s, Elapsed time = 0h 0m 0.046s
-    Placement Phase 1: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.016s
-    Placement Phase 2: CPU time = 0h 0m 0.04s, Elapsed time = 0h 0m 0.04s
-    Placement Phase 3: CPU time = 0h 0m 0.815s, Elapsed time = 0h 0m 0.815s
-    Total Placement: CPU time = 0h 0m 0.916s, Elapsed time = 0h 0m 0.917s
+    Placement Phase 0: CPU time = 0h 0m 0.049s, Elapsed time = 0h 0m 0.05s
+    Placement Phase 1: CPU time = 0h 0m 0.016s, Elapsed time = 0h 0m 0.016s
+    Placement Phase 2: CPU time = 0h 0m 0.06s, Elapsed time = 0h 0m 0.061s
+    Placement Phase 3: CPU time = 0h 0m 0.749s, Elapsed time = 0h 0m 0.748s
+    Total Placement: CPU time = 0h 0m 0.874s, Elapsed time = 0h 0m 0.875s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.019s, Elapsed time = 0h 0m 0.018s
-    Routing Phase 2: CPU time = 0h 0m 0.514s, Elapsed time = 0h 0m 0.514s
+    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.018s
+    Routing Phase 2: CPU time = 0h 0m 0.459s, Elapsed time = 0h 0m 0.459s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.533s, Elapsed time = 0h 0m 0.532s
+    Total Routing: CPU time = 0h 0m 0.477s, Elapsed time = 0h 0m 0.477s
  Generate output files:
-    CPU time = 0h 0m 0.193s, Elapsed time = 0h 0m 0.194s
+    CPU time = 0h 0m 0.185s, Elapsed time = 0h 0m 0.185s
 
- Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 243MB
+ Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 215MB
 
 
 3. Resource Usage Summary
@@ -39,19 +39,19 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 797/1152  70%
-    --LUT,ALU,ROM16           | 797(781 LUT, 16 ALU, 0 ROM16)
+  Logic                       | 781/1152  68%
+    --LUT,ALU,ROM16           | 781(765 LUT, 16 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 507/957  53%
+  Register                    | 568/957  60%
     --Logic Register as Latch | 0/864  0%
-    --Logic Register as FF    | 503/864  59%
+    --Logic Register as FF    | 567/864  66%
     --I/O Register as Latch   | 0/93  0%
-    --I/O Register as FF      | 4/93  5%
-  CLS                         | 540/576  94%
-  I/O Port                    | 18
-  I/O Buf                     | 17
+    --I/O Register as FF      | 1/93  2%
+  CLS                         | 509/576  89%
+  I/O Port                    | 22
+  I/O Buf                     | 21
     --Input Buf               | 6
-    --Output Buf              | 7
+    --Output Buf              | 11
     --Inout Buf               | 4
   IOLOGIC                     | 0%
   BSRAM                       | 50%
@@ -74,7 +74,7 @@
   I/O Bank  | Usage       
   -----------------------
   bank 0   | 12/18(66%)  
-  bank 1   | 5/23(21%)   
+  bank 1   | 9/23(39%)   
   =======================
 
 
@@ -99,7 +99,7 @@
   -------------------------------------------
   sys_clk_d      | PRIMARY        |  LEFT RIGHT
   clk_PSRAM      | PRIMARY        |  LEFT RIGHT
-  gw_gao_inst_0/control0[0]| PRIMARY        |  RIGHT
+  gw_gao_inst_0/control0[0]| PRIMARY        |  LEFT RIGHT
   UART1/byteReady| LW             |  -
   gw_gao_inst_0/gao_jtag_reset| LW             |  -
   ===========================================
@@ -122,6 +122,10 @@ uart_tx          |           | 17/1          | Y          | out   | IOR6[G]  | L
 led_rgb[0]       |           | 10/1          | Y          | out   | IOR2[B]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 led_rgb[1]       |           | 11/1          | Y          | out   | IOR3[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 led_rgb[2]       |           | 9/1           | Y          | out   | IOR2[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
+led[0]           |           | 19/1          | Y          | out   | IOR6[J]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
+led[1]           |           | 29/1          | Y          | out   | IOR6[E]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
+led[2]           |           | 30/1          | Y          | out   | IOR6[C]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
+led[3]           |           | 31/1          | Y          | out   | IOR6[A]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 tdo_pad_o        |           | 7/0           | N          | out   | IOT8[B]  | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | 3.3       
 mem_sio[0]       |           | 40/0          | Y          | io    | IOT16[A] | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
 mem_sio[1]       |           | 39/0          | Y          | io    | IOT16[B] | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
@@ -164,16 +168,16 @@ Loc./Bank| Signal           | Dir.  | Site     | IO Type  | Drive | Pull Mode | 
 34/1     | -                | in    | IOR3[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 33/1     | -                | in    | IOR5[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 32/1     | -                | in    | IOR5[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-31/1     | -                | in    | IOR6[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
+31/1     | led[3]           | out   | IOR6[A]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 14/1     | -                | in    | IOR6[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-30/1     | -                | in    | IOR6[C]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
+30/1     | led[2]           | out   | IOR6[C]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 15/1     | -                | in    | IOR6[D]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-29/1     | -                | in    | IOR6[E]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
+29/1     | led[1]           | out   | IOR6[E]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 16/1     | -                | in    | IOR6[F]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 17/1     | uart_tx          | out   | IOR6[G]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 18/1     | uart_rx          | in    | IOR6[H]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 28/1     | -                | in    | IOR6[I]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-19/1     | -                | in    | IOR6[J]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
+19/1     | led[0]           | out   | IOR6[J]  | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | 3.3  
 27/1     | -                | in    | IOR7[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 21/1     | -                | in    | IOR7[B]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 24/1     | -                | in    | IOR8[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  

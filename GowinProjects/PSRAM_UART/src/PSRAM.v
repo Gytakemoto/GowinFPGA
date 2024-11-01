@@ -72,23 +72,22 @@ always @(posedge mem_clk) begin
 	case(qpi_on)
 			1: begin
 				if(flag && sendcommand) begin
-
 					if (reading) begin
 						//Obs*: Counter may change with sampling freq (this is for 84MHz)
-							case (counter)
-									16: begin
-											data_out[15:12] <= mem_sio[3:0];  // 4 most significant bits       
-									end
-									17: begin
-											data_out[11:8] <= mem_sio[3:0];  // Read next 4 bits
-									end
-									18: begin
-											data_out[7:4] <= mem_sio[3:0];   // Read next 4 bits
-									end
-									19: begin
-											data_out[3:0] <= mem_sio[3:0];   // Read last 4 bits
-									end
-							endcase
+						case (counter)
+							16: begin
+								data_out[15:12] <= mem_sio[3:0];  // 4 most significant bits       
+							end
+							17: begin
+								data_out[11:8] <= mem_sio[3:0];  // Read next 4 bits
+							end
+							18: begin
+								data_out[7:4] <= mem_sio[3:0];   // Read next 4 bits
+							end
+							19: begin
+								data_out[3:0] <= mem_sio[3:0];   // Read last 4 bits
+							end
+						endcase
 					end	
 				end
 			end
@@ -106,7 +105,7 @@ always @(negedge mem_clk) begin
 
 	//End of coms
 	if(endcommand) begin
-			flag <= 0;
+		flag <= 0;
 	end
 
 	//Start of coms
@@ -116,7 +115,6 @@ always @(negedge mem_clk) begin
 
 	//When com_start turns high, starts communication
 	if(com_start) begin
-				
 		counter <= 0;
 		sendcommand <= 1;
 
@@ -129,17 +127,17 @@ always @(negedge mem_clk) begin
                 reading <= 1;
 			end
 			else if(read_write == 1) begin
-					writing <= 1;
-					data_write <= data_in;
-					//data <= message;
-                    debug <= data_in;
+				writing <= 1;
+				data_write <= data_in;
+				//data <= message;
+				//debug <= data_in;
 			end
 		end
 	end
 
 		// 1 clock delay
 	if (sendcommand) begin
-				mem_ce <= 0;
+		mem_ce <= 0;
 	end
 
 	case(qpi_on)
@@ -163,13 +161,9 @@ always @(negedge mem_clk) begin
 
 		//QPI communication
 		1: begin
-
 			if(flag && sendcommand) begin
-
 				counter <= counter + 1'd1;
-
 				case (counter)
-
 					//Operation command
 					0: begin
 						if(read_write == 2) mem_sio_reg <= CMD_READ[7:4]; 
@@ -186,26 +180,21 @@ always @(negedge mem_clk) begin
 					5: mem_sio_reg <= address[11:8];
 					6: mem_sio_reg <= address[7:4];
 					7: mem_sio_reg <= address[3:0];
-
 					//Message
 					default: begin
-
 						//If on read proccess
 						if (reading) begin
-
 							mem_sio_reg[3:0] <= 4'hz;   	//Assert high-Z
 							reading <= 1;					//Update register
-
 							//Reading proccess ending
 							if (counter >= 21) begin
-									reading <= 0;  
-									mem_ce <= 1;
+								reading <= 0;  
+								mem_ce <= 1;
 							end
 						end
 						else if(writing) begin
 							
 							writing <= 1;														//Update register
-
 							if(8 <= counter && counter < 12) begin
 								mem_sio_reg <= data_write[15:12]; 		//Sending 4 most significant bits
 								data_write <= data_write << 4;    		// 4-bit shift: update next 4 MSB
@@ -213,15 +202,14 @@ always @(negedge mem_clk) begin
 							//Writing proccess ending
 							else if (counter > 12) begin
 								writing <= 0;
-									mem_sio_reg[3:0] <= 4'hz;
-									mem_ce <= 1;
+								mem_sio_reg[3:0] <= 4'hz;
+								mem_ce <= 1;
 							end
 						end
 						else begin //End of communication
 							mem_sio_reg[3:0] = 4'bzzzz;
 							sendcommand <= 0;
 							mem_ce <= 1;
-
 							//Maybe can be removed(?)
 							counter <= 0;
 							//Necessary, otherwise proccess goes wrong => writing OR reading goes to HIGH due to quad_start = 1
@@ -312,7 +300,7 @@ assign mem_clk_enabled = (step == STEP_DELAY) ? 0 : mem_clk;
 always @(posedge mem_clk) begin
 
 	if(!startbu) begin
-		 start = 1;	    //Detect button pressed
+		start = 1;	    //Detect button pressed
 	end
 
 	if(start) begin		//Begin initialization if startbu was pressed
@@ -323,7 +311,7 @@ always @(posedge mem_clk) begin
 					step <= STEP_RSTEN;
 					timer <= 16'b0;					//Reset timer
 				end
-      end
+			end
 			STEP_RSTEN: begin
 				command <= PSRAM_com.CMD_RSTEN;
 				spi_start <= 1;
