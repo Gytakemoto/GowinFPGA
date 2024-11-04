@@ -42,6 +42,7 @@ reg [15:0] data_write;				//Receives data_in; reg to be used in procedural routi
 reg [3:0] mem_sio_reg;				//mem_sio 4-bit bus to PSRAM communication. Reg to be used in procedural routine.
 reg flag;											//Flag signal to control communication. Might be substituided by sendcommand? (?)
 reg [15:0] debug;
+wire com_start;
 
 //Initial conditions
 initial begin
@@ -233,7 +234,7 @@ endmodule
 //PSRAM "TOP module"
 module psram(
 	input mem_clk,							// Pin 47
-    input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
+    //input startbu,              // start button to initialize PSRAM - Tang Nano ButtonA
 	input [22:0] address,
 	input [1:0] read_write,
 	input quad_start,
@@ -299,51 +300,46 @@ assign mem_clk_enabled = (step == STEP_DELAY) ? 0 : mem_clk;
 
 always @(posedge mem_clk) begin
 
-	if(!startbu) begin
-		start = 1;	    //Detect button pressed
-	end
-
-	if(start) begin		//Begin initialization if startbu was pressed
-		case(step)
-			STEP_DELAY: begin
-				timer <= timer + 1'd1;
-				if(timer[15:8] == 8'h50) begin 		// #50h = #80d. 80 * 256 (thus the 8-bit swap) = 12.800 clocks inputs. At 84Mhz, we have a t ~= 243 us.
-					step <= STEP_RSTEN;
-					timer <= 16'b0;					//Reset timer
-				end
-			end
-			STEP_RSTEN: begin
-				command <= PSRAM_com.CMD_RSTEN;
-				spi_start <= 1;
-				qpi_on <= 0;
-				if(endcommand) begin
-					step <= STEP_RST;
-					spi_start <= 0;
-				end
-			end
-			STEP_RST: begin
-				command <= PSRAM_com.CMD_RST;
-				spi_start <= 1;
-				qpi_on <= 0;
-				if(endcommand) begin
-					step <= STEP_SPI2QPI;
-					spi_start <= 0;
-				end
-			end
-			STEP_SPI2QPI: begin
-				command <= PSRAM_com.SPI2QPI;
-				spi_start <= 1;
-				qpi_on <= 0;
-				if(endcommand) begin
-					step <= STEP_IDLE;
-					spi_start <= 0;
-				end 
-			end
-			STEP_IDLE: begin
-				spi_start <= 0;
-				qpi_on <= 1;
-			end
-		endcase	
-	end
+    case(step)
+        STEP_DELAY: begin
+            qpi_on <= 0;
+            timer <= timer + 1'd1;
+            if(timer[15:8] == 8'h50) begin 		// #50h = #80d. 80 * 256 (thus the 8-bit swap) = 12.800 clocks inputs. At 84Mhz, we have a t ~= 243 us.
+                step <= STEP_RSTEN;
+                timer <= 16'b0;					//Reset timer
+            end
+        end
+        STEP_RSTEN: begin
+            command <= PSRAM_com.CMD_RSTEN;
+            spi_start <= 1;
+            qpi_on <= 0;
+            if(endcommand) begin
+                step <= STEP_RST;
+                spi_start <= 0;
+            end
+        end
+        STEP_RST: begin
+            command <= PSRAM_com.CMD_RST;
+            spi_start <= 1;
+            qpi_on <= 0;
+            if(endcommand) begin
+                step <= STEP_SPI2QPI;
+                spi_start <= 0;
+            end
+        end
+        STEP_SPI2QPI: begin
+            command <= PSRAM_com.SPI2QPI;
+            spi_start <= 1;
+            qpi_on <= 0;
+            if(endcommand) begin
+                step <= STEP_IDLE;
+                spi_start <= 0;
+            end 
+        end
+        STEP_IDLE: begin
+            spi_start <= 0;
+            qpi_on <= 1;
+        end
+    endcase	
 end
 endmodule

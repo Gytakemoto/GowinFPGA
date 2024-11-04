@@ -183,7 +183,7 @@ always @(negedge clk_PSRAM) begin
                     //DESSE PONTO, Address DEVE ESTAR DEFINIDO!
 
                     //Address of message
-                    address = {buffer[1], buffer[2], buffer[3]};
+                    address = {buffer[1][6:0], buffer[2], buffer[3]};
 
                     //com_start = LOW: receive is done! Proceed to start reading proccess with PSRAM
                     com_start <= 1;
@@ -212,7 +212,7 @@ always @(negedge clk_PSRAM) begin
                     read_write = 1;
 
                     //Address of message
-                    address = {buffer[1], buffer[2], buffer[3]};
+                    address = {buffer[1][6:0], buffer[2], buffer[3]};
 
                     //Data_in to be written. MSB received first
                     data_in = {buffer[4], buffer[5]};

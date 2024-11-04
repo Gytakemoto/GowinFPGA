@@ -37,8 +37,6 @@ module TOP (
 
 //Tang Nano 1k
 input sys_clk,                //Internal 27 MHz oscillator
-input buttonA,                //Tang Nano Button A
-input buttonB,                //Tang Nano Button B
 
 //UART
 input uart_rx,                 //RX UART wire pin 18
@@ -65,6 +63,9 @@ output [3:0] led
 //UART-PSRAM interface
 reg [22:0] address;       //Address of message to be written/read
 //wire [15:0] message;
+wire clk_PSRAM;
+wire endcommand;
+wire qpi_on;
 
 wire [15:0] write;
 reg send_uart;
@@ -74,12 +75,6 @@ wire quad_start_uart;         //Start reading OR writing proccess via UART
 wire [1:0] read_write_uart;   //Read or write switch via UART
 wire [22:0] address_uart;     //Address of interest (write or read) via UART
 wire [15:0] data_in_uart;     //Data to be written via UART
-
-
-//Button A synchronisation and debouncing
-wire buttonA_debounced;
-//Button B synchronisation and debouncing
-wire buttonB_debounced;
 
 //PSRAM interface
 wire [15:0] data_out;      //Data read -> Output reg from PSRAM
@@ -96,7 +91,6 @@ reg com_start;
 reg [3:0] process; //Keep track of write and reading test processes
 reg [3:0] counter; //Counter to control debugging LEDs when pressing buttonA
 reg [1:0] read_write;
-reg pause;
 
 //Directly control write and read process, through MCU (Gowin)
 reg [1:0] read_write_mcu;
@@ -116,24 +110,10 @@ gowin_rpll_27_to_84 clk2(
 	.clkin(sys_clk) //27MHz
 );
 
-//Debouncing processes to avoid noise from button pressing
-//sync_debouncer debuttonA(
-//    .clk(clk_PSRAM),
-//    .button(buttonA),
-//    .button_once(buttonA_debounced)
-//);
-
-sync_debouncer debuttonB(
-	.clk(clk_PSRAM),
-	.button(buttonB),
-	.button_once(buttonB_debounced)
-);
-
 //PSRAM initialization
 psram initialize(
 	//input
 	.mem_clk(clk_PSRAM),
-	.startbu(buttonB_debounced),
 	.address(address),
 	.read_write(read_write),
 	.data_in(data_in),
@@ -197,7 +177,6 @@ initial begin
 	process <= WRITE_MCU_INIT;
 	error <= 0;
 	counter <= 0;
-	pause <= 0;
 	read <= 0;
 	send_uart <= 0;
 	com_start <= 0;
@@ -209,8 +188,7 @@ initial begin
 	address_mcu <= 22'hzzzz;
 	data_in_mcu <= 0;
 	quad_start_mcu <= 0;
-
-	latch_led_rgb <= 0;
+    led_rgb <= 3'b001;
 end
 
 always @(posedge clk_PSRAM) begin
@@ -253,9 +231,9 @@ always @(posedge clk_PSRAM) begin
 		//if(address != address_mcu) debug <= address;
 
 		//LED RGBs
-		if(quad_start_mcu) begin
-			debug <= read_write;
-		end
+		//if(quad_start_mcu) begin
+			//debug <= read_write;
+		//end
 		
 		//led_rgb <= led_rgb;
 		//if(latch_led_rgb == 3'b100) led_rgb <= 3'b100;
@@ -264,88 +242,76 @@ always @(posedge clk_PSRAM) begin
 		//else if (process == WRITE_MCU_INIT || process == READ_MCU_INIT) led_rgb[2:0] <= 3'b010;    //Blue LED = debugging state
 		//else if (process == IDLE) led_rgb[2:0] <= 3'b101;
 		//else led_rgb[2:0] <= 3'b000;
-		
-		case(pause)
-
-			0: begin
-				
-				case (process)
-					WRITE_MCU_INIT: begin
-						address_mcu <= 24'hABCD;
-						data_in_mcu <= 16'h1234;
-						read_write_mcu <= 1;
-						com_start <= 1;
-						if(endcommand) begin
-							com_start <= 0;
-							process <= READ_MCU_INIT;
-						end
-					end
-					READ_MCU_INIT: begin
-						address_mcu <= 24'hABCD;
-						read_write_mcu <= 2;
-						com_start <= 1;
-						if(endcommand) begin
-							read <= data_out;
-							process <= CHECK_STARTUP;
-							read_write_mcu <= 0;
-							com_start <= 0;
-						end
-					end
-					CHECK_STARTUP: begin
-						if(read == data_in_mcu) begin
-							//debug <= read;
-							led_rgb <= 3'b101;
-							error <= 0;
-							process <= IDLE;
-						end
-						else begin
-							error <= 1;
-						end
-					end
-					//Writing operation
-					IDLE: begin
-						if (endcommand) begin
-							if (read_write == 2) begin  // Read operation
-								read <= data_out;
-								send_uart <= 1;  // Flag to send message via UART
-								led_rgb[2:0] <= led_rgb[2:0] + 1;  // Yellowish green
-							end
-							else if (read_write == 1) begin  // Write operation
-								led_rgb[2:0] <= 3'b100;  // Light blue
-								read <= data_in;
-								send_uart <= 1;  // Flag to send message via UART
-							end
-						end
-						process <= IDLE;
-					end
-					WRITE_MCU: begin
-							address_mcu <= 24'hABCD;
-							data_in_mcu <= 16'h1234;
-							read_write_mcu <= 1;
-							com_start <= 1;
-							if(endcommand) begin
-								process <= IDLE;
-								read_write_mcu <= 0;
-								com_start <= 0;
-							end
-						end
-					READ_MCU: begin
-						address_mcu <= 24'h1234;
-						read_write_mcu <= 2;
-						com_start <= 1;
-						if(endcommand) begin
-							process <= IDLE;
-							read <= data_out;
-							read_write_mcu <= 0;
-							com_start <= 0;
-						end
-					end
-				endcase
+						
+		case (process)
+			WRITE_MCU_INIT: begin
+				address_mcu <= 24'hABCD;
+				data_in_mcu <= 16'h1234;
+				read_write_mcu <= 1;
+				com_start <= 1;
+				if(endcommand) begin
+					com_start <= 0;
+					process <= READ_MCU_INIT;
+				end
 			end
-			1: begin //Awaits for button pressed
-				if(buttonB_debounced) begin
-					pause <= 0;
-					//process <= process + 1;
+			READ_MCU_INIT: begin
+				address_mcu <= 24'hABCD;
+				read_write_mcu <= 2;
+				com_start <= 1;
+				if(endcommand) begin
+					read <= data_out;
+					process <= CHECK_STARTUP;
+					read_write_mcu <= 0;
+					com_start <= 0;
+				end
+			end
+			CHECK_STARTUP: begin
+				if(read == data_in_mcu) begin
+					//debug <= read;
+					led_rgb <= 3'b101;
+					error <= 0;
+					process <= IDLE;
+				end
+				else begin
+					error <= 1;
+				end
+			end
+			//Writing operation
+			IDLE: begin
+				if (endcommand) begin
+					if (read_write == 2) begin  // Read operation
+						read <= data_out;
+						send_uart <= 1;  // Flag to send message via UART
+                        led_rgb[2:0] <= led_rgb[2:0] + 1;  // Yellowish green
+					end
+					else if (read_write == 1) begin  // Write operation
+						//led_rgb[2:0] <= 3'b100;  // Light blue
+						read <= data_in;
+						send_uart <= 1;  // Flag to send message via UART
+					end
+				end
+				process <= IDLE;
+			end
+			WRITE_MCU: begin
+					address_mcu <= 24'hABCD;
+					data_in_mcu <= 16'h1234;
+					read_write_mcu <= 1;
+					com_start <= 1;
+					if(endcommand) begin
+						process <= IDLE;
+						read_write_mcu <= 0;
+						com_start <= 0;
+					end
+				end
+			READ_MCU: begin
+				address_mcu <= 24'h1234;
+				read_write_mcu <= 2;
+				com_start <= 1;
+				if(endcommand) begin
+					process <= IDLE;
+					read <= data_out;
+					read_write_mcu <= 0;
+					com_start <= 0;
 				end
 			end
 		endcase

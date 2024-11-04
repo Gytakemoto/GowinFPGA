@@ -4,6 +4,9 @@ module sync_debouncer(
     output wire button_once
 );
 
+wire button_sync;
+wire button_deb;
+
 //Button synchronization with clk
 sync sync_button(
     .clock(clk),
