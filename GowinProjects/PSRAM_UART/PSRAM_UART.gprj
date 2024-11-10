@@ -11,6 +11,6 @@
         <File path="src/UART.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll_27_to_84.v" type="file.verilog" enable="1"/>
         <File path="src/PSRAM_UART_pins.cst" type="file.cst" enable="1"/>
-        <File path="src/PSRAM_UART.rao" type="file.gao" enable="0"/>
+        <File path="src/PSRAM_UART.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>

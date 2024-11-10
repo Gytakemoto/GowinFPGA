@@ -1,78 +1,78 @@
 [
  {
-  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
   "InstLine" : 1,
   "InstName" : "sync_debouncer",
-  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
   "ModuleLine" : 1,
   "ModuleName" : "sync_debouncer",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "InstLine" : 11,
     "InstName" : "sync_button",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "ModuleLine" : 33,
     "ModuleName" : "sync"
    },
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "InstLine" : 18,
     "InstName" : "deb_button",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "ModuleLine" : 56,
     "ModuleName" : "debouncer"
    },
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "InstLine" : 25,
     "InstName" : "sync_button_debounced",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
     "ModuleLine" : 82,
     "ModuleName" : "once"
    }
   ]
  },
  {
-  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-  "InstLine" : 36,
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+  "InstLine" : 3,
   "InstName" : "TOP",
-  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-  "ModuleLine" : 36,
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+  "ModuleLine" : 3,
   "ModuleName" : "TOP",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 108,
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+    "InstLine" : 79,
     "InstName" : "clk2",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/gowin_rpll_27_to_84.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
     "ModuleName" : "gowin_rpll_27_to_84"
    },
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 114,
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+    "InstLine" : 85,
     "InstName" : "initialize",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
     "ModuleLine" : 235,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
-      "InstLine" : 272,
+      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
+      "InstLine" : 278,
       "InstName" : "PSRAM_com",
-      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
-      "ModuleLine" : 4,
+      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
+      "ModuleLine" : 20,
       "ModuleName" : "memory_driver"
      }
     ]
    },
    {
-    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
-    "InstLine" : 135,
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+    "InstLine" : 105,
     "InstName" : "UART1",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/UART.v",
-    "ModuleLine" : 3,
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/UART.v",
+    "ModuleLine" : 26,
     "ModuleName" : "uart"
    }
   ]

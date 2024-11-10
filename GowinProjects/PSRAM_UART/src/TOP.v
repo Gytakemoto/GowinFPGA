@@ -1,116 +1,87 @@
-//-----------------------------------------------------------------------------------------------------------------
-//ReadMe: 
-// Top module for testing purposes.
-// This file (TOP.v) is intended to test the first step of integration between
-// UART communication and PSRAM external memory. The test protocol is the following:
 
-// STEP ONE - Initialization: RGB LEDs will start off. By pressing Button B,
-// the PSRAM initialization will start. When LEDs turn white, it means PSRAM was
-// successfully initialized and it is on its idle state.
-
-// STEP TWO - After initialization, MSGA will be written to PSRAM.
-// NOTE: From this step forward, Button B needs to be pressed in order to move
-// to next step
-
-// STEP THREE -   MSGA will be read from PSRAM. Upon pressing Button B, stored
-// message will be sent through UART. Also, the script will move to next step
-
-// STEP FOUR - Message was also stored to a local reg. Press Button A to sweep
-// through the saved data.
-
-// STEP FIVE ONWARDS - Same as STEP TWO, THREE AND FOUR, for MSGB.
-
-// NOTES: 
-// Upon error, RED LED will be displayed. 
-// During debugging, blue light will turn on
-// During process, green led will turn on
-//-----------------------------------------------------------------------------------------------------------------
-
-//Include sub-modules (SIMULATION ONLY)
-//`include "PSRAM.v" //Simulation modules
-//`include "gowin_rpll/grPLL_27_to_84.v" //rPLL Gowin native module
-
-
-//-----------------------------------------------------------------------------------------------------------------
-// TOP MODULE
+/* ------------------------------- TOP MODULE ------------------------------- */
 module TOP (
 
 //Tang Nano 1k
-input sys_clk,                //Internal 27 MHz oscillator
+input sys_clk,                	// Internal 27 MHz oscillator
 
 //UART
-input uart_rx,                 //RX UART wire pin 18
+input uart_rx,                 	// RX UART wire [pin 18]
 
 //PSRAM mem chip
-inout [3:0] mem_sio,     // sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41
-output mem_ce,                // pin 42
-output mem_clk_enabled,             // pin 6
-output uart_tx,                // TX UART wire pin 17
+inout [3:0] mem_sio,     		// Communication busbar for PSRAM communication - [sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41]
+output mem_ce,                	// PSRAM chip enable - [pin 42]
+output mem_clk_enabled,         // PSRAM clock pin - [pin 6]
+output uart_tx,                	// TX UART wire [pin 17]
 
 //DEBUGGING
 //Debug RGB LED
-output reg [2:0] led_rgb,     //RGB LEDs
+output reg [2:0] led_rgb,     	// RGB LEDs
 
 //Debug external LEDs
-output [3:0] led
+output [3:0] led				// Debugs external LEDs
 );
 
-//-----------------------------------------------------------------------------------------------------------------
-//Variables
+/* -------------------------------- Variables ------------------------------- */
 
-//Wire
+/* ----------------------------- PSRAM interface ---------------------------- */
 
-//UART-PSRAM interface
-reg [22:0] address;       //Address of message to be written/read
-//wire [15:0] message;
-wire clk_PSRAM;
-wire endcommand;
-wire qpi_on;
+// Inputs (from PSRAM.v module)
+wire clk_PSRAM;				   // 84MHz rPLL generated clock. Used in PSRAM interface
+wire endcommand;			   // Input flag - indicates whether PSRAM writing or reading finished
+wire qpi_on;				   // Input flag - indicates whether QPI communication is on
 
-wire [15:0] write;
-reg send_uart;
+// Outputs (to PSRAM.v module) - Determined by "MCU" or UART
+reg [22:0] address;       	   // Address of message to be written/read
+reg [15:0] data_in;            // Data to be written (16 bits)
+reg [15:0] read;               // Auxiliary Data read -> reg receives data_out in a procedural script
+wire [15:0] data_out;      	   // Data read -> Output reg from PSRAM
+reg [1:0] read_write;		   // Define read or write proccess
+	//read_write
+	//0	0 : Do nothing
+	//0	1 : Write data from PSRAM
+    //1	0 : Read data to PSRAM
+    //1	1 : Do nothing
 
 
-wire quad_start_uart;         //Start reading OR writing proccess via UART
-wire [1:0] read_write_uart;   //Read or write switch via UART
-wire [22:0] address_uart;     //Address of interest (write or read) via UART
-wire [15:0] data_in_uart;     //Data to be written via UART
+/* ----------------------------- UART interface ----------------------------- */
 
-//PSRAM interface
-wire [15:0] data_out;      //Data read -> Output reg from PSRAM
+// Inputs (from UART.v module)
+	// Request read or write through UART
+wire quad_start_uart;         // Start reading OR writing proccess via UART
+wire [1:0] read_write_uart;   // Read or write switch via UART
+wire [22:0] address_uart;     // Address of interest (write or read) via UART
+wire [15:0] data_in_uart;     // Data to be written via UART
 
-//Reg
-//PSRAM interface
-reg [15:0] data_in;         //Data to be written (16 bits)
-reg [15:0] read;            //Auxiliary Data read -> reg to be changed at procedural script
-reg error;                  //Error flag
-reg quad_start;            // Flag to start QPI communication
-reg d_com_start;
-reg com_start;
-// Debugging
-reg [3:0] process; //Keep track of write and reading test processes
-reg [3:0] counter; //Counter to control debugging LEDs when pressing buttonA
-reg [1:0] read_write;
+// Outputs (to UART.v module)
+reg send_uart;				  // Flag - inform UART to send data through Tx
 
-//Directly control write and read process, through MCU (Gowin)
-reg [1:0] read_write_mcu;
+/* -------------------------- Internal variables -------------------------- */
+
+reg error;                  // Error flag
+reg [3:0] process; 			// State-machine of top.v states
+
+// Request read or write through MCU
+reg com_start;				// Detect rising edge to start quad_start
+reg d_com_start;			
+reg quad_start;            	// Output flag - Start reading OR writing proccess via MCU
+	// quad_start = com_start && !d_com_start;
+
+// Directly control write and read process, through MCU (Gowin)
 reg quad_start_mcu;
+reg [1:0] read_write_mcu;
 reg [22:0] address_mcu;
-reg [15:0]debug;
 reg [15:0] data_in_mcu;
-reg [2:0] latch_led_rgb;
 
-//-----------------------------------------------------------------------------------------------------------------
+/* ------------------------------- Submodules ------------------------------- */
 
-//SUBMODULES
-
-//84Mhz generated by Gowin's PLL
+/* --------------------- 84Mhz generated by Gowin's PLL --------------------- */
 gowin_rpll_27_to_84 clk2(
-	.clkout(clk_PSRAM), //84 MHz
-	.clkin(sys_clk) //27MHz
+	.clkout(clk_PSRAM), 	// 84 MHz
+	.clkin(sys_clk) 		// 27MHz
 );
 
-//PSRAM initialization
+/* ---------------------------------- PSRAM --------------------------------- */
 psram initialize(
 	//input
 	.mem_clk(clk_PSRAM),
@@ -128,10 +99,9 @@ psram initialize(
 
 	//inout
 	.mem_sio(mem_sio)
-	//.message(message)
 );
 
-//UART1 channel communication
+/* ----------------------- UART1 channel communication ---------------------- */
 uart #(.DELAY_FRAMES(729), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
 	//input
 	.clk_PSRAM(clk_PSRAM),
@@ -144,70 +114,57 @@ uart #(.DELAY_FRAMES(729), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
 	.read_write(read_write_uart),
 	.quad_start(quad_start_uart),
 	.data_in(data_in_uart),
-	//.message(message),
 	.address(address_uart),
 	.uart_tx(uart_tx)
 );
 
-//-----------------------------------------------------------------------------------------------------------------
-
-//LOCAL PARAMETERS
+/* ---------------------------- Local parameters ---------------------------- */
 
 //Testbench read & write
 localparam [3:0] WRITE_MCU_INIT = 0;
 localparam [3:0] READ_MCU_INIT = 1;
 localparam [3:0] CHECK_STARTUP = 2;
 localparam [3:0] IDLE = 3;
-localparam [3:0] WRITE_MCU = 4;
-localparam [3:0] READ_MCU = 5;
 
-//CHANGING PARAMETERS
-//localparam [15:0] ADDRESSA = 16'h01;
-//localparam [15:0] ADDRESSB = 16'h01;
-//localparam [15:0] MSGA = 16'h0121;
-//localparam [15:0] MSGB = 16'h0123;
-
-//Number of bytes stored in buffer
+//Buffer's bytes length
 localparam BUFFER_LENGTH = 6;
 
-//-----------------------------------------------------------------------------------------------------------------
+/* --------------------------- Procedural routine --------------------------- */
 
-//SCRIPT
 initial begin
 	process <= WRITE_MCU_INIT;
 	error <= 0;
-	counter <= 0;
 	read <= 0;
 	send_uart <= 0;
 	com_start <= 0;
 	d_com_start <= 0;
-	debug <= 0;
 
 	//MCU read-write variables
 	read_write_mcu <= 0;
 	address_mcu <= 22'hzzzz;
 	data_in_mcu <= 0;
 	quad_start_mcu <= 0;
-    led_rgb <= 3'b001;
+    led_rgb <= 3'b111;
 end
 
 always @(posedge clk_PSRAM) begin
 
-	d_com_start <= com_start;
-	com_start <= 0;
-
-	//Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
-	quad_start_mcu <= (com_start && ~d_com_start);
-
+	//* Constantly update regulators in order to avoid inferred latches
 	quad_start <= 0;
 	read_write <= read_write;
 	address <= address;
 	data_in <= data_in;
 	read <= read;
-	send_uart <= 0;   //Reset send_uart to only be triggered once. Subject to changes
-	debug <= debug;
+	send_uart <= 0;
 
+	// Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
+	quad_start_mcu <= (com_start && ~d_com_start);
+	d_com_start <= com_start;
+	com_start <= 0;
+
+    // Routine to detect source of requisition: UART or MCU
 	if(quad_start_mcu || quad_start_uart) begin
+		//! UART only works while at IDLE state
 		if (process == IDLE) begin
 			read_write <= read_write_uart;
 			address <= address_uart;
@@ -221,29 +178,10 @@ always @(posedge clk_PSRAM) begin
 		end
 	end
 
-	//Testing PSRAM communication
-	if (qpi_on) begin  //if on IDLE state
-
-		//White LED to begin process
-		//led_rgb[2:0] <= 3'b000;
-
-		//if(send_uart) debug <= 1; 
-		//if(address != address_mcu) debug <= address;
-
-		//LED RGBs
-		//if(quad_start_mcu) begin
-			//debug <= read_write;
-		//end
-		
-		//led_rgb <= led_rgb;
-		//if(latch_led_rgb == 3'b100) led_rgb <= 3'b100;
-		//else if(latch_led_rgb == 3'b001) led_rgb <= 3'b001;
-		//else if(error) led_rgb[2:0] <= 3'b011;           //Red LED
-		//else if (process == WRITE_MCU_INIT || process == READ_MCU_INIT) led_rgb[2:0] <= 3'b010;    //Blue LED = debugging state
-		//else if (process == IDLE) led_rgb[2:0] <= 3'b101;
-		//else led_rgb[2:0] <= 3'b000;
-						
+	//* Only when QPI is ready
+	if (qpi_on) begin
 		case (process)
+		    // Writing operation to test PSRAM before starting
 			WRITE_MCU_INIT: begin
 				address_mcu <= 24'hABCD;
 				data_in_mcu <= 16'h1234;
@@ -260,59 +198,47 @@ always @(posedge clk_PSRAM) begin
 				com_start <= 1;
 				if(endcommand) begin
 					read <= data_out;
-					process <= CHECK_STARTUP;
 					read_write_mcu <= 0;
 					com_start <= 0;
+					process <= CHECK_STARTUP;
 				end
 			end
 			CHECK_STARTUP: begin
+				//* If writing and reading processess were OK
 				if(read == data_in_mcu) begin
-					//debug <= read;
 					led_rgb <= 3'b101;
 					error <= 0;
 					process <= IDLE;
 				end
+				// If not...
 				else begin
+                    led_rgb[2:0] <= 3'b011;
 					error <= 1;
 				end
 			end
-			//Writing operation
+			// Writing operation
 			IDLE: begin
 				if (endcommand) begin
-					if (read_write == 2) begin  // Read operation
+					
+					// Read operation
+					if (read_write == 2) begin
 						read <= data_out;
-						send_uart <= 1;  // Flag to send message via UART
-                        led_rgb[2:0] <= led_rgb[2:0] + 1;  // Yellowish green
+                        send_uart <= 1;  // Flag to send message via UART
 					end
-					else if (read_write == 1) begin  // Write operation
-						//led_rgb[2:0] <= 3'b100;  // Light blue
+					// Write operation
+					else if (read_write == 1) begin
 						read <= data_in;
-						send_uart <= 1;  // Flag to send message via UART
+                        send_uart <= 1;  // Flag to send message via UART
 					end
+                    // Change RGB LED colors
+                    if(led_rgb[2:0] == 3'b111) begin
+						led_rgb[2:0] <= 3'b000;
+                    end 
+                    else begin
+						led_rgb[2:0] <= {led_rgb[2:0] + 3'd1};  // +1 per LED update
+                    end
 				end
 				process <= IDLE;
-			end
-			WRITE_MCU: begin
-					address_mcu <= 24'hABCD;
-					data_in_mcu <= 16'h1234;
-					read_write_mcu <= 1;
-					com_start <= 1;
-					if(endcommand) begin
-						process <= IDLE;
-						read_write_mcu <= 0;
-						com_start <= 0;
-					end
-				end
-			READ_MCU: begin
-				address_mcu <= 24'h1234;
-				read_write_mcu <= 2;
-				com_start <= 1;
-				if(endcommand) begin
-					process <= IDLE;
-					read <= data_out;
-					read_write_mcu <= 0;
-					com_start <= 0;
-				end
 			end
 		endcase
 	end

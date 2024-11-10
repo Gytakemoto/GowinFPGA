@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="71" Lut="104">
+<Module name="TOP" Register="70" Lut="106" T_Register="482(70)" T_Alu="15(0)" T_Lut="712(106)" T_Bsram="2(0)">
     <SubModule name="clk2"/>
-    <SubModule name="initialize" Register="25" Alu="15" Lut="20">
-        <SubModule name="PSRAM_com" Register="49" Lut="99"/>
+    <SubModule name="initialize" Register="25" Alu="15" Lut="20" T_Register="74(25)" T_Alu="15(15)" T_Lut="129(20)">
+        <SubModule name="PSRAM_com" Register="49" Lut="109" T_Register="49(49)" T_Lut="109(109)"/>
     </SubModule>
-    <SubModule name="UART1" Register="156" Lut="308"/>
+    <SubModule name="UART1" Register="154" Lut="272" T_Register="154(154)" T_Lut="272(272)"/>
+    <SubModule name="gw_gao_inst_0" Register="184" Lut="205" Bsram="2" T_Register="184(184)" T_Lut="205(205)" T_Bsram="2(2)"/>
 </Module>

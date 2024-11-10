@@ -15,6 +15,14 @@ module gw_gao(
     \read[2] ,
     \read[1] ,
     \read[0] ,
+    \process[3] ,
+    \process[2] ,
+    \process[1] ,
+    \process[0] ,
+    \initialize/step[3] ,
+    \initialize/step[2] ,
+    \initialize/step[1] ,
+    \initialize/step[0] ,
     sys_clk,
     tms_pad_i,
     tck_pad_i,
@@ -38,6 +46,14 @@ input \read[3] ;
 input \read[2] ;
 input \read[1] ;
 input \read[0] ;
+input \process[3] ;
+input \process[2] ;
+input \process[1] ;
+input \process[0] ;
+input \initialize/step[3] ;
+input \initialize/step[2] ;
+input \initialize/step[1] ;
+input \initialize/step[0] ;
 input sys_clk;
 input tms_pad_i;
 input tck_pad_i;
@@ -60,6 +76,14 @@ wire \read[3] ;
 wire \read[2] ;
 wire \read[1] ;
 wire \read[0] ;
+wire \process[3] ;
+wire \process[2] ;
+wire \process[1] ;
+wire \process[0] ;
+wire \initialize/step[3] ;
+wire \initialize/step[2] ;
+wire \initialize/step[1] ;
+wire \initialize/step[0] ;
 wire sys_clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -134,7 +158,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] }),
+    .data_i({\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] ,\process[3] ,\process[2] ,\process[1] ,\process[0] ,\initialize/step[3] ,\initialize/step[2] ,\initialize/step[1] ,\initialize/step[0] }),
     .clk_i(sys_clk)
 );
 

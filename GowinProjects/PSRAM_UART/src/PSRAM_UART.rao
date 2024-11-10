@@ -22,6 +22,18 @@
                 <Signal>read[1]</Signal>
                 <Signal>read[0]</Signal>
             </Bus>
+            <Bus capture_enable="true" name="process[3:0]">
+                <Signal>process[3]</Signal>
+                <Signal>process[2]</Signal>
+                <Signal>process[1]</Signal>
+                <Signal>process[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="initialize/step[3:0]">
+                <Signal>initialize/step[3]</Signal>
+                <Signal>initialize/step[2]</Signal>
+                <Signal>initialize/step[1]</Signal>
+                <Signal>initialize/step[0]</Signal>
+            </Bus>
             <Bus capture_enable="false" name="data_out[15:0]">
                 <Signal>data_out[15]</Signal>
                 <Signal>data_out[14]</Signal>
@@ -106,13 +118,7 @@
                 <Signal>debug[1]</Signal>
                 <Signal>debug[0]</Signal>
             </Bus>
-            <Bus capture_enable="false" name="process[3:0]">
-                <Signal>process[3]</Signal>
-                <Signal>process[2]</Signal>
-                <Signal>process[1]</Signal>
-                <Signal>process[0]</Signal>
-            </Bus>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>0111111111011100</GAO_ID>
+    <GAO_ID>0101001100010001</GAO_ID>
 </GAO_CONFIG>
