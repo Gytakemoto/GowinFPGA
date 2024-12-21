@@ -40,14 +40,8 @@ IO_PORT "mem_sio[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
 IO_LOC  "mem_sio[0]" 40;
 IO_PORT "mem_sio[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-IO_LOC  "buttonB" 44;
-IO_PORT "buttonB" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-
-IO_LOC  "buttonA" 13;
-IO_PORT "buttonA" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-
-IO_LOC  "uart_tx" 17;
+IO_LOC  "uart_tx" 20;
 IO_PORT "uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-IO_LOC  "uart_rx" 18;
+IO_LOC  "uart_rx" 35;
 IO_PORT "uart_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP;

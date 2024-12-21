@@ -3,7 +3,7 @@ Running parser ...
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_44.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v'
-Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":49)
+Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM.v":50)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v'
 Undeclared symbol 'com_start', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":48)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v'
@@ -17,17 +17,6 @@ Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_
 Undeclared symbol 'clk_PSRAM', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":73)
 Undeclared symbol 'qpi_on', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":101)
 Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":102)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'
-Analyzing included file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Back to file '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
 Compiling module 'TOP_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\TOP_bkp.v":10)
 Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\gowin_rpll\gowin_rpll_27_to_84.v":9)
 Compiling module 'sync_debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":1)
@@ -37,13 +26,6 @@ WARN  (EX3791) : Expression size 29 truncated to fit in target size 28("C:\Users
 Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\Sync_Debouncer.v":79)
 Compiling module 'psram_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":243)
 Compiling module 'memory_driver_bkp'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\src\PSRAM_backup.v":4)
-Compiling module 'gw_gao'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Tang_Nano_1k\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
-Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\gw_jtag.v":1)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":684)
-Compiling module '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9.01_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
-Trying to combine GAO to RTL design
 NOTE  (EX0101) : Current top module is "TOP_bkp"
 [5%] Running netlist conversion ...
 Running device independent optimization ...

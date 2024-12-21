@@ -1,0 +1,33 @@
+{
+ "Device" : "GW1NZ-1",
+ "Files" : [
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/Sync_Debouncer.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/impl/temp/rtl_parser.result",
+ "Top" : "TOP",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

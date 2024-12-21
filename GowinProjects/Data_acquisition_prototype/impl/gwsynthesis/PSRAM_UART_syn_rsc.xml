@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="TOP" Register="70" Lut="104" T_Register="298(70)" T_Alu="15(0)" T_Lut="502(104)">
+    <SubModule name="clk2"/>
+    <SubModule name="initialize" Register="25" Alu="15" Lut="20" T_Register="74(25)" T_Alu="15(15)" T_Lut="120(20)">
+        <SubModule name="PSRAM_com" Register="49" Lut="100" T_Register="49(49)" T_Lut="100(100)"/>
+    </SubModule>
+    <SubModule name="UART1" Register="154" Lut="278" T_Register="154(154)" T_Lut="278(278)"/>
+</Module>
