@@ -39,8 +39,8 @@ module uart
     //output reg [15:0] data_in,              // Message to be written to PSRAM
     //output reg [3:0] led,                   // Debug LEDs
     output reg [7:0] threshold,             // Threshold type: "T" or "B"]
-    output reg [23:0] samples_after,        // Number of samples to be written after the threshold
-    output reg [23:0] samples_before,       // Number of samples to be written before the threshold
+    output reg [21:0] samples_after,        // Number of samples to be written after the threshold
+    output reg [21:0] samples_before,       // Number of samples to be written before the threshold
     output reg flag_acq,                    // Flag to start acquisition
     output uart_tx                          // Tx channel - output
 );
@@ -177,8 +177,8 @@ always @(posedge clk_PSRAM) begin
             if(buffer[0] == 8'h41) begin
                 if(rxByteCounter >= 7) begin
                     threshold = buffer[1];
-                    samples_after = {buffer[2], buffer[3], buffer[4]};      //Represents 2^24-1 possible values
-                    samples_before = {buffer[5], buffer[6], buffer[7]};     //Represents 2^24-1 possible values
+                    samples_after = {buffer[2][5:0], buffer[3], buffer[4]};      //Represents 2^24-1 possible values
+                    samples_before = {buffer[5][5:0], buffer[6], buffer[7]};     //Represents 2^24-1 possible values
                     //
                     // Reset counter
                     rxByteCounter <= 0;

@@ -1,20 +1,49 @@
 module gw_gao(
-    \read[15] ,
-    \read[14] ,
-    \read[13] ,
-    \read[12] ,
-    \read[11] ,
-    \read[10] ,
-    \read[9] ,
-    \read[8] ,
-    \read[7] ,
-    \read[6] ,
-    \read[5] ,
-    \read[4] ,
-    \read[3] ,
-    \read[2] ,
-    \read[1] ,
-    \read[0] ,
+    \address_acq[22] ,
+    \address_acq[21] ,
+    \address_acq[20] ,
+    \address_acq[19] ,
+    \address_acq[18] ,
+    \address_acq[17] ,
+    \address_acq[16] ,
+    \address_acq[15] ,
+    \address_acq[14] ,
+    \address_acq[13] ,
+    \address_acq[12] ,
+    \address_acq[11] ,
+    \address_acq[10] ,
+    \address_acq[9] ,
+    \address_acq[8] ,
+    \address_acq[7] ,
+    \address_acq[6] ,
+    \address_acq[5] ,
+    \address_acq[4] ,
+    \address_acq[3] ,
+    \address_acq[2] ,
+    \address_acq[1] ,
+    \address_acq[0] ,
+    \i_pivot[21] ,
+    \i_pivot[20] ,
+    \i_pivot[19] ,
+    \i_pivot[18] ,
+    \i_pivot[17] ,
+    \i_pivot[16] ,
+    \i_pivot[15] ,
+    \i_pivot[14] ,
+    \i_pivot[13] ,
+    \i_pivot[12] ,
+    \i_pivot[11] ,
+    \i_pivot[10] ,
+    \i_pivot[9] ,
+    \i_pivot[8] ,
+    \i_pivot[7] ,
+    \i_pivot[6] ,
+    \i_pivot[5] ,
+    \i_pivot[4] ,
+    \i_pivot[3] ,
+    \i_pivot[2] ,
+    \i_pivot[1] ,
+    \i_pivot[0] ,
     sys_clk,
     tms_pad_i,
     tck_pad_i,
@@ -22,44 +51,102 @@ module gw_gao(
     tdo_pad_o
 );
 
-input \read[15] ;
-input \read[14] ;
-input \read[13] ;
-input \read[12] ;
-input \read[11] ;
-input \read[10] ;
-input \read[9] ;
-input \read[8] ;
-input \read[7] ;
-input \read[6] ;
-input \read[5] ;
-input \read[4] ;
-input \read[3] ;
-input \read[2] ;
-input \read[1] ;
-input \read[0] ;
+input \address_acq[22] ;
+input \address_acq[21] ;
+input \address_acq[20] ;
+input \address_acq[19] ;
+input \address_acq[18] ;
+input \address_acq[17] ;
+input \address_acq[16] ;
+input \address_acq[15] ;
+input \address_acq[14] ;
+input \address_acq[13] ;
+input \address_acq[12] ;
+input \address_acq[11] ;
+input \address_acq[10] ;
+input \address_acq[9] ;
+input \address_acq[8] ;
+input \address_acq[7] ;
+input \address_acq[6] ;
+input \address_acq[5] ;
+input \address_acq[4] ;
+input \address_acq[3] ;
+input \address_acq[2] ;
+input \address_acq[1] ;
+input \address_acq[0] ;
+input \i_pivot[21] ;
+input \i_pivot[20] ;
+input \i_pivot[19] ;
+input \i_pivot[18] ;
+input \i_pivot[17] ;
+input \i_pivot[16] ;
+input \i_pivot[15] ;
+input \i_pivot[14] ;
+input \i_pivot[13] ;
+input \i_pivot[12] ;
+input \i_pivot[11] ;
+input \i_pivot[10] ;
+input \i_pivot[9] ;
+input \i_pivot[8] ;
+input \i_pivot[7] ;
+input \i_pivot[6] ;
+input \i_pivot[5] ;
+input \i_pivot[4] ;
+input \i_pivot[3] ;
+input \i_pivot[2] ;
+input \i_pivot[1] ;
+input \i_pivot[0] ;
 input sys_clk;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \read[15] ;
-wire \read[14] ;
-wire \read[13] ;
-wire \read[12] ;
-wire \read[11] ;
-wire \read[10] ;
-wire \read[9] ;
-wire \read[8] ;
-wire \read[7] ;
-wire \read[6] ;
-wire \read[5] ;
-wire \read[4] ;
-wire \read[3] ;
-wire \read[2] ;
-wire \read[1] ;
-wire \read[0] ;
+wire \address_acq[22] ;
+wire \address_acq[21] ;
+wire \address_acq[20] ;
+wire \address_acq[19] ;
+wire \address_acq[18] ;
+wire \address_acq[17] ;
+wire \address_acq[16] ;
+wire \address_acq[15] ;
+wire \address_acq[14] ;
+wire \address_acq[13] ;
+wire \address_acq[12] ;
+wire \address_acq[11] ;
+wire \address_acq[10] ;
+wire \address_acq[9] ;
+wire \address_acq[8] ;
+wire \address_acq[7] ;
+wire \address_acq[6] ;
+wire \address_acq[5] ;
+wire \address_acq[4] ;
+wire \address_acq[3] ;
+wire \address_acq[2] ;
+wire \address_acq[1] ;
+wire \address_acq[0] ;
+wire \i_pivot[21] ;
+wire \i_pivot[20] ;
+wire \i_pivot[19] ;
+wire \i_pivot[18] ;
+wire \i_pivot[17] ;
+wire \i_pivot[16] ;
+wire \i_pivot[15] ;
+wire \i_pivot[14] ;
+wire \i_pivot[13] ;
+wire \i_pivot[12] ;
+wire \i_pivot[11] ;
+wire \i_pivot[10] ;
+wire \i_pivot[9] ;
+wire \i_pivot[8] ;
+wire \i_pivot[7] ;
+wire \i_pivot[6] ;
+wire \i_pivot[5] ;
+wire \i_pivot[4] ;
+wire \i_pivot[3] ;
+wire \i_pivot[2] ;
+wire \i_pivot[1] ;
+wire \i_pivot[0] ;
 wire sys_clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -134,7 +221,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] }),
+    .data_i({\address_acq[22] ,\address_acq[21] ,\address_acq[20] ,\address_acq[19] ,\address_acq[18] ,\address_acq[17] ,\address_acq[16] ,\address_acq[15] ,\address_acq[14] ,\address_acq[13] ,\address_acq[12] ,\address_acq[11] ,\address_acq[10] ,\address_acq[9] ,\address_acq[8] ,\address_acq[7] ,\address_acq[6] ,\address_acq[5] ,\address_acq[4] ,\address_acq[3] ,\address_acq[2] ,\address_acq[1] ,\address_acq[0] ,\i_pivot[21] ,\i_pivot[20] ,\i_pivot[19] ,\i_pivot[18] ,\i_pivot[17] ,\i_pivot[16] ,\i_pivot[15] ,\i_pivot[14] ,\i_pivot[13] ,\i_pivot[12] ,\i_pivot[11] ,\i_pivot[10] ,\i_pivot[9] ,\i_pivot[8] ,\i_pivot[7] ,\i_pivot[6] ,\i_pivot[5] ,\i_pivot[4] ,\i_pivot[3] ,\i_pivot[2] ,\i_pivot[1] ,\i_pivot[0] }),
     .clk_i(sys_clk)
 );
 

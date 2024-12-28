@@ -1,9 +1,9 @@
 [
  {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/UART_ESP32/src/UART.v",
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/UART_ESP32/src/UART.v",
   "InstLine" : 3,
   "InstName" : "uart",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/UART_ESP32/src/UART.v",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/UART_ESP32/src/UART.v",
   "ModuleLine" : 3,
   "ModuleName" : "uart"
  }
