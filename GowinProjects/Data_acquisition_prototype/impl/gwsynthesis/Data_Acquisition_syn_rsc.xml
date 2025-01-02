@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="200" Alu="107" Lut="182">
+<Module name="TOP" Register="211" Alu="109" Lut="295">
     <SubModule name="clk2"/>
-    <SubModule name="initialize" Register="25" Alu="15" Lut="20">
-        <SubModule name="PSRAM_com" Register="80" Lut="92"/>
+    <SubModule name="initialize" Register="25" Alu="15" Lut="18">
+        <SubModule name="PSRAM_com" Register="75" Lut="92"/>
     </SubModule>
+    <SubModule name="UART1" Register="124" Alu="5" Lut="217"/>
     <SubModule name="debuttonA">
-        <SubModule name="sync_button" Register="2"/>
+        <SubModule name="sync_button" Register="3"/>
         <SubModule name="deb_button" Register="10" Lut="6"/>
         <SubModule name="sync_button_debounced" Register="5"/>
     </SubModule>
-    <SubModule name="gw_gao_inst_0" Register="248" Lut="224" Bsram="3"/>
 </Module>

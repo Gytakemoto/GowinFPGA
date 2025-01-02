@@ -1,153 +1,84 @@
 module gw_gao(
-    \address_acq[22] ,
-    \address_acq[21] ,
-    \address_acq[20] ,
-    \address_acq[19] ,
-    \address_acq[18] ,
-    \address_acq[17] ,
-    \address_acq[16] ,
-    \address_acq[15] ,
-    \address_acq[14] ,
-    \address_acq[13] ,
-    \address_acq[12] ,
-    \address_acq[11] ,
-    \address_acq[10] ,
-    \address_acq[9] ,
-    \address_acq[8] ,
-    \address_acq[7] ,
-    \address_acq[6] ,
-    \address_acq[5] ,
-    \address_acq[4] ,
-    \address_acq[3] ,
-    \address_acq[2] ,
-    \address_acq[1] ,
-    \address_acq[0] ,
-    \i_pivot[21] ,
-    \i_pivot[20] ,
-    \i_pivot[19] ,
-    \i_pivot[18] ,
-    \i_pivot[17] ,
-    \i_pivot[16] ,
-    \i_pivot[15] ,
-    \i_pivot[14] ,
-    \i_pivot[13] ,
-    \i_pivot[12] ,
-    \i_pivot[11] ,
-    \i_pivot[10] ,
-    \i_pivot[9] ,
-    \i_pivot[8] ,
-    \i_pivot[7] ,
-    \i_pivot[6] ,
-    \i_pivot[5] ,
-    \i_pivot[4] ,
-    \i_pivot[3] ,
-    \i_pivot[2] ,
-    \i_pivot[1] ,
-    \i_pivot[0] ,
-    sys_clk,
+    \i[21] ,
+    \i[20] ,
+    \i[19] ,
+    \i[18] ,
+    \i[17] ,
+    \i[16] ,
+    \i[15] ,
+    \i[14] ,
+    \i[13] ,
+    \i[12] ,
+    \i[11] ,
+    \i[10] ,
+    \i[9] ,
+    \i[8] ,
+    \i[7] ,
+    \i[6] ,
+    \i[5] ,
+    \i[4] ,
+    \i[3] ,
+    \i[2] ,
+    \i[1] ,
+    \i[0] ,
+    clk_PSRAM,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
     tdo_pad_o
 );
 
-input \address_acq[22] ;
-input \address_acq[21] ;
-input \address_acq[20] ;
-input \address_acq[19] ;
-input \address_acq[18] ;
-input \address_acq[17] ;
-input \address_acq[16] ;
-input \address_acq[15] ;
-input \address_acq[14] ;
-input \address_acq[13] ;
-input \address_acq[12] ;
-input \address_acq[11] ;
-input \address_acq[10] ;
-input \address_acq[9] ;
-input \address_acq[8] ;
-input \address_acq[7] ;
-input \address_acq[6] ;
-input \address_acq[5] ;
-input \address_acq[4] ;
-input \address_acq[3] ;
-input \address_acq[2] ;
-input \address_acq[1] ;
-input \address_acq[0] ;
-input \i_pivot[21] ;
-input \i_pivot[20] ;
-input \i_pivot[19] ;
-input \i_pivot[18] ;
-input \i_pivot[17] ;
-input \i_pivot[16] ;
-input \i_pivot[15] ;
-input \i_pivot[14] ;
-input \i_pivot[13] ;
-input \i_pivot[12] ;
-input \i_pivot[11] ;
-input \i_pivot[10] ;
-input \i_pivot[9] ;
-input \i_pivot[8] ;
-input \i_pivot[7] ;
-input \i_pivot[6] ;
-input \i_pivot[5] ;
-input \i_pivot[4] ;
-input \i_pivot[3] ;
-input \i_pivot[2] ;
-input \i_pivot[1] ;
-input \i_pivot[0] ;
-input sys_clk;
+input \i[21] ;
+input \i[20] ;
+input \i[19] ;
+input \i[18] ;
+input \i[17] ;
+input \i[16] ;
+input \i[15] ;
+input \i[14] ;
+input \i[13] ;
+input \i[12] ;
+input \i[11] ;
+input \i[10] ;
+input \i[9] ;
+input \i[8] ;
+input \i[7] ;
+input \i[6] ;
+input \i[5] ;
+input \i[4] ;
+input \i[3] ;
+input \i[2] ;
+input \i[1] ;
+input \i[0] ;
+input clk_PSRAM;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \address_acq[22] ;
-wire \address_acq[21] ;
-wire \address_acq[20] ;
-wire \address_acq[19] ;
-wire \address_acq[18] ;
-wire \address_acq[17] ;
-wire \address_acq[16] ;
-wire \address_acq[15] ;
-wire \address_acq[14] ;
-wire \address_acq[13] ;
-wire \address_acq[12] ;
-wire \address_acq[11] ;
-wire \address_acq[10] ;
-wire \address_acq[9] ;
-wire \address_acq[8] ;
-wire \address_acq[7] ;
-wire \address_acq[6] ;
-wire \address_acq[5] ;
-wire \address_acq[4] ;
-wire \address_acq[3] ;
-wire \address_acq[2] ;
-wire \address_acq[1] ;
-wire \address_acq[0] ;
-wire \i_pivot[21] ;
-wire \i_pivot[20] ;
-wire \i_pivot[19] ;
-wire \i_pivot[18] ;
-wire \i_pivot[17] ;
-wire \i_pivot[16] ;
-wire \i_pivot[15] ;
-wire \i_pivot[14] ;
-wire \i_pivot[13] ;
-wire \i_pivot[12] ;
-wire \i_pivot[11] ;
-wire \i_pivot[10] ;
-wire \i_pivot[9] ;
-wire \i_pivot[8] ;
-wire \i_pivot[7] ;
-wire \i_pivot[6] ;
-wire \i_pivot[5] ;
-wire \i_pivot[4] ;
-wire \i_pivot[3] ;
-wire \i_pivot[2] ;
-wire \i_pivot[1] ;
-wire \i_pivot[0] ;
-wire sys_clk;
+wire \i[21] ;
+wire \i[20] ;
+wire \i[19] ;
+wire \i[18] ;
+wire \i[17] ;
+wire \i[16] ;
+wire \i[15] ;
+wire \i[14] ;
+wire \i[13] ;
+wire \i[12] ;
+wire \i[11] ;
+wire \i[10] ;
+wire \i[9] ;
+wire \i[8] ;
+wire \i[7] ;
+wire \i[6] ;
+wire \i[5] ;
+wire \i[4] ;
+wire \i[3] ;
+wire \i[2] ;
+wire \i[1] ;
+wire \i[0] ;
+wire clk_PSRAM;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -221,8 +152,8 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\address_acq[22] ,\address_acq[21] ,\address_acq[20] ,\address_acq[19] ,\address_acq[18] ,\address_acq[17] ,\address_acq[16] ,\address_acq[15] ,\address_acq[14] ,\address_acq[13] ,\address_acq[12] ,\address_acq[11] ,\address_acq[10] ,\address_acq[9] ,\address_acq[8] ,\address_acq[7] ,\address_acq[6] ,\address_acq[5] ,\address_acq[4] ,\address_acq[3] ,\address_acq[2] ,\address_acq[1] ,\address_acq[0] ,\i_pivot[21] ,\i_pivot[20] ,\i_pivot[19] ,\i_pivot[18] ,\i_pivot[17] ,\i_pivot[16] ,\i_pivot[15] ,\i_pivot[14] ,\i_pivot[13] ,\i_pivot[12] ,\i_pivot[11] ,\i_pivot[10] ,\i_pivot[9] ,\i_pivot[8] ,\i_pivot[7] ,\i_pivot[6] ,\i_pivot[5] ,\i_pivot[4] ,\i_pivot[3] ,\i_pivot[2] ,\i_pivot[1] ,\i_pivot[0] }),
-    .clk_i(sys_clk)
+    .data_i({\i[21] ,\i[20] ,\i[19] ,\i[18] ,\i[17] ,\i[16] ,\i[15] ,\i[14] ,\i[13] ,\i[12] ,\i[11] ,\i[10] ,\i[9] ,\i[8] ,\i[7] ,\i[6] ,\i[5] ,\i[4] ,\i[3] ,\i[2] ,\i[1] ,\i[0] }),
+    .clk_i(clk_PSRAM)
 );
 
 endmodule

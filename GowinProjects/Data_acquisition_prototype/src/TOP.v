@@ -75,7 +75,6 @@ reg [21:0] i;
 reg [21:0] i_pivot; 							// Refers to the sample where threshold was detected
 reg i_pivot_valid;
 reg [22:0] address_debug;
-reg [22:0] new_address;	
 reg d_flag_acq;
 wire flag_acq;
 reg start_acquisition;
@@ -196,18 +195,18 @@ initial begin
 	//MCU read-write variables
 	read_write_mcu <= 0;
 	quad_start_mcu <= 0;
-    led_rgb <= 3'b111;
+  led_rgb <= 3'b111;
 
 	//Acquisition variables
 	i_pivot <= 0;
-    start_acquisition = 0;
-    buttons_pressed <= 0;
+  start_acquisition = 0;
+  buttons_pressed <= 0;
 	stop_acquisition <= 0;
 	address_debug <= 0;
-    i_pivot_valid <= 0;
-    i_minus_i_pivot_reg <= 0;
-    samples_after_adjusted <= 0;
-    next_step <= 0;
+	i_pivot_valid <= 0;
+  i_minus_i_pivot_reg <= 0;
+  samples_after_adjusted <= 0;
+  next_step <= 0;
 end
 
 always @(posedge clk_PSRAM) begin     
@@ -276,7 +275,7 @@ always @(posedge clk_PSRAM) begin
 				end
 				// If not...
 				else begin
-                    led_rgb[2:0] <= 3'b011;
+					led_rgb[2:0] <= 3'b011;
 					error <= 1;
 				end
 			end
@@ -292,7 +291,7 @@ always @(posedge clk_PSRAM) begin
 					adc_data_in <= 0;
 					i_pivot_valid <= 0;
 					stop_acquisition <= 0;
-					led_rgb[2:0] <= {led_rgb[2:0] + 3'd1};
+					led_rgb[2:0] <= 3'b000;
 				end else process <= IDLE;
 
 			end
@@ -327,13 +326,14 @@ always @(posedge clk_PSRAM) begin
 
                         // First stage: compute conditions
                         //condition 1 may not be needed
-                        condition1_reg <= (samples_after == 21'd0);
+                        condition1_reg <= samples_after == 21'd0 ? 1 : 0;
                         condition2_reg <= (i >= i_pivot) && (i_minus_i_pivot_reg >= (samples_after));
                         condition3_reg <= (i >= samples_after_adjusted) && (i < i_pivot);
 
                         // Second stage: compute final result
                         stop_acquisition <= (condition1_reg || condition2_reg || condition3_reg);
                     end
+										/*
                     else begin
                         condition1_reg <= 0;
                         condition2_reg <= 0;
@@ -341,6 +341,7 @@ always @(posedge clk_PSRAM) begin
                         i_minus_i_pivot_reg <= 0;
                         samples_after_adjusted <= 0;
                     end
+										*/
 
                     //todo: changed delay due to pipeline. Need to verify if logic's changed
 
@@ -348,7 +349,7 @@ always @(posedge clk_PSRAM) begin
 					if(!stop_acquisition) begin
                         if(!com_start) begin
                             //12 bits fit in 16 bits						
-                            data_in_acq <= {4'b0000,adc_data_in};
+                            data_in_acq <= {4'b1111,adc_data_in};
                             com_start <= 1;
                         end
                         if(next_step) begin

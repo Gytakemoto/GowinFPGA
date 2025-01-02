@@ -1,15 +1,15 @@
 [
  {
   "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-  "InstLine" : 3,
+  "InstLine" : 2,
   "InstName" : "TOP",
   "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-  "ModuleLine" : 3,
+  "ModuleLine" : 2,
   "ModuleName" : "TOP",
   "SubInsts" : [
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 102,
+    "InstLine" : 98,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
@@ -17,15 +17,15 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 108,
+    "InstLine" : 104,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
-    "ModuleLine" : 220,
+    "ModuleLine" : 223,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
       "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
-      "InstLine" : 270,
+      "InstLine" : 273,
       "InstName" : "PSRAM_com",
       "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
       "ModuleLine" : 20,
@@ -35,7 +35,15 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 181,
+    "InstLine" : 125,
+    "InstName" : "UART1",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
+    "ModuleLine" : 26,
+    "ModuleName" : "uart"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
+    "InstLine" : 178,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -68,13 +76,5 @@
     ]
    }
   ]
- },
- {
-  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
-  "InstLine" : 26,
-  "InstName" : "uart",
-  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
-  "ModuleLine" : 26,
-  "ModuleName" : "uart"
  }
 ]

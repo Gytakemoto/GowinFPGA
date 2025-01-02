@@ -58,7 +58,7 @@ reg [15:0] data_write;									// Receives data_in; reg to be used in procedural
 reg [3:0] mem_sio_reg;									// mem_sio 4-bit bus to PSRAM communication. Reg to be used in procedural routine.
 reg flag;												// Flag - signal to control communication. Might be substituided by sendcommand? (?)
 wire com_start;											// Signal used to detect rising edge requisition
-reg [15:0] debug;
+reg [22:0] debug;
 reg [3:0] idx;
 reg [7:0] precomputed_command;
 reg [22:0] address_aux;
@@ -86,11 +86,14 @@ assign com_start = quad_start || spi_start;
 // mem_sio is an output when counter < 8 (sending address) and when writing and counter < 12 (sending message)
 // Must be LOW when step == 0 (delay step), by datasheet
 // It changes every negative-edge transition, to be read in the positive one. Thus, starts right at counter = 0
-assign mem_sio = (step == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter && counter <= 7 )) || (writing && (0 <= counter && counter <= 12))) ? mem_sio_reg : 4'bz);
+assign mem_sio = (step == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter && counter <= 8)) || (writing && (0 <= counter && counter <= 12))) ? mem_sio_reg : 4'bz);
+
+//84MHz : 16 to 20
+//27 MHz: 15 to 19
 
 //Positive edge routine: grab read values
 always @(posedge mem_clk) begin
-    if (reading) begin
+    if (reading && qpi_on_aux && sendcommand) begin
         if (16 <= counter && counter < 20) begin
             data_out <= {data_out[11:0], mem_sio[3:0]}; // Concatenar os novos bits
         end
@@ -105,7 +108,7 @@ always @(negedge mem_clk) begin
 
     //Auxiliar variables in order to decrease fan-outs and meet timing closure
     address_aux <= address;
-    qpi_on_aux<= qpi_on;
+    qpi_on_aux <= qpi_on;
     
 	// End of communication
 	if(endcommand) begin
@@ -122,12 +125,13 @@ always @(negedge mem_clk) begin
 		counter <= 0;
 		sendcommand <= 1;
         precomputed_command <= command;
+        debug <= command;
 		// Define reading or writing proccess
 		if (quad_start) begin
 			if(read_write == 1) begin
 				writing <= 1;
 				data_write <= data_in;
-                debug <= 1;
+                //debug <= data_in;
 			end
             else if (read_write == 2) begin
                 reading <= 1;
@@ -138,12 +142,11 @@ always @(negedge mem_clk) begin
 	if (sendcommand) begin
 		mem_ce <= 0;
         counter <= counter + 1'd1;
-        idx <= idx - 1'd1;
 	end
 
 		// SPI communication - used during initialization process
 			if (!qpi_on_aux && sendcommand && counter <= 7) begin
-                mem_sio_reg[3:0] = {3'bzzz,precomputed_command[idx]}; // MSB first
+                mem_sio_reg[3:0] = {3'bzzz,precomputed_command[7-counter]}; // MSB first
 			end
 			
 			//End of command
@@ -165,6 +168,7 @@ always @(negedge mem_clk) begin
 					1: begin
 						if(reading) mem_sio_reg <= CMD_READ[3:0];
 						else if(writing) mem_sio_reg <= CMD_WRITE[3:0];
+                        
 					end
                     2: mem_sio_reg <= {1'b0, address_aux[22:20]};
 					3: mem_sio_reg <= address_aux[19:16];
@@ -185,24 +189,23 @@ always @(negedge mem_clk) begin
                             end
                                 else if (writing) begin
                                     // Enviar os 4 MSB atuais
-                                    mem_sio_reg <= data_write[15:12];
 
-                                    // Agendar o deslocamento no próximo ciclo
-                                    if (counter < 12) begin
-                                        data_write <= {data_write[11:0], 4'b0000}; // Deslocar no próximo ciclo
-                                    end
-
-                                    // Terminar o processo de escrita
-                                    if (counter >= 12) begin
-                                        writing <= 0;
-                                        mem_sio_reg <= 4'bz;
-                                    end
+                                    case(counter)
+                                        8: mem_sio_reg <= data_write[15:12];
+                                        9: mem_sio_reg <= data_write[11:8];
+                                        10: mem_sio_reg <= data_write[7:4];
+                                        11: mem_sio_reg <= data_write[3:0];
+                                        default: begin
+                                            writing <= 0;
+                                            mem_sio_reg <= 4'b0;
+                                        end
+                                    endcase
                                 end
                             else begin // End of communication
                                 mem_sio_reg[3:0] = 4'bzzzz;
                                 //endcommand <= 1;
                                 sendcommand <= 0;
-                                //mem_ce <= 1;
+                                mem_ce <= 1;
                             end
                         end
 				endcase

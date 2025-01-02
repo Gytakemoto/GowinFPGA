@@ -32,7 +32,7 @@ endmodule
 //Sync button press with internal clock
 module sync
 #(
-    parameter SYNC_BITS = 2  // Number of bits in the synchronisation buffer (2 minimum).
+    parameter SYNC_BITS = 3  // Number of bits in the synchronisation buffer (2 minimum).
 )
 (
     input wire clock,

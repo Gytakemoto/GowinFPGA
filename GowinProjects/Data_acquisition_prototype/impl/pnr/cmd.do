@@ -3,7 +3,6 @@
 -pn GW1NZ-LV1QN48C6/I5
 -cst C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM_UART_pins.cst
 -cfg C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\device.cfg
--gao_crc 0100000101100010
 -bit
 -tr
 -ph
@@ -14,4 +13,3 @@
 -route_option 1
 -correct_hold 1
 -route_maxfan 10
--rtl_gao

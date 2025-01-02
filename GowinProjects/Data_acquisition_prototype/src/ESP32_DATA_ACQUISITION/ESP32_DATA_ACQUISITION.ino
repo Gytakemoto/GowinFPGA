@@ -41,7 +41,7 @@ void loop() {
     case START:
       if (GwSerial.available() > 0) {
         // Buffer para armazenar a mensagem lida
-        char receivedMessage[10];
+        char receivedMessage[5];
         int i = 0;
         // Ler os bytes disponíveis na UART1
         while (GwSerial.available() > 0 && i < sizeof(receivedMessage) - 1) {
