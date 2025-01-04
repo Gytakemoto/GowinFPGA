@@ -93,7 +93,7 @@ assign mem_sio = (step == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter &
 
 //Positive edge routine: grab read values
 always @(posedge mem_clk) begin
-    if (reading && qpi_on_aux && sendcommand) begin
+    if (reading && qpi_on_aux) begin
         if (16 <= counter && counter < 20) begin
             data_out <= {data_out[11:0], mem_sio[3:0]}; // Concatenar os novos bits
         end

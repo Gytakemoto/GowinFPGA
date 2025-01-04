@@ -60,6 +60,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v
 C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v<br>
 C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\UART.v<br>
 C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to_84.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v<br>
 </td>
 </tr>
 <tr>
@@ -80,7 +81,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Thu Jan  2 11:52:20 2025
+<td>Sat Jan  4 12:24:22 2025
 </td>
 </tr>
 <tr>
@@ -96,11 +97,11 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Synthesis Process</td>
-<td>Running parser:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.14s, Elapsed time = 0h 0m 0.132s, Peak memory usage = 412.293MB<br/>Running netlist conversion:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 0MB<br/>Running device independent optimization:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 0: CPU time = 0h 0m 0.031s, Elapsed time = 0h 0m 0.035s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 1: CPU time = 0h 0m 0.062s, Elapsed time = 0h 0m 0.033s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 2: CPU time = 0h 0m 0.078s, Elapsed time = 0h 0m 0.081s, Peak memory usage = 412.293MB<br/>Running inference:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 0: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.012s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 1: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.001s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.006s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 412.293MB<br/>Running technical mapping:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 0: CPU time = 0h 0m 0.062s, Elapsed time = 0h 0m 0.051s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 1: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.027s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 2: CPU time = 0h 0m 0.031s, Elapsed time = 0h 0m 0.019s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 3: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 412.293MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 4: CPU time = 0h 0m 0.093s, Elapsed time = 0h 0m 0.096s, Peak memory usage = 412.293MB<br/>Generate output files:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.062s, Elapsed time = 0h 0m 0.059s, Peak memory usage = 412.293MB<br/></td>
+<td>Running parser:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.156s, Elapsed time = 0h 0m 0.14s, Peak memory usage = 485.008MB<br/>Running netlist conversion:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 0MB<br/>Running device independent optimization:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 0: CPU time = 0h 0m 0.046s, Elapsed time = 0h 0m 0.042s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 1: CPU time = 0h 0m 0.031s, Elapsed time = 0h 0m 0.031s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 2: CPU time = 0h 0m 0.078s, Elapsed time = 0h 0m 0.074s, Peak memory usage = 485.008MB<br/>Running inference:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 0: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.014s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 1: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.007s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 485.008MB<br/>Running technical mapping:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 0: CPU time = 0h 0m 0.062s, Elapsed time = 0h 0m 0.051s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 1: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.025s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 2: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.019s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 3: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 485.008MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 4: CPU time = 0h 0m 0.078s, Elapsed time = 0h 0m 0.084s, Peak memory usage = 485.008MB<br/>Generate output files:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.078s, Elapsed time = 0h 0m 0.062s, Peak memory usage = 485.008MB<br/></td>
 </tr>
 <tr>
 <td class="label">Total Time and Memory Usage</td>
-<td>CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 412.293MB</td>
+<td>CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 485.008MB</td>
 </tr>
 </table>
 <h1><a name="resource">Resource</a></h1>
@@ -132,15 +133,15 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label"><b>Register </b></td>
-<td>453</td>
+<td>518</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFF</td>
-<td>75</td>
+<td>52</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFE</td>
-<td>313</td>
+<td>363</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFS</td>
@@ -156,31 +157,31 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFRE</td>
-<td>53</td>
+<td>91</td>
 </tr>
 <tr>
 <td class="label"><b>LUT </b></td>
-<td>619</td>
+<td>542</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT2</td>
-<td>82</td>
+<td>90</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT3</td>
-<td>218</td>
+<td>173</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT4</td>
-<td>319</td>
+<td>279</td>
 </tr>
 <tr>
 <td class="label"><b>ALU </b></td>
-<td>129</td>
+<td>172</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspALU</td>
-<td>129</td>
+<td>172</td>
 </tr>
 <tr>
 <td class="label"><b>INV </b></td>
@@ -208,13 +209,13 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Logic</td>
-<td>757(628 LUT, 129 ALU) / 1152</td>
-<td>66%</td>
+<td>723(551 LUT, 172 ALU) / 1152</td>
+<td>63%</td>
 </tr>
 <tr>
 <td class="label">Register</td>
-<td>453 / 957</td>
-<td>48%</td>
+<td>518 / 957</td>
+<td>55%</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp--Register as Latch</td>
@@ -223,8 +224,8 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp--Register as FF</td>
-<td>453 / 957</td>
-<td>48%</td>
+<td>518 / 957</td>
+<td>55%</td>
 </tr>
 <tr>
 <td class="label">BSRAM</td>
@@ -258,7 +259,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>sys_clk_ibuf/I </td>
 </tr>
 <tr>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 <td>Base</td>
 <td>20.000</td>
 <td>50.0</td>
@@ -266,7 +267,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>10.000</td>
 <td> </td>
 <td> </td>
-<td>initialize/PSRAM_com/n82_s2/O </td>
+<td>initialize/PSRAM_com/n81_s2/O </td>
 </tr>
 <tr>
 <td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
@@ -325,9 +326,9 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td>1</td>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 <td>50.0(MHz)</td>
-<td>97.7(MHz)</td>
+<td>100.3(MHz)</td>
 <td>6</td>
 <td>TOP</td>
 </tr>
@@ -335,7 +336,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>2</td>
 <td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
 <td>84.0(MHz)</td>
-<td>116.5(MHz)</td>
+<td>112.9(MHz)</td>
 <td>5</td>
 <td>TOP</td>
 </tr>
@@ -346,199 +347,11 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <table class="summary_table">
 <tr>
 <td class="label">Slack</td>
-<td>-5.741</td>
+<td>-4.860</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time</td>
-<td>65.674</td>
-</tr>
-<tr>
-<td class="label">Data Required Time</td>
-<td>59.933</td>
-</tr>
-<tr>
-<td class="label">From</td>
-<td>quad_start_s0</td>
-</tr>
-<tr>
-<td class="label">To</td>
-<td>initialize/PSRAM_com/counter_0_s3</td>
-</tr>
-<tr>
-<td class="label">Launch Clk</td>
-<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
-</tr>
-<tr>
-<td class="label">Latch Clk</td>
-<td>initialize/PSRAM_com/n82_6[R]</td>
-</tr>
-</table>
-<b>Data Arrival Path:</b>
-<table class="summary_table">
-<tr>
-<th>AT</th>
-<th>DELAY</th>
-<th>TYPE</th>
-<th>RF</th>
-<th>FANOUT</th>
-<th>NODE</th>
-</tr>
-<tr>
-<td>59.524</td>
-<td>0.000</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
-</tr>
-<tr>
-<td>61.282</td>
-<td>1.758</td>
-<td>tCL</td>
-<td>RR</td>
-<td>396</td>
-<td>clk2/rpll_inst/CLKOUT</td>
-</tr>
-<tr>
-<td>61.645</td>
-<td>0.363</td>
-<td>tNET</td>
-<td>RR</td>
-<td>1</td>
-<td>quad_start_s0/CLK</td>
-</tr>
-<tr>
-<td>62.103</td>
-<td>0.458</td>
-<td>tC2Q</td>
-<td>RF</td>
-<td>6</td>
-<td>quad_start_s0/Q</td>
-</tr>
-<tr>
-<td>62.583</td>
-<td>0.480</td>
-<td>tNET</td>
-<td>FF</td>
-<td>1</td>
-<td>initialize/PSRAM_com/counter_5_s5/I1</td>
-</tr>
-<tr>
-<td>63.682</td>
-<td>1.099</td>
-<td>tINS</td>
-<td>FF</td>
-<td>6</td>
-<td>initialize/PSRAM_com/counter_5_s5/F</td>
-</tr>
-<tr>
-<td>64.162</td>
-<td>0.480</td>
-<td>tNET</td>
-<td>FF</td>
-<td>1</td>
-<td>initialize/PSRAM_com/n132_s4/I0</td>
-</tr>
-<tr>
-<td>65.194</td>
-<td>1.032</td>
-<td>tINS</td>
-<td>FF</td>
-<td>1</td>
-<td>initialize/PSRAM_com/n132_s4/F</td>
-</tr>
-<tr>
-<td>65.674</td>
-<td>0.480</td>
-<td>tNET</td>
-<td>FF</td>
-<td>1</td>
-<td>initialize/PSRAM_com/counter_0_s3/D</td>
-</tr>
-</table>
-<b>Data Required Path:</b>
-<table class="summary_table">
-<tr>
-<th>AT</th>
-<th>DELAY</th>
-<th>TYPE</th>
-<th>RF</th>
-<th>FANOUT</th>
-<th>NODE</th>
-</tr>
-<tr>
-<td>60.000</td>
-<td>0.000</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td>initialize/PSRAM_com/n82_6</td>
-</tr>
-<tr>
-<td>60.000</td>
-<td>0.000</td>
-<td>tCL</td>
-<td>RR</td>
-<td>59</td>
-<td>initialize/PSRAM_com/n82_s2/O</td>
-</tr>
-<tr>
-<td>60.363</td>
-<td>0.363</td>
-<td>tNET</td>
-<td>RR</td>
-<td>1</td>
-<td>initialize/PSRAM_com/counter_0_s3/CLK</td>
-</tr>
-<tr>
-<td>60.333</td>
-<td>-0.030</td>
-<td>tUnc</td>
-<td> </td>
-<td> </td>
-<td>initialize/PSRAM_com/counter_0_s3</td>
-</tr>
-<tr>
-<td>59.933</td>
-<td>-0.400</td>
-<td>tSu</td>
-<td> </td>
-<td>1</td>
-<td>initialize/PSRAM_com/counter_0_s3</td>
-</tr>
-</table>
-<b>Path Statistics:</b>
-<table class="summary_table">
-<tr>
-<td class="label">Clock Skew:</td>
-<td>-1.758</td>
-</tr>
-<tr>
-<td class="label">Setup Relationship:</td>
-<td>0.476</td>
-</tr>
-<tr>
-<td class="label">Logic Level:</td>
-<td>3</td>
-</tr>
-<tr>
-<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
-<tr>
-<td class="label">Arrival Data Path Delay:</td><td> cell: 2.131, 52.887%; route: 1.440, 35.738%; tC2Q: 0.458, 11.375%</td></tr>
-<tr>
-<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
-</table>
-<br/>
-<h3>Path&nbsp2</h3>
-<b>Path Summary:</b></br>
-<table class="summary_table">
-<tr>
-<td class="label">Slack</td>
-<td>-5.037</td>
-</tr>
-<tr>
-<td class="label">Data Arrival Time</td>
-<td>65.327</td>
+<td>65.150</td>
 </tr>
 <tr>
 <td class="label">Data Required Time</td>
@@ -558,7 +371,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Latch Clk</td>
-<td>initialize/PSRAM_com/n82_6[R]</td>
+<td>initialize/PSRAM_com/n81_6[R]</td>
 </tr>
 </table>
 <b>Data Arrival Path:</b>
@@ -584,7 +397,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>1.758</td>
 <td>tCL</td>
 <td>RR</td>
-<td>396</td>
+<td>461</td>
 <td>clk2/rpll_inst/CLKOUT</td>
 </tr>
 <tr>
@@ -600,7 +413,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>0.458</td>
 <td>tC2Q</td>
 <td>RF</td>
-<td>6</td>
+<td>7</td>
 <td>quad_start_s0/Q</td>
 </tr>
 <tr>
@@ -625,18 +438,18 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tNET</td>
 <td>FF</td>
 <td>1</td>
-<td>initialize/PSRAM_com/reading_s3/I2</td>
+<td>initialize/PSRAM_com/reading_s3/I3</td>
 </tr>
 <tr>
-<td>64.964</td>
-<td>0.802</td>
+<td>64.787</td>
+<td>0.625</td>
 <td>tINS</td>
 <td>FR</td>
 <td>1</td>
 <td>initialize/PSRAM_com/reading_s3/F</td>
 </tr>
 <tr>
-<td>65.327</td>
+<td>65.150</td>
 <td>0.363</td>
 <td>tNET</td>
 <td>RR</td>
@@ -660,7 +473,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td> </td>
 <td> </td>
 <td> </td>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 </tr>
 <tr>
 <td>60.000</td>
@@ -668,7 +481,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tCL</td>
 <td>RR</td>
 <td>59</td>
-<td>initialize/PSRAM_com/n82_s2/O</td>
+<td>initialize/PSRAM_com/n81_s2/O</td>
 </tr>
 <tr>
 <td>60.363</td>
@@ -712,12 +525,12 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <tr>
 <td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
 <tr>
-<td class="label">Arrival Data Path Delay:</td><td> cell: 1.901, 51.625%; route: 1.323, 35.928%; tC2Q: 0.458, 12.447%</td></tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 1.724, 49.183%; route: 1.323, 37.742%; tC2Q: 0.458, 13.075%</td></tr>
 <tr>
 <td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
 </table>
 <br/>
-<h3>Path&nbsp3</h3>
+<h3>Path&nbsp2</h3>
 <b>Path Summary:</b></br>
 <table class="summary_table">
 <tr>
@@ -734,7 +547,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">From</td>
-<td>n1568_s0</td>
+<td>n1633_s0</td>
 </tr>
 <tr>
 <td class="label">To</td>
@@ -746,7 +559,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Latch Clk</td>
-<td>initialize/PSRAM_com/n82_6[R]</td>
+<td>initialize/PSRAM_com/n81_6[R]</td>
 </tr>
 </table>
 <b>Data Arrival Path:</b>
@@ -772,7 +585,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>1.758</td>
 <td>tCL</td>
 <td>RR</td>
-<td>396</td>
+<td>461</td>
 <td>clk2/rpll_inst/CLKOUT</td>
 </tr>
 <tr>
@@ -781,7 +594,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tNET</td>
 <td>RR</td>
 <td>1</td>
-<td>n1568_s0/CLK</td>
+<td>n1633_s0/CLK</td>
 </tr>
 <tr>
 <td>62.103</td>
@@ -789,7 +602,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tC2Q</td>
 <td>RF</td>
 <td>1</td>
-<td>n1568_s0/Q</td>
+<td>n1633_s0/Q</td>
 </tr>
 <tr>
 <td>62.583</td>
@@ -832,7 +645,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td> </td>
 <td> </td>
 <td> </td>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 </tr>
 <tr>
 <td>60.000</td>
@@ -840,7 +653,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tCL</td>
 <td>RR</td>
 <td>59</td>
-<td>initialize/PSRAM_com/n82_s2/O</td>
+<td>initialize/PSRAM_com/n81_s2/O</td>
 </tr>
 <tr>
 <td>60.363</td>
@@ -889,7 +702,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
 </table>
 <br/>
-<h3>Path&nbsp4</h3>
+<h3>Path&nbsp3</h3>
 <b>Path Summary:</b></br>
 <table class="summary_table">
 <tr>
@@ -906,7 +719,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">From</td>
-<td>n1567_s0</td>
+<td>n1632_s0</td>
 </tr>
 <tr>
 <td class="label">To</td>
@@ -918,7 +731,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Latch Clk</td>
-<td>initialize/PSRAM_com/n82_6[R]</td>
+<td>initialize/PSRAM_com/n81_6[R]</td>
 </tr>
 </table>
 <b>Data Arrival Path:</b>
@@ -944,7 +757,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>1.758</td>
 <td>tCL</td>
 <td>RR</td>
-<td>396</td>
+<td>461</td>
 <td>clk2/rpll_inst/CLKOUT</td>
 </tr>
 <tr>
@@ -953,7 +766,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tNET</td>
 <td>RR</td>
 <td>1</td>
-<td>n1567_s0/CLK</td>
+<td>n1632_s0/CLK</td>
 </tr>
 <tr>
 <td>62.103</td>
@@ -961,7 +774,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tC2Q</td>
 <td>RF</td>
 <td>1</td>
-<td>n1567_s0/Q</td>
+<td>n1632_s0/Q</td>
 </tr>
 <tr>
 <td>62.583</td>
@@ -1004,7 +817,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td> </td>
 <td> </td>
 <td> </td>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 </tr>
 <tr>
 <td>60.000</td>
@@ -1012,7 +825,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tCL</td>
 <td>RR</td>
 <td>59</td>
-<td>initialize/PSRAM_com/n82_s2/O</td>
+<td>initialize/PSRAM_com/n81_s2/O</td>
 </tr>
 <tr>
 <td>60.363</td>
@@ -1061,7 +874,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
 </table>
 <br/>
-<h3>Path&nbsp5</h3>
+<h3>Path&nbsp4</h3>
 <b>Path Summary:</b></br>
 <table class="summary_table">
 <tr>
@@ -1078,7 +891,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">From</td>
-<td>n1566_s0</td>
+<td>n1631_s0</td>
 </tr>
 <tr>
 <td class="label">To</td>
@@ -1090,7 +903,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 </tr>
 <tr>
 <td class="label">Latch Clk</td>
-<td>initialize/PSRAM_com/n82_6[R]</td>
+<td>initialize/PSRAM_com/n81_6[R]</td>
 </tr>
 </table>
 <b>Data Arrival Path:</b>
@@ -1116,7 +929,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>1.758</td>
 <td>tCL</td>
 <td>RR</td>
-<td>396</td>
+<td>461</td>
 <td>clk2/rpll_inst/CLKOUT</td>
 </tr>
 <tr>
@@ -1125,7 +938,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tNET</td>
 <td>RR</td>
 <td>1</td>
-<td>n1566_s0/CLK</td>
+<td>n1631_s0/CLK</td>
 </tr>
 <tr>
 <td>62.103</td>
@@ -1133,7 +946,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tC2Q</td>
 <td>RF</td>
 <td>1</td>
-<td>n1566_s0/Q</td>
+<td>n1631_s0/Q</td>
 </tr>
 <tr>
 <td>62.583</td>
@@ -1176,7 +989,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td> </td>
 <td> </td>
 <td> </td>
-<td>initialize/PSRAM_com/n82_6</td>
+<td>initialize/PSRAM_com/n81_6</td>
 </tr>
 <tr>
 <td>60.000</td>
@@ -1184,7 +997,7 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td>tCL</td>
 <td>RR</td>
 <td>59</td>
-<td>initialize/PSRAM_com/n82_s2/O</td>
+<td>initialize/PSRAM_com/n81_s2/O</td>
 </tr>
 <tr>
 <td>60.363</td>
@@ -1209,6 +1022,178 @@ C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to
 <td> </td>
 <td>1</td>
 <td>initialize/PSRAM_com/data_write_2_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>0.476</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>2</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 1.099, 43.657%; route: 0.960, 38.136%; tC2Q: 0.458, 18.207%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp5</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-4.229</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>64.162</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>59.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>n1630_s0</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM_com/data_write_3_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM_com/n81_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>59.524</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>61.282</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>461</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>61.645</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>n1630_s0/CLK</td>
+</tr>
+<tr>
+<td>62.103</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>1</td>
+<td>n1630_s0/Q</td>
+</tr>
+<tr>
+<td>62.583</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>data_in_3_s1/I1</td>
+</tr>
+<tr>
+<td>63.682</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>data_in_3_s1/F</td>
+</tr>
+<tr>
+<td>64.162</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM_com/data_write_3_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>60.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM_com/n81_6</td>
+</tr>
+<tr>
+<td>60.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>59</td>
+<td>initialize/PSRAM_com/n81_s2/O</td>
+</tr>
+<tr>
+<td>60.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM_com/data_write_3_s0/CLK</td>
+</tr>
+<tr>
+<td>60.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM_com/data_write_3_s0</td>
+</tr>
+<tr>
+<td>59.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM_com/data_write_3_s0</td>
 </tr>
 </table>
 <b>Path Statistics:</b>

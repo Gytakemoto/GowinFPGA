@@ -9,6 +9,7 @@
         <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v" type="verilog"/>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\UART.v" type="verilog"/>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

@@ -20,6 +20,10 @@
   {
    "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/ping_pong_buffer.v",
+   "Type" : "verilog"
   }
  ],
  "IncludePath" : [

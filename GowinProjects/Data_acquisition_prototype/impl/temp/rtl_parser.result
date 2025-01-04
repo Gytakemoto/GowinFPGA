@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 98,
+    "InstLine" : 111,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 104,
+    "InstLine" : 117,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
     "ModuleLine" : 223,
@@ -35,7 +35,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 125,
+    "InstLine" : 138,
     "InstName" : "UART1",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
     "ModuleLine" : 26,
@@ -43,7 +43,15 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
-    "InstLine" : 178,
+    "InstLine" : 163,
+    "InstName" : "PP_post_process",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/ping_pong_buffer.v",
+    "ModuleLine" : 17,
+    "ModuleName" : "ping_pong_buffer"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
+    "InstLine" : 212,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/Sync_Debouncer.v",
     "ModuleLine" : 1,

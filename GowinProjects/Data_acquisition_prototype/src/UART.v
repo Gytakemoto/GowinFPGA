@@ -42,6 +42,7 @@ module uart
     output reg [21:0] samples_after,        // Number of samples to be written after the threshold
     output reg [21:0] samples_before,       // Number of samples to be written before the threshold
     output reg flag_acq,                    // Flag to start acquisition
+    output reg flag_end_tx,
     output uart_tx                          // Tx channel - output
 );
 
@@ -105,6 +106,7 @@ initial begin
     //d_com_start <= 0;
     //quad_start <= 0;
     //led <= 0;
+    flag_end_tx <= 0;
     txState <= TX_IDLE;
     flag_acq <= 0;
 end
@@ -236,6 +238,7 @@ always @(posedge clk_PSRAM) begin
 
     case(txState)
         TX_IDLE: begin
+            flag_end_tx <= 0;
             if (send_uart) begin                            // If send_uart is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
                 {buffer[0],buffer[1]} <= send_msg;
                 txState <= TX_START_BIT;
@@ -275,6 +278,7 @@ always @(posedge clk_PSRAM) begin
             if ((txCounter + 1) == DELAY_FRAMES) begin
                 if (txByteCounter == 1) begin               //* If all 2 bytes were transmitted, stop proccess - These Bytes are the message
                     txState <= TX_IDLE;                     // Debounce not needed: signal flag
+                    flag_end_tx <= 1;
                 end else begin
                 txByteCounter <= {txByteCounter + 2'b1};    // If else, move to next byte
                     txState <= TX_START_BIT;

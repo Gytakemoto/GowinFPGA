@@ -3,19 +3,25 @@ Running parser ...
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v'
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":115)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":128)
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\UART.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v'
 Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":2)
 Compiling module 'gowin_rpll_27_to_84'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to_84.v":9)
 Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM.v":223)
 Compiling module 'memory_driver'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM.v":20)
 Compiling module 'uart(DELAY_FRAMES=729)'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\UART.v":26)
+Compiling module 'ping_pong_buffer'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v":17)
+Extracting RAM for identifier 'buffer_a'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v":36)
+Extracting RAM for identifier 'buffer_b'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\ping_pong_buffer.v":37)
 Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v":1)
 Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v":33)
 Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v":56)
 WARN  (EX3791) : Expression size 10 truncated to fit in target size 9("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v":75)
 Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v":82)
+WARN  (EX1998) : Net 'address_acq[0]' does not have a driver("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":85)
+WARN  (EX1998) : Net 'stop_PP' does not have a driver("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":106)
 NOTE  (EX0101) : Current top module is "TOP"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
@@ -33,6 +39,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "ping_pong_buffer" instantiated to "PP_post_process" is swept in optimizing("C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":177)
 [95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg" completed
 [100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition_syn.rpt.html" completed
 GowinSynthesis finish
