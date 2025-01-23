@@ -71,6 +71,7 @@ reg [1:0] read_write_mcu;					// read_write at initial check
 /* ----------------------- Data acquisition interface ----------------------- */
 
 reg [21:0] i;
+reg [21:0] limit;
 reg [21:0] i_pivot; 							// Refers to the sample where threshold was detected
 reg i_pivot_valid;	
 reg d_flag_acq;
@@ -103,7 +104,12 @@ reg read_clk_PP;
 wire [15:0] read_PP;
 reg [22:0] address_PP;
 reg write_clk_PP;
-reg stop_PP;
+reg first_pong;
+reg d_first_pong;
+reg uart_start;
+reg [22:0] address_finish;
+reg bypass;
+
 
 /* ------------------------------- Submodules ------------------------------- */
 
@@ -135,7 +141,7 @@ psram initialize(
 
 /* ----------------------- UART1 channel communication ---------------------- */
 
-uart #(.DELAY_FRAMES(729), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
+uart #(.DELAY_FRAMES(91), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
 	//input
 	.clk_PSRAM(clk_PSRAM),
 	.uart_rx(uart_rx),
@@ -153,6 +159,7 @@ uart #(.DELAY_FRAMES(729), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
     .samples_after(samples_after),        // Number of samples to be written after the threshold
     .samples_before(samples_before),       // Number of samples to be written before the threshold
     .flag_acq(flag_acq),
+    .flag_debug(flag_debug),
     .flag_end_tx(UART_finished),
 
 	.uart_tx(uart_tx)
@@ -169,11 +176,14 @@ ping_pong_buffer #(.DATA_WIDTH(16), .BUFFER_DEPTH(BUFFER_DEPTH)) PP_post_process
   	.en_rd(en_read_PP),		            		// Sinal para habilitar escrita
     .en_wr(en_write_PP),
   	.write_data(data_out), 					// Dados de entrada para escrita
+	.first_pong(first_pong),
 
 	//output
   	.read_data(read_PP),  						// Dados de saída para leitura
   	.buffer_full(buffer_full_PP),            // Indica que o buffer ativo de escrita está cheio
-  	.buffer_empty(buffer_empty_PP)  			// Indicates the reading buffer is empty
+  	.buffer_empty(buffer_empty_PP),  			// Indicates the reading buffer is empty
+    .read_cmp(read_cmp),
+    .stop_PP(stop_PP)
 );
 
 /* ---------------------------- Local parameters ---------------------------- */
@@ -196,11 +206,12 @@ localparam [21:0] IMAX = (1 << 22) - 1;
 
 //Buffer's bytes length
 localparam BUFFER_LENGTH = 10;
-localparam BUFFER_DEPTH = 256;
+localparam BUFFER_DEPTH = 128;
 
 localparam [15:0] INITIAL_MSG = 16'h1234;
 localparam [23:0] INITIAL_ADDRESS = 24'hABCD;
-//localparam [21:0] SAMPLES_AFTER = i_max;
+//localparam [21:0] SAMPLES_AFTER = 10;
+//localparam [21:0] SAMPLES_BEFORE = 10;
 
 /* ---------------------------- Button debouncing --------------------------- */
 
@@ -235,12 +246,12 @@ initial begin
     start_acquisition = 0;
     buttons_pressed <= 0;
 	stop_acquisition <= 0;
-	//address_debug <= 0;
     address_acq <= 0;
     i_pivot_valid <= 0;
     i_minus_i_pivot_reg <= 0;
     samples_after_adjusted <= 0;
     next_step <= 0;
+    bypass <= 0;
 end
 
 always @(posedge clk_PSRAM) begin
@@ -248,7 +259,7 @@ always @(posedge clk_PSRAM) begin
 	// Detect a rising edge of mcu requisition. Only valid on MCU controlling of WRITE/READs
 	quad_start_mcu <= (com_start && ~d_com_start);
 	d_com_start <= com_start;
-	com_start <= 0;
+	//com_start <= 0;
 
 	// Detect a rising edge of UART requisition
 	start_acquisition <= (flag_acq && ~d_flag_acq);
@@ -263,6 +274,12 @@ always @(posedge clk_PSRAM) begin
             data_in <= data_in_acq;
             quad_start <= quad_start_mcu;
         end
+        SEND_UART: begin
+            read_write <= 2;
+            address <= address_PP;
+            data_in <= 16'hzzzz;
+            quad_start <= quad_start_mcu;
+        end
         WRITE_MCU_INIT: begin
             read_write <= 1;
             address <= INITIAL_ADDRESS;
@@ -273,18 +290,6 @@ always @(posedge clk_PSRAM) begin
             read_write <= 2;
             address <= INITIAL_ADDRESS;
             //data_in <= INITIAL_MSG;
-            quad_start <= quad_start_mcu;
-        end
-        READ_CHECK: begin
-            read_write <= 2;
-            address <= address_acq;
-            quad_start <= quad_start_mcu;
-            data_in <= 16'hzzzz;
-        end
-        SEND_UART: begin
-            read_write <= 2;
-            address <= address_PP;
-            data_in <= 16'hzzzz;
             quad_start <= quad_start_mcu;
         end
     endcase
@@ -326,18 +331,30 @@ always @(posedge clk_PSRAM) begin
 				end
 			end
 			IDLE: begin
-				
-				//Start acquisition rising edge detected
-				if(start_acquisition) begin
-					process <= DATA_ACQUISITION;
+
+				//Blue LED to inform end of data acquisition
+				led_rgb[2:0] <= 3'b101;
+                //start_acquisition <= 1;
+
 					//* Always begin from start
 					i <= 0;						//First sample -> 0 address
+                    address_acq <= 0;
 					buttons_pressed <= 0;		//Reset threshold button
 					i_pivot <= 0;				//Reset pivot
 					adc_data_in <= 0;
                     i_pivot_valid <= 0;
 					stop_acquisition <= 0;
-                    led_rgb[2:0] <= 3'b000;
+                    condition1_reg <= 0;
+                    condition2_reg <= 0;
+                    condition3_reg <= 0;
+                    i_minus_i_pivot_reg <= 0;
+                    samples_after_adjusted <= 0;
+                    bypass <= 1;
+				
+				//Start acquisition rising edge detected
+				if(start_acquisition) begin
+					process <= DATA_ACQUISITION;
+                    led_rgb <= 3'b000;
 				end else process <= IDLE;
 
 			end
@@ -350,64 +367,52 @@ always @(posedge clk_PSRAM) begin
 				
 				//*Validar button_debounced
                 
-				if(buttonA_debounced) begin
+				if(buttonA_debounced || flag_debug) begin
 					buttons_pressed <= buttons_pressed + 1'd1;
                     //When pressing for the first time, "detect threshold"
                     //todo: Incluir uma condição para verificar se o tipo de requisição é por botão
                 end
-                if(buttons_pressed == 1'd1 && !i_pivot_valid) begin
+                if(buttons_pressed == 1'd1 && !i_pivot_valid && !com_start) begin
                     i_pivot <= i;
                     i_pivot_valid <= 1;
-                    //inserir samples_before
                     address_PP <= (i - samples_before) << 1;
-                    
-                    //address_debug <= i[21:0];
+
+                    //address_PP <= (i - SAMPLES_BEFORE) << 1;
+
 				end
 
 
 				if(i <= IMAX) begin
-					//If i_pivot = 0, it means threshold wasn't reached
-
-                    //Caminho critico!!!!!!!
-
+					
+					//If i_pivot_valid = 0, it means threshold wasn't reached
                     if (i_pivot_valid) begin
                         // Precompute intermediate values
                         i_minus_i_pivot_reg <= i - i_pivot;
                         //! -1 because of zero (i = 0)
                         samples_after_adjusted <= (samples_after - (IMAX - i_pivot)) - 1'd1;
+                        //samples_after_adjusted <= (SAMPLES_AFTER - (IMAX - i_pivot)) - 1'd1;
 
                         // First stage: compute conditions
                         //condition 1 may not be needed
                         condition1_reg <= samples_after == 21'd0 ? 1 : 0;
+                        //condition1_reg <= SAMPLES_AFTER == 21'd0 ? 1 : 0;
                         condition2_reg <= (i >= i_pivot) && (i_minus_i_pivot_reg >= (samples_after));
+                        //condition2_reg <= (i >= i_pivot) && (i_minus_i_pivot_reg >= (SAMPLES_AFTER));
                         condition3_reg <= (i >= samples_after_adjusted) && (i < i_pivot);
 
                         // Second stage: compute final result
                         stop_acquisition <= (condition1_reg || condition2_reg || condition3_reg);
                     end
-					//else begin
-						//  condition1_reg <= 0;
-						//  condition2_reg <= 0;
-						//  condition3_reg <= 0;
-						//  i_minus_i_pivot_reg <= 0;
-						//  samples_after_adjusted <= 0;
-                    //end
-
-                    //todo: changed delay due to pipeline. Need to verify if logic's changed
 
 					//While stop wasn't requested, write in memory
 					if(!stop_acquisition) begin
                         if(!com_start) begin
                             //12 bits fit in 16 bits						
                             data_in_acq <= {4'b1111,adc_data_in};
-                            com_start <= 1;
-                            //read_GAO <= data_in;
-                            // read_GAO == F003 here
-                            
+                            com_start <= 1;                            
                         end
-                        if(next_step) begin
+                        if(com_start && next_step) begin
 							com_start <= 0;
-                            //read GAO == F002 here
 
                             //+1 for each iteration
                             if(i_pivot_valid) adc_data_in <= adc_data_in + 1'd1;
@@ -416,65 +421,120 @@ always @(posedge clk_PSRAM) begin
                             //adc_data_in <= adc_data_in + 1'd1;
 
                             i <= {i + 22'd1};
-                            //address increases by 2 each time the sample updates
-                            //address starts from 0
-                            //!Same as: address_mcu <= 23'd2 *(i[21:0]-23'd1);
+                            //address starts fron 0 and increases by 2 each time the sample updates
                             address_acq <= {address_acq + 23'd2};
 
                             //@i_max:
                             // address_mcu <= (2^22-1) * 2 = 8.388.606
-                            // then, it'll write 8.388.606 and 8.388.607		
+                            // then, it'll write 8.388.606 and 8.388.607
+
+							//* Last address_acq is the samples_after-ish
                         end
 					end
-					else if (next_step) begin
+					else if (com_start && next_step) begin
 						com_start <= 0;
-						//address_debug <= address_acq;	//Dummy mesage to be read by ESP32
+						
+						//Blue LED to inform end of data acquisition
 						led_rgb[2:0] <= 3'b110;
+
+						//Dummy mesage to be read by ESP32
 						//send_uart <= 1;  	// Flag to send message via UART
-                        read <= 16'hABCD;
+                        //read <= 16'hABCD;
                         
                         //Reset post process to start conditions
-
+                        //address_finish <= address_acq + 2'd2;
                         en_write_PP <= 1;
-                        en_read_PP <= 1;
+                        en_read_PP <= 0;
                         rst_PP <= 1;
-						process   <= SEND_UART;   // After finishing the acquisition, go back to IDLEfter finishing the acquisition, go back to IDLE
+                        first_pong <= 0;
+						process <= SEND_UART;   // After finishing the acquisition, go back to IDLEfter finishing the acquisition, go back to IDLE
 					end
 				end
 			end
             SEND_UART: begin
-                en_write_PP <= 1;
-                en_read_PP <= 1;
                 rst_PP <= 0;
                 write_clk_PP <= 0;
                 read_clk_PP <= 0;
+                read <= read_PP;
+                d_first_pong <= first_pong;
                 send_uart <= 0;
                 
-				//!talvez criar outra variável para i para diminuir o fanout
-                //!talvez buffer_empty não funcione aqui, pensar numa lógica mlehor
-				if(stop_PP) begin
+                //Wait for resetting completion
+                if(!rst_PP) begin
+                    if(!stop_PP) begin
 
-                    if (address_PP > address_acq) en_write_PP <= 0;
+                        //Read from PSRAM, write on ping-pong buffer
+                        if(en_write_PP) begin
+                            if(!(buffer_full_PP || com_start || write_clk_PP)) begin
+                                //Start reading
+                                com_start <= 1;
+                            end
 
-					//Read from PSRAM, write on pig-pong buffer
-					if(!buffer_full_PP && !com_start) begin			//If buffer isn't full yet and read is finished
-						com_start <= 1;
-					end
-					if(next_step) begin
-						address_PP <= {address_PP + 23'd2};
-						com_start <= 0;
-                        write_clk_PP <= 1;
-					end
+                            //Delay . . .
 
-					//Read from PP buffer and send to UART
-					if(UART_finished && !buffer_empty_PP) begin
-						read_clk_PP <= 1;
-						send_uart <= 1;
-					end
-				end
-				else begin
-					process <= IDLE;
-				end
+                            //Reading has ended
+                            if(next_step && com_start) begin
+                                //First bypass is needed to avoid failing when samples_after + samples_before = IMAX
+                                if(!bypass) begin
+                                    if (address_PP == address_acq + 2'd2) begin
+                                        en_write_PP <= 0;
+                                    end
+                                end
+                                else bypass <= 0;
+                                //Updating address for next message
+                                address_PP <= {address_PP + 23'd2};
+                                com_start <= 0;
+                                //Save read data in ping pong buffer
+                                write_clk_PP <= 1;
+                            end
+                        end
+
+                        //!Se send_uart nunca for 1, não tem como UART_finished = 1
+                        //! O que acontece se uart começar a ler antes do primeiro switch? Vai estar lendo coisas que nem foram escritas; Tem que esperar o primeiro switch
+                        //E se samples_after + samples_before for tão pequeno que não dá o switch ? daí temos que forçar um switch;
+
+                        //!às vezes, só printa 1 número -> possível problema por não resetar condition 1, 2 e 3
+                        //!às vezes só printa samples_before
+                        //!às vezes, não printa o ultimo -> começa um antes de i_pivot (????) e aí para um antes
+
+                        //!Pega duas amostras antes ao invés da próxima
+
+                        //Starting reading
+                        if(first_pong && !d_first_pong) begin
+                            read_clk_PP <= 1;
+                        end
+
+                        //Condition 1: Awaits for writing completion to begin UART transfer
+                        //Condition 2: Writing was disabled before first pong, which means the buffer needs to be swiched and read needs to start
+                        if((buffer_full_PP && !en_read_PP) || (!first_pong && !en_write_PP && !en_read_PP)) begin
+                            en_read_PP <= 1;
+                            first_pong <= 1;
+                        end
+
+                        
+                        //Read from PP buffer and send to UART
+                        if(UART_finished && uart_start && !buffer_empty_PP && en_read_PP) begin
+                            //j <= j + 1'd1;
+                            //if(j == SAMPLES_AFTER + SAMPLES_BEFORE) en_read_PP <= 0;
+                            //if(j == limit) en_read_PP <= 0;
+                            read_clk_PP <= 1;
+                            uart_start <= 0;
+                        end
+                        
+                        
+                        //1-clock delay to read from ping pong buffer
+                        if(read_cmp) begin
+                            send_uart <= 1;
+                        end
+
+                        //Message sent, uart can start again
+                        if(send_uart) uart_start <= 1;
+                    end
+                    else begin
+                        process <= IDLE;
+                        led_rgb <= 3'b100;
+                    end
+                end
 			end
 		endcase
 	end

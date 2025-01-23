@@ -2,23 +2,23 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/PSRAM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/Sync_Debouncer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/UART.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/TOP.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/src/gowin_rpll_27_to_84.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/src/UART.v",
    "Type" : "verilog"
   }
  ],
@@ -26,7 +26,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/PSRAM_UART/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/PSRAM_UART/impl/temp/rtl_parser.result",
  "Top" : "TOP",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

@@ -2,27 +2,27 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/Sync_Debouncer.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/ping_pong_buffer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/PSRAM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/Sync_Debouncer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/gowin_rpll_27_to_84.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/TOP_debug.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/ping_pong_buffer.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/UART.v",
    "Type" : "verilog"
   }
  ],
@@ -30,7 +30,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_prototype/impl/temp/rtl_parser.result",
  "Top" : "TOP",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

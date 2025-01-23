@@ -1,7 +1,7 @@
-Reading netlist file: "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg"
-Parsing netlist file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg" completed
+Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg"
+Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM_UART_pins.cst"
+Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM_UART_pins.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,11 +20,11 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.power.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.pin.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.rpt.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.rpt.txt" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.tr.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.tr" completed
-Sat Jan  4 12:24:26 2025
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.power.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.pin.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.rpt.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.rpt.txt" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.tr.html" completed
+Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\Data_acquisition.tr" completed
+Wed Jan 22 14:05:24 2025
 

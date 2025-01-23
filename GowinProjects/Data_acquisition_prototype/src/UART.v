@@ -43,6 +43,7 @@ module uart
     output reg [21:0] samples_before,       // Number of samples to be written before the threshold
     output reg flag_acq,                    // Flag to start acquisition
     output reg flag_end_tx,
+    output reg flag_debug,
     output uart_tx                          // Tx channel - output
 );
 
@@ -166,32 +167,45 @@ always @(posedge clk_PSRAM) begin
 
 /* ----------------------- Interpreting received data ----------------------- */
 
+        //Flag to be used by automatic debugging
+        flag_debug <= 0;
+
     if(byteReady) begin
         rxByteCounter <= {rxByteCounter + 6'b1};        // Increment bytes number
-        buffer[rxByteCounter] = dataIn;                 // Storing received byte into buffer
+        buffer[rxByteCounter] <= dataIn;                 // Storing received byte into buffer
         
         if(rxByteCounter >= 0) begin
 
         //* Added start_acq, setting to zero for rising edge detection on TOP module
         flag_acq <= 0;
 
+
+
+            //Start requested by Python. Used in debugging
+            if(dataIn == 8'h53) begin
+                flag_debug <= 1;
+                //Resetting buffer
+                rxByteCounter <= 0;
+                buffer[0] <= 0;
+                dataIn <= 0;
+            end
+
             //Data acquistion start - buffer[0] = A
-            if(buffer[0] == 8'h41) begin
+            else if(buffer[0] == 8'h41) begin
                 if(rxByteCounter >= 7) begin
-                    threshold = buffer[1];
-                    samples_after = {buffer[2][5:0], buffer[3], buffer[4]};      //Represents 2^24-1 possible values
-                    samples_before = {buffer[5][5:0], buffer[6], buffer[7]};     //Represents 2^24-1 possible values
+                    threshold <= buffer[1];
+                    samples_after <= {buffer[2][5:0], buffer[3], buffer[4]};      //Represents 2^24-1 possible values
+                    samples_before <= {buffer[5][5:0], buffer[6], dataIn};     //Represents 2^24-1 possible values
+                    buffer[0] <= 0;
                     //
                     // Reset counter
                     rxByteCounter <= 0;
-                    // Clear buffer
-                    for (i = 0; i <= BUFFER_LENGTH-1; i = i + 1) begin
-                        buffer[i] = 8'h00;
-                    end
-                    //todo: check if non-blocking assignment works
+
                     flag_acq <= 1;
                 end
             end
+
+            
             /*
             //Read operation - buffer[0] = R
             else if(buffer[0] == 8'h52) begin
@@ -238,8 +252,8 @@ always @(posedge clk_PSRAM) begin
 
     case(txState)
         TX_IDLE: begin
-            flag_end_tx <= 0;
             if (send_uart) begin                            // If send_uart is HIGH, start transmission state through TX channel. If else, output HIGH state (nothing happens)
+                flag_end_tx <= 0;
                 {buffer[0],buffer[1]} <= send_msg;
                 txState <= TX_START_BIT;
                 txCounter <= 0;

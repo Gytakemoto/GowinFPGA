@@ -88,6 +88,12 @@ assign com_start = quad_start || spi_start;
 // It changes every negative-edge transition, to be read in the positive one. Thus, starts right at counter = 0
 assign mem_sio = (step == 0 ? 4'h0 : (((reading || spi_start) && (0 <= counter && counter <= 8)) || (writing && (0 <= counter && counter <= 12))) ? mem_sio_reg : 4'bz);
 
+/*
+assign mem_sio = (step == 0 ? 4'h0 : 
+(reading || spi_start) && (0 <= counter && counter <= 8) ?  mem_sio_reg : 
+writing && (0 <= counter && counter <= 12) ? mem_sio_reg : 4'bz);
+*/
+
 //84MHz : 16 to 20
 //27 MHz: 15 to 19
 
@@ -103,7 +109,6 @@ end
 
 // Negative edge rountine: assign values to be WRITTEN (address, messages)
 always @(negedge mem_clk) begin
-   
     mem_ce <= 1;
 
     //Auxiliar variables in order to decrease fan-outs and meet timing closure
@@ -184,23 +189,22 @@ always @(negedge mem_clk) begin
                                 // Reading proccess ending
                                 if (counter >= 21) begin
                                     reading <= 0;  
-                                    //mem_ce <= 1;
+                                    mem_ce <= 1;
                                 end
                             end
-                                else if (writing) begin
-                                    // Enviar os 4 MSB atuais
-
-                                    case(counter)
-                                        8: mem_sio_reg <= data_write[15:12];
-                                        9: mem_sio_reg <= data_write[11:8];
-                                        10: mem_sio_reg <= data_write[7:4];
-                                        11: mem_sio_reg <= data_write[3:0];
-                                        default: begin
-                                            writing <= 0;
-                                            mem_sio_reg <= 4'b0;
-                                        end
-                                    endcase
-                                end
+							else if (writing) begin
+								// Enviar os 4 MSB atuais
+								case(counter)
+									8: mem_sio_reg <= data_write[15:12];
+									9: mem_sio_reg <= data_write[11:8];
+									10: mem_sio_reg <= data_write[7:4];
+									11: mem_sio_reg <= data_write[3:0];
+									default: begin
+										writing <= 0;
+										mem_sio_reg <= 4'b0;
+									end
+								endcase
+							end
                             else begin // End of communication
                                 mem_sio_reg[3:0] = 4'bzzzz;
                                 //endcommand <= 1;
@@ -214,6 +218,7 @@ end
 
 //endcommand assigned HIGH when communication is finished
 assign endcommand = (flag || spi_start) && ~sendcommand;
+//!Maybe endcommand = !sendcommand && d_sendcommand; -> Borda de descida do sendcommand
 
 endmodule
 

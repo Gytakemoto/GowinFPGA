@@ -1,26 +1,20 @@
 module gw_gao(
-    \i[21] ,
-    \i[20] ,
-    \i[19] ,
-    \i[18] ,
-    \i[17] ,
-    \i[16] ,
-    \i[15] ,
-    \i[14] ,
-    \i[13] ,
-    \i[12] ,
-    \i[11] ,
-    \i[10] ,
-    \i[9] ,
-    \i[8] ,
-    \i[7] ,
-    \i[6] ,
-    \i[5] ,
-    \i[4] ,
-    \i[3] ,
-    \i[2] ,
-    \i[1] ,
-    \i[0] ,
+    \read[15] ,
+    \read[14] ,
+    \read[13] ,
+    \read[12] ,
+    \read[11] ,
+    \read[10] ,
+    \read[9] ,
+    \read[8] ,
+    \read[7] ,
+    \read[6] ,
+    \read[5] ,
+    \read[4] ,
+    \read[3] ,
+    \read[2] ,
+    \read[1] ,
+    \read[0] ,
     clk_PSRAM,
     tms_pad_i,
     tck_pad_i,
@@ -28,56 +22,44 @@ module gw_gao(
     tdo_pad_o
 );
 
-input \i[21] ;
-input \i[20] ;
-input \i[19] ;
-input \i[18] ;
-input \i[17] ;
-input \i[16] ;
-input \i[15] ;
-input \i[14] ;
-input \i[13] ;
-input \i[12] ;
-input \i[11] ;
-input \i[10] ;
-input \i[9] ;
-input \i[8] ;
-input \i[7] ;
-input \i[6] ;
-input \i[5] ;
-input \i[4] ;
-input \i[3] ;
-input \i[2] ;
-input \i[1] ;
-input \i[0] ;
+input \read[15] ;
+input \read[14] ;
+input \read[13] ;
+input \read[12] ;
+input \read[11] ;
+input \read[10] ;
+input \read[9] ;
+input \read[8] ;
+input \read[7] ;
+input \read[6] ;
+input \read[5] ;
+input \read[4] ;
+input \read[3] ;
+input \read[2] ;
+input \read[1] ;
+input \read[0] ;
 input clk_PSRAM;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \i[21] ;
-wire \i[20] ;
-wire \i[19] ;
-wire \i[18] ;
-wire \i[17] ;
-wire \i[16] ;
-wire \i[15] ;
-wire \i[14] ;
-wire \i[13] ;
-wire \i[12] ;
-wire \i[11] ;
-wire \i[10] ;
-wire \i[9] ;
-wire \i[8] ;
-wire \i[7] ;
-wire \i[6] ;
-wire \i[5] ;
-wire \i[4] ;
-wire \i[3] ;
-wire \i[2] ;
-wire \i[1] ;
-wire \i[0] ;
+wire \read[15] ;
+wire \read[14] ;
+wire \read[13] ;
+wire \read[12] ;
+wire \read[11] ;
+wire \read[10] ;
+wire \read[9] ;
+wire \read[8] ;
+wire \read[7] ;
+wire \read[6] ;
+wire \read[5] ;
+wire \read[4] ;
+wire \read[3] ;
+wire \read[2] ;
+wire \read[1] ;
+wire \read[0] ;
 wire clk_PSRAM;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -152,7 +134,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\i[21] ,\i[20] ,\i[19] ,\i[18] ,\i[17] ,\i[16] ,\i[15] ,\i[14] ,\i[13] ,\i[12] ,\i[11] ,\i[10] ,\i[9] ,\i[8] ,\i[7] ,\i[6] ,\i[5] ,\i[4] ,\i[3] ,\i[2] ,\i[1] ,\i[0] }),
+    .data_i({\read[15] ,\read[14] ,\read[13] ,\read[12] ,\read[11] ,\read[10] ,\read[9] ,\read[8] ,\read[7] ,\read[6] ,\read[5] ,\read[4] ,\read[3] ,\read[2] ,\read[1] ,\read[0] }),
     .clk_i(clk_PSRAM)
 );
 

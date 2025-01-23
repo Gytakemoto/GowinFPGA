@@ -1,8 +1,8 @@
--d C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg
+-d C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\gwsynthesis\Data_acquisition.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM_UART_pins.cst
--cfg C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\device.cfg
+-cst C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM_UART_pins.cst
+-cfg C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\impl\pnr\device.cfg
 -bit
 -tr
 -ph
@@ -13,3 +13,4 @@
 -route_option 1
 -correct_hold 1
 -route_maxfan 10
+-global_freq 50.000
