@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/CMakeFiles/bootloader
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/CMakeFiles/bootloader.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/CMakeFiles/bootloader-complete.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_prototype/src/DAC_Basics/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
