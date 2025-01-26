@@ -9,6 +9,10 @@
   "files.associations": {
     "stdio.h": "c",
     "gpio.h": "c",
-    "soc.h": "c"
+    "soc.h": "c",
+    "stdlib.h": "c",
+    "string.h": "c",
+    "freertos.h": "c",
+    "rtc_io_reg.h": "c"
   }
 }

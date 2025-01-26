@@ -104,10 +104,10 @@ void dac_scale_set(dac_channel_t channel, int scale)
 void dac_offset_set(dac_channel_t channel, int offset)
 {
     switch(channel) {
-        case DAC_CHANNEL_1:
+        case DAC_CHAN_0:
             SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_DC1, offset, SENS_DAC_DC1_S);
             break;
-        case DAC_CHANNEL_2:
+        case DAC_CHAN_1:
             SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_DC2, offset, SENS_DAC_DC2_S);
             break;
         default :
@@ -127,10 +127,10 @@ void dac_offset_set(dac_channel_t channel, int offset)
 void dac_invert_set(dac_channel_t channel, int invert)
 {
     switch(channel) {
-        case DAC_CHANNEL_1:
+        case DAC_CHAN_0:
             SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV1, invert, SENS_DAC_INV1_S);
             break;
-        case DAC_CHANNEL_2:
+        case DAC_CHAN_1:
             SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV2, invert, SENS_DAC_INV2_S);
             break;
         default :
@@ -152,9 +152,9 @@ void dactask(void* arg)
         /* Tune parameters of channel 2 only
          * to see and compare changes against channel 1
          */
-        dac_scale_set(DAC_CHANNEL_2, scale);
-        dac_offset_set(DAC_CHANNEL_2, offset);
-        dac_invert_set(DAC_CHANNEL_2, invert);
+        dac_scale_set(DAC_CHAN_1, scale);
+        dac_offset_set(DAC_CHAN_1, offset);
+        dac_invert_set(DAC_CHAN_1, invert);
 
         float frequency = RTC_FAST_CLK_FREQ_APPROX / (1 + clk_8m_div) * (float) frequency_step / 65536;
         printf("clk_8m_div: %d, frequency step: %d, frequency: %.0f Hz\n", clk_8m_div, frequency_step, frequency);
@@ -167,8 +167,8 @@ void dactask(void* arg)
 /*
  * Generate a sine waveform on both DAC channels:
  *
- * DAC_CHANNEL_1 - GPIO25
- * DAC_CHANNEL_2 - GPIO26
+ * DAC_CHAN_0 - GPIO25
+ * DAC_CHAN_1 - GPIO26
  *
  * Connect scope to both GPIO25 and GPIO26
  * to observe the waveform changes
@@ -176,10 +176,10 @@ void dactask(void* arg)
 */
 void app_main()
 {
-    //dac_cosine_enable(DAC_CHANNEL_1);
+    //dac_cosine_enable(DAC_CHAN_0);
     dac_cosine_enable(DAC_CHAN_1);
 
-    //dac_output_enable(DAC_CHANNEL_1);
+    //dac_output_enable(DAC_CHAN_0);
     dac_output_enable(DAC_CHAN_1);
 
     xTaskCreate(dactask, "dactask", 1024*3, NULL, 10, NULL);
