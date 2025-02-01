@@ -12,11 +12,13 @@ const int ADC_CLK_Pin_IN = 23;
 const int ADC_Data_Pins[] = {34, 19, 35, 18, 32, 5, 33, 17, 27, 16, 14, 4};
 
 void setup() {
-  // Configuração do pino do clock do ADC
-  pinMode(ADC_CLK_Pin, OUTPUT);
-
+  
   // Configuração do DAC e do potenciômetro
   pinMode(Pot_Pin, INPUT);
+
+  /*
+  // Configuração do pino do clock do ADC
+  pinMode(ADC_CLK_Pin, OUTPUT);
 
   pinMode(ADC_CLK_Pin_IN, INPUT);
 
@@ -27,49 +29,37 @@ void setup() {
   ledcAttach(ADC_CLK_Pin, 1000, 8);  // Canal 0 ligado ao pino ADC_CLK_Pin)
   
   Serial.begin(115200); // Inicializa a comunicação serial com baud rate de 115200
+  */
 
 }
 
 void loop() {
 
-  //digitalWrite(ADC_CLK_Pin, clkState);
-  ledcWriteTone(ADC_CLK_Pin, 1000);
-
-  // Ler a tensão do potenciômetro (0-4095 para ADC de 12 bits)
-  int potValue = analogRead(Pot_Pin);
-
-  // Enviar a tensão lida para o DAC
-  dacWrite(DAC_OUT_Pin, potValue >> 4); // Ajuste para escala de 8 bits (0-255)
-
+  /* ------------------------------- ADC Control ------------------------------ */
+  /*
+  ledcWriteTone(ADC_CLK_Pin, 1000);   //Generating a 1kHz clock
   /*
   // Detecta flanco de descida
-  if (digitalRead(ADC_CLK_Pin) == 1) {
-    //int adcData = 0;
+  if (digitalRead(ADC_CLK_Pin) == 1) {  //If on high-state clock
 
     //int OTRValue = digitalRead(OTR_Pin);
 
     // Mostrar dados no monitor serial
     Serial.printf("Potenciômetro: %d, ADC:", potValue);
     //Serial.printf("\t OTR: %d \t", OTRValue);
-
-    for (int i = 11; i >= 0; i--) {
-      int bitValue = digitalRead(ADC_Data_Pins[i]);
-      //adcData |= (bitValue << i);
-      Serial.print(bitValue);
-    }
-    Serial.println();
-  }
-  delayMicroseconds(500); // Meio período do clock (1 kHz = 1000 µs por ciclo)
-  clkState = !clkState;
-  */
   
   if(digitalRead(ADC_CLK_Pin_IN) == 1){
     for (int i = 11; i >= 0; i--) {
     int bitValue = digitalRead(ADC_Data_Pins[i]);
-    //adcData |= (bitValue << i); // Construir o valor de 12 bits do ADC
     Serial.print(bitValue);
     }
     Serial.println();
   }
-  //delay(100); // Ajuste para controle de leitura (10 ms no exemplo)
+  */
+
+    // Ler a tensão do potenciômetro (0-4095 para ADC de 12 bits)
+  int potValue = analogRead(Pot_Pin);
+
+  // Enviar a tensão lida para o DAC
+  dacWrite(DAC_OUT_Pin, potValue >> 4); // Ajuste para escala de 8 bits (0-255)
 }

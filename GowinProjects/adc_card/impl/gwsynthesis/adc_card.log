@@ -1,43 +1,6 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\adc.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\adc_mem_driver_2.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\controle2.v'
-Undeclared symbol 'micro_framearrived', assumed default net type 'wire'("D:\GowinProjects\adc_card\src\controle2.v":83)
-Undeclared symbol 'micro_frameready', assumed default net type 'wire'("D:\GowinProjects\adc_card\src\controle2.v":84)
-Undeclared symbol 'micro_frameerror', assumed default net type 'wire'("D:\GowinProjects\adc_card\src\controle2.v":86)
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\fifo_top\fifo_top.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\gowin_rpll\gowin_rpll.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\spi.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\uart.v'
-Analyzing Verilog file 'D:\GowinProjects\adc_card\src\uart_control.v'
-Compiling module 'controle'("D:\GowinProjects\adc_card\src\controle2.v":1)
-Compiling module 'Gowin_rPLL'("D:\GowinProjects\adc_card\src\gowin_rpll\gowin_rpll.v":9)
-Compiling module 'adc_mem_driver2'("D:\GowinProjects\adc_card\src\adc_mem_driver_2.v":1)
-Compiling module 'fifo_top'("D:\GowinProjects\adc_card\src\fifo_top\fifo_top.v":358)
-Compiling module '**'("D:\GowinProjects\adc_card\src\fifo_top\fifo_top.v":0)
-Compiling module 'adc'("D:\GowinProjects\adc_card\src\adc.v":3)
-Compiling module 'spi_command'("D:\GowinProjects\adc_card\src\spi.v":1)
-Compiling module 'uart_control'("D:\GowinProjects\adc_card\src\uart_control.v":5)
-Compiling module 'uart'("D:\GowinProjects\adc_card\src\uart.v":1)
-NOTE  (EX0101) : Current top module is "controle"
-[5%] Running netlist conversion ...
-WARN  (CV0016) : Input adc_out is unused("D:\GowinProjects\adc_card\src\controle2.v":8)
-Running device independent optimization ...
-[10%] Optimizing Phase 0 completed
-[15%] Optimizing Phase 1 completed
-[25%] Optimizing Phase 2 completed
-Running inference ...
-[30%] Inferring Phase 0 completed
-[40%] Inferring Phase 1 completed
-[50%] Inferring Phase 2 completed
-[55%] Inferring Phase 3 completed
-Running technical mapping ...
-[60%] Tech-Mapping Phase 0 completed
-[65%] Tech-Mapping Phase 1 completed
-[75%] Tech-Mapping Phase 2 completed
-[80%] Tech-Mapping Phase 3 completed
-[90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "D:\GowinProjects\adc_card\impl\gwsynthesis\adc_card.vg" completed
-[100%] Generate report file "D:\GowinProjects\adc_card\impl\gwsynthesis\adc_card_syn.rpt.html" completed
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\adc_card\src\ADC_receiver.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\adc_card\src\gowin_rpll_27_to_84.v'
+ERROR (EX0302) : No valid top module found
 GowinSynthesis finish

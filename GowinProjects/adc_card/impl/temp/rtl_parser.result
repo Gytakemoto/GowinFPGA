@@ -1,81 +1,27 @@
 [
  {
-  "InstFile" : "D:/GowinProjects/adc_card/src/controle2.v",
-  "InstLine" : 1,
-  "InstName" : "controle",
-  "ModuleFile" : "D:/GowinProjects/adc_card/src/controle2.v",
-  "ModuleLine" : 1,
-  "ModuleName" : "controle",
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
+  "InstLine" : 49,
+  "InstName" : "adc_top",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
+  "ModuleLine" : 49,
+  "ModuleName" : "adc_top",
   "SubInsts" : [
    {
-    "InstFile" : "D:/GowinProjects/adc_card/src/controle2.v",
-    "InstLine" : 21,
-    "InstName" : "oscillator",
-    "ModuleFile" : "D:/GowinProjects/adc_card/src/gowin_rpll/gowin_rpll.v",
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
+    "InstLine" : 72,
+    "InstName" : "clk2",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
-    "ModuleName" : "Gowin_rPLL"
+    "ModuleName" : "gowin_rpll_27_to_84"
    },
    {
-    "InstFile" : "D:/GowinProjects/adc_card/src/controle2.v",
-    "InstLine" : 37,
-    "InstName" : "adc_mem_driver",
-    "ModuleFile" : "D:/GowinProjects/adc_card/src/adc_mem_driver_2.v",
+    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
+    "InstLine" : 77,
+    "InstName" : "adc_submodule",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
     "ModuleLine" : 1,
-    "ModuleName" : "adc_mem_driver2",
-    "SubInsts" : [
-     {
-      "InstFile" : "D:/GowinProjects/adc_card/src/adc_mem_driver_2.v",
-      "InstLine" : 61,
-      "InstName" : "fifo",
-      "ModuleFile" : "D:/GowinProjects/adc_card/src/fifo_top/fifo_top.v",
-      "ModuleLine" : 358,
-      "ModuleName" : "fifo_top",
-      "SubInsts" : [
-       {
-        "InstFile" : "D:/GowinProjects/adc_card/src/fifo_top/fifo_top.v",
-        "InstLine" : 381,
-        "InstName" : "fifo_inst",
-        "ModuleFile" : "D:/GowinProjects/adc_card/src/fifo_top/fifo_top.v",
-        "ModuleLine" : 1,
-        "ModuleName" : "~fifo.fifo_top"
-       }
-      ]
-     },
-     {
-      "InstFile" : "D:/GowinProjects/adc_card/src/adc_mem_driver_2.v",
-      "InstLine" : 83,
-      "InstName" : "adc",
-      "ModuleFile" : "D:/GowinProjects/adc_card/src/adc.v",
-      "ModuleLine" : 3,
-      "ModuleName" : "adc"
-     },
-     {
-      "InstFile" : "D:/GowinProjects/adc_card/src/adc_mem_driver_2.v",
-      "InstLine" : 102,
-      "InstName" : "spi_command",
-      "ModuleFile" : "D:/GowinProjects/adc_card/src/spi.v",
-      "ModuleLine" : 1,
-      "ModuleName" : "spi_command"
-     }
-    ]
-   },
-   {
-    "InstFile" : "D:/GowinProjects/adc_card/src/controle2.v",
-    "InstLine" : 79,
-    "InstName" : "uart_control",
-    "ModuleFile" : "D:/GowinProjects/adc_card/src/uart_control.v",
-    "ModuleLine" : 5,
-    "ModuleName" : "uart_control",
-    "SubInsts" : [
-     {
-      "InstFile" : "D:/GowinProjects/adc_card/src/uart_control.v",
-      "InstLine" : 23,
-      "InstName" : "uart",
-      "ModuleFile" : "D:/GowinProjects/adc_card/src/uart.v",
-      "ModuleLine" : 1,
-      "ModuleName" : "uart"
-     }
-    ]
+    "ModuleName" : "adc_module"
    }
   ]
  }

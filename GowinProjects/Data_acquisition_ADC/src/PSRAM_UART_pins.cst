@@ -1,0 +1,71 @@
+IO_LOC  "led_rgb[0]" 10;
+IO_PORT "led_rgb[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "led_rgb[1]" 11;
+IO_PORT "led_rgb[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "led_rgb[2]" 9;
+IO_PORT "led_rgb[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "sys_clk" 47;
+IO_PORT "sys_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_clk_enabled" 6;
+IO_PORT "mem_clk_enabled" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_ce" 42;
+IO_PORT "mem_ce" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio[3]" 41;
+IO_PORT "mem_sio[3]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio[2]" 38;
+IO_PORT "mem_sio[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio[1]" 39;
+IO_PORT "mem_sio[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio[0]" 40;
+IO_PORT "mem_sio[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "uart_tx" 23;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "uart_rx" 24;
+IO_PORT "uart_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "buttonA" 13;
+IO_PORT "buttonA" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//ADC 12-bits pins in Breadboard
+IO_LOC "adc_OTR" 35;
+IO_PORT "adc_OTR" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[11]" 22;
+IO_PORT "adc_out[11]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[10]" 34;
+IO_PORT "adc_out[10]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[9]" 18;
+IO_PORT "adc_out[9]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[8]" 20;
+IO_PORT "adc_out[8]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[7]" 17;
+IO_PORT "adc_out[7]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[6]" 19;
+IO_PORT "adc_out[6]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[5]" 16;
+IO_PORT "adc_out[5]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[4]" 29;
+IO_PORT "adc_out[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[3]" 15;
+IO_PORT "adc_out[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[2]" 30;
+IO_PORT "adc_out[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[1]" 27;
+IO_PORT "adc_out[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[0]" 31;
+IO_PORT "adc_out[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_clk" 28;
+IO_PORT "adc_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "buttonB" 44;
+//IO_PORT "buttonB" IO_TYPE=LVCMOS33 PULL_MODE=UP;

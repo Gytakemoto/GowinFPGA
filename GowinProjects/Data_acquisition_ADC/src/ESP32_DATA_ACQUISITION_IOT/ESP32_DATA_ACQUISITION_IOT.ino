@@ -1,0 +1,480 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+//WiFiServer server(80);
+
+#define START 0
+#define READ_WRITE 1
+#define ADDRESS 2
+#define MSG 3
+#define SEND 4
+#define THRESHOLD 5
+#define SAMPLES_AFTER 6
+#define SAMPLES_BEFORE 7
+#define SAMPLE_AFTER_MAX 0x3FFFFF
+
+
+HardwareSerial GwSerial(1); // define a Serial para UART1
+const int GwSerialRX = 16;
+const int GwSerialTX = 17;
+int led = 2;
+int test = 1;
+int step = 0;
+int samples_after = 0;
+uint8_t message[8];
+bool reading = false;
+bool writing = false;
+bool acquisition = false;
+int refresh = 0;
+int messageLength = 0; // variável para armazenar o comprimento da mensagem
+
+const byte numChars = 32;
+char receivedChars[numChars];
+bool newData = false;
+
+// Cada char é equivalente a 1 byte
+char incomingBytes[8];
+
+const char* ssid = "VIRUSApp_2GHz";          // Nome da rede Wi-Fi
+const char* password = "Roakio63$$&&";    // Senha da rede
+//const char* serverURL = "192.168.0.11";  // URL do servidor
+
+void setup() {
+  Serial.begin(115200); // Monitor serial
+  GwSerial.begin(115200, SERIAL_8N1, GwSerialRX, GwSerialTX); // Gowin Serial
+  Serial.setTimeout(1000);
+  pinMode(led, OUTPUT);
+
+  //Wi-fi communication
+  Serial.println("Conectando ao Wi-Fi...");
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConectado ao Wi-Fi");
+  Serial.print("Endereço IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+
+  switch (step) {
+    case START:
+      if (GwSerial.available() > 0) {
+        // Buffer para armazenar a mensagem lida
+        char receivedMessage[3];
+        int i = 0;
+        // Ler os bytes disponíveis na UART1
+        while (GwSerial.available() > 0 && i < sizeof(receivedMessage) - 1) {
+          receivedMessage[i] = GwSerial.read();  // Lê cada byte
+          i++;
+        }
+
+        receivedMessage[i] = '\0';  // Terminar a string
+
+        if (strcmp(receivedMessage, "ABCD") == 0){
+          Serial.println("Aquisição concluída com sucesso");
+        }
+        else{
+          // Imprimir a mensagem lida no formato hexadecimal
+          //Serial.print("A mensagem lida foi: ");
+          for (int j = 0; j < i; j++) {
+            Serial.printf("%02X", receivedMessage[j]);
+          }
+          Serial.println();
+
+           // Enviar a mensagem ao servidor
+        sendToServer(* receivedMessage);
+        }
+      }
+      else {
+        refresh = refresh + 1;
+        if (refresh == 1) {
+          Serial.println();
+          Serial.println("Begin UART communication? (y/n)");
+        }
+        else if (refresh > 1 && refresh < 8) {
+          Serial.print(".");
+          delay(500);
+        }
+        else{
+          refresh = 0;
+          delay(2000);
+        }
+
+        //Receber comandos pelo monitor serial
+        recvWithEndMarker();
+
+        if (newData == true) {
+          newData = false;
+          Serial.println(receivedChars);
+
+          if(strcmp(receivedChars,"y") == 0  || strcmp(receivedChars,"Y") == 0){
+            step = READ_WRITE;
+            Serial.println("User selected to begin communication");
+            refresh = 0;
+          }
+          else if(strcmp(receivedChars,"n") == 0  || strcmp(receivedChars,"N") == 0){
+            Serial.println("User selected NOT to begin communication");
+          }
+        }
+      }       
+      break;
+    case READ_WRITE:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("Perform read, write or acquisition operation? (w/r/a)");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+
+      if (newData == true) {
+        newData = false;
+        if (strcmp(receivedChars,"w") == 0  || strcmp(receivedChars,"W") == 0) {
+          writing = true;
+          reading = false;
+          message[0] = 0x57; // Letra "W"
+          step = ADDRESS;
+          Serial.println();
+          Serial.println("User selected a write operation");
+          refresh = 0;
+        }
+        else if (strcmp(receivedChars,"r") == 0  || strcmp(receivedChars,"R") == 0) {
+          reading = true;
+          writing = false;
+          message[0] = 0x52; // Letra "R"
+          step = ADDRESS;
+          Serial.println();
+          Serial.println("User selected a read operation");
+          refresh = 0;
+        }
+        else if (strcmp(receivedChars,"a") == 0  || strcmp(receivedChars,"A") == 0){
+          acquisition = true;
+          message[0] = 0x41; //Letra "A"
+          step = THRESHOLD;
+          Serial.println();
+          Serial.println("User selected an acquisition operation");
+          refresh = 0;
+        }
+      }
+      break;
+    case ADDRESS:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("Enter the 22-bit address in HEX format (i.e 001234)");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+
+      if (newData == true) {
+        newData = false;
+        // Converter o endereço digitado de string para número hexadecimal
+        long address = strtol(receivedChars, NULL, 16);
+
+        // Atribuir os 3 bytes do endereço ao message[]
+        message[1] = (address >> 16) & 0xFF;
+        message[2] = (address >> 8) & 0xFF;
+        message[3] = address & 0xFF;
+
+        Serial.println();
+        Serial.print("O endereço digitado foi: ");
+        Serial.println(address, HEX);
+
+        if (reading) {
+          step = SEND;
+          refresh = 0;
+        }
+        else if (writing) {
+          step = MSG;
+          refresh = 0;
+        }
+      }
+      break;
+    case MSG:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("Enter the 16-bit message in HEX format (i.e 1234)");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+
+      if (newData == true) {
+        newData = false;
+        // Converter a mensagem de string para número hexadecimal
+        long msg = strtol(receivedChars, NULL, 16);
+
+        // Atribuir os 2 bytes da mensagem ao message[]
+        message[4] = (msg >> 8) & 0xFF;
+        message[5] = (msg) & 0xFF;
+
+        Serial.println();
+        Serial.print("A mensagem digitada foi: ");
+        Serial.println(msg, HEX);
+        step = SEND;
+      }
+      break;
+    case THRESHOLD:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("Enter the start-up method: t (Threshold)/ b (Button)");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+
+      if (newData == true) {
+        newData = false;
+        if (strcmp(receivedChars,"t") == 0  || strcmp(receivedChars,"T") == 0) {
+          message[1] = 0x54; // Letra "T"
+          step = SAMPLES_AFTER;
+          Serial.println();
+          Serial.println("User selected threshold method");
+          refresh = 0;
+        }
+        else if (strcmp(receivedChars,"b") == 0  || strcmp(receivedChars,"B") == 0) {
+          message[1] = 0x42; // Letra "B"
+          step = SAMPLES_AFTER;
+          Serial.println();
+          Serial.println("User selected button method");
+          refresh = 0;
+        }
+      }
+      break;
+    case SAMPLES_AFTER:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("Enter the number of samples to be collected AFTER threshold detection (maximum = 4.194.303)");
+        Serial.println("Enter 'max' to automatically insert 4,194,303 samples");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+      
+      // Verifica se há dados disponíveis no buffer serial
+      if (newData == true) {
+        newData = false;
+        Serial.println();
+        char *endpoint;
+        if (strcmp(receivedChars,"max") == 0  || strcmp(receivedChars,"MAX") == 0 || strcmp(receivedChars,"Max") == 0) {
+          samples_after = SAMPLE_AFTER_MAX; // Valor máximo de 4,194,303
+        }
+        else {
+          
+          samples_after = strtol(receivedChars, &endpoint, 10); // Converte entrada para int
+
+          if(endpoint == receivedChars || *endpoint != '\0'){
+            Serial.println("Invalid value. Please, insert only digits or 'max'");
+            step = SAMPLES_AFTER;
+            refresh = 0;
+          }
+        }
+
+        if (samples_after >= 0 && samples_after <= SAMPLE_AFTER_MAX) {
+          // Adiciona ao array message
+          message[2] = (samples_after >> 16) & 0xFF; // Byte mais significativo
+          message[3] = (samples_after >> 8) & 0xFF;  // Byte intermediário
+          message[4] = samples_after & 0xFF;         // Byte menos significativo
+
+          Serial.println();
+          Serial.print("'Samples after' defined as: ");
+          Serial.println(samples_after);
+          step = SAMPLES_BEFORE; // Próximo passo
+          refresh = 0;
+        } else {
+          Serial.println("Invalid number of samples! Please enter a value between 0 and 4.194.303");
+          step = SAMPLES_AFTER;
+          refresh = 0;
+        }
+      }
+      break;
+    case SAMPLES_BEFORE:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.print("Enter the number of samples to be collected BEFORE threshold detection (maximum = 4.194.303 - samples after: ");
+        Serial.print(SAMPLE_AFTER_MAX - samples_after);
+        Serial.println(")");
+        Serial.println("Enter 'max' to automatically insert the maximum allowed samples");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+      
+      //Receber comandos pelo monitor serial
+      recvWithEndMarker();
+
+      //Serial monitor detectou um enter através de "\0"
+      if (newData == true) {
+        Serial.println();
+        newData = false;
+        long samples_before;
+        char *endpoint;
+
+        // Calcular o valor máximo permitido dinamicamente
+        int samples_before_max = SAMPLE_AFTER_MAX - samples_after;
+
+        // Verifica se a entrada é "max" ou um número válido
+        if (strcmp(receivedChars,"max") == 0  || strcmp(receivedChars,"MAX") == 0 || strcmp(receivedChars,"Max") == 0) {
+          samples_before = samples_before_max; // Valor máximo permitido
+        }
+        else {
+      
+          samples_before = strtol(receivedChars, &endpoint, 10); // Converte entrada para int
+
+          if(endpoint == receivedChars || *endpoint != '\0'){
+            Serial.println("Invalid value. Please, insert only digits or 'max'");
+            step = SAMPLES_BEFORE;
+            refresh = 0;
+          }
+        }
+
+        if (samples_before >= 0 && samples_before <= samples_before_max) {
+          // Adiciona ao array message
+          message[5] = (samples_before >> 16) & 0xFF; // Byte mais significativo
+          message[6] = (samples_before >> 8) & 0xFF;  // Byte intermediário
+          message[7] = samples_before & 0xFF;         // Byte menos significativo
+
+          Serial.println();
+          Serial.print("'Samples before' defined as: ");
+          Serial.println(samples_before);
+          step = SEND; // Avança para a etapa de envio
+        } 
+        else {
+          Serial.println("Invalid number of samples! Please enter a value between 0 and ");
+          Serial.println(samples_before_max);
+        }
+      }
+      break;
+    case SEND:
+      if (writing) {
+        messageLength = 6;
+      }
+      else if (reading) {
+        messageLength = 4;
+      }
+      else if(acquisition) {
+        messageLength = 8;
+      }
+
+      // Enviar a mensagem via UART
+      int sentBytes = GwSerial.write(message, messageLength);
+
+      // Verificar se a quantidade de bytes enviados corresponde ao esperado
+      if (sentBytes == messageLength) {
+        Serial.println();
+        Serial.println("Message sent successfully!");
+      }
+      else {
+        Serial.println("Sending message...");
+      }
+      reading = false;
+      writing = false;
+      step = START; // Voltar ao início após o envio
+    break;
+  } 
+}
+
+void recvWithEndMarker() {
+  static byte ndx = 0;
+  char endMarker = '\n';
+  char rc;
+  
+  while (Serial.available() > 0 && newData == false) {
+    rc = Serial.read();
+
+    if (rc != endMarker) {
+      receivedChars[ndx] = rc;
+      ndx++;
+      if (ndx >= numChars) {
+        ndx = numChars - 1;
+      }
+    }
+    else {
+      receivedChars[ndx] = '\0'; // terminate the string
+      ndx = 0;
+      newData = true;
+    }
+  }
+}
+
+
+// Função para enviar dados ao próprio servidor
+void sendToServer(char data) {
+    if (WiFi.status() == WL_CONNECTED) {
+        HTTPClient http;
+        String serverURL = "http://192.168.0.11"; // URL do servidor local
+        http.begin(serverURL.c_str()); // Endereço do servidor hospedado pela ESP32
+        http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Envia os dados como um corpo de requisição POST
+        int httpResponseCode = http.GET();
+
+        if (httpResponseCode > 0) {
+            Serial.print("Resposta HTTP: ");
+            Serial.println(httpResponseCode);
+            String response = http.getString();
+            Serial.println("Resposta do servidor: " + response);
+        } else {
+            Serial.print("Erro na requisição HTTP: ");
+            Serial.println(httpResponseCode);
+        }
+        http.end();
+    } else {
+        Serial.println("WiFi desconectado.");
+    }
+}
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="adc_top" T_Register="291(0)" T_Alu="17(0)" T_Lut="249(0)" T_Bsram="3(0)">
+    <SubModule name="clk2"/>
+    <SubModule name="adc_submodule" Register="37" Alu="17" Lut="15" T_Register="37(37)" T_Alu="17(17)" T_Lut="15(15)"/>
+    <SubModule name="gw_gao_inst_0" Register="254" Lut="234" Bsram="3" T_Register="254(254)" T_Lut="234(234)" T_Bsram="3(3)"/>
+</Module>

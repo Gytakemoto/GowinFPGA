@@ -6,6 +6,8 @@
 //Device: GW1N-1
 //Created Time: Thu 12 30 11:03:29 2021
 
+
+/*
 //Interface microcontrolador
 IO_LOC "micro_si" 16;
 IO_PORT "micro_si" IO_TYPE=LVCMOS33 PULL_MODE=UP;
@@ -31,36 +33,38 @@ IO_PORT "mem_sio[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 //IO_PORT "button0" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 IO_LOC "led_r" 9;
 IO_PORT "led_r" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
-
+*/
 
 //Clock 27MHz
 IO_LOC "sys_clk" 47;
 IO_PORT "sys_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-//ADC 12 bits pinos
-IO_LOC "adc_out[11]" 31;
+//ADC 12-bits pins in Breadboard
+IO_LOC "adc_OTR" 35;
+IO_PORT "adc_OTR" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_out[11]" 22;
 IO_PORT "adc_out[11]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[10]" 30;
+IO_LOC "adc_out[10]" 34;
 IO_PORT "adc_out[10]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[9]" 29;
+IO_LOC "adc_out[9]" 18;
 IO_PORT "adc_out[9]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[8]" 19;
+IO_LOC "adc_out[8]" 20;
 IO_PORT "adc_out[8]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[7]" 20;
+IO_LOC "adc_out[7]" 17;
 IO_PORT "adc_out[7]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[6]" 34;
+IO_LOC "adc_out[6]" 19;
 IO_PORT "adc_out[6]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[5]" 35;
+IO_LOC "adc_out[5]" 16;
 IO_PORT "adc_out[5]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[4]" 17;
+IO_LOC "adc_out[4]" 29;
 IO_PORT "adc_out[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[3]" 18;
+IO_LOC "adc_out[3]" 15;
 IO_PORT "adc_out[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[2]" 22;
+IO_LOC "adc_out[2]" 30;
 IO_PORT "adc_out[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[1]" 23;
+IO_LOC "adc_out[1]" 27;
 IO_PORT "adc_out[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_out[0]" 24;
+IO_LOC "adc_out[0]" 31;
 IO_PORT "adc_out[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC "adc_clock" 10;
-IO_PORT "adc_clock" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC "adc_clk" 28;
+IO_PORT "adc_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;

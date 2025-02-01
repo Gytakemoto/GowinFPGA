@@ -1,0 +1,65 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="clk_PSRAM" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="adc_top">
+        <SignalList>
+            <Bus capture_enable="true" name="adc_out[11:0]">
+                <Signal>adc_out[11]</Signal>
+                <Signal>adc_out[10]</Signal>
+                <Signal>adc_out[9]</Signal>
+                <Signal>adc_out[8]</Signal>
+                <Signal>adc_out[7]</Signal>
+                <Signal>adc_out[6]</Signal>
+                <Signal>adc_out[5]</Signal>
+                <Signal>adc_out[4]</Signal>
+                <Signal>adc_out[3]</Signal>
+                <Signal>adc_out[2]</Signal>
+                <Signal>adc_out[1]</Signal>
+                <Signal>adc_out[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="adc_submodule/adc_data[11:0]">
+                <Signal>adc_submodule/adc_data[11]</Signal>
+                <Signal>adc_submodule/adc_data[10]</Signal>
+                <Signal>adc_submodule/adc_data[9]</Signal>
+                <Signal>adc_submodule/adc_data[8]</Signal>
+                <Signal>adc_submodule/adc_data[7]</Signal>
+                <Signal>adc_submodule/adc_data[6]</Signal>
+                <Signal>adc_submodule/adc_data[5]</Signal>
+                <Signal>adc_submodule/adc_data[4]</Signal>
+                <Signal>adc_submodule/adc_data[3]</Signal>
+                <Signal>adc_submodule/adc_data[2]</Signal>
+                <Signal>adc_submodule/adc_data[1]</Signal>
+                <Signal>adc_submodule/adc_data[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="adc_submodule/clock_counter[17:0]">
+                <Signal>adc_submodule/clock_counter[17]</Signal>
+                <Signal>adc_submodule/clock_counter[16]</Signal>
+                <Signal>adc_submodule/clock_counter[15]</Signal>
+                <Signal>adc_submodule/clock_counter[14]</Signal>
+                <Signal>adc_submodule/clock_counter[13]</Signal>
+                <Signal>adc_submodule/clock_counter[12]</Signal>
+                <Signal>adc_submodule/clock_counter[11]</Signal>
+                <Signal>adc_submodule/clock_counter[10]</Signal>
+                <Signal>adc_submodule/clock_counter[9]</Signal>
+                <Signal>adc_submodule/clock_counter[8]</Signal>
+                <Signal>adc_submodule/clock_counter[7]</Signal>
+                <Signal>adc_submodule/clock_counter[6]</Signal>
+                <Signal>adc_submodule/clock_counter[5]</Signal>
+                <Signal>adc_submodule/clock_counter[4]</Signal>
+                <Signal>adc_submodule/clock_counter[3]</Signal>
+                <Signal>adc_submodule/clock_counter[2]</Signal>
+                <Signal>adc_submodule/clock_counter[1]</Signal>
+                <Signal>adc_submodule/clock_counter[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="adc_submodule/delay_counter[3:0]">
+                <Signal>adc_submodule/delay_counter[3]</Signal>
+                <Signal>adc_submodule/delay_counter[2]</Signal>
+                <Signal>adc_submodule/delay_counter[1]</Signal>
+                <Signal>adc_submodule/delay_counter[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">adc_submodule/data_available</Signal>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>0100101000111011</GAO_ID>
+</GAO_CONFIG>

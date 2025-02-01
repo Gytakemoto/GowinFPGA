@@ -2,44 +2,20 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/adc.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/ADC_receiver.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/adc_mem_driver_2.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/controle2.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/fifo_top/fifo_top.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/gowin_rpll/gowin_rpll.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/spi.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/uart.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/uart_control.v",
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   }
  ],
  "IncludePath" : [
-  "D:/GowinProjects/adc_card/src"
+  "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card"
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/adc_card/impl/temp/rtl_parser.result",
- "Top" : "controle",
+ "Top" : "adc_top",
  "VerilogStd" : "sysv",
  "VhdlStd" : "vhdl_2008"
 }
