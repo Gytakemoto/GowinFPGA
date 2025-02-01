@@ -43,12 +43,13 @@ serialCom = serial.Serial(PORT, BAUD_RATE)
 #Increasing rx buffer size to prevent overflow
 serialCom.set_buffer_size(rx_size = 8192)
 
-#Get name of file
+# ------------------------------- Get filename ------------------------------- #
 def get_name(logFilename, i):
     #timestamp = datetime.datetime.now().strftime("%a %d %b %Y %H-%M-y%S")
     return "csvFiles/" + str(logFilename) + "/samples_[" + str(i) + "].csv "
 
 
+# -------------------- Auto-mode random samples generator -------------------- #
 def get_random_samples(s,i):
 
     if(i == 4):
@@ -108,6 +109,8 @@ class InputHandler:  # this class handles user input sample_after and samples_li
                     self.i += 1
                 else: self.i = 0
         return message
+
+# ----------------------------------- Main ----------------------------------- #
 
 #Ask for log outputs local
 logPath = ""
