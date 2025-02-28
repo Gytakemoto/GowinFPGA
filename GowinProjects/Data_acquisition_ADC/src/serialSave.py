@@ -36,7 +36,7 @@ TIMEOUT = 2 #Seconds to wait between buffer readings
 #samples_list = []
 
 #Initialization of serial port. Define properly Baud Rate
-PORT = 'COM12'
+PORT = 'COM5'
 BAUD_RATE = 921600
 serialCom = serial.Serial(PORT, BAUD_RATE)
 
