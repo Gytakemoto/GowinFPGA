@@ -1,33 +1,33 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ADC_module.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\gowin_rpll_27_to_84.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ping_pong_buffer.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\PSRAM.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v'
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v'
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":142)
-Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":170)
-Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":193)
-Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":194)
-Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\UART.v'
-Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":2)
-Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\gowin_rpll_27_to_84.v":9)
-Compiling module 'psram'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\PSRAM.v":228)
-Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\PSRAM.v":20)
-Compiling module 'uart(DELAY_FRAMES=91)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\UART.v":26)
-Compiling module 'ping_pong_buffer(BUFFER_DEPTH=128)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ping_pong_buffer.v":17)
-Extracting RAM for identifier 'buffer_a'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ping_pong_buffer.v":38)
-Extracting RAM for identifier 'buffer_b'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ping_pong_buffer.v":39)
-Compiling module 'adc_module'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\ADC_module.v":1)
-Compiling module 'sync_debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v":1)
-Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v":33)
-Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v":56)
-WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v":75)
-Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\Sync_Debouncer.v":82)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ADC_module.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ping_pong_buffer.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v'
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v'
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":142)
+Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":170)
+Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":193)
+Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":194)
+Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\UART.v'
+Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":2)
+Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\gowin_rpll_27_to_84.v":9)
+Compiling module 'psram'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM.v":228)
+Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM.v":20)
+Compiling module 'uart(DELAY_FRAMES=91)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\UART.v":26)
+Compiling module 'ping_pong_buffer(BUFFER_DEPTH=128)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ping_pong_buffer.v":17)
+Extracting RAM for identifier 'buffer_a'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ping_pong_buffer.v":38)
+Extracting RAM for identifier 'buffer_b'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ping_pong_buffer.v":39)
+Compiling module 'adc_module'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\ADC_module.v":1)
+Compiling module 'sync_debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v":1)
+Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v":33)
+Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v":56)
+WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v":75)
+Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\Sync_Debouncer.v":82)
 NOTE  (EX0101) : Current top module is "TOP"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input adc_OTR is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\TOP_debug.v":16)
+WARN  (CV0016) : Input adc_OTR is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\TOP_debug.v":16)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -43,6 +43,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\gwsynthesis\Data_acquisition.vg" completed
-[100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\gwsynthesis\Data_acquisition_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\gwsynthesis\Data_acquisition.vg" completed
+[100%] Generate report file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\gwsynthesis\Data_acquisition_syn.rpt.html" completed
 GowinSynthesis finish

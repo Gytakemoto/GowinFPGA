@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
+    <FileList>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll_27_to_60.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="50.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="TOP"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

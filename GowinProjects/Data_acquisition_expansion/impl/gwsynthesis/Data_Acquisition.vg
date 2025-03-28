@@ -1,16 +1,16 @@
 //
 //Written by GowinSynthesis
 //Tool Version "V1.9.9.01 (64-bit)"
-//Fri Jan 31 22:56:40 2025
+//Mon Mar 17 19:41:27 2025
 
 //Source file index table:
-//file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/ADC_module.v"
-//file1 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/gowin_rpll_27_to_84.v"
-//file2 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/ping_pong_buffer.v"
-//file3 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/PSRAM.v"
-//file4 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/Sync_Debouncer.v"
-//file5 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v"
-//file6 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/UART.v"
+//file0 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ADC_module.v"
+//file1 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v"
+//file2 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ping_pong_buffer.v"
+//file3 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/PSRAM.v"
+//file4 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v"
+//file5 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v"
+//file6 "\C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/UART.v"
 `timescale 100 ps/100 ps
 module gowin_rpll_27_to_84 (
   sys_clk_d,

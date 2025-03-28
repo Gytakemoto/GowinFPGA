@@ -5,10 +5,10 @@ Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\PSRAM.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\Sync_Debouncer.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v'
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":134)
-Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":162)
-Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":185)
-Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":186)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":135)
+Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":163)
+Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":186)
+Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":187)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\UART.v'
 Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\TOP_debug.v":2)
 Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_prototype\src\gowin_rpll_27_to_84.v":9)

@@ -1,30 +1,30 @@
-Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\gwsynthesis\Data_acquisition.vg"
-Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\gwsynthesis\Data_acquisition.vg" completed
+Reading netlist file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\gwsynthesis\Data_acquisition.vg"
+Parsing netlist file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\gwsynthesis\Data_acquisition.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\src\PSRAM_UART_pins.cst"
-Physical Constraint parsed completed
-Running placement......
-[10%] Placement Phase 0 completed
-[20%] Placement Phase 1 completed
-[30%] Placement Phase 2 completed
-[50%] Placement Phase 3 completed
-Running routing......
-[60%] Routing Phase 0 completed
-[70%] Routing Phase 1 completed
-[80%] Routing Phase 2 completed
-[90%] Routing Phase 3 completed
-Running timing analysis......
-[95%] Timing analysis completed
-Placement and routing completed
-Bitstream generation in progress......
-Bitstream generation completed
-Running power analysis......
-[100%] Power analysis completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.power.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.pin.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.rpt.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.rpt.txt" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.tr.html" completed
-Generate file "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_ADC\impl\pnr\Data_acquisition.tr" completed
-Fri Jan 31 22:56:43 2025
-
+Reading constraint file: "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst"
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":21 | Can't find object named 'mem_sio2[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":22 | Can't find object named 'mem_sio2[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":24 | Can't find object named 'mem_sio2[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":25 | Can't find object named 'mem_sio2[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":27 | Can't find object named 'mem_sio2[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":28 | Can't find object named 'mem_sio2[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":30 | Can't find object named 'mem_sio2[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":31 | Can't find object named 'mem_sio2[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":35 | Can't find object named 'mem_sio1[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":36 | Can't find object named 'mem_sio1[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":38 | Can't find object named 'mem_sio1[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":39 | Can't find object named 'mem_sio1[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":41 | Can't find object named 'mem_sio1[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":42 | Can't find object named 'mem_sio1[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":44 | Can't find object named 'mem_sio1[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":45 | Can't find object named 'mem_sio1[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":48 | Can't find object named 'mem_sio0[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":49 | Can't find object named 'mem_sio0[3]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":51 | Can't find object named 'mem_sio0[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":52 | Can't find object named 'mem_sio0[2]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":54 | Can't find object named 'mem_sio0[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":55 | Can't find object named 'mem_sio0[1]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":57 | Can't find object named 'mem_sio0[0]'
+ERROR  (CT1135) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":58 | Can't find object named 'mem_sio0[0]'
+ERROR  (CT2000) : "C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst":74 | 'syntax error' near token ';'
+Physical Constraint parsed completed with errors

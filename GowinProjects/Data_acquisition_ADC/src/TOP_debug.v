@@ -20,6 +20,7 @@ inout [3:0] mem_sio,     		// Communication busbar for PSRAM communication - [si
 output mem_ce,                	// PSRAM chip enable - [pin 42]
 output mem_clk_enabled,         // PSRAM clock pin - [pin 6]
 output uart_tx,                	// TX UART wire [pin 17]
+output reg freq_pin,
 
 //DEBUGGING
 //Debug RGB LED
@@ -428,6 +429,7 @@ always @(posedge clk_PSRAM) begin
                         if(!com_start) begin
                             //12 bits fit in 16 bits						
                             data_in_acq <= {4'b1111,adc_data};
+                            freq_pin <= ~freq_pin;
                             com_start <= 1;                            
                         end
                         if(com_start && next_step) begin

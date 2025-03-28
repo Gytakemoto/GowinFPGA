@@ -1,0 +1,53 @@
+{
+ "Device" : "GW1NZ-1",
+ "Files" : [
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/ADC_module.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/fifo_adc.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_PSRAM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/ping_pong_buffer.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Sync_Debouncer.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/UART.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/impl/temp/rtl_parser.result",
+ "Top" : "TOP",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 125,
+    "InstLine" : 126,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 131,
+    "InstLine" : 132,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/PSRAM.v",
     "ModuleLine" : 228,
@@ -35,7 +35,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 152,
+    "InstLine" : 153,
     "InstName" : "UART1",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/UART.v",
     "ModuleLine" : 26,
@@ -43,7 +43,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 178,
+    "InstLine" : 179,
     "InstName" : "PP_post_process",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/ping_pong_buffer.v",
     "ModuleLine" : 17,
@@ -51,7 +51,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 197,
+    "InstLine" : 198,
     "InstName" : "ADC_submodule",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/ADC_module.v",
     "ModuleLine" : 1,
@@ -59,7 +59,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/TOP_debug.v",
-    "InstLine" : 241,
+    "InstLine" : 242,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
