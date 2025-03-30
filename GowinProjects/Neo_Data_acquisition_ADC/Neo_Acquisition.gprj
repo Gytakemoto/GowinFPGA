@@ -13,7 +13,6 @@
         <File path="src/TOP.v" type="file.verilog" enable="0"/>
         <File path="src/UART.v" type="file.verilog" enable="1"/>
         <File path="src/fifo_adc.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll_27_to_60.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll_27_to_84.v" type="file.verilog" enable="1"/>
         <File path="src/ping_pong_buffer.v" type="file.verilog" enable="1"/>

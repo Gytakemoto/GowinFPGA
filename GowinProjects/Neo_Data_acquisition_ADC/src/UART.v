@@ -25,7 +25,7 @@ The transmission package consists of 2 bytes, which includes the message read/wr
 
 module uart
 #(
-    parameter DELAY_FRAMES = 730,           // std value 84Mhz / 115200 Baud Rate
+    parameter CLK = 60,
     parameter BUFFER_LENGTH = 10
 )(
     input clk_PSRAM,                        // rPLL clock of 84MHz
@@ -94,6 +94,10 @@ localparam TX_IDLE = 0;
 localparam TX_START_BIT = 1;
 localparam TX_WRITE = 2;
 localparam TX_STOP_BIT = 3;
+
+//UART speed
+localparam UART_SPEED = 921600;
+localparam integer DELAY_FRAMES = (CLK * 1_000_000) / UART_SPEED;
 
 /* --------------------------------- Script --------------------------------- */
 

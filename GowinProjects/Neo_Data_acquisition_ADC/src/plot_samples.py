@@ -30,12 +30,12 @@ def plot_samples(samples_list):
     converted_samples = -(samples - 2**11) * 10 / 2**12
     print(f'Foram encontrados %d erros \n', error)
 
-    plt.plot(samples)
+    plt.plot(converted_samples, "--")
     plt.ylabel("ADC Voltage [V]")
     plt.xlabel("Samples number")
     plt.title("Frequency: 1MHz")
     plt.show()
 
-filename = "csvFiles/da_certo_pfv_krl/samples_[2].csv"
+filename = "csvFiles/delete_1/samples_[1].csv"
 #logFile = "logFiles/Teste1.csv"
 plot_samples(filename)

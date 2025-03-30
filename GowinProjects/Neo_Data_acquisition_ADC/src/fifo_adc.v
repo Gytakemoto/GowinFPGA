@@ -25,7 +25,7 @@ module fifo_adc #(
     reg [$clog2(FIFO_DEPTH)-1:0] rd_ptr = 0;
 
     // Counter to track the number of stored elements
-    reg [FIFO_DEPTH:0] count = 0;
+    reg [$clog2(FIFO_DEPTH):0] count = 0;
 
     initial begin
         count <= 0;

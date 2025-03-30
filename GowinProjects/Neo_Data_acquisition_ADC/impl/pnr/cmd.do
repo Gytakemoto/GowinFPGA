@@ -7,8 +7,13 @@
 -bit
 -tr
 -ph
+-tt
 -timing
+-replicate
 -cst_error
+-place_option 2
 -route_option 1
+-clock_route_order 1
+-correct_hold 1
 -route_maxfan 10
 -global_freq 50.000

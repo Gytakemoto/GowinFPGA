@@ -25,7 +25,7 @@ module memory_driver# (
 
 	//Initialization
 	input [7:0] command,								// 8 bit command used in SPI mode
-	input [3:0] step,									// Step of PSRAM initialization. Important to ensure a deactivated mem_sio in PSRAM starting
+	input wake_up,									// Step of PSRAM initialization. Important to ensure a deactivated mem_sio in PSRAM starting
 	input spi_start,									// quad_start relative to SPI communication
 	input qpi_on,										// Flag - indicates whether QPI mode is enabled (i.e initialization routine is DONE)
 
@@ -39,6 +39,7 @@ module memory_driver# (
 	
 	//OUTPUT
     output endcommand,
+    output reg endcommand_reg,
 	output mem_ce,									// PSRAM chip enable signal
 	output reg [15:0] data_out,							// Data read from PSRAM
     output reg debug,
@@ -76,15 +77,13 @@ reg ended;
 assign mem_ce = !(start || !ended); //needs to change in burst mode
 
 //Reading or writing process
-wire writing;
-wire reading;
-assign writing = read_write == 2'd1 ? 1 : 0; 
-assign reading = read_write == 2'd2	? 1 : 0;
+reg writing;
+reg reading;
 
 //PSRAM communication
 reg [3:0] mem_sio_reg; // mem_sio 4-bit bus to PSRAM communication. Reg to be used in procedural routine.
-assign mem_sio = (step == 0 ? 4'h0 :
-(((reading || spi_start) && (counter <= 8)) || (writing && (counter <= 12)) && !(start || !ended)) ? mem_sio_reg : 4'bz);
+assign mem_sio = (!wake_up ? 4'h0 :
+(((reading || !qpi_on) && (counter <= 8)) || (writing && (counter <= 12)) && (start || !ended)) ? mem_sio_reg : 4'bz);
 
 //Identify ended posedge
 reg prev_ended;
@@ -107,9 +106,14 @@ always @(negedge mem_clk) begin
 
     prev_ended <= ended;
     //apagar depois
-    data_write <= 16'hABCd;
+    //data_write <= 16'hABCd;
     address_reg <= address;
     fifo_rd <= 0;
+    ended <= ended;
+    writing <= read_write == 2'd1 ? 1 : 0;
+    reading <= read_write == 2'd2 ? 1 : 0;
+    endcommand_reg <= endcommand;
+    
     
     if(start) begin
 		ended <= 0;
@@ -119,7 +123,7 @@ always @(negedge mem_clk) begin
 
 	// SPI communication - used during initialization process
     if (!qpi_on && counter <= 7 && (start || !ended)) begin
-        mem_sio_reg[3:0] = {3'bzzz,command[7-counter]}; // MSB first
+        mem_sio_reg[3:0] <= {3'bzzz,command[7-counter]}; // MSB first
     end
     
     //End of command
@@ -133,9 +137,13 @@ always @(negedge mem_clk) begin
         case (counter)
             // Operation command
             0: begin
-                if(reading) mem_sio_reg <= CMD_READ[7:4]; 
+                if(reading) begin
+                    mem_sio_reg <= CMD_READ[7:4]; 
+                    //reading <= 1;
+                end
                 else if(writing) begin
                     mem_sio_reg <= CMD_WRITE[7:4];
+                    //writing <= 1;
                     if(burst_mode) fifo_rd <= 1;
                 end
             end
@@ -143,7 +151,7 @@ always @(negedge mem_clk) begin
                 if(reading) mem_sio_reg <= CMD_READ[3:0];
                 else if(writing) begin
                     mem_sio_reg <= CMD_WRITE[3:0];
-                    if(burst_mode) data_write <= data_in;
+                    data_write <= data_in;
                 end
                 
             end
@@ -156,13 +164,14 @@ always @(negedge mem_clk) begin
             default: begin
                     //If on read proccess
                     if (reading) begin								//* Reading has to happen at positive clock due to timing constraints
-                        if (15 <= counter && counter < 19) begin
+                        if (counter >= 15 && counter < 19) begin
                             data_out <= {data_out[11:0], mem_sio[3:0]}; // Concatenar os novos bits
                         end
                         // Reading proccess ending
-                        if (counter >= 20) begin
+                        if (counter == 20) begin
                             ended <= 1;
                             counter <= 0;
+                           // reading <= 0;
                         end
                     end
                     else if (writing) begin
@@ -171,7 +180,7 @@ always @(negedge mem_clk) begin
                             //!xx
                             8: begin
                                 mem_sio_reg <= data_write[15:12];
-                                debug <= !debug;
+                                //debug <= !debug;
                             end
                             9: begin 
                                 mem_sio_reg <= data_write[11:8];
@@ -191,14 +200,15 @@ always @(negedge mem_clk) begin
                                     mem_sio_reg <= data_write[3:0];
                                 if(fifo_rd) begin     
                                     counter <= 8;   //Immediately ammend next command
-                                    //data_write <= data_in;    //Update data_write for next write.
+                                    data_write <= data_in;    //Update data_write for next write.
                                     burst_counter <= burst_counter + 1'd1;
                                 end
                             end
                             12: begin   //Normal com
                                 ended <= 1;
                                 counter <= 0;
-                                debug_2 <= !debug_2;
+                                //writing <= 0;
+                                //debug_2 <= !debug_2;
                             end
                         endcase
                     end
@@ -260,6 +270,10 @@ assign command = (step == STEP_RSTEN) ? CMD_RSTEN :
 
 reg spi_start = 0;
 
+reg com_start;
+reg d_com_start;
+reg wake_up;
+
 reg [3:0] step = STEP_DELAY;   // Indicates the current operation
 									// 0: >150us required delay
 									// 1: Reset enable (RSTEN) step
@@ -274,7 +288,7 @@ localparam [7:0] SPI2QPI = 8'h35;
 memory_driver # (.ADC_FREQ(ADC_FREQ)) PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
-	.step(step),
+	.wake_up(wake_up),
 	.spi_start(spi_start),
 	.qpi_on(qpi_on),
 	.address(address),
@@ -285,6 +299,7 @@ memory_driver # (.ADC_FREQ(ADC_FREQ)) PSRAM_com(
     .endcommand(endcommand),
 	.mem_ce(mem_ce),
 	.mem_sio(mem_sio),
+    .endcommand_reg(endcommand_reg),
     .debug(debug),
     .debug_2(debug_2),
     .fifo_rd(fifo_rd),
@@ -297,6 +312,8 @@ initial begin
 	timer <= 0;
 	spi_start <= 0;
 	qpi_on <= 0;
+    com_start <= 0;
+    wake_up <= 0;
 end
 
 //When in delay step, output LOW, defined by datasheet
@@ -304,6 +321,8 @@ assign mem_clk_enabled = (step == STEP_DELAY) ? 0 : mem_clk;
 
 always @(posedge mem_clk) begin
 
+    spi_start <= com_start && ~d_com_start;
+    d_com_start <= com_start;
 
     case(step)
         STEP_DELAY: begin
@@ -311,35 +330,36 @@ always @(posedge mem_clk) begin
             timer <= timer + 1'd1;
             if(timer[15:8] == 8'h50) begin 		// #50h = #80d. 80 * 256 (thus the 8-bit swap) = 12.800 clocks inputs. At 84Mhz, we have a t ~= 243 us.
                 step <= STEP_RSTEN;
+                wake_up <= 1;
                 timer <= 16'b0;					//Reset timer
             end
         end
         STEP_RSTEN: begin
             //command <= CMD_RSTEN;
-            spi_start <= 1;
-            if(endcommand) begin
+            com_start <= 1;
+            if(endcommand_reg) begin
                 step <= STEP_RST;
-                spi_start <= 0;
+                com_start <= 0;
             end
         end
         STEP_RST: begin
             //command <= CMD_RST;
-            spi_start <= 1;
-            if(endcommand) begin
+            com_start <= 1;
+            if(endcommand_reg) begin
                 step <= STEP_SPI2QPI;
-                spi_start <= 0;
+                com_start <= 0;
             end
         end
         STEP_SPI2QPI: begin
              //command <= SPI2QPI;
-            spi_start <= 1;
-            if(endcommand) begin
+            com_start <= 1;
+            if(endcommand_reg) begin
                 step <= STEP_IDLE;
-                spi_start <= 0;
+                com_start <= 0;
             end 
         end
         STEP_IDLE: begin
-            spi_start <= 0;
+            com_start <= 0;
             qpi_on <= 1;
         end
     endcase	
