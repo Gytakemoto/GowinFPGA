@@ -5,7 +5,6 @@ Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_D
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll_27_to_60.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll_27_to_84.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v'
-Undeclared symbol 'endcommand_reg', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":302)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v'
 Undeclared symbol 'adc_enable', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":151)
 Undeclared symbol 'fifo_rd', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":179)
@@ -19,14 +18,14 @@ Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_D
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v'
 Compiling module 'TOP'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":2)
-Compiling module 'gowin_rpll_27_to_84'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll_27_to_84.v":9)
-Compiling module 'psram(ADC_FREQ=6)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":224)
+Compiling module 'gowin_rpll_27_to_60'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll_27_to_60.v":9)
+Compiling module 'psram(ADC_FREQ=6)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":219)
 Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":20)
-Compiling module 'uart(CLK=84)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":26)
+Compiling module 'uart'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":26)
 Compiling module 'ping_pong_buffer(BUFFER_DEPTH=128)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":17)
 Extracting RAM for identifier 'buffer_a'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":38)
 Extracting RAM for identifier 'buffer_b'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":39)
-Compiling module 'adc_module(CLK=84)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v":1)
+Compiling module 'adc_module'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v":1)
 WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v":41)
 Compiling module 'fifo_adc(DATA_WIDTH=12,FIFO_DEPTH=32)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":1)
 Extracting RAM for identifier 'fifo_mem'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":21)
@@ -37,9 +36,10 @@ Compiling module 'sync'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_
 Compiling module 'debouncer'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":56)
 WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":75)
 Compiling module 'once'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":82)
+WARN  (EX2565) : Input 'reset_p' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":164)
 NOTE  (EX0101) : Current top module is "TOP"
-WARN  (EX0211) : The output port "debug" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":45)
-WARN  (EX0211) : The output port "debug_2" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":46)
+WARN  (EX0211) : The output port "debug" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":44)
+WARN  (EX0211) : The output port "debug_2" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":45)
 [5%] Running netlist conversion ...
 WARN  (CV0016) : Input adc_OTR is unused("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":16)
 Running device independent optimization ...

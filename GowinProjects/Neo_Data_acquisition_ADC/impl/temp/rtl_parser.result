@@ -1,11 +1,11 @@
 [
  {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
   "InstLine" : 9,
-  "InstName" : "gowin_rpll_27_to_60",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "InstName" : "gowin_rpll_27_to_84",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
   "ModuleLine" : 9,
-  "ModuleName" : "gowin_rpll_27_to_60"
+  "ModuleName" : "gowin_rpll_27_to_84"
  },
  {
   "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
@@ -19,21 +19,21 @@
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
     "InstLine" : 161,
     "InstName" : "clk2",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
     "ModuleLine" : 9,
-    "ModuleName" : "gowin_rpll_27_to_84"
+    "ModuleName" : "gowin_rpll_27_to_60"
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
     "InstLine" : 170,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_PSRAM.v",
-    "ModuleLine" : 224,
+    "ModuleLine" : 219,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
       "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_PSRAM.v",
-      "InstLine" : 288,
+      "InstLine" : 279,
       "InstName" : "PSRAM_com",
       "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_PSRAM.v",
       "ModuleLine" : 20,

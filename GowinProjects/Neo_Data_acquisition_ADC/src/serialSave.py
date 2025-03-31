@@ -8,6 +8,7 @@ from colorama import Fore, Style
 import os
 import time
 from Check_file import check_samples_list
+from plot_samples import plot_samples
 from pathlib import Path
 import random
 
@@ -218,6 +219,7 @@ while True:
 
     while wait_check:
         check_samples_list(name,str(logPath))
+        plot_samples(name)
         wait_check = False
         wait_package = True
 

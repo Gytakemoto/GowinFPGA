@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="213" Alu="129" Lut="406" T_Register="586(213)" T_Alu="175(129)" T_Lut="798(406)" T_Bsram="2(0)" T_Ssram="6(0)">
+<Module name="TOP" Register="213" Alu="129" Lut="403" T_Register="582(213)" T_Alu="175(129)" T_Lut="782(403)" T_Bsram="2(0)" T_Ssram="6(0)">
     <SubModule name="clk2"/>
-    <SubModule name="initialize" Register="24" Alu="15" Lut="17" T_Register="99(24)" T_Alu="15(15)" T_Lut="118(17)">
-        <SubModule name="PSRAM_com" Register="75" Lut="101" T_Register="75(75)" T_Lut="101(101)"/>
+    <SubModule name="initialize" Register="21" Alu="15" Lut="15" T_Register="95(21)" T_Alu="15(15)" T_Lut="119(15)">
+        <SubModule name="PSRAM_com" Register="74" Lut="104" T_Register="74(74)" T_Lut="104(104)"/>
     </SubModule>
-    <SubModule name="UART1" Register="162" Alu="5" Lut="173" T_Register="162(162)" T_Alu="5(5)" T_Lut="173(173)"/>
+    <SubModule name="UART1" Register="162" Alu="5" Lut="159" T_Register="162(162)" T_Alu="5(5)" T_Lut="159(159)"/>
     <SubModule name="PP_post_process" Register="41" Alu="8" Lut="57" Bsram="2" T_Register="41(41)" T_Alu="8(8)" T_Lut="57(57)" T_Bsram="2(2)"/>
     <SubModule name="ADC_submodule" Register="25" Alu="4" Lut="15" T_Register="25(25)" T_Alu="4(4)" T_Lut="15(15)"/>
     <SubModule name="fifo_inst" Register="30" Alu="14" Lut="25" Ssram="6" T_Register="30(30)" T_Alu="14(14)" T_Lut="25(25)" T_Ssram="6(6)"/>

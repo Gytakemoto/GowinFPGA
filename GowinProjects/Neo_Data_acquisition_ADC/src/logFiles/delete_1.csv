@@ -1,2 +1,0 @@
-RunTime;Expected samples;Samples;Expected Samples After;Samples After;Expected Samples Before;Samples Before;STATUS
-2.705;2000000;5273;1000000;5273;1000000;0;CORRECT SAMPLES_BEFORE SAMPLES_AFTER
