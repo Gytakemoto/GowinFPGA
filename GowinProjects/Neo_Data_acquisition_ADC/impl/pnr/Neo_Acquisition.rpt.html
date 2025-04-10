@@ -79,7 +79,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Mar 30 20:54:10 2025
+<td>Mon Mar 31 18:25:27 2025
 </td>
 </tr>
 <tr>
@@ -93,24 +93,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td class="label">Place & Route Process</td>
 <td>Running placement:
-   Placement Phase 0: CPU time = 0h 0m 0.066s, Elapsed time = 0h 0m 0.066s
-   Placement Phase 1: CPU time = 0h 0m 0.016s, Elapsed time = 0h 0m 0.016s
-   Placement Phase 2: CPU time = 0h 0m 0.069s, Elapsed time = 0h 0m 0.069s
+   Placement Phase 0: CPU time = 0h 0m 0.068s, Elapsed time = 0h 0m 0.068s
+   Placement Phase 1: CPU time = 0h 0m 0.018s, Elapsed time = 0h 0m 0.018s
+   Placement Phase 2: CPU time = 0h 0m 0.073s, Elapsed time = 0h 0m 0.073s
    Placement Phase 3: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
    Total Placement: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
 Running routing:
    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-   Routing Phase 1: CPU time = 0h 0m 0.025s, Elapsed time = 0h 0m 0.025s
-   Routing Phase 2: CPU time = 0h 0m 0.435s, Elapsed time = 0h 0m 0.435s
+   Routing Phase 1: CPU time = 0h 0m 0.027s, Elapsed time = 0h 0m 0.026s
+   Routing Phase 2: CPU time = 0h 0m 0.52s, Elapsed time = 0h 0m 0.521s
    Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-   Total Routing: CPU time = 0h 0m 0.46s, Elapsed time = 0h 0m 0.46s
+   Total Routing: CPU time = 0h 0m 0.547s, Elapsed time = 0h 0m 0.547s
 Generate output files:
-   CPU time = 0h 0m 0.206s, Elapsed time = 0h 0m 0.206s
+   CPU time = 0h 0m 0.195s, Elapsed time = 0h 0m 0.195s
 </td>
 </tr>
 <tr>
 <td class="label">Total Time and Memory Usage</td>
-<td>CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 283MB</td>
+<td>CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 254MB</td>
 </tr>
 </table>
 <br/>
@@ -125,23 +125,23 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">Logic</td>
-<td>1007/1152</td>
-<td>88%</td>
+<td>946/1152</td>
+<td>83%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --LUT,ALU,ROM16</td>
-<td>971(777 LUT, 194 ALU, 0 ROM16)</td>
+<td>946(744 LUT, 202 ALU, 0 ROM16)</td>
 <td>-</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --SSRAM(RAM16)</td>
-<td>6</td>
+<td>0</td>
 <td>-</td>
 </tr>
 <tr>
 <td class="label">Register</td>
-<td>582/957</td>
-<td>61%</td>
+<td>574/957</td>
+<td>60%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --Logic Register as Latch</td>
@@ -150,8 +150,8 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --Logic Register as FF</td>
-<td>572/864</td>
-<td>67%</td>
+<td>563/864</td>
+<td>66%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --I/O Register as Latch</td>
@@ -160,13 +160,13 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --I/O Register as FF</td>
-<td>10/93</td>
-<td>11%</td>
+<td>11/93</td>
+<td>12%</td>
 </tr>
 <tr>
 <td class="label">CLS</td>
-<td>544/576</td>
-<td>95%</td>
+<td>523/576</td>
+<td>91%</td>
 </tr>
 <tr>
 <td class="label">I/O Port</td>
@@ -200,8 +200,8 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">BSRAM</td>
-<td>2 SDPB<br/></td>
-<td>50%</td>
+<td>3 SDPB<br/></td>
+<td>75%</td>
 </tr>
 <tr>
 <td class="label">PLL</td>
@@ -268,7 +268,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">PRIMARY</td>
-<td>1/8(13%)</td>
+<td>2/8(25%)</td>
 </tr>
 <tr>
 <td class="label">LW</td>
@@ -303,6 +303,11 @@ Generate output files:
 <td class="label">clk_PSRAM</td>
 <td>PRIMARY</td>
 <td> LEFT RIGHT</td>
+</tr>
+<tr>
+<td class="label">clk_ADC_d</td>
+<td>PRIMARY</td>
+<td> RIGHT</td>
 </tr>
 <tr>
 <td class="label">sys_clk_d</td>
@@ -554,7 +559,7 @@ Generate output files:
 <td>3.3</td>
 </tr>
 <tr>
-<td class="label">adc_clk</td>
+<td class="label">clk_ADC</td>
 <td></td>
 <td>28/1</td>
 <td>Y</td>
@@ -614,7 +619,7 @@ Generate output files:
 <td>3.3</td>
 </tr>
 <tr>
-<td class="label">fifo_wr</td>
+<td class="label">fifo_full</td>
 <td></td>
 <td>45/0</td>
 <td>Y</td>
@@ -884,7 +889,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">45/0</td>
-<td>fifo_wr</td>
+<td>fifo_full</td>
 <td>out</td>
 <td>IOT12[B]</td>
 <td>LVCMOS33</td>
@@ -1183,7 +1188,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">28/1</td>
-<td>adc_clk</td>
+<td>clk_ADC</td>
 <td>out</td>
 <td>IOR6[I]</td>
 <td>LVCMOS33</td>

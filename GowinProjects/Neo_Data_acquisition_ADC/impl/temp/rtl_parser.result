@@ -1,5 +1,13 @@
 [
  {
+  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "InstLine" : 9,
+  "InstName" : "gowin_rpll_27_to_60",
+  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "gowin_rpll_27_to_60"
+ },
+ {
   "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll_27_to_84.v",
   "InstLine" : 9,
   "InstName" : "gowin_rpll_27_to_84",
@@ -19,13 +27,13 @@
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
     "InstLine" : 161,
     "InstName" : "clk2",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
+    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll.v",
     "ModuleLine" : 9,
-    "ModuleName" : "gowin_rpll_27_to_60"
+    "ModuleName" : "gowin_rpll"
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 170,
+    "InstLine" : 171,
     "InstName" : "initialize",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_PSRAM.v",
     "ModuleLine" : 219,
@@ -43,7 +51,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 199,
+    "InstLine" : 200,
     "InstName" : "UART1",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/UART.v",
     "ModuleLine" : 26,
@@ -51,7 +59,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 228,
+    "InstLine" : 229,
     "InstName" : "PP_post_process",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/ping_pong_buffer.v",
     "ModuleLine" : 17,
@@ -59,7 +67,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 253,
+    "InstLine" : 254,
     "InstName" : "ADC_submodule",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/ADC_module.v",
     "ModuleLine" : 1,
@@ -67,7 +75,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 268,
+    "InstLine" : 269,
     "InstName" : "fifo_inst",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/fifo_adc.v",
     "ModuleLine" : 1,
@@ -75,7 +83,7 @@
    },
    {
     "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Neo_TOP.v",
-    "InstLine" : 302,
+    "InstLine" : 304,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/Sync_Debouncer.v",
     "ModuleLine" : 1,

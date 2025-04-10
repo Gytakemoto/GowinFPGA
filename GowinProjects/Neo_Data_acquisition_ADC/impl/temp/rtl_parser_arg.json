@@ -10,6 +10,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/gowin_rpll_27_to_60.v",
    "Type" : "verilog"
   },

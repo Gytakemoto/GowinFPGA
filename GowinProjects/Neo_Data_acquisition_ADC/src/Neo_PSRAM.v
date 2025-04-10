@@ -41,7 +41,7 @@ module memory_driver# (
     output endcommand,
 	output mem_ce,									// PSRAM chip enable signal
 	output reg [15:0] data_out,							// Data read from PSRAM
-    output reg debug,
+    //output reg debug,
     output reg debug_2,
     output reg fifo_rd,
 
@@ -55,7 +55,7 @@ module memory_driver# (
 localparam [7:0] CMD_READ = 8'hEB;
 localparam [7:0] CMD_WRITE = 8'h38;
 localparam BURST_INTERVAL = 8; //us
-localparam TIMER = 54; 
+localparam TIMER = 116; 
 
 /* -------------------------------- Variables ------------------------------- */
 
@@ -97,7 +97,7 @@ initial begin
     ended <= 1;
     burst_counter <= 0;
     mem_sio_reg <= 4'bz;
-    debug <= 0;
+    //debug <= 0;
 end
 
 //Working at negedge to sincronize with PSRAM positive clock. Changing right before PSRAM
@@ -237,7 +237,7 @@ module psram # (
 	output [15:0] data_out,								// Data read from PSRAM
 	output reg qpi_on,									// Indicates whether QPI mode is enabled (i.e initialization routine is DONE)
 	output mem_clk_enabled,								//! clk sent to PSRAM only after delay time - startup MUST not have a clock signal
-    output debug,
+    //output debug,
     output debug_2,
     output fifo_rd,
 
@@ -290,7 +290,7 @@ memory_driver # (.ADC_FREQ(ADC_FREQ)) PSRAM_com(
     .endcommand(endcommand),
 	.mem_ce(mem_ce),
 	.mem_sio(mem_sio),
-    .debug(debug),
+    //.debug(debug),
     .debug_2(debug_2),
     .fifo_rd(fifo_rd),
     .fifo_empty(fifo_empty),

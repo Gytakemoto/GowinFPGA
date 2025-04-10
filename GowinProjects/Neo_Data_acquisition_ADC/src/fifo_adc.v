@@ -13,6 +13,7 @@ module fifo_adc #(
     output reg [DATA_WIDTH-1:0] data_out,     // Output data
 
     // FIFO status flags
+    output reg debug,
     output reg full,           // FIFO full flag
     output reg empty           // FIFO empty flag
 );
@@ -25,13 +26,13 @@ module fifo_adc #(
     reg [$clog2(FIFO_DEPTH)-1:0] rd_ptr = 0;
 
     // Counter to track the number of stored elements
-    reg [$clog2(FIFO_DEPTH):0] count = 0;
+    reg [$clog2(FIFO_DEPTH)-1:0] count = 0;
 
     initial begin
         count <= 0;
         full <= 0;
         empty <= 1;
-
+        debug <= 0;
     end
 
     // Write operation (store ADC data into FIFO)
@@ -61,6 +62,7 @@ module fifo_adc #(
             count <= count - 1;
         end
 
+        debug <= (count > FIFO_DEPTH/2) ? 1:0;
         full  <= (count == FIFO_DEPTH) ? 1:0; // Full when count reaches FIFO depth
         empty <= (count == 0)? 1:0;          // Empty when count is zero
     end

@@ -5,7 +5,7 @@
 -part_number GW1NZ-LV1QN48C6/I5
 
 
--mod_name Gowin_rPLL
+-mod_name gowin_rpll
 -file_name gowin_rpll
 -path C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Neo_Data_acquisition_ADC/src/gowin_rpll/
 -type PLL
@@ -18,7 +18,7 @@
 -fbdiv_sel 20
 -dyn_odiv_sel false
 -odiv_sel 8
--dyn_sdiv_sel 10
+-dyn_sdiv_sel 6
 -dyn_da_en true
 -rst_sig false
 -rst_sig_p false

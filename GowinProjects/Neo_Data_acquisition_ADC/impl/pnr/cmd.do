@@ -9,7 +9,6 @@
 -ph
 -tt
 -timing
--replicate
 -cst_error
 -place_option 2
 -route_option 1

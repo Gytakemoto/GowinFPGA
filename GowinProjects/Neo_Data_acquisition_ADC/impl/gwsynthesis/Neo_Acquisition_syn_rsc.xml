@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="213" Alu="129" Lut="403" T_Register="582(213)" T_Alu="175(129)" T_Lut="782(403)" T_Bsram="2(0)" T_Ssram="6(0)">
+<Module name="TOP" Register="213" Alu="128" Lut="398" T_Register="574(213)" T_Alu="182(128)" T_Lut="750(398)" T_Bsram="3(0)">
     <SubModule name="clk2"/>
-    <SubModule name="initialize" Register="21" Alu="15" Lut="15" T_Register="95(21)" T_Alu="15(15)" T_Lut="119(15)">
-        <SubModule name="PSRAM_com" Register="74" Lut="104" T_Register="74(74)" T_Lut="104(104)"/>
+    <SubModule name="initialize" Register="21" Alu="15" Lut="14" T_Register="96(21)" T_Alu="15(15)" T_Lut="120(14)">
+        <SubModule name="PSRAM_com" Register="75" Lut="106" T_Register="75(75)" T_Lut="106(106)"/>
     </SubModule>
-    <SubModule name="UART1" Register="162" Alu="5" Lut="159" T_Register="162(162)" T_Alu="5(5)" T_Lut="159(159)"/>
-    <SubModule name="PP_post_process" Register="41" Alu="8" Lut="57" Bsram="2" T_Register="41(41)" T_Alu="8(8)" T_Lut="57(57)" T_Bsram="2(2)"/>
-    <SubModule name="ADC_submodule" Register="25" Alu="4" Lut="15" T_Register="25(25)" T_Alu="4(4)" T_Lut="15(15)"/>
-    <SubModule name="fifo_inst" Register="30" Alu="14" Lut="25" Ssram="6" T_Register="30(30)" T_Alu="14(14)" T_Lut="25(25)" T_Ssram="6(6)"/>
+    <SubModule name="UART1" Register="162" Alu="5" Lut="158" T_Register="162(162)" T_Alu="5(5)" T_Lut="158(158)"/>
+    <SubModule name="PP_post_process" Register="41" Alu="8" Lut="54" Bsram="2" T_Register="41(41)" T_Alu="8(8)" T_Lut="54(54)" T_Bsram="2(2)"/>
+    <SubModule name="ADC_submodule" Register="20" Alu="4" Lut="7" T_Register="20(20)" T_Alu="4(4)" T_Lut="7(7)"/>
+    <SubModule name="fifo_inst" Register="26" Alu="22" Lut="9" Bsram="1" T_Register="26(26)" T_Alu="22(22)" T_Lut="9(9)" T_Bsram="1(1)"/>
     <SubModule name="debuttonA" T_Register="16(0)" T_Lut="4(0)">
         <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
         <SubModule name="deb_button" Register="8" Lut="4" T_Register="8(8)" T_Lut="4(4)"/>
