@@ -90,9 +90,9 @@ reg [1:0] read_write;		   			// Define read or write proccess
 /* ----------------------------- UART interface ----------------------------- */
 
 // Inputs (from UART.v module)
-wire [7:0] threshold;             // Threshold type: "T" or "B"]
-wire [21:0] samples_after;        // Number of samples to be written after the threshold
-wire [21:0] samples_before;       // Number of samples to be written before the threshold
+wire [7:0] trigger;             // trigger type: "T" or "B"]
+wire [21:0] samples_after;        // Number of samples to be written after the trigger
+wire [21:0] samples_before;       // Number of samples to be written before the trigger
 wire start_acq;										// Flag to start acquisition
 
 // Outputs (to UART.v module)
@@ -111,7 +111,7 @@ reg quad_start_mcu;								// quad_start at initial check
 
 /* ----------------------- Data acquisition interface ----------------------- */
 reg [21:0] i;
-reg [21:0] i_pivot; 							// Refers to the sample where threshold was detected
+reg [21:0] i_pivot; 							// Refers to the sample where trigger was detected
 reg i_pivot_valid;	
 reg d_flag_acq;
 wire flag_acq;
@@ -211,9 +211,10 @@ uart #(
 	//.data_in(data_in_uart),
 	//.address(address_uart),
 
-	.threshold(threshold),
-    .samples_after(samples_after),        // Number of samples to be written after the threshold
-    .samples_before(samples_before),       // Number of samples to be written before the threshold
+	.trigger(trigger),
+    .threshold(threshold),
+    .samples_after(samples_after),        // Number of samples to be written after the trigger
+    .samples_before(samples_before),       // Number of samples to be written before the trigger
     .flag_acq(flag_acq),
     .flag_debug(flag_debug),
     .flag_end_tx(UART_finished),
@@ -415,7 +416,7 @@ always @(posedge clk_PSRAM) begin
 					//* Always begin from start
 					i <= 0;						//First sample -> 0 address
                     address_acq <= 0;
-					buttons_pressed <= 0;		//Reset threshold button
+					buttons_pressed <= 0;		//Reset trigger button
 					i_pivot <= 0;				//Reset pivot
 					//adc_data_in <= 0;
                     i_pivot_valid <= 0;
@@ -446,7 +447,7 @@ always @(posedge clk_PSRAM) begin
             /* ------------------------- Detect external trigger ------------------------ */
 				if(buttonA_debounced || flag_debug) begin
 					buttons_pressed <= buttons_pressed + 1'd1;
-                    //When pressing for the first time, "detect threshold"
+                    //When pressing for the first time, "detect trigger"
                     //todo: Incluir uma condição para verificar se o tipo de requisição é por botão
                 end
                 if(buttons_pressed == 1'd1 && !i_pivot_valid && !com_start) begin
@@ -459,7 +460,7 @@ always @(posedge clk_PSRAM) begin
             /* ------------------------ Evaluate stop conditions ------------------------ */
 				if(i <= IMAX) begin
 					
-					//If i_pivot_valid = 0, it means threshold wasn't reached
+					//If i_pivot_valid = 0, it means trigger wasn't reached
                     if (i_pivot_valid) begin
 
                         // Precompute intermediate values

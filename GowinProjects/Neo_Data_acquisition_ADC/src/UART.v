@@ -28,23 +28,24 @@ module uart
     parameter CLK = 60,
     parameter BUFFER_LENGTH = 10
 )(
-    input clk_PSRAM,                        // rPLL clock of 84MHz
-    input uart_rx,                          // Rx channel - input
-    input send_uart,                        // Flag for data transmission       
+    input clk_PSRAM,                          // rPLL clock of 84MHz
+    input uart_rx,                            // Rx channel - input
+    input send_uart,                          // Flag for data transmission       
     //output reg [1:0] read_write,            // Correspond to reg [1:0] read_write
-    input [15:0] send_msg,                  // Message to be sent
+    input [15:0] send_msg,                    // Message to be sent
 
     //output reg quad_start,                  // Rising edge detection
     //output reg [22:0] address,              // Read-write address defined by UART
     //output reg [15:0] data_in,              // Message to be written to PSRAM
     //output reg [3:0] led,                   // Debug LEDs
-    output reg [7:0] threshold,             // Threshold type: "T" or "B"]
-    output reg [21:0] samples_after,        // Number of samples to be written after the threshold
-    output reg [21:0] samples_before,       // Number of samples to be written before the threshold
-    output reg flag_acq,                    // Flag to start acquisition
+    output reg [7:0] trigger,                 // Trigger type: "T" or "B"]
+    output reg [12:0] threshold,
+    output reg [21:0] samples_after,          // Number of samples to be written after the trigger
+    output reg [21:0] samples_before,         // Number of samples to be written before the trigger
+    output reg flag_acq,                      // Flag to start acquisition
     output reg flag_end_tx,
     output reg flag_debug,
-    output uart_tx                          // Tx channel - output
+    output uart_tx                            // Tx channel - output
 );
 
 localparam HALF_DELAY_WAIT = DELAY_FRAMES / 2; //Divide by two to choose middle of bit
@@ -59,15 +60,15 @@ reg com_start;
 reg d_com_start;
 
 //Receiver
-reg [3:0] rxState = 0;          // State machine variable
+reg [2:0] rxState = 0;          // State machine variable
 reg [12:0] rxCounter = 0;       // Counter to keeep track of clocks count
-reg [5:0] rxByteCounter = 0;    // Number of bytes received
+reg [3:0] rxByteCounter = 0;    // Number of bytes received
 reg [2:0] rxBitNumber = 0;      // How many bits were read
 reg [7:0] dataIn = 0;           // Stores the command
 reg byteReady = 0;              // Flag to tell wether UART protocol is finished
 
 //Transmitter
-reg [3:0] txState = 0;          // State machine variable
+reg [2:0] txState = 0;          // State machine variable
 reg [10:0] txCounter = 0;       // Counter to keep track of clocks count
 reg [7:0] dataOut = 0;          //
 reg txPinRegister = 1;          // Register linked with uart_tx; output of transmission
@@ -77,7 +78,7 @@ reg [1:0] txByteCounter = 0;    // Keep track of number of bytes transmitted
 //Register to wiring interface
 assign uart_tx = txPinRegister;
 
-// Buffer to acquire received data
+// 8-bit array Buffer to acquire received data
 reg [7:0] buffer [BUFFER_LENGTH-1:0];
 
 /* ---------------------------- Local parameters ---------------------------- */
@@ -183,8 +184,6 @@ always @(posedge clk_PSRAM) begin
         //* Added start_acq, setting to zero for rising edge detection on TOP module
         flag_acq <= 0;
 
-
-
             //Start requested by Python. Used in debugging
             if(dataIn == 8'h53) begin
                 flag_debug <= 1;
@@ -196,15 +195,17 @@ always @(posedge clk_PSRAM) begin
 
             //Data acquistion start - buffer[0] = A
             else if(buffer[0] == 8'h41) begin
-                if(rxByteCounter >= 7) begin
-                    threshold <= buffer[1];
-                    samples_after <= {buffer[2][5:0], buffer[3], buffer[4]};      //Represents 2^24-1 possible values
-                    samples_before <= {buffer[5][5:0], buffer[6], dataIn};     //Represents 2^24-1 possible values
+                if(rxByteCounter >= 9) begin
+                    trigger <= buffer[1];
+                    threshold <= {buffer[2][3:0], buffer[3]};   // User selected threshold trigger. 12 bits gets stored in var threshold.
+                    //else threshold[12] <= 1'b1;                                // User selected button trigger. Asserts 13 bits to threshold, a value that is never reached.
+                    samples_after <= {buffer[4][5:0], buffer[5], buffer[6]};   //22 bits: Represents 2^22-1 possible values
+                    samples_before <= {buffer[7][5:0], buffer[8], dataIn};     //22 bits: Represents 2^22-1 possible values 
                     buffer[0] <= 0;
+                    dataIn <= 0;
                     //
                     // Reset counter
                     rxByteCounter <= 0;
-
                     flag_acq <= 1;
                 end
             end

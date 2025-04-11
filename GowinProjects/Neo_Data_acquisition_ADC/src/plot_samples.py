@@ -36,6 +36,6 @@ def plot_samples(samples_list):
     plt.title("Frequency: 1MHz")
     plt.show()
 
-filename = "csvFiles/test_1_04_4/samples_[1].csv"
+#filename = "csvFiles/test_1_04_4/samples_[1].csv"
 #logFile = "logFiles/Teste1.csv"
-plot_samples(filename)
+#plot_samples(filename)

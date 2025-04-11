@@ -52,9 +52,9 @@ reg [1:0] read_write;		   			// Define read or write proccess
 /* ----------------------------- UART interface ----------------------------- */
 
 // Inputs (from UART.v module)
-wire [7:0] threshold;             // Threshold type: "T" or "B"]
-wire [21:0] samples_after;        // Number of samples to be written after the threshold
-wire [21:0] samples_before;       // Number of samples to be written before the threshold
+wire [7:0] threshold;              // threshold type: "T" or "B"]
+wire [21:0] samples_after;       // Number of samples to be written after the threshold
+wire [21:0] samples_before;      // Number of samples to be written before the threshold
 wire start_acq;										// Flag to start acquisition
 
 // Outputs (to UART.v module)
@@ -164,7 +164,7 @@ uart #(.DELAY_FRAMES(91), .BUFFER_LENGTH(BUFFER_LENGTH)) UART1 (
 	//.data_in(data_in_uart),
 	//.address(address_uart),
 
-	.threshold(threshold),
+    .threshold(threshold),
     .samples_after(samples_after),        // Number of samples to be written after the threshold
     .samples_before(samples_before),       // Number of samples to be written before the threshold
     .flag_acq(flag_acq),

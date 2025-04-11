@@ -5,9 +5,10 @@
 #define MSG 3
 #define SEND 4
 #define THRESHOLD 5
-#define SAMPLES_AFTER 6
-#define SAMPLES_BEFORE 7
-#define RECEIVE_MESSAGE 8
+#define THRESHOLD_VALUE 6
+#define SAMPLES_AFTER 7
+#define SAMPLES_BEFORE 8
+#define RECEIVE_MESSAGE 9
 #define SAMPLE_AFTER_MAX 0x3FFFFF
 #define MESSAGE_SIZE 16    // Tamanho da mensagem (3 bytes)
 
@@ -22,7 +23,7 @@ const int GwSerialTX = 17;
 int led = 2;
 int step = 0;
 int samples_after = 0;
-uint8_t message[8];
+uint8_t message[10];
 bool reading = false;
 bool writing = false;
 bool acquisition = false;
@@ -61,7 +62,7 @@ void loop() {
       refresh = refresh + 1;
       if (refresh == 1) {
         Serial.println();
-        Serial.println("[User] [0] Begin UART communication? (y/n)");
+        Serial.println("[User] [A0] Begin UART communication? (y/n)");
       }
       else if (refresh > 1 && refresh < 8) {
         Serial.print(".");
@@ -96,7 +97,7 @@ void loop() {
       refresh = refresh + 1;
       if (refresh == 1) {
         Serial.println();
-        Serial.println("[User] [1] Perform read, write or acquisition operation? (w/r/a)");
+        Serial.println("[User] [A1] Perform read, write or acquisition operation? (w/r/a)");
       }
       else if (refresh > 1 && refresh < 8) {
         Serial.print(".");
@@ -240,14 +241,14 @@ void loop() {
         newData = false;
         if (strcmp(receivedChars,"t") == 0  || strcmp(receivedChars,"T") == 0) {
           message[1] = 0x54; // Letra "T"
-          step = SAMPLES_AFTER;
+          step = THRESHOLD_VALUE;
           Serial.println();
           Serial.println("[Auto] User selected threshold method");
           refresh = 0;
         }
         else if (strcmp(receivedChars,"b") == 0  || strcmp(receivedChars,"B") == 0) {
           message[1] = 0x42; // Letra "B"
-          step = SAMPLES_AFTER;
+          step = THRESHOLD_VALUE;
           Serial.println();
           Serial.println("[Auto] User selected button method");
           refresh = 0;
@@ -257,11 +258,66 @@ void loop() {
         }
       }
       break;
+    case THRESHOLD_VALUE:
+      refresh = refresh + 1;
+      if (refresh == 1) {
+        Serial.println();
+        Serial.println("[User] [A3] Enter the threshold voltage in the range -5 to 5 V (e.g., 1.23)");
+      }
+      else if (refresh > 1 && refresh < 8) {
+        Serial.print(".");
+        delay(500);
+      }
+      else{
+        refresh = 0;
+        delay(2000);
+      }
+
+      recvWithEndMarker();
+
+      if (newData == true) {
+        newData = false;
+
+        if (message[1] == 0x54) { // Trigger por Threshold ('T')
+          float v_threshold = atof(receivedChars);
+
+          if (v_threshold < -5.0 || v_threshold > 5.0) {
+            Serial.println("[Auto] Invalid value. Please enter a number between -5.0 and 5.0");
+            step = THRESHOLD_VALUE;
+            refresh = 0;
+            break;
+          }
+
+          // Mapeamento de -5V a 5V para 0 a 4095
+          int adc_threshold = round(((v_threshold + 5.0) / 10.0) * 4095.0);
+
+          // Armazenar no message[2] e message[3]
+          message[2] = (adc_threshold >> 8) & 0xFF;
+          message[3] = adc_threshold & 0xFF;
+
+          Serial.println();
+          Serial.print("[Auto] Threshold set to ");
+          Serial.print(v_threshold, 3);
+          Serial.print(" V (ADC: ");
+          Serial.print(adc_threshold);
+          Serial.println(")");
+        }
+        else if (message[1] == 0x42) { // Trigger por Botão ('B')
+          int fake_threshold = 1 << 12; // 4096 = 2^12
+          message[2] = (fake_threshold >> 8) & 0xFF;
+          message[3] = fake_threshold & 0xFF;
+          Serial.println("[Auto] Button triggered successfully!");
+        }
+
+        step = SAMPLES_AFTER;
+        refresh = 0;
+      }
+      break;
     case SAMPLES_AFTER:
       refresh = refresh + 1;
       if (refresh == 1) {
         Serial.println();
-        Serial.println("[User] [A3] Enter the number of samples to be collected AFTER threshold detection (maximum = 4.194.303) \n Enter 'max' to automatically insert 4,194,303 samples");
+        Serial.println("[User] [A4] Enter the number of samples to be collected AFTER threshold detection (maximum = 4.194.303) \n Enter 'max' to automatically insert 4,194,303 samples");
         //Serial.println("[User] Enter 'max' to automatically insert 4,194,303 samples");
       }
       else if (refresh > 1 && refresh < 8) {
@@ -298,9 +354,9 @@ void loop() {
 
         if (samples_after >= 0 && samples_after <= SAMPLE_AFTER_MAX) {
           // Adiciona ao array message
-          message[2] = (samples_after >> 16) & 0xFF; // Byte mais significativo
-          message[3] = (samples_after >> 8) & 0xFF;  // Byte intermediário
-          message[4] = samples_after & 0xFF;         // Byte menos significativo
+          message[4] = (samples_after >> 16) & 0xFF; // Byte mais significativo
+          message[5] = (samples_after >> 8) & 0xFF;  // Byte intermediário
+          message[6] = samples_after & 0xFF;         // Byte menos significativo
 
           Serial.println();
           Serial.print("[Auto] 'Samples after' defined as: ");
@@ -318,7 +374,7 @@ void loop() {
       refresh = refresh + 1;
       if (refresh == 1) {
         Serial.println();
-        String message = "[User] [A4] Enter the number of samples to be collected BEFORE threshold detection (maximum = 4,194,303 - samples after: ";
+        String message = "[User] [A5] Enter the number of samples to be collected BEFORE threshold detection (maximum = 4,194,303 - samples after: ";
         message += (SAMPLE_AFTER_MAX - samples_after);
         message += ") \nEnter 'max' to automatically insert the maximum allowed samples";
         Serial.println(message);
@@ -364,9 +420,9 @@ void loop() {
 
         if (samples_before >= 0 && samples_before <= samples_before_max) {
           // Adiciona ao array message
-          message[5] = (samples_before >> 16) & 0xFF; // Byte mais significativo
-          message[6] = (samples_before >> 8) & 0xFF;  // Byte intermediário
-          message[7] = samples_before & 0xFF;         // Byte menos significativo
+          message[7] = (samples_before >> 16) & 0xFF; // Byte mais significativo
+          message[8] = (samples_before >> 8) & 0xFF;  // Byte intermediário
+          message[9] = samples_before & 0xFF;         // Byte menos significativo
 
           Serial.println();
           Serial.print("[Auto] 'Samples before' defined as: ");
@@ -390,7 +446,7 @@ void loop() {
         messageLength = 4;
       }
       else if(acquisition) {
-        messageLength = 8;
+        messageLength = 10;
       }
 
       // Enviar a mensagem via UART

@@ -11,10 +11,11 @@ Undeclared symbol 'adc_enable', assumed default net type 'wire'("C:\Users\Guilhe
 Undeclared symbol 'fifo_rd', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":180)
 Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":185)
 Undeclared symbol 'debug_2', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":189)
-Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":218)
-Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":244)
-Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":245)
-Undeclared symbol 'fifo_wr', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":262)
+Undeclared symbol 'threshold', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":215)
+Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":219)
+Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":245)
+Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":246)
+Undeclared symbol 'fifo_wr', assumed default net type 'wire'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":263)
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v'
 Analyzing Verilog file 'C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v'
@@ -23,6 +24,8 @@ Compiling module 'gowin_rpll'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProject
 Compiling module 'psram(ADC_FREQ=6)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":219)
 Compiling module 'memory_driver'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":20)
 Compiling module 'uart'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":26)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":179)
+WARN  (EX3670) : Actual bit length 1 differs from formal bit length 13 for port 'threshold'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":215)
 Compiling module 'ping_pong_buffer(BUFFER_DEPTH=128)'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":17)
 Extracting RAM for identifier 'buffer_a'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":38)
 Extracting RAM for identifier 'buffer_b'("C:\Users\GuilhermeY\Github\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":39)
