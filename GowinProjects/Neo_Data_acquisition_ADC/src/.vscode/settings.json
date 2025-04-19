@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/DAC_Basics"
+    "cmake.sourceDirectory": "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_ADC/src/DAC_Basics",
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32"
+    }
 }

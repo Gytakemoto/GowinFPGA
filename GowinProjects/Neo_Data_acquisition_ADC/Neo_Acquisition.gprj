@@ -8,9 +8,7 @@
         <File path="src/ADC_module.v" type="file.verilog" enable="1"/>
         <File path="src/Neo_PSRAM.v" type="file.verilog" enable="1"/>
         <File path="src/Neo_TOP.v" type="file.verilog" enable="1"/>
-        <File path="src/PSRAM.v" type="file.verilog" enable="0"/>
         <File path="src/Sync_Debouncer.v" type="file.verilog" enable="1"/>
-        <File path="src/TOP.v" type="file.verilog" enable="0"/>
         <File path="src/UART.v" type="file.verilog" enable="1"/>
         <File path="src/fifo_adc.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>

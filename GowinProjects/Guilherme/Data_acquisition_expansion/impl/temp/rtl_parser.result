@@ -1,91 +1,91 @@
 [
  {
-  "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
   "InstLine" : 2,
   "InstName" : "TOP",
-  "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
   "ModuleLine" : 2,
   "ModuleName" : "TOP",
   "SubInsts" : [
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 125,
     "InstName" : "clk2",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v",
     "ModuleLine" : 9,
     "ModuleName" : "gowin_rpll_27_to_84"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 131,
     "InstName" : "initialize",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/PSRAM.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/PSRAM.v",
     "ModuleLine" : 228,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/PSRAM.v",
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/PSRAM.v",
       "InstLine" : 278,
       "InstName" : "PSRAM_com",
-      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/PSRAM.v",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/PSRAM.v",
       "ModuleLine" : 20,
       "ModuleName" : "memory_driver"
      }
     ]
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 152,
     "InstName" : "UART1",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/UART.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/UART.v",
     "ModuleLine" : 26,
     "ModuleName" : "uart"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 178,
     "InstName" : "PP_post_process",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ping_pong_buffer.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/ping_pong_buffer.v",
     "ModuleLine" : 17,
     "ModuleName" : "ping_pong_buffer"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 197,
     "InstName" : "ADC_submodule",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ADC_module.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/ADC_module.v",
     "ModuleLine" : 1,
     "ModuleName" : "adc_module"
    },
    {
-    "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
     "InstLine" : 241,
     "InstName" : "debuttonA",
-    "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
     "ModuleName" : "sync_debouncer",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "InstLine" : 11,
       "InstName" : "sync_button",
-      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "ModuleLine" : 33,
       "ModuleName" : "sync"
      },
      {
-      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "InstLine" : 18,
       "InstName" : "deb_button",
-      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "ModuleLine" : 56,
       "ModuleName" : "debouncer"
      },
      {
-      "InstFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "InstLine" : 25,
       "InstName" : "sync_button_debounced",
-      "ModuleFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
       "ModuleLine" : 82,
       "ModuleName" : "once"
      }

@@ -2,31 +2,31 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ADC_module.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/ADC_module.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/PSRAM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ping_pong_buffer.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/Sync_Debouncer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/PSRAM.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/TOP_debug.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/UART.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/TOP_debug.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/UART.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/src/ping_pong_buffer.v",
    "Type" : "verilog"
   }
  ],
@@ -34,7 +34,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Users/GuilhermeY/Github/GowinFPGA/GowinProjects/Data_acquisition_expansion/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/Guilherme/Data_acquisition_expansion/impl/temp/rtl_parser.result",
  "Top" : "TOP",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

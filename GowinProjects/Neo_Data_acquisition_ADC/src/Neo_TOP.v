@@ -40,11 +40,8 @@ output reg [2:0] led_rgb     	// RGB LEDs
 //This parameter has to be in accordance with rpll clock
 localparam PSRAM_CLK_FREQ = 60;
 
-//ADC acquisition frequency
-localparam ACQUISITION_FREQ = 6;
-
 //UART
-localparam UART_BUFF_LENGTH = 10;
+localparam UART_BUFF_LENGTH = 11;
 
 //Ping-pong Buffer
 localparam PP_BUFF_DEPTH = 128;
@@ -145,6 +142,9 @@ reg d_first_pong;
 reg uart_start;
 reg [22:0] address_finish;
 reg bypass;
+wire [12:0] threshold;
+reg [11:0] d_fifo_out;
+reg [11:0] d_fifo_out_1;
 
 
 //wire adc_enable;
@@ -153,6 +153,7 @@ assign adc_enable = (process == DATA_ACQUISITION) && !stop_acquisition ? 1:0;
 wire [11:0] adc_data;
 wire [11:0] fifo_out;
 wire fifo_empty;
+reg fifo_rst;
 //wire fifo_wr;
 //wire fifo_full;
 
@@ -166,9 +167,7 @@ gowin_rpll clk2(
 
 /* ---------------------------------- PSRAM --------------------------------- */
 //*Obs: Change parameters value above
-psram #(
-    .ADC_FREQ(ACQUISITION_FREQ)
-    ) initialize(
+psram initialize(
 	//input
 	.mem_clk(clk_PSRAM),
 	.address(address),
@@ -177,9 +176,11 @@ psram #(
 	.quad_start(quad_start_mcu),
     .burst_mode(burst_mode),
     .fifo_empty(fifo_empty),
+    .stop_acquisition(stop_acquisition),
     .fifo_rd(fifo_rd),
 
 	//output
+    .write_ended(write_ended),
 	.mem_clk_enabled(mem_clk_enabled),
 	.qpi_on(qpi_on),
 	.endcommand(endcommand),
@@ -249,10 +250,7 @@ ping_pong_buffer #(
 
 /* ------------------------------- ADC Module ------------------------------- */
 //*Obs: Change parameters value above
-adc_module #(
-        .CLK(PSRAM_CLK_FREQ),
-        .ADC_FREQ(ACQUISITION_FREQ)
-    ) ADC_submodule(
+adc_module ADC_submodule(
     //input
     .clk_PSRAM(clk_PSRAM),
     .clk_ADC(clk_ADC),
@@ -270,6 +268,7 @@ fifo_adc #(
     ) fifo_inst (
         .clk(clk_PSRAM),
         .wr_en(fifo_wr),
+        .reset(fifo_rst),
         .adc_data_in(adc_data),
         .rd_en(fifo_rd),
         .data_out(fifo_out),
@@ -427,12 +426,15 @@ always @(posedge clk_PSRAM) begin
                     i_minus_i_pivot_reg <= 0;
                     samples_after_adjusted <= 0;
                     bypass <= 1;
+                    if(fifo_rst) fifo_rst <= 0;
 				
 				//Start acquisition rising edge detected
 				if(start_acquisition) begin
 					process <= DATA_ACQUISITION;
                     led_rgb <= 3'b000;
                     burst_mode <= 1;
+                    d_fifo_out <= 0;
+                    d_fifo_out_1 <= 0;
 				end else process <= IDLE;
 
 			end
@@ -445,16 +447,25 @@ always @(posedge clk_PSRAM) begin
             //i_pivot_valid <= 1;
 
             /* ------------------------- Detect external trigger ------------------------ */
-				if(buttonA_debounced || flag_debug) begin
+				//if(buttonA_debounced || flag_debug) begin
+                if(buttonA_debounced) begin
 					buttons_pressed <= buttons_pressed + 1'd1;
                     //When pressing for the first time, "detect trigger"
                     //todo: Incluir uma condição para verificar se o tipo de requisição é por botão
                 end
-                if(buttons_pressed == 1'd1 && !i_pivot_valid && !com_start) begin
-                    i_pivot <= i;
-                    i_pivot_valid <= 1;
-                    address_PP <= (i - samples_before) << 1;
-                    //address_PP <= (i - SAMPLES_BEFORE) << 1;
+                //if(buttons_pressed == 1'd1 && !i_pivot_valid && !com_start) begin
+                if(!i_pivot_valid) begin
+                                            d_fifo_out <= fifo_out;
+                        d_fifo_out_1 <= d_fifo_out;
+                    //It is fifo_out <= threshold because ADC inputs are inverted: +5V is #000 and -5V is #FFF
+                    //d_fifo_out to get the transition state!
+                    if((trigger == 8'h42 && buttons_pressed == 1) 
+                    || (trigger == 8'h54 && ({1'b0,fifo_out} <= threshold) && ({1'b0,d_fifo_out} > threshold) && ({1'b0,d_fifo_out_1} > threshold))) begin
+                        i_pivot <= i;
+                        i_pivot_valid <= 1;
+                        address_PP <= (i - samples_before) << 1;
+                        //address_PP <= (i - SAMPLES_BEFORE) << 1;
+                    end
 				end
 
             /* ------------------------ Evaluate stop conditions ------------------------ */
@@ -485,7 +496,7 @@ always @(posedge clk_PSRAM) begin
 					//While stop wasn't requested, write in memory
 					if(!stop_acquisition) begin
 
-                        if(fifo_rd) begin
+                        if(write_ended) begin
                             i <= {i + 22'd1};
                             address_acq <= {address_acq + 23'd2};
                         end
@@ -559,6 +570,7 @@ always @(posedge clk_PSRAM) begin
                             if(next_step && com_start) begin
                                 //First bypass is needed to avoid failing when samples_after + samples_before = IMAX
                                 if(!bypass) begin
+                                    //When address_PP reaches address_acq + 2'd2 it means the last required message was just sent
                                     if (address_PP == address_acq + 2'd2) begin
                                     //if (address_PP == (i << 1) + 2'd2) begin
                                         en_write_PP <= 0;
@@ -610,6 +622,7 @@ always @(posedge clk_PSRAM) begin
                     else begin
                         process <= IDLE;
                         led_rgb <= 3'b100;
+                        fifo_rst <= 1;
                     end
                 end
 			end

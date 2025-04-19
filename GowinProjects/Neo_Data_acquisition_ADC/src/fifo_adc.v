@@ -3,6 +3,7 @@ module fifo_adc #(
     parameter FIFO_DEPTH = 128   // FIFO depth (number of stored samples)
 )(
     input wire clk,             // System clock
+    input reset,
     
     // Write interface
     input wire wr_en,           // Write enable signal
@@ -33,6 +34,7 @@ module fifo_adc #(
         full <= 0;
         empty <= 1;
         debug <= 0;
+        data_out <= 0;
     end
 
     // Write operation (store ADC data into FIFO)
@@ -41,18 +43,14 @@ module fifo_adc #(
             fifo_mem[wr_ptr] <= adc_data_in;  // Store input data
             wr_ptr <= (wr_ptr + 1) % FIFO_DEPTH; // Increment write pointer until maximum depth
         end
-    end
 
     // Read operation (retrieve data from FIFO)
-    always @(posedge clk) begin
         if (rd_en && !empty) begin
             data_out <= fifo_mem[rd_ptr]; // Output the data
             rd_ptr <= (rd_ptr + 1) % FIFO_DEPTH; // Increment read pointer unitl maximum depth
         end
-    end
 
     // Count management to track FIFO occupancy
-    always @(posedge clk) begin
         // Increment count on write if not full, unless simultaneously reading
         if (wr_en && !full && !(rd_en && !empty)) begin
             count <= count + 1;
@@ -60,6 +58,13 @@ module fifo_adc #(
         // Decrement count on read if not empty, unless simultaneously writing
         else if (rd_en && !empty && !(wr_en && !full)) begin
             count <= count - 1;
+        end
+
+        if(reset) begin
+            data_out <= 0;
+            count <= 0;
+            wr_ptr <= 0;
+            rd_ptr <= 0;
         end
 
         debug <= (count > FIFO_DEPTH/2) ? 1:0;

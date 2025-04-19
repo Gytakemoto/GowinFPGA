@@ -1,0 +1,10 @@
+-d D:\GowinProjects\tang-nano-psram-main\impl\gwsynthesis\tang_nano_psram.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst D:\GowinProjects\tang-nano-psram-main\src\tang_nano_psram.cst
+-cfg D:\GowinProjects\tang-nano-psram-main\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error

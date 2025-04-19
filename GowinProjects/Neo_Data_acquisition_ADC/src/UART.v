@@ -62,7 +62,7 @@ reg d_com_start;
 //Receiver
 reg [2:0] rxState = 0;          // State machine variable
 reg [12:0] rxCounter = 0;       // Counter to keeep track of clocks count
-reg [3:0] rxByteCounter = 0;    // Number of bytes received
+reg [$clog2(BUFFER_LENGTH)-1:0] rxByteCounter = 0;    // Number of bytes received
 reg [2:0] rxBitNumber = 0;      // How many bits were read
 reg [7:0] dataIn = 0;           // Stores the command
 reg byteReady = 0;              // Flag to tell wether UART protocol is finished
@@ -197,7 +197,8 @@ always @(posedge clk_PSRAM) begin
             else if(buffer[0] == 8'h41) begin
                 if(rxByteCounter >= 9) begin
                     trigger <= buffer[1];
-                    threshold <= {buffer[2][3:0], buffer[3]};   // User selected threshold trigger. 12 bits gets stored in var threshold.
+                    threshold <= {buffer[2][4:0], buffer[3]};   // User selected threshold trigger. 12 bits gets stored in var threshold.
+                    //threshold <= 13'b1111111111111;
                     //else threshold[12] <= 1'b1;                                // User selected button trigger. Asserts 13 bits to threshold, a value that is never reached.
                     samples_after <= {buffer[4][5:0], buffer[5], buffer[6]};   //22 bits: Represents 2^22-1 possible values
                     samples_before <= {buffer[7][5:0], buffer[8], dataIn};     //22 bits: Represents 2^22-1 possible values 

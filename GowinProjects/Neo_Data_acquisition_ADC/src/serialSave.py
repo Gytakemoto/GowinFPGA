@@ -28,8 +28,8 @@ decodebytes = 0
 last_time = 0
 
 #Constants
-SAMPLES_AFTER_MSG = "[A3]"
-SAMPLES_BEFORE_MSG = "[A4]"
+SAMPLES_AFTER_MSG = "[A4]"
+SAMPLES_BEFORE_MSG = "[A5]"
 MAX_SAMPLES = 4194303
 TIMEOUT = 2 #Seconds to wait between buffer readings
 
@@ -37,7 +37,7 @@ TIMEOUT = 2 #Seconds to wait between buffer readings
 #samples_list = []
 
 #Initialization of serial port. Define properly Baud Rate
-PORT = 'COM12'
+PORT = 'COM5'
 BAUD_RATE = 921600
 serialCom = serial.Serial(PORT, BAUD_RATE)
 

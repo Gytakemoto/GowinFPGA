@@ -1,0 +1,54 @@
+[
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/old_mem_driver.v",
+  "InstLine" : 1,
+  "InstName" : "old_mem_driver",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/old_mem_driver.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "old_mem_driver"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/top.v",
+    "InstLine" : 22,
+    "InstName" : "oscillator",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/top.v",
+    "InstLine" : 27,
+    "InstName" : "memory",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/memory.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "memory",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/memory.v",
+      "InstLine" : 48,
+      "InstName" : "mem_driver",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/memory.v",
+      "ModuleLine" : 125,
+      "ModuleName" : "mem_driver"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/memory.v",
+      "InstLine" : 68,
+      "InstName" : "spi_command",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/tang-nano-psram-main/src/memory.v",
+      "ModuleLine" : 199,
+      "ModuleName" : "spi_command"
+     }
+    ]
+   }
+  ]
+ }
+]

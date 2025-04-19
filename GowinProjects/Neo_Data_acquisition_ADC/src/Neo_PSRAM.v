@@ -17,9 +17,7 @@ Todo: Increase stability and error handling. Can be optimized.
 /* ------------------------------ Memory Driver ----------------------------- */
 
 //Read and write routines for PSRAM
-module memory_driver# (
-    parameter ADC_FREQ = 6        // Desired sampling frequency in MHz
-)(
+module memory_driver (
 	//INPUT
 	input mem_clk,										// 84MHz rPLL generated signal
 
@@ -36,8 +34,10 @@ module memory_driver# (
 	input [15:0] data_in,								// Data to be written to PSRAM
     input burst_mode,
     input fifo_empty,
+    input stop_acquisition,
 	
 	//OUTPUT
+    output reg write_ended,
     output endcommand,
 	output mem_ce,									// PSRAM chip enable signal
 	output reg [15:0] data_out,							// Data read from PSRAM
@@ -109,6 +109,8 @@ always @(negedge mem_clk) begin
     address_reg <= address;
     fifo_rd <= 0;
     ended <= ended;
+    write_ended <= 0;
+    data_write <= data_in;
     
     if(start) begin
 		ended <= 0;
@@ -146,7 +148,7 @@ always @(negedge mem_clk) begin
                 if(reading) mem_sio_reg <= CMD_READ[3:0];
                 else if(writing) begin
                     mem_sio_reg <= CMD_WRITE[3:0];
-                    data_write <= data_in;
+                    //data_write <= data_in;
                 end
                 
             end
@@ -175,6 +177,7 @@ always @(negedge mem_clk) begin
                             //!xx
                             8: begin
                                 mem_sio_reg <= data_write[15:12];
+                                write_ended <= 1;
                                 //debug <= !debug;
                             end
                             9: begin 
@@ -184,7 +187,7 @@ always @(negedge mem_clk) begin
                             10: begin
                                 mem_sio_reg <= data_write[7:4];
                                 
-                                if(burst_counter == TIMER || fifo_empty) begin   // If fifo has message
+                                if(burst_counter == TIMER || fifo_empty || stop_acquisition) begin   // If fifo has message
                                         burst_counter <= 0;  
                                 end
                                 else begin
@@ -195,7 +198,7 @@ always @(negedge mem_clk) begin
                                     mem_sio_reg <= data_write[3:0];
                                 if(fifo_rd) begin     
                                     counter <= 8;   //Immediately ammend next command
-                                    data_write <= data_in;    //Update data_write for next write.
+                                    //data_write <= data_in;    //Update data_write for next write.
                                     burst_counter <= burst_counter + 1'd1;
                                 end
                             end
@@ -216,9 +219,7 @@ endmodule
 
 /* ------------------------------- Top module ------------------------------- */
 
-module psram # (
-    parameter ADC_FREQ = 5        // Desired sampling frequency in MHz
-)(
+module psram(
 
 	//INPUT
 	input mem_clk,							// 84MHz rPLL generated clock
@@ -230,6 +231,7 @@ module psram # (
 	input [15:0] data_in,								// Data to be written to PSRAM
     input burst_mode,
     input fifo_empty,
+    input stop_acquisition,
 	
 	//OUTPUT
 	output endcommand,									// Flag - indicates when the PSRAM reading/writing process is completed		
@@ -240,6 +242,7 @@ module psram # (
     //output debug,
     output debug_2,
     output fifo_rd,
+    output write_ended,
 
 //INOUT
 	inout [3:0] mem_sio   	    						// Communication busbar for PSRAM communication
@@ -276,7 +279,7 @@ localparam [7:0] CMD_RSTEN = 8'h66;
 localparam [7:0] CMD_RST = 8'h99;
 localparam [7:0] SPI2QPI = 8'h35;
 
-memory_driver # (.ADC_FREQ(ADC_FREQ)) PSRAM_com(
+memory_driver PSRAM_com(
 	.mem_clk(mem_clk),
 	.command(command),
 	.step(step),
@@ -294,6 +297,8 @@ memory_driver # (.ADC_FREQ(ADC_FREQ)) PSRAM_com(
     .debug_2(debug_2),
     .fifo_rd(fifo_rd),
     .fifo_empty(fifo_empty),
+    .stop_acquisition(stop_acquisition),
+    .write_ended(write_ended),
 	.data_out(data_out)
 );
 
