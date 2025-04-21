@@ -1,0 +1,17 @@
+-d C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\impl\gwsynthesis\Neo_Acquisition.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\PSRAM_UART_pins.cst
+-cfg C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\impl\pnr\device.cfg
+-sdc C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\Neo_Acquisition.sdc
+-bit
+-tr
+-ph
+-tt
+-timing
+-cst_error
+-place_option 2
+-route_option 2
+-clock_route_order 1
+-correct_hold 1
+-route_maxfan 10

@@ -1,0 +1,28 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Lite</Mode>
+    <AoCore_Lite index="0" sample_clock="clk_PSRAM" trig_type="0" capture_amount="128" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
+        <SignalList>
+            <Bus capture_enable="true" name="read[15:0]">
+                <Signal>read[15]</Signal>
+                <Signal>read[14]</Signal>
+                <Signal>read[13]</Signal>
+                <Signal>read[12]</Signal>
+                <Signal>read[11]</Signal>
+                <Signal>read[10]</Signal>
+                <Signal>read[9]</Signal>
+                <Signal>read[8]</Signal>
+                <Signal>read[7]</Signal>
+                <Signal>read[6]</Signal>
+                <Signal>read[5]</Signal>
+                <Signal>read[4]</Signal>
+                <Signal>read[3]</Signal>
+                <Signal>read[2]</Signal>
+                <Signal>read[1]</Signal>
+                <Signal>read[0]</Signal>
+            </Bus>
+        </SignalList>
+    </AoCore_Lite>
+    <GAO_ID>1110110001101000</GAO_ID>
+</GAO_CONFIG>

@@ -1,0 +1,137 @@
+//RGB LED
+IO_LOC  "led_rgb[0]" 10;
+IO_PORT "led_rgb[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "led_rgb[1]" 11;
+IO_PORT "led_rgb[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "led_rgb[2]" 9;
+IO_PORT "led_rgb[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//Main Clock
+IO_LOC  "sys_clk" 47;
+IO_PORT "sys_clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//Multi-PSRAM Pins
+
+IO_LOC  "mem_clk_enabled" 20;
+IO_PORT "mem_clk_enabled" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_ce" 42;
+IO_PORT "mem_ce" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+
+//PSRAM 1 pins
+IO_LOC  "mem_sio_1[3]" 41;
+IO_PORT "mem_sio_1[3]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_1[2]" 38;
+IO_PORT "mem_sio_1[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_1[1]" 39;
+IO_PORT "mem_sio_1[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_1[0]" 40;
+IO_PORT "mem_sio_1[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+/*
+//PSRAM 2 pins
+IO_LOC  "mem_sio_2[3]" 22;
+IO_PORT "mem_sio_2[3]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_2[2]" 23;
+IO_PORT "mem_sio_2[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_2[1]" 24;
+IO_PORT "mem_sio_2[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_2[0]" 19;
+IO_PORT "mem_sio_2[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//PSRAM 3 pins
+IO_LOC  "mem_sio_3[3]" 18;
+IO_PORT "mem_sio_3[3]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_3[2]" 3;
+IO_PORT "mem_sio_3[2]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_3[1]" 7;
+IO_PORT "mem_sio_3[1]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "mem_sio_3[0]" 5;
+IO_PORT "mem_sio_3[0]" DRIVE=8 IO_TYPE=LVCMOS33 PULL_MODE=UP;
+*/
+
+
+//UART
+IO_LOC  "uart_tx" 46;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "uart_rx" 45;
+IO_PORT "uart_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//ButtonA
+
+IO_LOC "buttonA" 13;
+IO_PORT "buttonA" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//ADC 12-bits pins
+//In ADC board, D0 stands for the MSB and D11 for the LSB. Here the logic is inverted.
+
+IO_LOC "adc_out[11]" 21;
+IO_PORT "adc_out[11]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[10]" 8;
+IO_PORT "adc_out[10]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[9]" 32;
+IO_PORT "adc_out[9]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[8]" 33;
+IO_PORT "adc_out[8]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[7]" 17;
+IO_PORT "adc_out[7]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[6]" 16;
+IO_PORT "adc_out[6]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[5]" 15;
+IO_PORT "adc_out[5]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[4]" 27;
+IO_PORT "adc_out[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[3]" 28;
+IO_PORT "adc_out[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[2]" 34;
+IO_PORT "adc_out[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[1]" 35;
+IO_PORT "adc_out[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "adc_out[0]" 29;
+IO_PORT "adc_out[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC "clk_ADC" 31;
+IO_PORT "clk_ADC" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//DEBUG PINS
+//IO_LOC "adc_OTR" 30;
+//IO_PORT "adc_OTR" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "fifo_rd" 35;
+//IO_PORT "fifo_rd" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "debug_2" 35;
+//IO_PORT "debug_2" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "fifo_full" 45;
+//IO_PORT "fifo_full" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "debug" 46;
+//IO_PORT "debug" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+//IO_LOC "buttonB" 44;
+//IO_PORT "buttonB" IO_TYPE=LVCMOS33 PULL_MODE=UP;

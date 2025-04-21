@@ -1,0 +1,128 @@
+[
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+  "InstLine" : 2,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "TOP",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 146,
+    "InstName" : "clk2",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "gowin_rpll"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 154,
+    "InstName" : "initialize",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_PSRAM.v",
+    "ModuleLine" : 222,
+    "ModuleName" : "psram",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_PSRAM.v",
+      "InstLine" : 282,
+      "InstName" : "PSRAM_com",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_PSRAM.v",
+      "ModuleLine" : 20,
+      "ModuleName" : "memory_driver"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 185,
+    "InstName" : "UART1",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/UART.v",
+    "ModuleLine" : 26,
+    "ModuleName" : "uart"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 215,
+    "InstName" : "PP_post_process",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/ping_pong_buffer.v",
+    "ModuleLine" : 17,
+    "ModuleName" : "ping_pong_buffer"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 237,
+    "InstName" : "ADC_submodule",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/ADC_module.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "adc_module"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 252,
+    "InstName" : "fifo_inst",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/fifo_adc.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "fifo_adc"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Neo_TOP.v",
+    "InstLine" : 288,
+    "InstName" : "debuttonA",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "sync_debouncer",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "InstLine" : 11,
+      "InstName" : "sync_button",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "ModuleLine" : 33,
+      "ModuleName" : "sync"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "InstLine" : 18,
+      "InstName" : "deb_button",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "ModuleLine" : 56,
+      "ModuleName" : "debouncer"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "InstLine" : 25,
+      "InstName" : "sync_button_debounced",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/Sync_Debouncer.v",
+      "ModuleLine" : 82,
+      "ModuleName" : "once"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "InstLine" : 9,
+  "InstName" : "gowin_rpll_27_to_60",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll/gowin_rpll_27_to_60.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "gowin_rpll_27_to_60"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll_27_to_84.v",
+  "InstLine" : 9,
+  "InstName" : "gowin_rpll_27_to_84",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll_27_to_84.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "gowin_rpll_27_to_84"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll/gowin_rpll_6.v",
+  "InstLine" : 9,
+  "InstName" : "gowin_rpll_6",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/Neo_Data_acquisition_expansion_test/src/gowin_rpll/gowin_rpll_6.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "gowin_rpll_6"
+ }
+]

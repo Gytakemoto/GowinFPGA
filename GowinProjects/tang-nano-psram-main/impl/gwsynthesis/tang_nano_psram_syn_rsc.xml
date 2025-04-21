@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Module name="top" Register="47" Alu="29" Lut="49">
-    <SubModule name="oscillator"/>
-    <SubModule name="memory" Register="25" Alu="15" Lut="20">
-        <SubModule name="mem_driver" Register="42" Lut="45"/>
-        <SubModule name="spi_command" Register="12" Lut="15"/>
-    </SubModule>
-</Module>

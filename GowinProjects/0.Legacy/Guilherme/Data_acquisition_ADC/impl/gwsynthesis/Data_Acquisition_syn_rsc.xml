@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="TOP" Register="225" Alu="129" Lut="413" T_Register="563(225)" T_Alu="157(129)" T_Lut="752(413)" T_Bsram="2(0)">
+    <SubModule name="clk2"/>
+    <SubModule name="initialize" Register="25" Alu="15" Lut="18" T_Register="100(25)" T_Alu="15(15)" T_Lut="104(18)">
+        <SubModule name="PSRAM_com" Register="75" Lut="86" T_Register="75(75)" T_Lut="86(86)"/>
+    </SubModule>
+    <SubModule name="UART1" Register="162" Alu="5" Lut="165" T_Register="162(162)" T_Alu="5(5)" T_Lut="165(165)"/>
+    <SubModule name="PP_post_process" Register="41" Alu="8" Lut="57" Bsram="2" T_Register="41(41)" T_Alu="8(8)" T_Lut="57(57)" T_Bsram="2(2)"/>
+    <SubModule name="ADC_submodule" Register="19" Lut="9" T_Register="19(19)" T_Lut="9(9)"/>
+    <SubModule name="debuttonA" T_Register="16(0)" T_Lut="4(0)">
+        <SubModule name="sync_button" Register="3" T_Register="3(3)"/>
+        <SubModule name="deb_button" Register="8" Lut="4" T_Register="8(8)" T_Lut="4(4)"/>
+        <SubModule name="sync_button_debounced" Register="5" T_Register="5(5)"/>
+    </SubModule>
+</Module>

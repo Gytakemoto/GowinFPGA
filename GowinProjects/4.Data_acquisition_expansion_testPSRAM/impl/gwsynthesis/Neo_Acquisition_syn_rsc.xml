@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="TOP" Register="28" Lut="20">
+    <SubModule name="clk2"/>
+    <SubModule name="initialize" Register="21" Alu="15" Lut="14">
+        <SubModule name="PSRAM_com" Register="40" Lut="81"/>
+    </SubModule>
+    <SubModule name="fifo_inst" Register="9" Alu="7" Lut="5"/>
+</Module>
