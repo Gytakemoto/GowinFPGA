@@ -181,16 +181,16 @@ always @(negedge mem_clk) begin
                             end
                             9: begin 
                                 mem_sio_reg <= data_write[11:8]; 
-                            end
-                            10: begin
-                                mem_sio_reg <= data_write[7:4];
-                                
                                 if(burst_counter == TIMER || fifo_empty || stop_acquisition) begin   // If fifo has message
                                         burst_counter <= 0;  
                                 end
                                 else begin
                                     fifo_rd <= 1;       // Collect next data_in;
                                 end
+                            end
+                            10: begin
+                                mem_sio_reg <= data_write[7:4];
+                                if(fifo_rd) fifo_rd <= 1;
                             end
                             11: begin
                                     mem_sio_reg <= data_write[3:0];

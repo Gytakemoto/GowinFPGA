@@ -1,8 +1,8 @@
--d C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\gwsynthesis\Expansion.vg
+-d C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\impl\gwsynthesis\Expansion.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion\src\PSRAM_UART_pins.cst
--cfg C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion\impl\pnr\device.cfg
+-cst C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\PSRAM_UART_pins.cst
+-cfg C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\impl\pnr\device.cfg
 -bit
 -tr
 -ph

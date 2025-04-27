@@ -1,8 +1,8 @@
--d C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\impl\gwsynthesis\Expansion.vg
+-d C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\PSRAM_UART_pins.cst
--cfg C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\impl\pnr\device.cfg
+-cst C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\PSRAM_UART_pins.cst
+-cfg C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\pnr\device.cfg
 -bit
 -tr
 -ph
@@ -10,6 +10,5 @@
 -cst_error
 -place_option 2
 -route_option 2
--clock_route_order 1
 -correct_hold 1
 -route_maxfan 10

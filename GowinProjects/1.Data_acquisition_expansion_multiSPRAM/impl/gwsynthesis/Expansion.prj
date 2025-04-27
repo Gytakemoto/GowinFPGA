@@ -4,20 +4,20 @@
     <Version>beta</Version>
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\ADC_module.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\Neo_PSRAM.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\Neo_TOP.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\Sync_Debouncer.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\UART.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\fifo_adc.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\gowin_rpll_27_to_84.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\ping_pong_buffer.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\ADC_module.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\UART.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_sdpb\gowin_sdpb.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\impl\gwsynthesis\Expansion.vg"/>
+        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="top_module" value="TOP"/>

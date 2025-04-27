@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="221" Alu="165" Lut="380">
+<Module name="TOP" Register="241" Alu="129" Lut="318">
     <SubModule name="clk2"/>
     <SubModule name="initialize" Register="21" Alu="15" Lut="15">
-        <SubModule name="PSRAM1" Register="46" Lut="90"/>
-        <SubModule name="PSRAM2" Register="22" Lut="84"/>
-        <SubModule name="PSRAM3" Register="37" Lut="96" Ssram="1"/>
+        <SubModule name="PSRAM1" Register="78" Lut="117"/>
+        <SubModule name="PSRAM2" Register="54" Lut="115"/>
+        <SubModule name="PSRAM3" Register="54" Lut="110"/>
     </SubModule>
-    <SubModule name="UART1" Register="200" Lut="151"/>
-    <SubModule name="PP_post_process" Register="22" Alu="8" Lut="37"/>
+    <SubModule name="UART1" Register="181" Lut="150"/>
+    <SubModule name="BRAM_memory" Register="66" Lut="51">
+        <SubModule name="BRAM_uart" Bsram="2"/>
+    </SubModule>
     <SubModule name="ADC_submodule" Register="20" Alu="4" Lut="8"/>
-    <SubModule name="fifo_inst" Register="22" Alu="19" Lut="8" Bsram="1"/>
+    <SubModule name="fifo_inst" Register="63" Lut="24" Ssram="6"/>
     <SubModule name="debuttonA">
         <SubModule name="sync_button" Register="3"/>
-        <SubModule name="deb_button" Register="8" Lut="4"/>
+        <SubModule name="deb_button" Register="5" Lut="2"/>
         <SubModule name="sync_button_debounced" Register="5"/>
     </SubModule>
 </Module>

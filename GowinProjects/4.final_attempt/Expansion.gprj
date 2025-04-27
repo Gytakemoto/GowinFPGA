@@ -1,0 +1,23 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NZ-1" pn="GW1NZ-LV1QN48C6/I5">gw1nz1-015</Device>
+    <FileList>
+        <File path="src/ADC_module.v" type="file.verilog" enable="1"/>
+        <File path="src/Acquisition.v" type="file.verilog" enable="1"/>
+        <File path="src/Neo_PSRAM.v" type="file.verilog" enable="1"/>
+        <File path="src/Neo_TOP.v" type="file.verilog" enable="1"/>
+        <File path="src/Post_Process.v" type="file.verilog" enable="1"/>
+        <File path="src/Sync_Debouncer.v" type="file.verilog" enable="1"/>
+        <File path="src/UART.v" type="file.verilog" enable="1"/>
+        <File path="src/fifo_UART.v" type="file.verilog" enable="0"/>
+        <File path="src/fifo_adc.v" type="file.verilog" enable="0"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sdpb/gowin_sdpb.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sdpb1/gowin_sdpb1.v" type="file.verilog" enable="1"/>
+        <File path="src/PSRAM_UART_pins.cst" type="file.cst" enable="1"/>
+        <File path="src/PSRAM_UART.rao" type="file.gao" enable="0"/>
+    </FileList>
+</Project>

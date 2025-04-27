@@ -55,7 +55,7 @@ endmodule
 
 module debouncer
 #(
-    parameter MAX_COUNT = 64
+    parameter MAX_COUNT = 8
 
 )
 (

@@ -59,11 +59,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Design File</td>
-<td>C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\impl\gwsynthesis\Expansion.vg</td>
+<td>C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion.vg</td>
 </tr>
 <tr>
 <td class="label">Physical Constraints File</td>
-<td>C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\PSRAM_UART_pins.cst</td>
+<td>C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\PSRAM_UART_pins.cst</td>
 </tr>
 <tr>
 <td class="label">Timing Constraints File</td>
@@ -83,7 +83,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Mon Apr 21 10:34:22 2025
+<td>Wed Apr 23 23:44:28 2025
 </td>
 </tr>
 <tr>
@@ -96,22 +96,22 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Total Power (mW)</td>
-<td>12.341</td>
+<td>13.288</td>
 </tr>
 <tr>
 <td class="label">Quiescent Power (mW)</td>
-<td>6.181</td>
+<td>6.187</td>
 </tr>
 <tr>
 <td class="label">Dynamic Power (mW)</td>
-<td>6.160</td>
+<td>7.101</td>
 </tr>
 </table>
 <h2><a name="Thermal_Info">Thermal Information:</a></h2>
 <table class="summary_table">
 <tr>
 <td class="label">Junction Temperature</td>
-<td>25.501</td>
+<td>25.539</td>
 </tr>
 <tr>
 <td class="label">Theta JA</td>
@@ -119,7 +119,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Max Allowed Ambient Temperature</td>
-<td>84.499</td>
+<td>84.461</td>
 </tr>
 </table>
 <h2><a name="Configure_Info">Configure Information:</a></h2>
@@ -188,23 +188,23 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>VCC</td>
 <td>1.200</td>
-<td>3.727</td>
+<td>4.930</td>
 <td>3.000</td>
-<td>8.073</td>
+<td>9.515</td>
 </tr>
 <tr>
 <td>VCCX</td>
 <td>1.800</td>
-<td>0.330</td>
+<td>0.232</td>
 <td>0.500</td>
-<td>1.494</td>
+<td>1.318</td>
 </tr>
 <tr>
 <td>VCCIO33</td>
 <td>3.300</td>
-<td>0.331</td>
-<td>0.509</td>
-<td>2.775</td>
+<td>0.233</td>
+<td>0.511</td>
+<td>2.455</td>
 </tr>
 </table>
 <h1><a name="Detail">Power Details</a></h1>
@@ -218,19 +218,19 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>Logic</td>
-<td>0.380</td>
+<td>0.310</td>
 <td>NA</td>
-<td>7.438</td>
+<td>7.553</td>
 </tr>
 <tr>
 <td>IO</td>
-<td>4.435
-<td>2.349
-<td>7.849
+<td>3.634
+<td>2.168
+<td>7.890
 </tr>
 <tr>
 <td>BSRAM</td>
-<td>2.390
+<td>4.020
 <td>NA</td>
 <td>NA</td>
 </tr>
@@ -250,28 +250,28 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>TOP</td>
-<td>4.072</td>
-<td>4.072(3.850)</td>
+<td>5.632</td>
+<td>5.632(5.444)</td>
 <tr>
-<td>TOP/ADC_submodule/</td>
-<td>0.003</td>
-<td>0.003(0.000)</td>
+<td>TOP/BRAM_memory/</td>
+<td>4.034</td>
+<td>4.034(4.020)</td>
 <tr>
-<td>TOP/PP_post_process/</td>
-<td>0.013</td>
-<td>0.013(0.000)</td>
+<td>TOP/BRAM_memory/BRAM_uart/</td>
+<td>4.020</td>
+<td>4.020(0.000)</td>
 <tr>
 <td>TOP/UART1/</td>
-<td>0.041</td>
-<td>0.041(0.000)</td>
+<td>0.039</td>
+<td>0.039(0.000)</td>
 <tr>
 <td>TOP/clk2/</td>
 <td>1.302</td>
 <td>1.302(0.000)</td>
 <tr>
 <td>TOP/debuttonA/</td>
-<td>0.002</td>
-<td>0.002(0.002)</td>
+<td>0.001</td>
+<td>0.001(0.001)</td>
 <tr>
 <td>TOP/debuttonA/deb_button/</td>
 <td>0.001</td>
@@ -285,25 +285,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>0.000</td>
 <td>0.000(0.000)</td>
 <tr>
-<td>TOP/fifo_inst/</td>
-<td>2.416</td>
-<td>2.416(0.000)</td>
-<tr>
 <td>TOP/initialize/</td>
-<td>0.074</td>
-<td>0.074(0.052)</td>
+<td>0.068</td>
+<td>0.068(0.045)</td>
 <tr>
 <td>TOP/initialize/PSRAM1/</td>
-<td>0.018</td>
-<td>0.018(0.000)</td>
+<td>0.017</td>
+<td>0.017(0.000)</td>
 <tr>
 <td>TOP/initialize/PSRAM2/</td>
-<td>0.015</td>
-<td>0.015(0.000)</td>
+<td>0.014</td>
+<td>0.014(0.000)</td>
 <tr>
 <td>TOP/initialize/PSRAM3/</td>
-<td>0.019</td>
-<td>0.019(0.000)</td>
+<td>0.015</td>
+<td>0.015(0.000)</td>
 </table>
 <h2><a name="By_Clock_Domain">Power By Clock Domain:</a></h2>
 <table class="detail_table">
@@ -315,12 +311,17 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
 <td>60.000</td>
-<td>2.771</td>
+<td>0.311</td>
 </tr>
 <tr>
-<td>clk2/rpll_inst/CLKOUTD.default_gen_clk</td>
-<td>10.000</td>
-<td>0.001</td>
+<td>BRAM_rd</td>
+<td>50.000</td>
+<td>1.898</td>
+</tr>
+<tr>
+<td>BRAM_wr</td>
+<td>50.000</td>
+<td>2.125</td>
 </tr>
 <tr>
 <td>sys_clk</td>

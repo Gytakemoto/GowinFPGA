@@ -55,11 +55,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Design File</td>
-<td>C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\impl\gwsynthesis\Expansion.vg</td>
+<td>C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion.vg</td>
 </tr>
 <tr>
 <td class="label">Physical Constraints File</td>
-<td>C:\Tupao\GowinFPGA\GowinProjects\Data_acquisition_expansion_3\src\PSRAM_UART_pins.cst</td>
+<td>C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\PSRAM_UART_pins.cst</td>
 </tr>
 <tr>
 <td class="label">Timing Constraints File</td>
@@ -79,7 +79,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Mon Apr 21 10:34:22 2025
+<td>Thu Apr 24 18:28:38 2025
 </td>
 </tr>
 <tr>
@@ -93,24 +93,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td class="label">Place & Route Process</td>
 <td>Running placement:
-   Placement Phase 0: CPU time = 0h 0m 0.116s, Elapsed time = 0h 0m 0.116s
-   Placement Phase 1: CPU time = 0h 0m 0.026s, Elapsed time = 0h 0m 0.026s
-   Placement Phase 2: CPU time = 0h 0m 0.159s, Elapsed time = 0h 0m 0.158s
-   Placement Phase 3: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
-   Total Placement: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
+   Placement Phase 0: CPU time = 0h 0m 0.176s, Elapsed time = 0h 0m 0.176s
+   Placement Phase 1: CPU time = 0h 0m 0.05s, Elapsed time = 0h 0m 0.05s
+   Placement Phase 2: CPU time = 0h 0m 0.128s, Elapsed time = 0h 0m 0.128s
+   Placement Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+   ERROR  (PR2061) : There is no position to place 'BRAM_memory/BRAM_uart/sdpb_inst_0'
+   Total Placement: CPU time = 0h 0m 0.354s, Elapsed time = 0h 0m 0.354s
 Running routing:
-   Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
-   Routing Phase 1: CPU time = 0h 0m 0.048s, Elapsed time = 0h 0m 0.049s
-   Routing Phase 2: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
-   Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-   Total Routing: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
+   ---
 Generate output files:
-   CPU time = 0h 0m 0.374s, Elapsed time = 0h 0m 0.374s
+   CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
 </td>
 </tr>
 <tr>
 <td class="label">Total Time and Memory Usage</td>
-<td>CPU time = 0h 0m 5s, Elapsed time = 0h 0m 5s, Peak memory usage = 342MB</td>
+<td>CPU time = 0h 0m 0.354s, Elapsed time = 0h 0m 0.354s, Peak memory usage = 284MB</td>
 </tr>
 </table>
 <br/>
@@ -125,23 +122,23 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">Logic</td>
-<td>1110/1152</td>
-<td>97%</td>
+<td>1090/1152</td>
+<td>95%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --LUT,ALU,ROM16</td>
-<td>1104(869 LUT, 235 ALU, 0 ROM16)</td>
+<td>1054(906 LUT, 148 ALU, 0 ROM16)</td>
 <td>-</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --SSRAM(RAM16)</td>
-<td>1</td>
+<td>6</td>
 <td>-</td>
 </tr>
 <tr>
 <td class="label">Register</td>
-<td>627/957</td>
-<td>66%</td>
+<td>791/957</td>
+<td>83%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --Logic Register as Latch</td>
@@ -150,8 +147,8 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --Logic Register as FF</td>
-<td>615/864</td>
-<td>72%</td>
+<td>772/864</td>
+<td>90%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --I/O Register as Latch</td>
@@ -160,13 +157,13 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --I/O Register as FF</td>
-<td>12/93</td>
-<td>13%</td>
+<td>19/93</td>
+<td>21%</td>
 </tr>
 <tr>
 <td class="label">CLS</td>
-<td>574/576</td>
-<td>100%</td>
+<td>569/576</td>
+<td>99%</td>
 </tr>
 <tr>
 <td class="label">I/O Port</td>
@@ -185,12 +182,12 @@ Generate output files:
 </tr>
 <tr>
 <td class="label"> &nbsp &nbsp --Output Buf</td>
-<td>15</td>
+<td>7</td>
 <td>-</td>
 </tr>
 <tr>
 <td class="label"> &nbsp &nbsp --Inout Buf</td>
-<td>4</td>
+<td>12</td>
 <td>-</td>
 </tr>
 <tr>
@@ -200,8 +197,8 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">BSRAM</td>
-<td>1 SDPB<br/></td>
-<td>25%</td>
+<td>2 SDPB<br/></td>
+<td>50%</td>
 </tr>
 <tr>
 <td class="label">PLL</td>
@@ -252,67 +249,11 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">bank 0</td>
-<td>13/18(72%)</td>
+<td>0/18(0%)</td>
 </tr>
 <tr>
 <td class="label">bank 1</td>
-<td>21/23(91%)</td>
-</tr>
-</table>
-<br/>
-<h2><a name="Global_Clock_Usage_Summary">Global Clock Usage Summary:</a></h2>
-<table class="summary_table">
-<tr>
-<td class="label"><b>Global Clock</b></td>
-<td><b>Usage</b></td>
-</tr>
-<tr>
-<td class="label">PRIMARY</td>
-<td>2/8(25%)</td>
-</tr>
-<tr>
-<td class="label">LW</td>
-<td>0/8(0%)</td>
-</tr>
-<tr>
-<td class="label">GCLK_PIN</td>
-<td>3/3(100%)</td>
-</tr>
-<tr>
-<td class="label">PLL</td>
-<td>1/1(100%)</td>
-</tr>
-<tr>
-<td class="label">CLKDIV</td>
-<td>0/4(0%)</td>
-</tr>
-<tr>
-<td class="label">DLLDLY</td>
-<td>0/4(0%)</td>
-</tr>
-</table>
-<br/>
-<h2><a name="Global_Clock_Signals">Global Clock Signals:</a></h2>
-<table class="summary_table">
-<tr>
-<td class="label"><b>Signal</b></td>
-<td><b>Global Clock</b></td>
-<td><b>Location</b></td>
-</tr>
-<tr>
-<td class="label">clk_PSRAM</td>
-<td>PRIMARY</td>
-<td> PTR0</td>
-</tr>
-<tr>
-<td class="label">clk_ADC_d</td>
-<td>PRIMARY</td>
-<td> PTR0</td>
-</tr>
-<tr>
-<td class="label">sys_clk_d</td>
-<td>HCLK</td>
-<td>RIGHT[0]</td>
+<td>0/23(0%)</td>
 </tr>
 </table>
 <br/>
@@ -674,7 +615,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -689,7 +630,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -704,7 +645,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -719,7 +660,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -734,7 +675,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -749,7 +690,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -764,7 +705,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -779,7 +720,7 @@ Generate output files:
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -1032,52 +973,52 @@ Generate output files:
 <tr>
 <td class="label">41/0</td>
 <td>mem_sio_1[3]</td>
-<td>out</td>
+<td>io</td>
 <td>IOT15[B]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
 <tr>
 <td class="label">40/0</td>
 <td>mem_sio_1[0]</td>
-<td>out</td>
+<td>io</td>
 <td>IOT16[A]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
 <tr>
 <td class="label">39/0</td>
 <td>mem_sio_1[1]</td>
-<td>out</td>
+<td>io</td>
 <td>IOT16[B]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
 <tr>
 <td class="label">38/0</td>
 <td>mem_sio_1[2]</td>
-<td>out</td>
+<td>io</td>
 <td>IOT17[A]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -1292,13 +1233,13 @@ Generate output files:
 <tr>
 <td class="label">19/1</td>
 <td>mem_sio_2[0]</td>
-<td>out</td>
+<td>io</td>
 <td>IOR6[J]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
@@ -1331,39 +1272,39 @@ Generate output files:
 <tr>
 <td class="label">24/1</td>
 <td>mem_sio_2[1]</td>
-<td>out</td>
+<td>io</td>
 <td>IOR8[A]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
 <tr>
 <td class="label">23/1</td>
 <td>mem_sio_2[2]</td>
-<td>out</td>
+<td>io</td>
 <td>IOR8[B]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>
 <tr>
 <td class="label">22/1</td>
 <td>mem_sio_2[3]</td>
-<td>out</td>
+<td>io</td>
 <td>IOR9[A]</td>
 <td>LVCMOS33</td>
 <td>8</td>
 <td>UP</td>
 <td>NA</td>
-<td>NA</td>
+<td>NONE</td>
 <td>OFF</td>
 <td>3.3</td>
 </tr>

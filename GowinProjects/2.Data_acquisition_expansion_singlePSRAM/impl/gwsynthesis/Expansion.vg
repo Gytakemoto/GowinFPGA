@@ -1,19 +1,19 @@
 //
 //Written by GowinSynthesis
 //Tool Version "V1.9.9"
-//Sun Apr 20 22:11:36 2025
+//Wed Apr 23 23:19:06 2025
 
 //Source file index table:
-//file0 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ADC_module.v"
-//file1 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Neo_PSRAM.v"
-//file2 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Neo_TOP.v"
-//file3 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/Sync_Debouncer.v"
-//file4 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/UART.v"
-//file5 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/fifo_adc.v"
-//file6 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll/gowin_rpll.v"
-//file7 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll/gowin_rpll_27_to_60.v"
-//file8 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/gowin_rpll_27_to_84.v"
-//file9 "\C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion/src/ping_pong_buffer.v"
+//file0 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/ADC_module.v"
+//file1 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/Neo_PSRAM.v"
+//file2 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/Neo_TOP.v"
+//file3 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/Sync_Debouncer.v"
+//file4 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/UART.v"
+//file5 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/fifo_adc.v"
+//file6 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll.v"
+//file7 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll_27_to_60.v"
+//file8 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll_27_to_84.v"
+//file9 "\C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/ping_pong_buffer.v"
 `timescale 100 ps/100 ps
 module gowin_rpll (
   sys_clk_d,

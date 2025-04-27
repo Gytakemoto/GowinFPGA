@@ -1,0 +1,55 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v'
+Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":2)
+Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v":9)
+WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":361)
+WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":390)
+Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":225)
+Compiling module 'memory_driver(DATA_WIDTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":20)
+Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v":26)
+WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v":179)
+Compiling module 'Post_Process'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":1)
+Compiling module 'Gowin_SDPB'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v":9)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 9("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":87)
+WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":57)
+Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v":1)
+Compiling module 'acquisition(ACQ_DEPTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v":1)
+Compiling module 'Gowin_SDPB1'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v":9)
+WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v":58)
+Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":1)
+Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":33)
+Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":56)
+WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":75)
+Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":82)
+NOTE  (EX0101) : Current top module is "TOP"
+[5%] Running netlist conversion ...
+WARN  (CV0016) : Input adc_out is unused("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":15)
+WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":16)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\impl\gwsynthesis\Expansion.vg" completed
+[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\impl\gwsynthesis\Expansion_syn.rpt.html" completed
+GowinSynthesis finish

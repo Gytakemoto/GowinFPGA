@@ -1,0 +1,140 @@
+[
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+  "InstLine" : 2,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "TOP",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 175,
+    "InstName" : "clk2",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "gowin_rpll"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 183,
+    "InstName" : "initialize",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+    "ModuleLine" : 225,
+    "ModuleName" : "psram",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "InstLine" : 300,
+      "InstName" : "PSRAM1",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "ModuleLine" : 20,
+      "ModuleName" : "memory_driver"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "InstLine" : 337,
+      "InstName" : "PSRAM2",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "ModuleLine" : 20,
+      "ModuleName" : "memory_driver"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "InstLine" : 366,
+      "InstName" : "PSRAM3",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "ModuleLine" : 20,
+      "ModuleName" : "memory_driver"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 227,
+    "InstName" : "UART1",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/UART.v",
+    "ModuleLine" : 26,
+    "ModuleName" : "uart"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 247,
+    "InstName" : "BRAM_pp",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_Process.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "Post_Process",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_Process.v",
+      "InstLine" : 46,
+      "InstName" : "BRAM_uart",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb/gowin_sdpb.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "Gowin_SDPB"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 262,
+    "InstName" : "ADC_submodule",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/ADC_module.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "adc_module"
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 276,
+    "InstName" : "BRAM_acq",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Acquisition.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "acquisition",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Acquisition.v",
+      "InstLine" : 47,
+      "InstName" : "BRAM_acq",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb1/gowin_sdpb1.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "Gowin_SDPB1"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+    "InstLine" : 311,
+    "InstName" : "debuttonA",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "sync_debouncer",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "InstLine" : 11,
+      "InstName" : "sync_button",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "ModuleLine" : 33,
+      "ModuleName" : "sync"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "InstLine" : 18,
+      "InstName" : "deb_button",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "ModuleLine" : 56,
+      "ModuleName" : "debouncer"
+     },
+     {
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "InstLine" : 25,
+      "InstName" : "sync_button_debounced",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+      "ModuleLine" : 82,
+      "ModuleName" : "once"
+     }
+    ]
+   }
+  ]
+ }
+]

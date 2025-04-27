@@ -2,39 +2,43 @@
  "Device" : "GW1NZ-1",
  "Files" : [
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/ADC_module.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/ADC_module.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/Neo_PSRAM.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Neo_PSRAM.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/Neo_TOP.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Neo_TOP.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/Sync_Debouncer.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Post_Process.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/UART.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Sync_Debouncer.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/fifo_adc.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/UART.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/gowin_rpll/gowin_rpll.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/fifo_adc.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/gowin_rpll_27_to_84.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/src/ping_pong_buffer.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/gowin_sdpb/gowin_sdpb.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Acquisition.v",
    "Type" : "verilog"
   }
  ],
@@ -42,7 +46,7 @@
 
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/Data_acquisition_expansion_3/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/impl/temp/rtl_parser.result",
  "Top" : "TOP",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

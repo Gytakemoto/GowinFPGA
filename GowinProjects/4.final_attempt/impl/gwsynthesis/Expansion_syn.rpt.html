@@ -1,0 +1,1560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>synthesis Report</title>
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+div#main_wrapper{ width: 100%; }
+div#content { margin-left: 350px; margin-right: 30px; }
+div#catalog_wrapper {position: fixed; top: 30px; width: 350px; float: left; }
+div#catalog ul { list-style-type: none; }
+div#catalog li { text-align: left; list-style-type:circle; color: #0084ff; margin-top: 3px; margin-bottom: 3px; }
+div#catalog a { display:inline-block; text-decoration: none; color: #0084ff; font-weight: bold; padding: 3px; }
+div#catalog a:visited { color: #0084ff; }
+div#catalog a:hover { color: #fff; background: #0084ff; }
+hr { margin-top: 30px; margin-bottom: 30px; }
+h1, h3 { text-align: center; }
+h1 {margin-top: 50px; }
+table, th, td { border: 1px solid #aaa; }
+table { border-collapse:collapse; margin-top: 10px; margin-bottom: 20px; width: 100%; }
+th, td { padding: 5px 5px 5px 5px; }
+th { color: #fff; font-weight: bold; background-color: #0084ff; }
+table.summary_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.detail_table td.label { min-width: 100px; width: 8%;}
+</style>
+</head>
+<body>
+<div id="main_wrapper">
+<div id="catalog_wrapper">
+<div id="catalog">
+<ul>
+<li><a href="#about" style=" font-size: 16px;">Synthesis Messages</a></li>
+<li><a href="#summary" style=" font-size: 16px;">Synthesis Details</a></li>
+<li><a href="#resource" style=" font-size: 16px;">Resource</a>
+<ul>
+<li><a href="#usage" style=" font-size: 14px;">Resource Usage Summary</a></li>
+<li><a href="#utilization" style=" font-size: 14px;">Resource Utilization Summary</a></li>
+</ul>
+</li>
+<li><a href="#timing" style=" font-size: 16px;">Timing</a>
+<ul>
+<li><a href="#clock" style=" font-size: 14px;">Clock Summary</a></li>
+<li><a href="#performance" style=" font-size: 14px;">Max Frequency Summary</a></li>
+<li><a href="#detail timing" style=" font-size: 14px;">Detail Timing Paths Informations</a></li>
+</ul>
+</li>
+</ul>
+</div><!-- catalog -->
+</div><!-- catalog_wrapper -->
+<div id="content">
+<h1><a name="about">Synthesis Messages</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Report Title</td>
+<td>GowinSynthesis Report</td>
+</tr>
+<tr>
+<td class="label">Design File</td>
+<td>C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v<br>
+C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v<br>
+</td>
+</tr>
+<tr>
+<td class="label">GowinSynthesis Constraints File</td>
+<td>---</td>
+</tr>
+<tr>
+<td class="label">Tool Version</td>
+<td>V1.9.9</td>
+</tr>
+<tr>
+<td class="label">Part Number</td>
+<td>GW1NZ-LV1QN48C6/I5</td>
+</tr>
+<tr>
+<td class="label">Device</td>
+<td>GW1NZ-1</td>
+</tr>
+<tr>
+<td class="label">Created Time</td>
+<td>Sun Apr 27 12:00:03 2025
+</td>
+</tr>
+<tr>
+<td class="label">Legal Announcement</td>
+<td>Copyright (C)2014-2023 Gowin Semiconductor Corporation. ALL rights reserved.</td>
+</tr>
+</table>
+<h1><a name="summary">Synthesis Details</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Top Level Module</td>
+<td>TOP</td>
+</tr>
+<tr>
+<td class="label">Synthesis Process</td>
+<td>Running parser:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.25s, Elapsed time = 0h 0m 0.179s, Peak memory usage = 346.168MB<br/>Running netlist conversion:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 0MB<br/>Running device independent optimization:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 0: CPU time = 0h 0m 0.093s, Elapsed time = 0h 0m 0.093s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 1: CPU time = 0h 0m 0.031s, Elapsed time = 0h 0m 0.04s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Optimizing Phase 2: CPU time = 0h 0m 0.125s, Elapsed time = 0h 0m 0.12s, Peak memory usage = 346.168MB<br/>Running inference:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 0: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.024s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 1: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.003s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0.01s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inferring Phase 3: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.005s, Peak memory usage = 346.168MB<br/>Running technical mapping:<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 0: CPU time = 0h 0m 0.109s, Elapsed time = 0h 0m 0.112s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 1: CPU time = 0h 0m 0.046s, Elapsed time = 0h 0m 0.048s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 2: CPU time = 0h 0m 0.046s, Elapsed time = 0h 0m 0.048s, Peak memory usage = 346.168MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 3: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 349.711MB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Tech-Mapping Phase 4: CPU time = 0h 0m 0.109s, Elapsed time = 0h 0m 0.108s, Peak memory usage = 349.711MB<br/>Generate output files:<br/>&nbsp;&nbsp;&nbsp;&nbsp;CPU time = 0h 0m 0.109s, Elapsed time = 0h 0m 0.103s, Peak memory usage = 349.711MB<br/></td>
+</tr>
+<tr>
+<td class="label">Total Time and Memory Usage</td>
+<td>CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 349.711MB</td>
+</tr>
+</table>
+<h1><a name="resource">Resource</a></h1>
+<h2><a name="usage">Resource Usage Summary</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label"><b>Resource</b></td>
+<td><b>Usage</b></td>
+</tr>
+<tr>
+<td class="label"><b>I/O Port </b></td>
+<td>35</td>
+</tr>
+<tr>
+<td class="label"><b>I/O Buf </b></td>
+<td>22</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspIBUF</td>
+<td>3</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspOBUF</td>
+<td>7</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspIOBUF</td>
+<td>12</td>
+</tr>
+<tr>
+<td class="label"><b>Register </b></td>
+<td>774</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFF</td>
+<td>128</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFE</td>
+<td>471</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFS</td>
+<td>1</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFSE</td>
+<td>7</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFR</td>
+<td>18</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFRE</td>
+<td>149</td>
+</tr>
+<tr>
+<td class="label"><b>LUT </b></td>
+<td>803</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT2</td>
+<td>81</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT3</td>
+<td>244</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT4</td>
+<td>478</td>
+</tr>
+<tr>
+<td class="label"><b>ALU </b></td>
+<td>194</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspALU</td>
+<td>194</td>
+</tr>
+<tr>
+<td class="label"><b>INV </b></td>
+<td>10</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspINV</td>
+<td>10</td>
+</tr>
+<tr>
+<td class="label"><b>BSRAM </b></td>
+<td>4</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspSDPB</td>
+<td>4</td>
+</tr>
+<tr>
+<td class="label"><b>CLOCK </b></td>
+<td>1</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsprPLL</td>
+<td>1</td>
+</tr>
+</table>
+<h2><a name="utilization">Resource Utilization Summary</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label"><b>Resource</b></td>
+<td><b>Usage</b></td>
+<td><b>Utilization</b></td>
+</tr>
+<tr>
+<td class="label">Logic</td>
+<td>1007(813 LUT, 194 ALU) / 1152</td>
+<td>88%</td>
+</tr>
+<tr>
+<td class="label">Register</td>
+<td>774 / 957</td>
+<td>81%</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp--Register as Latch</td>
+<td>0 / 957</td>
+<td>0%</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp--Register as FF</td>
+<td>774 / 957</td>
+<td>81%</td>
+</tr>
+<tr>
+<td class="label">BSRAM</td>
+<td>4 / 4</td>
+<td>100%</td>
+</tr>
+</table>
+<h1><a name="timing">Timing</a></h1>
+<h2><a name="clock">Clock Summary:</a></h2>
+<table class="summary_table">
+<tr>
+<th>Clock Name</th>
+<th>Type</th>
+<th>Period</th>
+<th>Frequency(MHz)</th>
+<th>Rise</th>
+<th>Fall</th>
+<th>Source</th>
+<th>Master</th>
+<th>Object</th>
+</tr>
+<tr>
+<td>sys_clk</td>
+<td>Base</td>
+<td>37.037</td>
+<td>27.0</td>
+<td>0.000</td>
+<td>18.519</td>
+<td> </td>
+<td> </td>
+<td>sys_clk_ibuf/I </td>
+</tr>
+<tr>
+<td>BRAM_wr</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.0</td>
+<td>0.000</td>
+<td>10.000</td>
+<td> </td>
+<td> </td>
+<td>BRAM_wr_s0/Q </td>
+</tr>
+<tr>
+<td>BRAM_rd</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.0</td>
+<td>0.000</td>
+<td>10.000</td>
+<td> </td>
+<td> </td>
+<td>BRAM_rd_s0/Q </td>
+</tr>
+<tr>
+<td>ADC_submodule/acq_wr</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.0</td>
+<td>0.000</td>
+<td>10.000</td>
+<td> </td>
+<td> </td>
+<td>ADC_submodule/adc_ready_s0/Q </td>
+</tr>
+<tr>
+<td>initialize/PSRAM1/acq_rd_Z</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.0</td>
+<td>0.000</td>
+<td>10.000</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/acq_rd_s0/Q </td>
+</tr>
+<tr>
+<td>initialize/PSRAM1/n41_6</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.0</td>
+<td>0.000</td>
+<td>10.000</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_s2/O </td>
+</tr>
+<tr>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+<td>Generated</td>
+<td>16.667</td>
+<td>60.0</td>
+<td>0.000</td>
+<td>8.333</td>
+<td>sys_clk_ibuf/I</td>
+<td>sys_clk</td>
+<td>clk2/rpll_inst/CLKOUT </td>
+</tr>
+<tr>
+<td>clk2/rpll_inst/CLKOUTP.default_gen_clk</td>
+<td>Generated</td>
+<td>16.667</td>
+<td>60.0</td>
+<td>0.000</td>
+<td>8.333</td>
+<td>sys_clk_ibuf/I</td>
+<td>sys_clk</td>
+<td>clk2/rpll_inst/CLKOUTP </td>
+</tr>
+<tr>
+<td>clk2/rpll_inst/CLKOUTD.default_gen_clk</td>
+<td>Generated</td>
+<td>100.000</td>
+<td>10.0</td>
+<td>0.000</td>
+<td>50.000</td>
+<td>sys_clk_ibuf/I</td>
+<td>sys_clk</td>
+<td>clk2/rpll_inst/CLKOUTD </td>
+</tr>
+<tr>
+<td>clk2/rpll_inst/CLKOUTD3.default_gen_clk</td>
+<td>Generated</td>
+<td>50.000</td>
+<td>20.0</td>
+<td>0.000</td>
+<td>25.000</td>
+<td>sys_clk_ibuf/I</td>
+<td>sys_clk</td>
+<td>clk2/rpll_inst/CLKOUTD3 </td>
+</tr>
+</table>
+<h2><a name="performance">Max Frequency Summary:</a></h2>
+<table class="summary_table">
+<tr>
+<th>No.</th>
+<th>Clock Name</th>
+<th>Constraint</th>
+<th>Actual Fmax</th>
+<th>Logic Level</th>
+<th>Entity</th>
+</tr>
+<tr>
+<td>1</td>
+<td>initialize/PSRAM1/n41_6</td>
+<td>50.0(MHz)</td>
+<td>115.0(MHz)</td>
+<td>6</td>
+<td>TOP</td>
+</tr>
+<tr>
+<td>2</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+<td>60.0(MHz)</td>
+<td>102.2(MHz)</td>
+<td>7</td>
+<td>TOP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>clk2/rpll_inst/CLKOUTD.default_gen_clk</td>
+<td>10.0(MHz)</td>
+<td>253.2(MHz)</td>
+<td>3</td>
+<td>TOP</td>
+</tr>
+</table>
+<h2><a name="detail timing">Detail Timing Paths Information</a></h2>
+<h3>Path&nbsp1</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-7.014</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>26.947</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>19.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>read_write_1_s1</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM2/mem_sio_reg_0_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM1/n41_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>16.667</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>18.424</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>602</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>18.787</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>read_write_1_s1/CLK</td>
+</tr>
+<tr>
+<td>19.246</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>5</td>
+<td>read_write_1_s1/Q</td>
+</tr>
+<tr>
+<td>19.726</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n506_s3/I1</td>
+</tr>
+<tr>
+<td>20.825</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>3</td>
+<td>initialize/PSRAM1/n506_s3/F</td>
+</tr>
+<tr>
+<td>21.305</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n506_s1/I0</td>
+</tr>
+<tr>
+<td>22.337</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n506_s1/F</td>
+</tr>
+<tr>
+<td>22.817</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n506_s0/I0</td>
+</tr>
+<tr>
+<td>23.849</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>2</td>
+<td>initialize/PSRAM2/n506_s0/F</td>
+</tr>
+<tr>
+<td>24.329</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n489_s0/I3</td>
+</tr>
+<tr>
+<td>24.955</td>
+<td>0.626</td>
+<td>tINS</td>
+<td>FF</td>
+<td>5</td>
+<td>initialize/PSRAM2/n489_s0/F</td>
+</tr>
+<tr>
+<td>25.435</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n382_s0/I0</td>
+</tr>
+<tr>
+<td>26.467</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/n382_s0/F</td>
+</tr>
+<tr>
+<td>26.947</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM2/mem_sio_reg_0_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_6</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>168</td>
+<td>initialize/PSRAM1/n41_s2/O</td>
+</tr>
+<tr>
+<td>20.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM2/mem_sio_reg_0_s0/CLK</td>
+</tr>
+<tr>
+<td>20.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM2/mem_sio_reg_0_s0</td>
+</tr>
+<tr>
+<td>19.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM2/mem_sio_reg_0_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>3.333</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>6</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 4.821, 59.086%; route: 2.880, 35.297%; tC2Q: 0.458, 5.617%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp2</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-6.804</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>26.737</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>19.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>initialize/spi_start_s1</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM1/counter_2_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM1/n41_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>16.667</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>18.424</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>602</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>18.787</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/spi_start_s1/CLK</td>
+</tr>
+<tr>
+<td>19.246</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>13</td>
+<td>initialize/spi_start_s1/Q</td>
+</tr>
+<tr>
+<td>19.726</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n385_s1/I1</td>
+</tr>
+<tr>
+<td>20.825</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>6</td>
+<td>initialize/PSRAM1/n385_s1/F</td>
+</tr>
+<tr>
+<td>21.305</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n409_s1/I2</td>
+</tr>
+<tr>
+<td>22.127</td>
+<td>0.822</td>
+<td>tINS</td>
+<td>FF</td>
+<td>3</td>
+<td>initialize/PSRAM1/n409_s1/F</td>
+</tr>
+<tr>
+<td>22.607</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s4/I0</td>
+</tr>
+<tr>
+<td>23.639</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>2</td>
+<td>initialize/PSRAM1/n404_s4/F</td>
+</tr>
+<tr>
+<td>24.119</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s3/I0</td>
+</tr>
+<tr>
+<td>25.151</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>2</td>
+<td>initialize/PSRAM1/n404_s3/F</td>
+</tr>
+<tr>
+<td>25.631</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n406_s1/I3</td>
+</tr>
+<tr>
+<td>26.257</td>
+<td>0.626</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n406_s1/F</td>
+</tr>
+<tr>
+<td>26.737</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_2_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_6</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>168</td>
+<td>initialize/PSRAM1/n41_s2/O</td>
+</tr>
+<tr>
+<td>20.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_2_s0/CLK</td>
+</tr>
+<tr>
+<td>20.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/counter_2_s0</td>
+</tr>
+<tr>
+<td>19.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_2_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>3.333</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>6</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 4.611, 58.005%; route: 2.880, 36.229%; tC2Q: 0.458, 5.766%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp3</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-6.804</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>26.737</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>19.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>initialize/spi_start_s1</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM1/counter_4_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM1/n41_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>16.667</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>18.424</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>602</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>18.787</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/spi_start_s1/CLK</td>
+</tr>
+<tr>
+<td>19.246</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>13</td>
+<td>initialize/spi_start_s1/Q</td>
+</tr>
+<tr>
+<td>19.726</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n385_s1/I1</td>
+</tr>
+<tr>
+<td>20.825</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>6</td>
+<td>initialize/PSRAM1/n385_s1/F</td>
+</tr>
+<tr>
+<td>21.305</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n409_s1/I2</td>
+</tr>
+<tr>
+<td>22.127</td>
+<td>0.822</td>
+<td>tINS</td>
+<td>FF</td>
+<td>3</td>
+<td>initialize/PSRAM1/n409_s1/F</td>
+</tr>
+<tr>
+<td>22.607</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s4/I0</td>
+</tr>
+<tr>
+<td>23.639</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>2</td>
+<td>initialize/PSRAM1/n404_s4/F</td>
+</tr>
+<tr>
+<td>24.119</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s3/I0</td>
+</tr>
+<tr>
+<td>25.151</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>2</td>
+<td>initialize/PSRAM1/n404_s3/F</td>
+</tr>
+<tr>
+<td>25.631</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s1/I3</td>
+</tr>
+<tr>
+<td>26.257</td>
+<td>0.626</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n404_s1/F</td>
+</tr>
+<tr>
+<td>26.737</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_4_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_6</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>168</td>
+<td>initialize/PSRAM1/n41_s2/O</td>
+</tr>
+<tr>
+<td>20.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_4_s0/CLK</td>
+</tr>
+<tr>
+<td>20.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/counter_4_s0</td>
+</tr>
+<tr>
+<td>19.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM1/counter_4_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>3.333</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>6</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 4.611, 58.005%; route: 2.880, 36.229%; tC2Q: 0.458, 5.766%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp4</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-5.975</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>25.908</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>19.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>read_write_1_s1</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM1/n468_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM1/n41_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>16.667</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>18.424</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>602</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>18.787</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>read_write_1_s1/CLK</td>
+</tr>
+<tr>
+<td>19.246</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>5</td>
+<td>read_write_1_s1/Q</td>
+</tr>
+<tr>
+<td>19.726</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s13/I1</td>
+</tr>
+<tr>
+<td>20.825</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>6</td>
+<td>initialize/PSRAM1/n494_s13/F</td>
+</tr>
+<tr>
+<td>21.305</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s13/I1</td>
+</tr>
+<tr>
+<td>22.404</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s13/F</td>
+</tr>
+<tr>
+<td>22.884</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s11/I0</td>
+</tr>
+<tr>
+<td>23.916</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s11/F</td>
+</tr>
+<tr>
+<td>24.396</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s10/I0</td>
+</tr>
+<tr>
+<td>25.428</td>
+<td>1.032</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n534_s10/F</td>
+</tr>
+<tr>
+<td>25.908</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n468_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_6</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>168</td>
+<td>initialize/PSRAM1/n41_s2/O</td>
+</tr>
+<tr>
+<td>20.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM1/n468_s0/CLK</td>
+</tr>
+<tr>
+<td>20.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n468_s0</td>
+</tr>
+<tr>
+<td>19.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM1/n468_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>3.333</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>5</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 4.262, 59.857%; route: 2.400, 33.706%; tC2Q: 0.458, 6.437%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+<h3>Path&nbsp5</h3>
+<b>Path Summary:</b></br>
+<table class="summary_table">
+<tr>
+<td class="label">Slack</td>
+<td>-5.832</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time</td>
+<td>25.765</td>
+</tr>
+<tr>
+<td class="label">Data Required Time</td>
+<td>19.933</td>
+</tr>
+<tr>
+<td class="label">From</td>
+<td>read_write_1_s1</td>
+</tr>
+<tr>
+<td class="label">To</td>
+<td>initialize/PSRAM1/n467_s0</td>
+</tr>
+<tr>
+<td class="label">Launch Clk</td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk[R]</td>
+</tr>
+<tr>
+<td class="label">Latch Clk</td>
+<td>initialize/PSRAM1/n41_6[R]</td>
+</tr>
+</table>
+<b>Data Arrival Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>16.667</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>clk2/rpll_inst/CLKOUT.default_gen_clk</td>
+</tr>
+<tr>
+<td>18.424</td>
+<td>1.758</td>
+<td>tCL</td>
+<td>RR</td>
+<td>602</td>
+<td>clk2/rpll_inst/CLKOUT</td>
+</tr>
+<tr>
+<td>18.787</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>read_write_1_s1/CLK</td>
+</tr>
+<tr>
+<td>19.246</td>
+<td>0.458</td>
+<td>tC2Q</td>
+<td>RF</td>
+<td>5</td>
+<td>read_write_1_s1/Q</td>
+</tr>
+<tr>
+<td>19.726</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s13/I1</td>
+</tr>
+<tr>
+<td>20.825</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>6</td>
+<td>initialize/PSRAM1/n494_s13/F</td>
+</tr>
+<tr>
+<td>21.305</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s18/I1</td>
+</tr>
+<tr>
+<td>22.404</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s18/F</td>
+</tr>
+<tr>
+<td>22.884</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s15/I1</td>
+</tr>
+<tr>
+<td>23.983</td>
+<td>1.099</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s15/F</td>
+</tr>
+<tr>
+<td>24.463</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s12/I2</td>
+</tr>
+<tr>
+<td>25.285</td>
+<td>0.822</td>
+<td>tINS</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n494_s12/F</td>
+</tr>
+<tr>
+<td>25.765</td>
+<td>0.480</td>
+<td>tNET</td>
+<td>FF</td>
+<td>1</td>
+<td>initialize/PSRAM1/n467_s0/D</td>
+</tr>
+</table>
+<b>Data Required Path:</b>
+<table class="summary_table">
+<tr>
+<th>AT</th>
+<th>DELAY</th>
+<th>TYPE</th>
+<th>RF</th>
+<th>FANOUT</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n41_6</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>168</td>
+<td>initialize/PSRAM1/n41_s2/O</td>
+</tr>
+<tr>
+<td>20.363</td>
+<td>0.363</td>
+<td>tNET</td>
+<td>RR</td>
+<td>1</td>
+<td>initialize/PSRAM1/n467_s0/CLK</td>
+</tr>
+<tr>
+<td>20.333</td>
+<td>-0.030</td>
+<td>tUnc</td>
+<td> </td>
+<td> </td>
+<td>initialize/PSRAM1/n467_s0</td>
+</tr>
+<tr>
+<td>19.933</td>
+<td>-0.400</td>
+<td>tSu</td>
+<td> </td>
+<td>1</td>
+<td>initialize/PSRAM1/n467_s0</td>
+</tr>
+</table>
+<b>Path Statistics:</b>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>-1.758</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>3.333</td>
+</tr>
+<tr>
+<td class="label">Logic Level:</td>
+<td>5</td>
+</tr>
+<tr>
+<td class="label">Arrival Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+<tr>
+<td class="label">Arrival Data Path Delay:</td><td> cell: 4.119, 59.034%; route: 2.400, 34.397%; tC2Q: 0.458, 6.569%</td></tr>
+<tr>
+<td class="label">Required Clock Path Delay:</td><td> cell: 0.000, 0.000%; route: 0.363, 100.000%</td></tr>
+</table>
+<br/>
+</div><!-- content -->
+</div><!-- main_wrapper -->
+</body>
+</html>
