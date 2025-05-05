@@ -5,6 +5,7 @@
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\ADC_module.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v" type="verilog"/>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v" type="verilog"/>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v" type="verilog"/>
         <File path="C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v" type="verilog"/>

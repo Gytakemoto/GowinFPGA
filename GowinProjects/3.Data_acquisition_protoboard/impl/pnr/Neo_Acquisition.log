@@ -1,7 +1,7 @@
-Reading netlist file: "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition.vg"
-Parsing netlist file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition.vg" completed
+Reading netlist file: "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\gwsynthesis\Neo_Acquisition.vg"
+Parsing netlist file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\gwsynthesis\Neo_Acquisition.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\PSRAM_UART_pins.cst"
+Reading constraint file: "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\PSRAM_UART_pins.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -20,11 +20,11 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.power.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.pin.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.rpt.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.rpt.txt" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.tr.html" completed
-Generate file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\Neo_Acquisition.tr" completed
-Sun Apr 20 11:44:58 2025
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.power.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.pin.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.rpt.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.rpt.txt" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.tr.html" completed
+Generate file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\Neo_Acquisition.tr" completed
+Mon Apr 28 16:31:42 2025
 

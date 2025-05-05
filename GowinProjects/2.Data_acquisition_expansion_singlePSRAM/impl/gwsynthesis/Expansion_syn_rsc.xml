@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="238" Alu="165" Lut="428">
+<Module name="TOP" Register="237" Alu="165" Lut="410">
     <SubModule name="clk2"/>
     <SubModule name="initialize" Register="21" Alu="15" Lut="15">
-        <SubModule name="PSRAM_com" Register="76" Lut="112"/>
+        <SubModule name="PSRAM_com" Register="75" Lut="117"/>
     </SubModule>
-    <SubModule name="UART1" Register="194" Lut="151"/>
-    <SubModule name="PP_post_process" Register="41" Alu="8" Lut="57" Bsram="2"/>
+    <SubModule name="UART1" Register="194" Lut="147"/>
+    <SubModule name="PP_post_process" Register="41" Alu="8" Lut="58" Bsram="2"/>
     <SubModule name="ADC_submodule" Register="20" Alu="4" Lut="8"/>
     <SubModule name="fifo_inst" Register="25" Alu="22" Lut="9" Bsram="1"/>
     <SubModule name="debuttonA">

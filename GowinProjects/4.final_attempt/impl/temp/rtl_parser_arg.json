@@ -10,15 +10,15 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-   "Type" : "verilog"
-  },
-  {
    "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_Process.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/PSRAM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_process.v",
    "Type" : "verilog"
   },
   {
@@ -31,6 +31,38 @@
   },
   {
    "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll1/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll2/gowin_rpll2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll3/gowin_rpll3.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll4/gowin_rpll4.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll5/gowin_rpll5.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll6/gowin_rpll6.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll7/gowin_rpll7.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll9/gowin_rpll9.v",
    "Type" : "verilog"
   },
   {

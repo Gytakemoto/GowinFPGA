@@ -1,0 +1,8 @@
+Dados UART desincronizados.
+  Número de samples não funcionou
+Alguns pinos da PSRAM3 estão conectados por flat, outros por jumper (0 e 2)
+  mem_ce vem do jumper. Provável motivo dessa desincronia?
+  O clock vem do flat.
+Timing closure não é atingido.
+  maximum frequency = 52MHz
+Programa funciona apenas uma vez.

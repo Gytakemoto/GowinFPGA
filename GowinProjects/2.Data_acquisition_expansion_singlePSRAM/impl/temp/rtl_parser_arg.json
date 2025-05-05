@@ -30,11 +30,23 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll_27_to_60.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll1/gowin_rpll1.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll_27_to_84.v",
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll2/gowin_rpll2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll3/gowin_rpll3.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll4/gowin_rpll4.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll5/gowin_rpll5.v",
    "Type" : "verilog"
   },
   {

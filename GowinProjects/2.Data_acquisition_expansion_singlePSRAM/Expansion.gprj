@@ -12,8 +12,11 @@
         <File path="src/UART.v" type="file.verilog" enable="1"/>
         <File path="src/fifo_adc.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/gowin_rpll_27_to_60.v" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll_27_to_84.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll1/gowin_rpll1.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll2/gowin_rpll2.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll3/gowin_rpll3.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll4/gowin_rpll4.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll5/gowin_rpll5.v" type="file.verilog" enable="1"/>
         <File path="src/ping_pong_buffer.v" type="file.verilog" enable="1"/>
         <File path="src/PSRAM_UART_pins.cst" type="file.cst" enable="1"/>
         <File path="src/PSRAM_UART.rao" type="file.gao" enable="0"/>

@@ -4,7 +4,7 @@
 //Tool Version: V1.9.9 (64-bit)
 //Part Number: GW1NZ-LV1QN48C6/I5
 //Device: GW1NZ-1
-//Created Time: Sat Apr 26 22:25:45 2025
+//Created Time: Mon Apr 28 13:05:19 2025
 
 module Gowin_SDPB (dout, clka, cea, reseta, clkb, ceb, resetb, oce, ada, din, adb);
 
@@ -16,9 +16,9 @@ input clkb;
 input ceb;
 input resetb;
 input oce;
-input [6:0] ada;
+input [4:0] ada;
 input [63:0] din;
-input [8:0] adb;
+input [6:0] adb;
 
 wire [23:0] sdpb_inst_0_dout_w;
 wire [23:0] sdpb_inst_1_dout_w;
@@ -39,9 +39,9 @@ SDPB sdpb_inst_0 (
     .OCE(oce),
     .BLKSELA({gw_gnd,gw_gnd,gw_gnd}),
     .BLKSELB({gw_gnd,gw_gnd,gw_gnd}),
-    .ADA({gw_gnd,gw_gnd,ada[6:0],gw_gnd,gw_vcc,gw_vcc,gw_vcc,gw_vcc}),
+    .ADA({gw_gnd,gw_gnd,gw_gnd,gw_gnd,ada[4:0],gw_gnd,gw_vcc,gw_vcc,gw_vcc,gw_vcc}),
     .DI({din[55:48],din[39:32],din[23:16],din[7:0]}),
-    .ADB({gw_gnd,gw_gnd,adb[8:0],gw_gnd,gw_gnd,gw_gnd})
+    .ADB({gw_gnd,gw_gnd,gw_gnd,gw_gnd,adb[6:0],gw_gnd,gw_gnd,gw_gnd})
 );
 
 defparam sdpb_inst_0.READ_MODE = 1'b0;
@@ -62,9 +62,9 @@ SDPB sdpb_inst_1 (
     .OCE(oce),
     .BLKSELA({gw_gnd,gw_gnd,gw_gnd}),
     .BLKSELB({gw_gnd,gw_gnd,gw_gnd}),
-    .ADA({gw_gnd,gw_gnd,ada[6:0],gw_gnd,gw_vcc,gw_vcc,gw_vcc,gw_vcc}),
+    .ADA({gw_gnd,gw_gnd,gw_gnd,gw_gnd,ada[4:0],gw_gnd,gw_vcc,gw_vcc,gw_vcc,gw_vcc}),
     .DI({din[63:56],din[47:40],din[31:24],din[15:8]}),
-    .ADB({gw_gnd,gw_gnd,adb[8:0],gw_gnd,gw_gnd,gw_gnd})
+    .ADB({gw_gnd,gw_gnd,gw_gnd,gw_gnd,adb[6:0],gw_gnd,gw_gnd,gw_gnd})
 );
 
 defparam sdpb_inst_1.READ_MODE = 1'b0;

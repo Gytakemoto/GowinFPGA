@@ -11,8 +11,8 @@
 -type RAM_SDP
 -file_type vlg
 -bram_b true
--depth_0 128
--depth_1 512
+-depth_0 32
+-depth_1 128
 -width_0 64
 -width_1 16
 -read_mode bypass

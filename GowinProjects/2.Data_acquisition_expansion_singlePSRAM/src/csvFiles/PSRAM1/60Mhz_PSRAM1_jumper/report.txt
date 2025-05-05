@@ -1,0 +1,6 @@
+Muitos dados em #FFFF.
+Todos os pinos da PSRAM1 estão conectados por jumper, incluindo mem_ce
+O clock vem do flat.
+Timing closure não é atingido.
+  maximum frequency = 59MHz.
+Programa funciona apenas uma vez.

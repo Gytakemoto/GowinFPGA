@@ -7,14 +7,23 @@
     <FileList>
         <File path="src/ADC_module.v" type="file.verilog" enable="1"/>
         <File path="src/Acquisition.v" type="file.verilog" enable="1"/>
-        <File path="src/Neo_PSRAM.v" type="file.verilog" enable="1"/>
+        <File path="src/Neo_PSRAM.v" type="file.verilog" enable="0"/>
         <File path="src/Neo_TOP.v" type="file.verilog" enable="1"/>
-        <File path="src/Post_Process.v" type="file.verilog" enable="1"/>
+        <File path="src/PSRAM.v" type="file.verilog" enable="1"/>
+        <File path="src/Post_process.v" type="file.verilog" enable="1"/>
         <File path="src/Sync_Debouncer.v" type="file.verilog" enable="1"/>
         <File path="src/UART.v" type="file.verilog" enable="1"/>
         <File path="src/fifo_UART.v" type="file.verilog" enable="0"/>
         <File path="src/fifo_adc.v" type="file.verilog" enable="0"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll1/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll2/gowin_rpll2.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll3/gowin_rpll3.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll4/gowin_rpll4.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll5/gowin_rpll5.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll6/gowin_rpll6.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll7/gowin_rpll7.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll9/gowin_rpll9.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_sdpb/gowin_sdpb.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_sdpb1/gowin_sdpb1.v" type="file.verilog" enable="1"/>
         <File path="src/PSRAM_UART_pins.cst" type="file.cst" enable="1"/>

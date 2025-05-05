@@ -1,6 +1,14 @@
 GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\ADC_module.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v'
+Undeclared symbol 'begin_PP', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":31)
+Undeclared symbol 'rst', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":35)
+ERROR (EX3872) : 'end_PP' is not declared("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":57)
+ERROR (EX3872) : 'end_PP' is not declared("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":66)
+ERROR (EX3872) : 'end_PP' is not declared("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":70)
+ERROR (EX3928) : Module 'Acquisition' is ignored due to previous errors("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v":84)
+Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Acquisition.v' ignored due to errors
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v'
 Undeclared symbol 'adc_enable', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":140)
@@ -20,53 +28,4 @@ Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expa
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_rpll\gowin_rpll.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_sdpb\gowin_sdpb.v'
-Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":2)
-Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_rpll\gowin_rpll.v":9)
-WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v":355)
-WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v":384)
-Compiling module 'psram(DATA_WIDTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v":219)
-Compiling module 'memory_driver(DATA_WIDTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_PSRAM.v":20)
-Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\UART.v":26)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\UART.v":163)
-WARN  (EX3670) : Actual bit length 22 differs from formal bit length 24 for port 'samples_after'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":228)
-WARN  (EX3670) : Actual bit length 22 differs from formal bit length 24 for port 'samples_before'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":229)
-Compiling module 'Post_Process'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v":1)
-Compiling module 'Gowin_SDPB'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\gowin_sdpb\gowin_sdpb.v":9)
-WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v":62)
-WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v":67)
-WARN  (EX1998) : Net 'rst' does not have a driver("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v":35)
-WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Post_Process.v":39)
-WARN  (EX3670) : Actual bit length 12 differs from formal bit length 16 for port 'data_out'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":245)
-Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\ADC_module.v":1)
-Compiling module 'fifo_adc(DATA_WIDTH=12,FIFO_DEPTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":1)
-Extracting RAM for identifier 'fifo_mem'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":26)
-WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":70)
-WARN  (EX3791) : Expression size 32 truncated to fit in target size 5("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":74)
-WARN  (EX3791) : Expression size 32 truncated to fit in target size 5("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":78)
-WARN  (EX1998) : Net 'rd_ptr[0]' does not have a driver("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\fifo_adc.v":30)
-Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v":1)
-Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v":33)
-Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v":56)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v":75)
-Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Sync_Debouncer.v":82)
-NOTE  (EX0101) : Current top module is "TOP"
-[5%] Running netlist conversion ...
-WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\src\Neo_TOP.v":16)
-Running device independent optimization ...
-[10%] Optimizing Phase 0 completed
-[15%] Optimizing Phase 1 completed
-[25%] Optimizing Phase 2 completed
-Running inference ...
-[30%] Inferring Phase 0 completed
-[40%] Inferring Phase 1 completed
-[50%] Inferring Phase 2 completed
-[55%] Inferring Phase 3 completed
-Running technical mapping ...
-[60%] Tech-Mapping Phase 0 completed
-[65%] Tech-Mapping Phase 1 completed
-[75%] Tech-Mapping Phase 2 completed
-[80%] Tech-Mapping Phase 3 completed
-[90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion.vg" completed
-[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\1.Data_acquisition_expansion_multiSPRAM\impl\gwsynthesis\Expansion_syn.rpt.html" completed
 GowinSynthesis finish

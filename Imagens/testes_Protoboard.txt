@@ -1,0 +1,19 @@
+Testes Protoboard
+- imagens_osciloscópio/samples_[1] - seno 1kHz
+- imagens_osciloscópio/samples_[2] - seno 10kHz
+- imagens_osciloscópio/samples_[3] - seno 100kHz
+- imagens_osciloscópio/samples_[4] - seno 1Mhz
+- imagens_osciloscópio/samples_[5] - seno max
+- imagens_osciloscópio/samples_[6] - seno 3Mhz
+- imagens_osciloscópio/samples_[7] - seno 2Mhz
+- imagens_osciloscópio/samples_[8] - triangular 1kHz
+- imagens_osciloscópio/samples_[9] - quadrada 100kHz
+- imagens_osciloscópio/samples_[10] - seno max ou quadrada max (???)
+- short_circuit/samples[1] - entradas em curto com GND (offset)
+- threshold serra invertida/samples_[1] - 1kHz, Threshold em -2V, samples_after = 20000 
+- threshold_quadrada/samples_[1] - 100kHz, Threshold em 2.7V, samples_after = 1000
+- threshold_seno/samples_[1] - 100kHz, Threshold em 0V, 5000 samples_after
+- threshold com samples_before???
+- Excursão de -5 a +5V.
+- Tensão fixa para offset error e gain error???
+	- Tensão fixa de -4V e +4V.

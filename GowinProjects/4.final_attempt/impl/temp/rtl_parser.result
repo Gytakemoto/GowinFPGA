@@ -9,41 +9,25 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 175,
+    "InstLine" : 176,
     "InstName" : "clk2",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll9/gowin_rpll9.v",
     "ModuleLine" : 9,
-    "ModuleName" : "gowin_rpll"
+    "ModuleName" : "gowin_rpll9"
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 183,
+    "InstLine" : 184,
     "InstName" : "initialize",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-    "ModuleLine" : 225,
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/PSRAM.v",
+    "ModuleLine" : 300,
     "ModuleName" : "psram",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-      "InstLine" : 300,
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/PSRAM.v",
+      "InstLine" : 375,
       "InstName" : "PSRAM1",
-      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-      "ModuleLine" : 20,
-      "ModuleName" : "memory_driver"
-     },
-     {
-      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-      "InstLine" : 337,
-      "InstName" : "PSRAM2",
-      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-      "ModuleLine" : 20,
-      "ModuleName" : "memory_driver"
-     },
-     {
-      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
-      "InstLine" : 366,
-      "InstName" : "PSRAM3",
-      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_PSRAM.v",
+      "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/PSRAM.v",
       "ModuleLine" : 20,
       "ModuleName" : "memory_driver"
      }
@@ -51,7 +35,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 227,
+    "InstLine" : 228,
     "InstName" : "UART1",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/UART.v",
     "ModuleLine" : 26,
@@ -59,15 +43,15 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 247,
+    "InstLine" : 248,
     "InstName" : "BRAM_pp",
-    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_Process.v",
+    "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_process.v",
     "ModuleLine" : 1,
     "ModuleName" : "Post_Process",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_Process.v",
-      "InstLine" : 46,
+      "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_process.v",
+      "InstLine" : 48,
       "InstName" : "BRAM_uart",
       "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb/gowin_sdpb.v",
       "ModuleLine" : 9,
@@ -77,7 +61,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 262,
+    "InstLine" : 264,
     "InstName" : "ADC_submodule",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/ADC_module.v",
     "ModuleLine" : 1,
@@ -85,7 +69,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 276,
+    "InstLine" : 278,
     "InstName" : "BRAM_acq",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Acquisition.v",
     "ModuleLine" : 1,
@@ -93,7 +77,7 @@
     "SubInsts" : [
      {
       "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Acquisition.v",
-      "InstLine" : 47,
+      "InstLine" : 50,
       "InstName" : "BRAM_acq",
       "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb1/gowin_sdpb1.v",
       "ModuleLine" : 9,
@@ -103,7 +87,7 @@
    },
    {
     "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
-    "InstLine" : 311,
+    "InstLine" : 313,
     "InstName" : "debuttonA",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
     "ModuleLine" : 1,
@@ -136,5 +120,69 @@
     ]
    }
   ]
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll1/gowin_rpll.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll1",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll1/gowin_rpll.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll1"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll2/gowin_rpll2.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll2",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll2/gowin_rpll2.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll2"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll3/gowin_rpll3.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll3",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll3/gowin_rpll3.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll3"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll4/gowin_rpll4.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll4",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll4/gowin_rpll4.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll4"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll5/gowin_rpll5.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll5",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll5/gowin_rpll5.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll5"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll6/gowin_rpll6.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll6",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll6/gowin_rpll6.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll6"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll7/gowin_rpll7.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll7",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll7/gowin_rpll7.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll7"
  }
 ]

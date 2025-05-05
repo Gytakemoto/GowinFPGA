@@ -1,47 +1,47 @@
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v'
-Undeclared symbol 'adc_enable', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":150)
-Undeclared symbol 'fifo_rd', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":179)
-Undeclared symbol 'write_ended', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":182)
-Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":185)
-Undeclared symbol 'debug_2', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":189)
-Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":219)
-Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":245)
-Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":246)
-Undeclared symbol 'fifo_wr', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":260)
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll_27_to_60.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll_27_to_84.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v'
-Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":2)
-Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\gowin_rpll\gowin_rpll.v":9)
-Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":222)
-Compiling module 'memory_driver'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":20)
-Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":26)
-WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\UART.v":179)
-Compiling module 'ping_pong_buffer'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":17)
-Extracting RAM for identifier 'buffer_a'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":38)
-Extracting RAM for identifier 'buffer_b'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ping_pong_buffer.v":39)
-Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\ADC_module.v":1)
-Compiling module 'fifo_adc(DATA_WIDTH=12)'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":1)
-Extracting RAM for identifier 'fifo_mem'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":23)
-WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":56)
-WARN  (EX3791) : Expression size 32 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\fifo_adc.v":60)
-Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":1)
-Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":33)
-Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":56)
-WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":75)
-Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Sync_Debouncer.v":82)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ADC_module.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_PSRAM.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v'
+Undeclared symbol 'adc_enable', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":150)
+Undeclared symbol 'fifo_rd', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":179)
+Undeclared symbol 'write_ended', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":182)
+Undeclared symbol 'endcommand', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":185)
+Undeclared symbol 'debug_2', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":189)
+Undeclared symbol 'flag_debug', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":219)
+Undeclared symbol 'read_cmp', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":245)
+Undeclared symbol 'stop_PP', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":246)
+Undeclared symbol 'fifo_wr', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":260)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\UART.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\fifo_adc.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\gowin_rpll\gowin_rpll.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\gowin_rpll\gowin_rpll_27_to_60.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ping_pong_buffer.v'
+Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":2)
+Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\gowin_rpll\gowin_rpll.v":9)
+Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_PSRAM.v":222)
+Compiling module 'memory_driver'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_PSRAM.v":20)
+Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\UART.v":26)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\UART.v":179)
+Compiling module 'ping_pong_buffer'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ping_pong_buffer.v":17)
+Extracting RAM for identifier 'buffer_a'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ping_pong_buffer.v":38)
+Extracting RAM for identifier 'buffer_b'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ping_pong_buffer.v":39)
+Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\ADC_module.v":1)
+Compiling module 'fifo_adc(DATA_WIDTH=12)'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\fifo_adc.v":1)
+Extracting RAM for identifier 'fifo_mem'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\fifo_adc.v":23)
+WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\fifo_adc.v":56)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\fifo_adc.v":60)
+Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v":1)
+Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v":33)
+Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v":56)
+WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v":75)
+Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Sync_Debouncer.v":82)
 NOTE  (EX0101) : Current top module is "TOP"
-WARN  (EX0211) : The output port "debug_2" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_PSRAM.v":45)
+WARN  (EX0211) : The output port "debug_2" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_PSRAM.v":45)
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_TOP.v":16)
+WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_TOP.v":16)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -57,6 +57,6 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition.vg" completed
-[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\gwsynthesis\Neo_Acquisition.vg" completed
+[100%] Generate report file "C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\gwsynthesis\Neo_Acquisition_syn.rpt.html" completed
 GowinSynthesis finish

@@ -4,22 +4,22 @@
     <Version>beta</Version>
     <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
     <FileList>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\ADC_module.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\Neo_PSRAM.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\Neo_TOP.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\Sync_Debouncer.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\UART.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\fifo_adc.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\gowin_rpll\gowin_rpll_27_to_60.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\gowin_rpll_27_to_84.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\ping_pong_buffer.v" type="verilog"/>
-        <File path="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\gowin_rpll\gowin_rpll_6.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\ADC_module.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\Neo_PSRAM.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\Neo_TOP.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\UART.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\fifo_adc.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\gowin_rpll\gowin_rpll_27_to_60.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\gowin_rpll\gowin_rpll_6.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\gowin_rpll_27_to_84.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\ping_pong_buffer.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\impl\gwsynthesis\Neo_Acquisition.vg"/>
+        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\impl\gwsynthesis\Neo_Acquisition.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="top_module" value="TOP"/>

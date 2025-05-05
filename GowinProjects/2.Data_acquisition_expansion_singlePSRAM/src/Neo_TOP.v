@@ -17,8 +17,8 @@ input adc_OTR,
 
 //PSRAM mem chip
 inout [3:0] mem_sio_1,     		// Communication busbar for PSRAM communication - [sio[0] pin 40, sio[1] pin 39, sio[2] pin 38, sio[3] pin 41]
-inout [3:0] mem_sio_2,
-inout [3:0] mem_sio_3,
+//inout [3:0] mem_sio_2,
+//inout [3:0] mem_sio_3,
 output mem_ce,                	// PSRAM chip enable - [pin 42]
 output mem_clk_enabled,         // PSRAM clock pin - [pin 6]
 output uart_tx,                	// TX UART wire [pin 17]
@@ -54,8 +54,8 @@ localparam FIFO_BUFF_DEPTH = 256;
 localparam FIFO_DATA_WIDTH = 12;
 
 //Start-up check parameters
-localparam [15:0] INITIAL_MSG = 16'hABCD;
-localparam [23:0] INITIAL_ADDRESS = 24'h0900;
+localparam [15:0] INITIAL_MSG = 16'h0000;
+localparam [23:0] INITIAL_ADDRESS = 24'h0000;
 
 //Used for DEBUG purposes-only
 //localparam [21:0] SAMPLES_AFTER = 4_000_000;
@@ -312,7 +312,7 @@ sync_debouncer debuttonA(
 /* --------------------------- Procedural routine --------------------------- */
 
 initial begin
-	process <= WRITE_MCU_INIT;
+	process <= IDLE;
 	error <= 0;
 	read <= 0;
 	send_uart <= 0;
@@ -456,7 +456,7 @@ always @(posedge clk_PSRAM) begin
                     //todo: Incluir uma condição para verificar se o tipo de requisição é por botão
                 end
                 //if(buttons_pressed == 1'd1 && !i_pivot_valid && !com_start) begin
-                if(!i_pivot_valid) begin
+                if(!i_pivot_valid && !com_start) begin
                                             d_fifo_out <= fifo_out;
                         d_fifo_out_1 <= d_fifo_out;
                     //It is fifo_out <= threshold because ADC inputs are inverted: +5V is #000 and -5V is #FFF

@@ -1,0 +1,4 @@
+RunTime;Expected samples;Samples;Expected Samples After;Samples After;Expected Samples Before;Samples Before;STATUS
+0.028;10000;20;10000;20;0;0;CORRECT SAMPLES_AFTER
+0.006;10000;11;10000;11;0;0;SAMPLES SAMPLES_AFTER
+0.027;10000;356;10000;356;0;0;SAMPLES SAMPLES_AFTER

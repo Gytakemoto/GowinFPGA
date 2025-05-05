@@ -2,30 +2,36 @@ GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v'
+Undeclared symbol 'rd_en', assumed default net type 'wire'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":259)
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\PSRAM.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_process.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll1\gowin_rpll.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll2\gowin_rpll2.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll3\gowin_rpll3.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll4\gowin_rpll4.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll5\gowin_rpll5.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll6\gowin_rpll6.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll7\gowin_rpll7.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll9\gowin_rpll9.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v'
 Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":2)
-Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v":9)
-WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":361)
-WARN  (EX3073) : Port 'next_write' remains unconnected for this instance("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":390)
-Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":225)
-Compiling module 'memory_driver(DATA_WIDTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_PSRAM.v":20)
-Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v":26)
+Compiling module 'gowin_rpll9'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll9\gowin_rpll9.v":9)
+Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\PSRAM.v":300)
+Compiling module 'memory_driver(DATA_WIDTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\PSRAM.v":20)
+Compiling module 'uart(CLK=36,BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v":26)
 WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v":179)
-Compiling module 'Post_Process'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":1)
+Compiling module 'Post_Process'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_process.v":1)
 Compiling module 'Gowin_SDPB'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v":9)
-WARN  (EX3791) : Expression size 11 truncated to fit in target size 9("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":87)
-WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_Process.v":57)
+WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_process.v":59)
 Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v":1)
 Compiling module 'acquisition(ACQ_DEPTH=16)'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v":1)
 Compiling module 'Gowin_SDPB1'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v":9)
-WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v":58)
+WARN  (EX2565) : Input 'oce' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v":61)
 Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":1)
 Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":33)
 Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":56)
@@ -33,7 +39,6 @@ WARN  (EX3791) : Expression size 8 truncated to fit in target size 7("C:\Tupao\G
 Compiling module 'once'("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v":82)
 NOTE  (EX0101) : Current top module is "TOP"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input adc_out is unused("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":15)
 WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v":16)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed

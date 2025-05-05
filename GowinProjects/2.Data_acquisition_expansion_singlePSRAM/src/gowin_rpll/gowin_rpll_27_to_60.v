@@ -1,4 +1,4 @@
-//Copyright (C)2014-2024 Gowin Semiconductor Corporation.
+/Copyright (C)2014-2024 Gowin Semiconductor Corporation.
 //All rights reserved.
 //File Title: IP file
 //Tool Version: V1.9.9.01 (64-bit)

@@ -6,6 +6,7 @@
 //Device: GW1NZ-1
 //Created Time: Sun Apr 20 13:48:45 2025
 
+//60Mhz; 10Mhz;
 module gowin_rpll (clkout, clkoutd, clkin);
 
 output clkout;

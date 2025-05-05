@@ -1,0 +1,8 @@
+Funcionou
+Todos os pinos da PSRAM1 estão conectados pelo PinHeader, incluindo mem_ce
+O clock vem do flat.
+Timing closure é atingido.
+  Frequência PSRAM = 24MHz
+  Frequência Acq = 4MHz
+  maximum frequency = 56Mhz.
+Programa funciona repetidas vezes.

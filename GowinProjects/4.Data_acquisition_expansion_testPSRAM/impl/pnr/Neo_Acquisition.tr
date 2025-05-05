@@ -41,13 +41,13 @@ Note:Core Timing Report
 
 1. Timing Messages
 <Report Title>: Timing Analysis Report
-<Design File>: C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\impl\gwsynthesis\Neo_Acquisition.vg
-<Physical Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\PSRAM_UART_pins.cst
-<Timing Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_expansion_test\src\Neo_Acquisition.sdc
+<Design File>: C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\impl\gwsynthesis\Neo_Acquisition.vg
+<Physical Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\PSRAM_UART_pins.cst
+<Timing Constraints File>: C:\Tupao\GowinFPGA\GowinProjects\4.Data_acquisition_expansion_testPSRAM\src\Neo_Acquisition.sdc
 <Tool Version>: V1.9.9 (64-bit)
 <Part Number>: GW1NZ-LV1QN48C6/I5
 <Device>: GW1NZ-1
-<Created Time>: Sun Apr 20 20:29:56 2025
+<Created Time>: Mon Apr 28 17:21:53 2025
 
 
 2. Timing Summaries

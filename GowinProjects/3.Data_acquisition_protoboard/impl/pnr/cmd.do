@@ -1,9 +1,9 @@
--d C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\gwsynthesis\Neo_Acquisition.vg
+-d C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\gwsynthesis\Neo_Acquisition.vg
 -p GW1NZ-1-QFN48-6
 -pn GW1NZ-LV1QN48C6/I5
--cst C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\PSRAM_UART_pins.cst
--cfg C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\impl\pnr\device.cfg
--sdc C:\Tupao\GowinFPGA\GowinProjects\Neo_Data_acquisition_ADC\src\Neo_Acquisition.sdc
+-cst C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\PSRAM_UART_pins.cst
+-cfg C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\impl\pnr\device.cfg
+-sdc C:\Tupao\GowinFPGA\GowinProjects\3.Data_acquisition_protoboard\src\Neo_Acquisition.sdc
 -bit
 -tr
 -ph

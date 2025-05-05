@@ -12,7 +12,7 @@
     "InstLine" : 164,
     "InstName" : "clk2",
     "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll.v",
-    "ModuleLine" : 9,
+    "ModuleLine" : 10,
     "ModuleName" : "gowin_rpll"
    },
    {
@@ -102,19 +102,43 @@
   ]
  },
  {
-  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll_27_to_60.v",
-  "InstLine" : 9,
-  "InstName" : "gowin_rpll_27_to_60",
-  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll/gowin_rpll_27_to_60.v",
-  "ModuleLine" : 9,
-  "ModuleName" : "gowin_rpll_27_to_60"
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll1/gowin_rpll1.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll1",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll1/gowin_rpll1.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll1"
  },
  {
-  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll_27_to_84.v",
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll2/gowin_rpll2.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll2",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll2/gowin_rpll2.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll2"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll3/gowin_rpll3.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll3",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll3/gowin_rpll3.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll3"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll4/gowin_rpll4.v",
+  "InstLine" : 10,
+  "InstName" : "gowin_rpll4",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll4/gowin_rpll4.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "gowin_rpll4"
+ },
+ {
+  "InstFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll5/gowin_rpll5.v",
   "InstLine" : 9,
-  "InstName" : "gowin_rpll_27_to_84",
-  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll_27_to_84.v",
+  "InstName" : "gowin_rpll5",
+  "ModuleFile" : "C:/Tupao/GowinFPGA/GowinProjects/2.Data_acquisition_expansion_singlePSRAM/src/gowin_rpll5/gowin_rpll5.v",
   "ModuleLine" : 9,
-  "ModuleName" : "gowin_rpll_27_to_84"
+  "ModuleName" : "gowin_rpll5"
  }
 ]

@@ -18,11 +18,14 @@ Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expa
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\UART.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\fifo_adc.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll\gowin_rpll.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll\gowin_rpll_27_to_60.v'
-Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll_27_to_84.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll1\gowin_rpll1.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll2\gowin_rpll2.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll3\gowin_rpll3.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll4\gowin_rpll4.v'
+Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll5\gowin_rpll5.v'
 Analyzing Verilog file 'C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\ping_pong_buffer.v'
 Compiling module 'TOP'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_TOP.v":2)
-Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll\gowin_rpll.v":9)
+Compiling module 'gowin_rpll'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\gowin_rpll\gowin_rpll.v":10)
 Compiling module 'psram'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_PSRAM.v":222)
 Compiling module 'memory_driver'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_PSRAM.v":20)
 Compiling module 'uart(BUFFER_LENGTH=11)'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\UART.v":26)
@@ -33,8 +36,6 @@ Extracting RAM for identifier 'buffer_b'("C:\Tupao\GowinFPGA\GowinProjects\2.Dat
 Compiling module 'adc_module'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\ADC_module.v":1)
 Compiling module 'fifo_adc(DATA_WIDTH=12,FIFO_DEPTH=256)'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\fifo_adc.v":1)
 Extracting RAM for identifier 'fifo_mem'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\fifo_adc.v":23)
-WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\fifo_adc.v":56)
-WARN  (EX3791) : Expression size 32 truncated to fit in target size 8("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\fifo_adc.v":60)
 Compiling module 'sync_debouncer'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Sync_Debouncer.v":1)
 Compiling module 'sync'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Sync_Debouncer.v":33)
 Compiling module 'debouncer'("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Sync_Debouncer.v":56)
@@ -44,8 +45,6 @@ NOTE  (EX0101) : Current top module is "TOP"
 WARN  (EX0211) : The output port "debug_2" of module "memory_driver" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_PSRAM.v":45)
 [5%] Running netlist conversion ...
 WARN  (CV0016) : Input adc_OTR is unused("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_TOP.v":16)
-WARN  (CV0017) : Inout mem_sio_2 is unused("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_TOP.v":20)
-WARN  (CV0017) : Inout mem_sio_3 is unused("C:\Tupao\GowinFPGA\GowinProjects\2.Data_acquisition_expansion_singlePSRAM\src\Neo_TOP.v":21)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed

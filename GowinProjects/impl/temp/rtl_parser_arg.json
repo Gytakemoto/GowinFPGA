@@ -1,0 +1,77 @@
+{
+ "Device" : "GW1NZ-1",
+ "Files" : [
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/ADC_module.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Acquisition.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Neo_TOP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Sync_Debouncer.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/UART.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll1/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll2/gowin_rpll2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll3/gowin_rpll3.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll4/gowin_rpll4.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll5/gowin_rpll5.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb/gowin_sdpb.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_sdpb1/gowin_sdpb1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/PSRAM.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/Post_process.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/4.final_attempt/src/gowin_rpll6/gowin_rpll6.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Tupao/GowinFPGA/GowinProjects/impl/temp/rtl_parser.result",
+ "Top" : "TOP",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

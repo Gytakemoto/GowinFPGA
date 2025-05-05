@@ -1,0 +1,8 @@
+Todos os pinos da PSRAM2 estão conectados por flat
+  mem_ce vem do jumper. Dessa vez não houve desincronismo?
+  O clock vem do flat.
+Timing closure é atingido.
+  Frequência PSRAM = 24MHz
+  Frequência Acq = 4MHz
+  maximum frequency = 50MHz
+Programa funciona repetidas vezes.

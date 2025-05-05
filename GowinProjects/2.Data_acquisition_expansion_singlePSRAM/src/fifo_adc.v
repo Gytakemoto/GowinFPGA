@@ -53,11 +53,11 @@ module fifo_adc #(
     // Count management to track FIFO occupancy
         // Increment count on write if not full, unless simultaneously reading
         if (wr_en && !full && !(rd_en && !empty)) begin
-            count <= count + 1;
+            count <= count + 1'd1;
         end 
         // Decrement count on read if not empty, unless simultaneously writing
         else if (rd_en && !empty && !(wr_en && !full)) begin
-            count <= count - 1;
+            count <= count - 1'd1;
         end
 
         if(reset) begin

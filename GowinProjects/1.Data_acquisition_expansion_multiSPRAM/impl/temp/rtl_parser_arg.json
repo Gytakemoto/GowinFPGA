@@ -6,6 +6,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Acquisition.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Neo_PSRAM.v",
    "Type" : "verilog"
   },
@@ -35,10 +39,6 @@
   },
   {
    "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/gowin_sdpb/gowin_sdpb.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Tupao/GowinFPGA/GowinProjects/1.Data_acquisition_expansion_multiSPRAM/src/Acquisition.v",
    "Type" : "verilog"
   }
  ],

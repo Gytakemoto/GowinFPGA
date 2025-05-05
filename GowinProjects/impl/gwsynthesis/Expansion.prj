@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NZ-1" package="QFN48" speed="6" partNumber="GW1NZ-LV1QN48C6/I5"/>
+    <FileList>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\ADC_module.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Acquisition.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Neo_TOP.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Sync_Debouncer.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\UART.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll1\gowin_rpll.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll2\gowin_rpll2.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll3\gowin_rpll3.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll4\gowin_rpll4.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll5\gowin_rpll5.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb\gowin_sdpb.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_sdpb1\gowin_sdpb1.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\PSRAM.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\Post_process.v" type="verilog"/>
+        <File path="C:\Tupao\GowinFPGA\GowinProjects\4.final_attempt\src\gowin_rpll6\gowin_rpll6.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="C:\Tupao\GowinFPGA\GowinProjects\impl\gwsynthesis\Expansion.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="TOP"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

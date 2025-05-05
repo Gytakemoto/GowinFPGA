@@ -11,27 +11,27 @@
   <Tool Version>: V1.9.9 (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Sun Apr 27 12:00:09 2025
+  <Created Time>:Sun May  4 21:05:35 2025
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.171s, Elapsed time = 0h 0m 0.171s
-    Placement Phase 1: CPU time = 0h 0m 0.039s, Elapsed time = 0h 0m 0.038s
-    Placement Phase 2: CPU time = 0h 0m 0.127s, Elapsed time = 0h 0m 0.128s
+    Placement Phase 0: CPU time = 0h 0m 0.161s, Elapsed time = 0h 0m 0.161s
+    Placement Phase 1: CPU time = 0h 0m 0.04s, Elapsed time = 0h 0m 0.039s
+    Placement Phase 2: CPU time = 0h 0m 0.118s, Elapsed time = 0h 0m 0.118s
     Placement Phase 3: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
     Total Placement: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
-    Routing Phase 1: CPU time = 0h 0m 0.056s, Elapsed time = 0h 0m 0.057s
-    Routing Phase 2: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
+    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.048s, Elapsed time = 0h 0m 0.048s
+    Routing Phase 2: CPU time = 0h 0m 0.744s, Elapsed time = 0h 0m 0.744s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
+    Total Routing: CPU time = 0h 0m 0.793s, Elapsed time = 0h 0m 0.792s
  Generate output files:
-    CPU time = 0h 0m 0.373s, Elapsed time = 0h 0m 0.373s
+    CPU time = 0h 0m 0.408s, Elapsed time = 0h 0m 0.407s
 
- Total Time and Memory Usage: CPU time = 0h 0m 5s, Elapsed time = 0h 0m 5s, Peak memory usage = 349MB
+ Total Time and Memory Usage: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s, Peak memory usage = 376MB
 
 
 3. Resource Usage Summary
@@ -39,18 +39,18 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 1021/1152  89%
-    --LUT,ALU,ROM16           | 1021(811 LUT, 210 ALU, 0 ROM16)
+  Logic                       | 924/1152  81%
+    --LUT,ALU,ROM16           | 924(737 LUT, 187 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 776/957  82%
+  Register                    | 700/957  74%
     --Logic Register as Latch | 0/864  0%
-    --Logic Register as FF    | 764/864  89%
+    --Logic Register as FF    | 680/864  79%
     --I/O Register as Latch   | 0/93  0%
-    --I/O Register as FF      | 12/93  13%
-  CLS                         | 563/576  98%
+    --I/O Register as FF      | 20/93  22%
+  CLS                         | 548/576  96%
   I/O Port                    | 35
-  I/O Buf                     | 22
-    --Input Buf               | 3
+  I/O Buf                     | 34
+    --Input Buf               | 15
     --Output Buf              | 7
     --Inout Buf               | 12
   IOLOGIC                     | 0%
@@ -73,8 +73,8 @@
   -----------------------
   I/O Bank  | Usage       
   -----------------------
-  bank 0   | 13/18(72%)  
-  bank 1   | 21/23(91%)  
+  bank 0   | 14/18(77%)  
+  bank 1   | 20/23(86%)  
   =======================
 
 
@@ -84,7 +84,7 @@
   Global Clock  | Usage       
   -------------------------------
   PRIMARY       | 2/8(25%)
-  LW            | 6/8(75%)
+  LW            | 1/8(13%)
   GCLK_PIN      | 3/3(100%)
   PLL           | 1/1(100%)
   CLKDIV        | 0/4(0%)
@@ -99,11 +99,6 @@
   -------------------------------------------
   clk_PSRAM      | PRIMARY        |  PTR0
   clk_ADC_d      | PRIMARY        |  PTR0
-  BRAM_wr        | LW             |  -
-  BRAM_rd        | LW             |  -
-  acq_rd_Z       | LW             |  -
-  acq_wr         | LW             |  -
-  n68_6          | LW             |  -
   process[0]     | LW             |  -
   sys_clk_d      | HCLK           | RIGHT[0]
   ===========================================
@@ -147,7 +142,7 @@ mem_sio_2[3]     |           | 22/1          | Y          | io    | IOR9[A]  | L
 mem_sio_3[0]     |           | 5/0           | Y          | io    | IOT8[A]  | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
 mem_sio_3[1]     |           | 7/0           | Y          | io    | IOT8[B]  | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
 mem_sio_3[2]     |           | 3/0           | Y          | io    | IOT7[B]  | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
-mem_sio_3[3]     |           | 18/1          | Y          | io    | IOR6[H]  | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
+mem_sio_3[3]     |           | 4/0           | Y          | io    | IOT7[A]  | LVCMOS33   | 8     | UP        | NA        | NONE       | OFF        | 3.3       
 =========================================================================================================================================================================
 
 
@@ -158,7 +153,7 @@ mem_sio_3[3]     |           | 18/1          | Y          | io    | IOR6[H]  | L
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Loc./Bank| Signal           | Dir.  | Site     | IO Type  | Drive | Pull Mode | PCI Clamp | Hysteresis | Open Drain | Bank Vccio
 ----------------------------------------------------------------------------------------------------------------------------------------------
-4/0      | -                | in    | IOT7[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
+4/0      | mem_sio_3[3]     | io    | IOT7[A]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
 3/0      | mem_sio_3[2]     | io    | IOT7[B]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
 5/0      | mem_sio_3[0]     | io    | IOT8[A]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
 7/0      | mem_sio_3[1]     | io    | IOT8[B]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
@@ -192,7 +187,7 @@ Loc./Bank| Signal           | Dir.  | Site     | IO Type  | Drive | Pull Mode | 
 29/1     | adc_out[0]       | in    | IOR6[E]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 16/1     | adc_out[6]       | in    | IOR6[F]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 17/1     | adc_out[7]       | in    | IOR6[G]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
-18/1     | mem_sio_3[3]     | io    | IOR6[H]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
+18/1     | -                | in    | IOR6[H]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 28/1     | adc_out[3]       | in    | IOR6[I]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  
 19/1     | mem_sio_2[0]     | io    | IOR6[J]  | LVCMOS33 | 8     | UP        | NA        | NONE       | OFF        | 3.3  
 27/1     | adc_out[4]       | in    | IOR7[A]  | LVCMOS33 | NA    | UP        | ON        | NONE       | NA         | 3.3  

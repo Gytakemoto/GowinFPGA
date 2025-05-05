@@ -47,5 +47,5 @@ def plot_samples(samples_list):
     plt.grid(True)
     plt.show()
 
-##filename = "csvFiles/teste_3/samples_[1].csv"
-##plot_samples(filename)
+filename = "csvFiles/multiPSRAM_SWEEP/samples_[1].csv"
+plot_samples(filename)

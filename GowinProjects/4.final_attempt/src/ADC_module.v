@@ -11,12 +11,27 @@ module adc_module (
     reg [4:0] delay_counter = 0;    //ADC needs 8 samples before asserting the right sample (8 clock delay)
     reg delay_end = 0;              //Flag that indicates 8 samples has passed
     reg sent_once;
+    reg debug;
+    reg [1:0] i;
 
     always @(posedge clk_PSRAM) begin
         if(adc_enable) begin
             if(!clk_ADC && !sent_once && delay_end) begin        //If adc_clk is at negative edge, triggers adc_ready one time
                 adc_ready <= 1;
                 adc_data[11:0] <= adc_out[11:0];
+                
+                /*
+                i <= i + 1;
+                    if(i == 2'd0) adc_data[11:0] <= 12'h123;
+                    else if (i == 2'd1) adc_data[11:0] <= 12'h456;
+                    else if (i == 2'd2) adc_data[11:0] <= 12'h789;
+                    else adc_data[11:0] <= 12'hABC;
+                */
+                /*
+                debug <= ~debug;
+                if(debug) adc_data[11:0] <= 12'hABC;
+                else adc_data[11:0] <= 12'h123;
+                */
                 sent_once <= 1;
             end 
             else if(adc_ready) begin
